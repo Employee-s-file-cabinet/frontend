@@ -1,7 +1,8 @@
 {
-	"name": "project-employee",
+  "homepage": "https://employee-s-file-cabinet.github.io/frontend",
+	"name": "employee-card",
 	"version": "0.1.0",
-	"private": true,
+	"private": false,
 	"dependencies": {
 		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
 		"@testing-library/jest-dom": "^5.17.0",
@@ -23,6 +24,8 @@
 		"build": "react-scripts build",
 		"eject": "react-scripts eject",
 		"test": "jest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
 		"lint": "eslint . --ext .js,.jsx .",
 		"lint:fix": "npm run lint -- --fix",
 		"format": "prettier . --write",
@@ -46,6 +49,7 @@
 		"eslint-config-airbnb": "19.0.4",
 		"eslint-config-prettier": "9.0.0",
 		"eslint-plugin-storybook": "^0.6.15",
+		"gh-pages": "^6.1.0",
 		"husky": "8.0.3",
 		"identity-obj-proxy": "3.0.0",
 		"lint-staged": "15.1.0",
