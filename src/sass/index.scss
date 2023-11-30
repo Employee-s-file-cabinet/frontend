@@ -1,0 +1,34 @@
+// VENDORS
+@import "./vendor/normalize.scss";
+@import "~bulma";
+
+// FONTS
+@import "../assets/fonts/fonts.scss";
+
+// GLOBALS
+@import "./globals.scss";
+
+// ABSTRACTS
+@import "./abstracts/variables.scss";
+
+// LAYOUTS
+@import "../layouts/GeneralLayout/GeneralLayout.scss";
+
+// PAGES
+@import "../pages/AccessRestorePage/AccessRestorePage.scss";
+@import "../pages/AdminPage/AdminPage.scss";
+@import "../pages/CompanyStructurePage/CompanyStructurePage.scss";
+@import "../pages/EmployeePage/EmployeePage.scss";
+@import "../pages/EmployeesByAZPage/EmployeesByAZPage.scss";
+@import "../pages/EmpoyeesByDepartmentPage/EmpoyeesByDepartmentPage.scss";
+@import "../pages/LoginPage/LoginPage.scss";
+@import "../pages/MainPage/MainPage.scss";
+@import "../pages/NewEmployeePage/NewEmployeePage.scss";
+@import "../pages/NotFoundPage/NorFoundPage.scss";
+
+
+// COMPONENTS
+@import "../components/Header/Header.scss";
+@import "../components/Footer/Footer.scss";
+@import "../components/Reusable/Login/Login.scss";
+
