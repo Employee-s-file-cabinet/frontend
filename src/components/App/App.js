@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import Contexts from '../../contexts/Contexts';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import Preloader from '../Preloader/Preloader'
 
 const GeneralLayout = lazy(() => import('../../layouts/GeneralLayout/GeneralLayout'));
 const AccessRestorePage = lazy(() => import('../../pages/AccessRestorePage/AccessRestorePage'));
@@ -51,7 +52,7 @@ function App() {
   const router = createHashRouter(routes);
 
 	return (
-		<Suspense>
+		<Suspense fallback={<Preloader/>}>
       <Contexts
         currentUser={currentUser}
         isLoggedIn={isLoggedIn}
