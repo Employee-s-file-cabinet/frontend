@@ -118,7 +118,7 @@
   },
   "lint-staged": {
     "*.{js,jsx}": "npm run lint",
-    "*.{js,jsx,css,scss,md,html,json,stories.js,test.js}": "npm run format && npm run lint:editorconfig"
+    "*.{js,jsx,css,scss,md,html,json,stories.js,test.js}": "npm run format"
   },
   "config": {
     "commitizen": {
