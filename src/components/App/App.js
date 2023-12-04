@@ -2,7 +2,7 @@
 import { useState, Suspense } from 'react';
 import {
   createBrowserRouter,
-   createHashRouter,
+  createHashRouter,
   createRoutesFromElements,
   RouterProvider,
   Route,
