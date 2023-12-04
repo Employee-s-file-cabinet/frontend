@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import './GeneralLayout.scss'
+import './GeneralLayout.scss';
 
 export default function GeneralLayout() {
   return (

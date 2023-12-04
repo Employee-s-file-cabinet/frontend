@@ -5,12 +5,15 @@ function useFormValidation() {
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
 
-  const handleChange = useCallback((event) => {
-    const { name, value } = event.target;
-    setValues({ ...values, [name]: value });
-    setErrors({ ...errors, [name]: event.target.validationMessage });
-    setIsValid(event.target.form.checkValidity());
-  },[values, errors])
+  const handleChange = useCallback(
+    (event) => {
+      const { name, value } = event.target;
+      setValues({ ...values, [name]: value });
+      setErrors({ ...errors, [name]: event.target.validationMessage });
+      setIsValid(event.target.form.checkValidity());
+    },
+    [values, errors]
+  );
 
   const resetForm = useCallback(() => {
     setValues({});
