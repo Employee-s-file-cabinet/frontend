@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
-export default function Main() {
-  return(
+export default function MainPage() {
+  return (
     <main>
       <section className="main-page">
         <h2 className="title is-4">ГЛАВНАЯ СТРАНИЦА</h2>
@@ -15,5 +15,5 @@ export default function Main() {
         <Link to="/newemployee">СОЗДАТЬ НОВОГО СОТРУДНИКА</Link>
       </section>
     </main>
-  )
+  );
 }

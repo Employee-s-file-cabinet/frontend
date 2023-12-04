@@ -3,5 +3,5 @@ export default function Login() {
     <section className="login">
       <h2>КОМПОНЕНТ ЛОГИН</h2>
     </section>
-  )
+  );
 }

@@ -20,16 +20,17 @@
 @import "../pages/CompanyStructurePage/CompanyStructurePage.scss";
 @import "../pages/EmployeePage/EmployeePage.scss";
 @import "../pages/EmployeesByAZPage/EmployeesByAZPage.scss";
-@import "../pages/EmpoyeesByDepartmentPage/EmpoyeesByDepartmentPage.scss";
+@import "../pages/EmployeesByDepartmentPage/EmployeesByDepartmentPage.scss";
 @import "../pages/LoginPage/LoginPage.scss";
 @import "../pages/MainPage/MainPage.scss";
 @import "../pages/NewEmployeePage/NewEmployeePage.scss";
-@import "../pages/NotFoundPage/NorFoundPage.scss";
-
+@import "../pages/NotFoundPage/NotFoundPage.scss";
 
 // COMPONENTS
-@import "../components/Header/Header.scss";
 @import "../components/Footer/Footer.scss";
-@import "../components/Reusable/Login/Login.scss";
-@import '../components/Preloader/Preloader.scss'
+@import "../components/Header/Header.scss";
+@import '../components/Page/page.scss';
+@import '../components/Preloader/Preloader.scss';
 
+// COMPONENTS REUSABLE
+@import "../components/Reusable/Login/Login.scss";

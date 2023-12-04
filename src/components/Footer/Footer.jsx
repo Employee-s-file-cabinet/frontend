@@ -3,5 +3,5 @@ export default function Footer() {
     <footer className="footer">
       <h2 className="title is-4">Тут будет футер</h2>
     </footer>
-  )
+  );
 }
