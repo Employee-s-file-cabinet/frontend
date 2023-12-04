@@ -1,0 +1,36 @@
+// VENDORS
+@import './vendor/normalize.scss';
+@import '~bulma';
+
+// FONTS
+@import '../assets/fonts/fonts.scss';
+
+// GLOBALS
+@import './globals.scss';
+
+// ABSTRACTS
+@import './abstracts/variables.scss';
+
+// LAYOUTS
+@import '../layouts/GeneralLayout/GeneralLayout.scss';
+
+// PAGES
+@import '../pages/AccessRestorePage/AccessRestorePage.scss';
+@import '../pages/AdminPage/AdminPage.scss';
+@import '../pages/CompanyStructurePage/CompanyStructurePage.scss';
+@import '../pages/EmployeePage/EmployeePage.scss';
+@import '../pages/EmployeesByAZPage/EmployeesByAZPage.scss';
+@import '../pages/EmployeesByDepartmentPage/EmployeesByDepartmentPage.scss';
+@import '../pages/LoginPage/LoginPage.scss';
+@import '../pages/MainPage/MainPage.scss';
+@import '../pages/NewEmployeePage/NewEmployeePage.scss';
+@import '../pages/NotFoundPage/NotFoundPage.scss';
+
+// COMPONENTS
+@import '../components/Footer/Footer.scss';
+@import '../components/Header/Header.scss';
+@import '../components/Page/page.scss';
+@import '../components/Preloader/Preloader.scss';
+
+// COMPONENTS REUSABLE
+@import '../components/Reusable/Login/Login.scss';
