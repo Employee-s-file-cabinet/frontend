@@ -1,12 +1,16 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function ReturnButton() {
   const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate('/');
+  };
+
   return (
-    <Link to={navigate('/')} className="button is-primary">
+    <button className="button is-primary" onClick={handleClick}>
       На Главную
-    </Link>
+    </button>
   );
 }
 
