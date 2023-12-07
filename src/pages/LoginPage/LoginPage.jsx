@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { MainButton } from '../../components/UI/Buttons/MainButton';
 import { Logo } from '../../components/Logo/Logo';
@@ -14,18 +14,34 @@ export default function LoginPage() {
   return (
     <section className="login-page">
       <Logo />
-      <form>
-        <MainButton
-          label="На главную"
-          disabled={false}
-          size="is-normal"
-          theme="is-link"
-          onClick={handleClick}
-        />
+      <form className="login-page__form">
+        <h2 className="login-page__title">Добро пожаловать!</h2>
+        <fieldset className="login-page__fieldset">
+          <p className="login-page__fieldset-text">Электронная почта</p>
+          <input />
+        </fieldset>
+        <fieldset className="login-page__fieldset">
+          <p className="login-page__fieldset-text">Пароль</p>
+          <input />
+        </fieldset>
+        <div className="login-page__submit-container">
+          <Link to="/" className="login-page__restore-pass-link">
+            Забыли пароль?
+          </Link>
+          <MainButton
+            label="Войти"
+            disabled={false}
+            size="is-medium"
+            theme="is-primary"
+            extraClass="login-page__button"
+            onClick={handleClick}
+            type="submit"
+          />
+        </div>
       </form>
-      <footer>
-        <p>Политика конфиденциальности</p>
-        <p>© Все права защищены</p>
+      <footer className="login-page__footer">
+        <p className="login-page__footer-text">Политика конфиденциальности</p>
+        <p className="login-page__footer-text">© Все права защищены</p>
       </footer>
     </section>
   );

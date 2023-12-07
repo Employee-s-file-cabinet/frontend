@@ -13,12 +13,21 @@
 //Typographic
 $fontFamily: 'OpenSans', 'Arial', sans-serif;
 
-//@mixin text($font-size, $line-height, $font-weight: 400){
-//  font-size: $font-size;
-//  line-height: $line-height;
-//  font-weight: $font-weight;
-//}
-//
-//%mainTitle {
-//  @include text(44px, 130%);
-//}
+@mixin text($font-size, $line-height, $font-weight: 400) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+%bigText {
+  @include text(40px, 112.5%, 600);
+  letter-spacing: -0.4px;
+}
+
+%mediumText {
+  @include text(16px, 150%, 600);
+}
+
+%smallText {
+  @include text(14px, 150%);
+}
