@@ -4,9 +4,12 @@ function ReturnButton() {
   const navigate = useNavigate();
 
   return (
-    <Link to={navigate('/')} className="button is-primary">
-      На Главную
-    </Link>
+    <div>
+      <Link to={navigate('/')} className="button is-primary">
+        На Главную
+      </Link>
+      <button className="button is-primary is-hovered">TEST</button>
+    </div>
   );
 }
 
