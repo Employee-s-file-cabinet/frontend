@@ -5,11 +5,11 @@
 // FONTS
 @import '../assets/fonts/fonts.scss';
 
-// GLOBALS
-@import './globals.scss';
-
 // ABSTRACTS
 @import './abstracts/variables.scss';
+
+// GLOBALS
+@import './globals.scss';
 
 // LAYOUTS
 @import '../layouts/GeneralLayout/GeneralLayout.scss';
