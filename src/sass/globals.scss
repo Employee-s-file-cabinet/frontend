@@ -4,7 +4,7 @@
 
 body {
   margin: 0 auto;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: $fontFamily;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

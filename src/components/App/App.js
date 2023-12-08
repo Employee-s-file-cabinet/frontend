@@ -31,9 +31,9 @@ function App() {
   // routes
   const routes = createRoutesFromElements(
     <Route path="/">
+      <Route path="signin" element={<LoginPage />} />
       <Route element={<GeneralLayout />}>
         <Route index element={<MainPage />} />
-
         <Route
           path="employees"
           element={
@@ -75,7 +75,6 @@ function App() {
         />
 
         <Route path="accessrestore" element={<AccessRestorePage />} />
-        <Route path="signin" element={<LoginPage />} />
         <Route path="admin" element={<AdminPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
