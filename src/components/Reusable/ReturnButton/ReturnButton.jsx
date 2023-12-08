@@ -8,9 +8,12 @@ function ReturnButton() {
   };
 
   return (
-    <button className="button is-primary" onClick={handleClick}>
-      На Главную
-    </button>
+    <div>
+      <Link to={navigate('/')} className="button is-primary">
+        На Главную
+      </Link>
+      <button className="button is-primary is-hovered">TEST</button>
+    </div>
   );
 }
 
