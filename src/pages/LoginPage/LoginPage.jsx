@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 import { MainButton } from '../../components/UI/Buttons/MainButton';
+import { MainField } from '../../components/UI/Fields/MainField';
 import { Logo } from '../../components/Logo/Logo';
 
 export default function LoginPage() {
@@ -18,11 +19,22 @@ export default function LoginPage() {
         <h2 className="login-page__title">Добро пожаловать!</h2>
         <fieldset className="login-page__fieldset">
           <p className="login-page__fieldset-text">Электронная почта</p>
-          <input />
+          <MainField
+            type="email"
+            theme="is-primary"
+            size="is-normal"
+            extraClass="is-fullwidth"
+            placeholder="Введите E-mail"
+          />
         </fieldset>
         <fieldset className="login-page__fieldset">
           <p className="login-page__fieldset-text">Пароль</p>
-          <input />
+          <MainField
+            type="password"
+            theme="is-primary"
+            size="is-normal"
+            placeholder="Введите пароль"
+          />
         </fieldset>
         <div className="login-page__submit-container">
           <Link to="/" className="login-page__restore-pass-link">
@@ -46,3 +58,7 @@ export default function LoginPage() {
     </section>
   );
 }
+
+// <span className="icon has-text-success">
+//   <i className="fas fa-check-square" style={{ width: '100%', height: '100%' }}/>
+// </span>
