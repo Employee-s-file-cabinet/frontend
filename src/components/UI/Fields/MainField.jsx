@@ -12,14 +12,30 @@ export const MainField = ({
   extraClass,
   type,
   placeholder,
+  icon,
+  children,
+  focus,
+  blur,
+  register,
+  errors,
   ...props
 }) => (
-  <input
-    type={type}
-    placeholder={placeholder}
-    className={['input', size, theme, extraClass].join(' ')}
-    {...props}
-  />
+  <div className="field">
+    <p className={icon ? `control ${icon}` : ``}>
+      <input
+        type={type}
+        placeholder={placeholder}
+        className={['input', size, theme, extraClass].join(' ')}
+        {...register}
+        {...props}
+        onFocus={focus}
+        onBlur={blur}
+      />
+      {children}
+    </p>
+    {/* ТЕКСТ ОШИБКИ */}
+    <p className="error-text">{errors}</p>
+  </div>
 );
 
 MainField.propTypes = {
@@ -38,11 +54,19 @@ MainField.propTypes = {
   /**
    * Тип поля
    */
-  type: PropTypes.oneOf(['email', 'password']),
+  type: PropTypes.oneOf(['email', 'password', 'text']),
   /**
    * Текст плейсхолдера
    */
   placeholder: PropTypes.string,
+  /**
+   * Наличие иконки и ее расположение в инпуте (has-icons-left, has-icons-right)
+   */
+  icon: PropTypes.string,
+  /**
+   * Вложенный элемент (иконка)
+   */
+  children: PropTypes.node,
 };
 
 MainField.defaultProps = {
@@ -51,4 +75,6 @@ MainField.defaultProps = {
   extraClass: '',
   type: 'email',
   placeholder: '',
+  icon: '',
+  children: null,
 };

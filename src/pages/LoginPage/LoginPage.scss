@@ -1,5 +1,5 @@
 .login-page {
-  min-width: 100vw;
+  width: 100vw;
   min-height: 100vh;
   background-color: #f5f5f5;
   @include flex(column, flex-end, center);
@@ -16,10 +16,8 @@
   }
 
   &__form {
-    margin: 5% 0 10% 0;
+    margin: 3% 0 5% 0;
     padding: 80px;
-    min-width: 560px;
-    min-height: 503px;
     background-color: #fff;
     border-radius: 32px;
     box-shadow:
@@ -33,6 +31,22 @@
     color: #21272a;
     text-align: center;
     @extend %bigText;
+  }
+
+  &__authorization-error {
+    margin: 0 auto 24px auto;
+    max-width: 309px;
+    color: #f14668;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+    display: none;
+
+    &_active {
+      display: block;
+    }
   }
 
   &__fieldset {

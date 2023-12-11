@@ -1,0 +1,12 @@
+@import './src/sass/index';
+
+.icon {
+  &_margined {
+    margin-right: 30px;
+  }
+
+  &__clickable {
+    cursor: pointer;
+    pointer-events: initial !important;
+  }
+}
