@@ -3,9 +3,8 @@ import './MainField.scss';
 import PropTypes from 'prop-types';
 
 /**
- * Основное поле ввода
+ * Main field
  */
-
 export const MainField = ({
   theme,
   size,
@@ -40,31 +39,31 @@ export const MainField = ({
 
 MainField.propTypes = {
   /**
-   * Цвет поля: is-primary - зеленый, is-link - синий, is-warning - желтый, is-danger - красный
+   * Field color: is-primary - green, is-link - blue, is-warning - yellow, is-danger - red
    */
   theme: PropTypes.oneOf(['is-primary', 'is-link', 'is-warning', 'is-danger']),
   /**
-   * Размер поля: is-small - маленький, is-normal - стандартный, is-medium - средний, is-large - большой
+   * Field size: is-small - small, is-normal - standard, is-medium - medium, is-large - big
    */
   size: PropTypes.oneOf(['is-small', 'is-normal', 'is-medium', 'is-large']),
   /**
-   * Дополнительный класс для стилизации кнопки
+   * Additional class for field styling
    */
   extraClass: PropTypes.string,
   /**
-   * Тип поля
+   * Field style
    */
   type: PropTypes.oneOf(['email', 'password', 'text']),
   /**
-   * Текст плейсхолдера
+   * Placeholder text
    */
   placeholder: PropTypes.string,
   /**
-   * Наличие иконки и ее расположение в инпуте (has-icons-left, has-icons-right)
+   * The presence of an icon and its location in the input (has-icons-left, has-icons-right)
    */
   icon: PropTypes.string,
   /**
-   * Вложенный элемент (иконка)
+   * Nested element (icon)
    */
   children: PropTypes.node,
 };

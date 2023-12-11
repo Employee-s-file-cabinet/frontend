@@ -4,9 +4,8 @@ import './Icons.scss';
 import PropTypes from 'prop-types';
 
 /**
- * Иконки
+ * Icons
  */
-
 export const Icon = ({
   icon,
   theme,
@@ -37,12 +36,12 @@ export const Icon = ({
 
 Icon.propTypes = {
   /**
-   * Иконка из библиотеки Font Awesome (fa-home - дом, fa-lock - замок, fa-envelope - письмо, fa-phone - телефон)
+   * Icons from library Font Awesome (fa-home - home, fa-lock - lock, fa-envelope - mail, fa-phone - phone)
    */
   icon: PropTypes.string,
   /**
-   * Цвет поля: '' - черный, 'has-text-info' - синий, 'has-text-success' - зеленый, 'has-text-warning' - желтый,
-   * 'has-text-danger' - красный
+   * Icons color: '' - black, 'has-text-info' - blue, 'has-text-success' - green, 'has-text-warning' - yellow,
+   * 'has-text-danger' - red
    */
   theme: PropTypes.oneOf([
     '',
@@ -52,15 +51,15 @@ Icon.propTypes = {
     'has-text-danger',
   ]),
   /**
-   * Размер поля: 'is-small' - маленький, '' - стандартный, 'is-medium' - средний, 'is-large' - большой
+   * Button size: 'is-small' - small, '' - standard, 'is-medium' - medium, 'is-large' - big
    */
   size: PropTypes.oneOf(['is-small', '', 'is-medium', 'is-large']),
   /**
-   * Расположение: '' - по умолчанию, 'is-left' - слева, 'is-right' - справа
+   * Location: '' - basic, 'is-left' - left, 'is-right' - right
    */
   position: PropTypes.oneOf(['', '', 'is-left', 'is-right']),
   /**
-   * Дополнительный класс для стилизации иконки
+   * Additional class for icons styling
    */
   extraClass: PropTypes.string,
 };

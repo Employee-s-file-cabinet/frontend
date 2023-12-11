@@ -146,13 +146,14 @@ export default function LoginPage() {
             Забыли пароль?
           </Link>
           <MainButton
-            label="Войти"
             disabled={!isValid}
             size="is-medium"
             theme="is-primary"
             extraClass="login-page__button"
             type="submit"
-          />
+          >
+            Войти
+          </MainButton>
         </div>
       </form>
       <footer className="login-page__footer">
