@@ -1,19 +1,27 @@
 {
   "files": {
-    "main.css": "/frontend/static/css/main.44c3203d.css",
-    "main.js": "/frontend/static/js/main.f40e2ff0.js",
+    "main.css": "/frontend/static/css/main.91ccf2f5.css",
+    "main.js": "/frontend/static/js/main.fcf6dc8e.js",
     "static/js/787.e3339159.chunk.js": "/frontend/static/js/787.e3339159.chunk.js",
+    "static/media/fa-solid-900.ttf": "/frontend/static/media/fa-solid-900.45a265d0f07b31cde85f.ttf",
+    "static/media/fa-brands-400.ttf": "/frontend/static/media/fa-brands-400.6205fd00fb1b573e9f0f.ttf",
+    "static/media/fa-solid-900.woff2": "/frontend/static/media/fa-solid-900.fb8184add5a3101ad0a3.woff2",
     "static/media/OpenSans-SemiBoldItalic.ttf": "/frontend/static/media/OpenSans-SemiBoldItalic.b503364ab4f154d7cccc.ttf",
     "static/media/OpenSans-Italic.ttf": "/frontend/static/media/OpenSans-Italic.910cef950734e8b2d263.ttf",
     "static/media/OpenSans-Regular.ttf": "/frontend/static/media/OpenSans-Regular.9a6cfa5890d7f3eef585.ttf",
     "static/media/OpenSans-SemiBold.ttf": "/frontend/static/media/OpenSans-SemiBold.dcf2e322dbaa037ca821.ttf",
+    "static/media/fa-brands-400.woff2": "/frontend/static/media/fa-brands-400.8d3cabfc66809162fb4d.woff2",
+    "static/media/fa-regular-400.ttf": "/frontend/static/media/fa-regular-400.adc51aab4d771ab65f81.ttf",
+    "static/media/fa-regular-400.woff2": "/frontend/static/media/fa-regular-400.e931bc0d14f5bbb1da22.woff2",
+    "static/media/fa-v4compatibility.ttf": "/frontend/static/media/fa-v4compatibility.2eb7b3ef25042305f3ff.ttf",
+    "static/media/fa-v4compatibility.woff2": "/frontend/static/media/fa-v4compatibility.b3049b13a93f07e026fc.woff2",
     "index.html": "/frontend/index.html",
-    "main.44c3203d.css.map": "/frontend/static/css/main.44c3203d.css.map",
-    "main.f40e2ff0.js.map": "/frontend/static/js/main.f40e2ff0.js.map",
+    "main.91ccf2f5.css.map": "/frontend/static/css/main.91ccf2f5.css.map",
+    "main.fcf6dc8e.js.map": "/frontend/static/js/main.fcf6dc8e.js.map",
     "787.e3339159.chunk.js.map": "/frontend/static/js/787.e3339159.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.44c3203d.css",
-    "static/js/main.f40e2ff0.js"
+    "static/css/main.91ccf2f5.css",
+    "static/js/main.fcf6dc8e.js"
   ]
 }
