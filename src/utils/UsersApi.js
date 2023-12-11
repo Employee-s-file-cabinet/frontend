@@ -36,26 +36,7 @@ export function addEmployee(data) {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    body: JSON.stringify({
-      date_of_birth: data.date_of_birth,
-      first_name: data.first_name,
-      last_name: data.last_name,
-      grade: data.grade,
-      place_of_birth: data.place_of_birth,
-      registration_address: data.registration_address,
-      residential_address: data.residential_address,
-      nationality: data.nationality,
-      foreign_languages: data.foreign_languages,
-      military: data.military,
-      taxpayer: data.taxpayer,
-      insurance: data.insurance,
-      work_permit: data.work_permit,
-      middle_name: data.middle_name,
-      position: data.position,
-      department: data.department,
-      email: data.email,
-      phone_numbers: data.phone_numbers,
-    }),
+    body: JSON.stringify(data),
   });
 }
 
@@ -95,13 +76,7 @@ export function addEmployeeContract(userId, data) {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    body: JSON.stringify({
-      date_from: data.date_from,
-      date_to: data.email,
-      type: data.type,
-      number: data.number,
-      has_scan: data.has_scan,
-    }),
+    body: JSON.stringify(data),
   });
 }
 // функция получения контракта по id
@@ -131,13 +106,7 @@ export function editEmployeeContract(userId, contractId, data) {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    body: JSON.stringify({
-      date_from: data.date_from,
-      date_to: data.email,
-      type: data.type,
-      number: data.number,
-      has_scan: data.has_scan,
-    }),
+    body: JSON.stringify(data),
   });
 }
 
@@ -162,13 +131,7 @@ export function addEmployeePasport(userId, data) {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    body: JSON.stringify({
-      issued_by: data.issued_by,
-      issued_date: data.issued_date,
-      number: data.number,
-      type: data.type,
-      has_scan: data.has_scan,
-    }),
+    body: JSON.stringify(data),
   });
 }
 // функция получения паспорта по id
@@ -198,13 +161,7 @@ export function editEmployeePassport(userId, passportId, data) {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    body: JSON.stringify({
-      issued_by: data.issued_by,
-      issued_date: data.issued_date,
-      number: data.number,
-      type: data.type,
-      has_scan: data.has_scan,
-    }),
+    body: JSON.stringify(data),
   });
 }
 
@@ -229,14 +186,7 @@ export function addEmployeeVisa(userId, passportId, data) {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    body: JSON.stringify({
-      issued_state: data.issued_state,
-      number: data.number,
-      number_entries: data.number_entries,
-      valid_from: data.valid_from,
-      valid_to: data.valid_to,
-      has_scan: data.has_scan,
-    }),
+    body: JSON.stringify(data),
   });
 }
 // функция получения визы по id
@@ -266,14 +216,7 @@ export function editEmployeeVisa(userId, passportId, visaId, data) {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    body: JSON.stringify({
-      issued_state: data.issued_state,
-      number: data.number,
-      number_entries: data.number_entries,
-      valid_from: data.valid_from,
-      valid_to: data.valid_to,
-      has_scan: data.has_scan,
-    }),
+    body: JSON.stringify(data),
   });
 }
 
@@ -298,10 +241,7 @@ export function addEmployeeVacation(userId, data) {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    body: JSON.stringify({
-      date_from: data.date_from,
-      date_to: data.date_to,
-    }),
+    body: JSON.stringify(data),
   });
 }
 // функция получения отпуска по id
@@ -331,10 +271,7 @@ export function editEmployeeVacation(userId, vacationId, data) {
       'Content-Type': 'application/json',
     },
     credentials: 'include',
-    body: JSON.stringify({
-      date_from: data.date_from,
-      date_to: data.date_to,
-    }),
+    body: JSON.stringify(data),
   });
 }
 

@@ -45,14 +45,3 @@ export function changePassword({ key, password }) {
     body: JSON.stringify({ key, password }),
   });
 }
-
-export function departments() {
-  return request(`/departments`, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    credentials: 'include',
-  });
-}
