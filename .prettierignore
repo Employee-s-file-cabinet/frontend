@@ -1,0 +1,6 @@
+node_modules
+public
+build
+.eslintrc.js
+src\assets\fontawesome-free-6.5.1-web\
+src/assets/

@@ -3,13 +3,11 @@ import './MainButton.scss';
 import PropTypes from 'prop-types';
 
 /**
- * Кнопка главная
+ * Main button
  */
-
 export const MainButton = ({
   theme,
   size,
-  label,
   disabled,
   extraClass,
   type,
@@ -22,39 +20,35 @@ export const MainButton = ({
     disabled={disabled}
     onClick={props.onClick}
   >
-    {label}
+    {props.children}
   </button>
 );
 
 MainButton.propTypes = {
   /**
-   * Цвет кнопки: is-primary - зеленый, is-link - синий, is-warning - желтый, is-danger - красный
+   * Button color: is-primary - green, is-link - blue, is-warning - yellow, is-danger - red
    */
   theme: PropTypes.oneOf(['is-primary', 'is-link', 'is-warning', 'is-danger']),
   /**
-   * Размер кнопки: is-small - маленький, is-normal - стандартный, is-medium - средний, is-large - большой
+   * Button size: is-small - small, is-normal - standard, is-medium - medium, is-large - big
    */
   size: PropTypes.oneOf(['is-small', 'is-normal', 'is-medium', 'is-large']),
   /**
-   * Надпись на кнопке
-   */
-  label: PropTypes.string.isRequired,
-  /**
-   * Доступность кнопки: активна или нет
+   * Button availability: active or not
    */
   disabled: PropTypes.bool,
   /**
-   * Дополнительный класс для стилизации кнопки
+   * Additional class for button styling
    */
   extraClass: PropTypes.string,
   /**
-   * Тип кнопки
+   * Button type
    */
   type: PropTypes.oneOf(['submit', 'button']),
 };
 
 MainButton.defaultProps = {
-  theme: 'is-warning',
+  theme: 'is-primary',
   size: 'is-normal',
   disabled: false,
   extraClass: '',

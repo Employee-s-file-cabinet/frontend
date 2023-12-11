@@ -3,46 +3,69 @@ import './MainField.scss';
 import PropTypes from 'prop-types';
 
 /**
- * Основное поле ввода
+ * Main field
  */
-
 export const MainField = ({
   theme,
   size,
   extraClass,
   type,
   placeholder,
+  icon,
+  children,
+  focus,
+  blur,
+  register,
+  errors,
   ...props
 }) => (
-  <input
-    type={type}
-    placeholder={placeholder}
-    className={['input', size, theme, extraClass].join(' ')}
-    {...props}
-  />
+  <div className="field">
+    <p className={icon ? `control ${icon}` : ``}>
+      <input
+        type={type}
+        placeholder={placeholder}
+        className={['input', size, theme, extraClass].join(' ')}
+        {...register}
+        {...props}
+        onFocus={focus}
+        onBlur={blur}
+      />
+      {children}
+    </p>
+    {/* Error Text */}
+    <p className="error-text">{errors}</p>
+  </div>
 );
 
 MainField.propTypes = {
   /**
-   * Цвет поля: is-primary - зеленый, is-link - синий, is-warning - желтый, is-danger - красный
+   * Field color: is-primary - green, is-link - blue, is-warning - yellow, is-danger - red
    */
   theme: PropTypes.oneOf(['is-primary', 'is-link', 'is-warning', 'is-danger']),
   /**
-   * Размер поля: is-small - маленький, is-normal - стандартный, is-medium - средний, is-large - большой
+   * Field size: is-small - small, is-normal - standard, is-medium - medium, is-large - big
    */
   size: PropTypes.oneOf(['is-small', 'is-normal', 'is-medium', 'is-large']),
   /**
-   * Дополнительный класс для стилизации кнопки
+   * Additional class for field styling
    */
   extraClass: PropTypes.string,
   /**
-   * Тип поля
+   * Field style
    */
-  type: PropTypes.oneOf(['email', 'password']),
+  type: PropTypes.oneOf(['email', 'password', 'text']),
   /**
-   * Текст плейсхолдера
+   * Placeholder text
    */
   placeholder: PropTypes.string,
+  /**
+   * The presence of an icon and its location in the input (has-icons-left, has-icons-right)
+   */
+  icon: PropTypes.string,
+  /**
+   * Nested element (icon)
+   */
+  children: PropTypes.node,
 };
 
 MainField.defaultProps = {
@@ -51,4 +74,6 @@ MainField.defaultProps = {
   extraClass: '',
   type: 'email',
   placeholder: '',
+  icon: '',
+  children: null,
 };

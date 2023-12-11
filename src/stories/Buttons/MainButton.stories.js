@@ -12,7 +12,6 @@ export const Warning = {
   args: {
     theme: 'is-warning',
     size: 'is-small',
-    label: 'Warning',
     disabled: false,
   },
 };
@@ -21,7 +20,6 @@ export const Danger = {
   args: {
     theme: 'is-danger',
     size: 'is-large',
-    label: 'Danger',
     disabled: false,
   },
 };
