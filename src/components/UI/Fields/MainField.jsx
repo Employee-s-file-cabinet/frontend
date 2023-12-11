@@ -32,7 +32,7 @@ export const MainField = ({
       />
       {children}
     </p>
-    {/* ТЕКСТ ОШИБКИ */}
+    {/* Error Text */}
     <p className="error-text">{errors}</p>
   </div>
 );
