@@ -20,7 +20,7 @@ export default function Login({ title, buttonLabel, flag }) {
   });
   // STATE TO CHANGE VISIBLY IN PASSWORD FIELD
   const [passwordType, setPasswordType] = useState('password');
-  // STATE TO CHANGE EYE ICON IN PASSWORD PASSWORD
+  // STATE TO CHANGE EYE ICON IN PASSWORD FIELD
   const [eyeType, setEyeType] = useState('fa-eye-slash');
   // STATES FOR WATCHING FOCUS ON FIELDS FOR CHANGE ICONS ON CROSS WHEN FIELD FOCUSED
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);

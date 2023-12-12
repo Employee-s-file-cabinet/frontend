@@ -1,33 +1,5 @@
-//mixins
-@mixin flex(
-  $flex-direction: column,
-  $justify-content: flex-start,
-  $align-items: flex-start
-) {
-  display: flex;
-  flex-direction: $flex-direction;
-  justify-content: $justify-content;
-  align-items: $align-items;
-}
-
-//Typographic
+// FONTS
 $fontFamily: 'OpenSans', 'Arial', sans-serif;
 
-@mixin text($font-size, $line-height, $font-weight: 400) {
-  font-size: $font-size;
-  line-height: $line-height;
-  font-weight: $font-weight;
-}
-
-%bigText {
-  @include text(40px, 112.5%, 600);
-  letter-spacing: -0.4px;
-}
-
-%mediumText {
-  @include text(16px, 150%, 600);
-}
-
-%smallText {
-  @include text(14px, 150%);
-}
+// COLOR PALETTE
+$color-login-title: #21272a;

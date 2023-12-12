@@ -1,12 +1,9 @@
-import ReturnButton from '../../components/Reusable/ReturnButton/ReturnButton';
+import Login from '../../components/Login/Login';
 
 export default function AdminPage() {
   return (
-    <main>
-      <section className="admin-page">
-        <h2 className="title is-4">СТРАНИЦА АДМИНА</h2>
-        <ReturnButton />
-      </section>
-    </main>
+    <section className="admin-page">
+      <Login title="Добро пожаловать!" buttonLabel="Войти" flag="admin-login" />
+    </section>
   );
 }

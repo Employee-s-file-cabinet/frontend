@@ -5,14 +5,21 @@
 // FONTS
 @import '../assets/fonts/fonts.scss';
 
-// ABSTRACTS
+// MIXINS
+@import './abstracts/mixins.scss';
+
+// VARIABLES
 @import './abstracts/variables.scss';
 
-// GLOBALS
-@import './globals.scss';
+// PLACEHOLDERS
+@import './abstracts/placeholders.scss';
+
+// BASE
+@import './base/base.scss';
 
 // LAYOUTS
 @import '../layouts/GeneralLayout/GeneralLayout.scss';
+@import '../layouts/ServiceLayout/ServiceLayout.scss';
 
 // PAGES
 @import '../pages/AccessRestorePage/AccessRestorePage.scss';

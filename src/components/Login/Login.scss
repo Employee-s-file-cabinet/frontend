@@ -1,7 +1,7 @@
 .login {
-  margin: 3% 0 5% 0;
+  margin: 7vh 0 0 0;
   padding: 80px;
-  background-color: #fff;
+  background-color: $white;
   border-radius: 32px;
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.02),
@@ -11,7 +11,7 @@
   &__title {
     max-width: 400px;
     margin-bottom: 40px;
-    color: #21272a;
+    color: $color-login-title;
     text-align: center;
     @extend %bigText;
   }
@@ -19,7 +19,7 @@
   &__authorization-error {
     margin: 0 auto 24px auto;
     max-width: 309px;
-    color: #f14668;
+    color: $red;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -43,7 +43,7 @@
 
   &__fieldset-text {
     margin-bottom: 8px;
-    color: #0a0a0a;
+    color: $black;
     @extend %smallText;
   }
 
@@ -54,7 +54,7 @@
   }
 
   &__restore-pass-link {
-    color: #00947e;
+    color: $turquoise;
     @extend %mediumText;
   }
 
