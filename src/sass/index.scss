@@ -5,14 +5,21 @@
 // FONTS
 @import '../assets/fonts/fonts.scss';
 
-// GLOBALS
-@import './globals.scss';
+// MIXINS
+@import './abstracts/mixins.scss';
 
-// ABSTRACTS
+// VARIABLES
 @import './abstracts/variables.scss';
+
+// PLACEHOLDERS
+@import './abstracts/placeholders.scss';
+
+// BASE
+@import './base/base.scss';
 
 // LAYOUTS
 @import '../layouts/GeneralLayout/GeneralLayout.scss';
+@import '../layouts/ServiceLayout/ServiceLayout.scss';
 
 // PAGES
 @import '../pages/AccessRestorePage/AccessRestorePage.scss';
@@ -33,4 +40,4 @@
 @import '../components/Preloader/Preloader.scss';
 
 // COMPONENTS REUSABLE
-@import '../components/Reusable/Login/Login.scss';
+@import '../components/Login/Login.scss';

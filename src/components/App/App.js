@@ -12,6 +12,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Preloader from '../Preloader/Preloader';
 
 import GeneralLayout from '../../layouts/GeneralLayout/GeneralLayout';
+import ServiceLayout from '../../layouts/ServiceLayout/ServiceLayout';
 import AccessRestorePage from '../../pages/AccessRestorePage/AccessRestorePage';
 import AdminPage from '../../pages/AdminPage/AdminPage';
 import CompanyStructurePage from '../../pages/CompanyStructurePage/CompanyStructurePage';
@@ -31,9 +32,14 @@ function App() {
   // routes
   const routes = createRoutesFromElements(
     <Route path="/">
-      <Route element={<GeneralLayout />}>
+      <Route element={<ServiceLayout />}>
+        <Route path="signin" element={<LoginPage />} />
+        <Route path="accessrestore" element={<AccessRestorePage />} />
         <Route index element={<MainPage />} />
-
+        <Route path="admin" element={<AdminPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+      <Route element={<GeneralLayout />}>
         <Route
           path="employees"
           element={
@@ -73,11 +79,6 @@ function App() {
             <ProtectedRoute element={NewEmployeePage} isLoggedIn={isLoggedIn} />
           }
         />
-
-        <Route path="accessrestore" element={<AccessRestorePage />} />
-        <Route path="signin" element={<LoginPage />} />
-        <Route path="admin" element={<AdminPage />} />
-        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Route>
   );

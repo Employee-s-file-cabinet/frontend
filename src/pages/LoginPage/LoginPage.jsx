@@ -1,14 +1,10 @@
-import Login from '../../components/Reusable/Login/Login';
-import ReturnButton from '../../components/Reusable/ReturnButton/ReturnButton';
+import React from 'react';
+import Login from '../../components/Login/Login';
 
 export default function LoginPage() {
   return (
-    <main>
-      <section className="login-page">
-        <h2 className="title is-4">СТРАНИЦА ЛОГИНА</h2>
-        <Login />
-        <ReturnButton />
-      </section>
-    </main>
+    <section className="login-page">
+      <Login title="Добро пожаловать!" buttonLabel="Войти" flag="login" />
+    </section>
   );
 }

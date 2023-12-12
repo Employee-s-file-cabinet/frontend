@@ -1,12 +1,9 @@
-import ReturnButton from '../../components/Reusable/ReturnButton/ReturnButton';
+import React from 'react';
 
 export default function AccessRestorePage() {
   return (
-    <main>
-      <section className="access-restore-page">
-        <h2 className="title is-4">СТРАНИЦА ВОССТАНОВЛЕНИЯ ДОСТУПА</h2>
-        <ReturnButton />
-      </section>
-    </main>
+    <section className="access-restore-page">
+      <h1 className="title is-4">Страница восстановления пароля</h1>
+    </section>
   );
 }

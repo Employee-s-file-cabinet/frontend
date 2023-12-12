@@ -1,4 +1,3 @@
 .access-restore-page {
-  display: flex;
-  flex-direction: column;
+  @include flex(column, flex-end, center);
 }

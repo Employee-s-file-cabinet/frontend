@@ -1,7 +1,8 @@
-export default function Footer() {
-  return (
-    <footer className="footer">
-      <h2 className="title is-4">Тут будет футер</h2>
-    </footer>
-  );
-}
+import React from 'react';
+
+export const Footer = () => (
+  <footer className="footer">
+    <p className="footer-text">Политика конфиденциальности</p>
+    <p className="footer-text">© Все права защищены</p>
+  </footer>
+);
