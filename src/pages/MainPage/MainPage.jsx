@@ -6,11 +6,11 @@ export default function MainPage() {
       <Link to="/signin">ВОЙТИ HR</Link>
       <Link to="/admin">ВОЙТИ АДМИНУ</Link>
       <Link to="/accessrestore">ВОССТАНОВИТЬ ПАРОЛЬ</Link>
-      <Link to="/employees">СОТРУДНИКИ</Link>
-      <Link to="/departments">СОТРУДНИКИ И ДЕПАРТАМЕНТЫ</Link>
-      <Link to="/company-structure">СТРУКТУРА КОМПАНИИ</Link>
-      <Link to="/employee">КАРТОЧКА СОТРУДНИКА</Link>
-      <Link to="/newemployee">СОЗДАТЬ НОВОГО СОТРУДНИКА</Link>
+      <Link to="/kartoteka_sotrudnikov">СОТРУДНИКИ</Link>
+      <Link to="/departamenty">СОТРУДНИКИ И ДЕПАРТАМЕНТЫ</Link>
+      <Link to="/struktura_kompanii">СТРУКТУРА КОМПАНИИ</Link>
+      <Link to="/kartochka_sotrudnika">КАРТОЧКА СОТРУДНИКА</Link>
+      <Link to="/novyyi_sotrudnik">СОЗДАТЬ НОВОГО СОТРУДНИКА</Link>
     </section>
   );
 }

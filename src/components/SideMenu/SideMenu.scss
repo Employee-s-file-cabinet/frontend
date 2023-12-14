@@ -1,0 +1,42 @@
+.side-menu {
+  min-width: 300px;
+  background-color: $color-background-main;
+  position: relative;
+  box-sizing: border-box;
+  padding: 40px 20px;
+
+  &__container {
+    @include flex(column, flex-start, center);
+    position: sticky;
+    top: 40px;
+    left: 0;
+  }
+  &__logo {
+    width: 180px;
+    height: 30px;
+  }
+  &__list {
+    width: 100%;
+    margin-top: 40px;
+  }
+  &__link {
+    @include text(16px, 24px);
+    color: $grey-dark;
+  }
+  &__link:hover {
+    background-color: $turquoise-light;
+    color: $turquoise-dark;
+  }
+  &__item {
+    @include flex(row, flex-start, center);
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 2px;
+  }
+  &__item:hover {
+    background-color: $turquoise-light;
+  }
+  &__icon {
+    margin-right: 12px;
+  }
+}

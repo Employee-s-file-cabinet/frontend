@@ -34,10 +34,13 @@
 @import '../pages/NotFoundPage/NotFoundPage.scss';
 
 // COMPONENTS
+@import '../components/Breadcrumb/Breadcrumb.scss';
 @import '../components/Footer/Footer.scss';
 @import '../components/Header/Header.scss';
+@import '../components/HeaderMain/HeaderMain.scss';
 @import '../components/Page/page.scss';
 @import '../components/Preloader/Preloader.scss';
+@import '../components//SideMenu/SideMenu.scss';
 
 // COMPONENTS REUSABLE
 @import '../components/Login/Login.scss';

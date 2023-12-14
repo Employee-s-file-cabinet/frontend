@@ -1,0 +1,16 @@
+.breadcrumb {
+  margin: 0 !important;
+
+  &__link {
+    @include text(16px, 24px);
+    color: $turquoise-dark !important;
+  }
+
+  &__link_is-active {
+    color: $black !important;
+  }
+
+  &__link:hover {
+    color: $turquoise !important;
+  }
+}
