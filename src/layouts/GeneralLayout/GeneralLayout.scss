@@ -1,6 +1,12 @@
-.service-layout {
+.general-layout {
   display: flex;
-  flex-direction: column;
-  background-color: $color-background-main;
+  flex-direction: row;
   min-height: 100vh;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
 }
