@@ -1,0 +1,93 @@
+.buttons-group {
+  margin-top: 32px;
+  margin-bottom: 68px;
+}
+
+.button-reset {
+  width: 220px;
+  padding: 11px 24px;
+  border-radius: 6px;
+}
+
+.button-save {
+  width: 136px;
+  margin-right: 20px;
+  margin-left: 12px;
+  padding: 11px 24px;
+  border-radius: 6px;
+}
+
+.checkbox {
+  &__legend {
+    color: var(--grey, #7a7a7a);
+  }
+
+  &__input {
+    margin: 8.5px 8px 0 0;
+  }
+}
+
+.field-cell {
+  width: 200px;
+}
+
+.field-cell-big {
+  width: 450px;
+}
+
+.file-name-color {
+  overflow: hidden;
+  color: var(--grey, #7a7a7a);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+.label-type {
+  // border: none;
+  box-shadow: none;
+  font-family: Open Sans;
+  color: var(--black, #0a0a0a);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 112.5%; /* 18px */
+}
+
+.personal-data-form {
+  // display: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 40px;
+  width: 720px;
+  background-color: white;
+
+  &__button {
+    width: 16px;
+    height: 16px;
+    // margin-right: 30px;
+    margin-left: auto;
+    padding: 4px;
+    background-image: url(../../assets/fontawesome-free-6.5.1-web/svgs/solid/edit.svg);
+    background-size: cover;
+    background-color: none;
+    border: none;
+  }
+
+  &___group {
+    display: flex;
+    background-color: aqua;
+  }
+}
+
+.form-active {
+  // display: block;
+}
+
+.select-field {
+  width: 200px;
+}
