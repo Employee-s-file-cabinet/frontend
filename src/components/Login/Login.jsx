@@ -26,7 +26,6 @@ export default function Login({ title, buttonLabel, flag, schema }) {
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
 
   function onSubmit(data) {
-    console.log(data);
     switch (flag) {
       case 'reset':
         navigate('/reset-success');
