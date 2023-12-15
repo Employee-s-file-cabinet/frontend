@@ -140,7 +140,7 @@ export default function Login({ title, buttonLabel, flag }) {
       </fieldset>
       <div className="login__submit-container">
         {flag === 'login' && (
-          <Link to="/accessrestore" className="login__restore-pass-link">
+          <Link to="/access-restore" className="login__restore-pass-link">
             Забыли пароль?
           </Link>
         )}

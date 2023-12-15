@@ -23,6 +23,7 @@ import LoginPage from '../../pages/LoginPage/LoginPage';
 import MainPage from '../../pages/MainPage/MainPage';
 import NewEmployeePage from '../../pages/NewEmployeePage/NewEmployeePage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
+import PasswordResetPage from '../../pages/PasswordResetPage/PasswordResetPage';
 
 const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL } = process.env;
 
@@ -34,7 +35,8 @@ function App() {
     <Route path="/">
       <Route element={<ServiceLayout />}>
         <Route path="signin" element={<LoginPage />} />
-        <Route path="accessrestore" element={<AccessRestorePage />} />
+        <Route path="access-restore" element={<AccessRestorePage />} />
+        <Route path="password-reset" element={<PasswordResetPage />} />
         <Route index element={<MainPage />} />
         <Route path="admin" element={<AdminPage />} />
         <Route path="*" element={<NotFoundPage />} />

@@ -1,0 +1,10 @@
+.logo {
+  cursor: pointer;
+  transition: all 0.6s ease-in;
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
