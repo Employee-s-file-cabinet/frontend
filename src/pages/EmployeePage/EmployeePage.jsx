@@ -1,4 +1,4 @@
-import ProfileInfo from './ProfileInfo/ProfileInfo';
+import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
 
 export default function EmployeePage() {
   return (
