@@ -1,48 +1,67 @@
 import './InformatoionEmployee.scss';
 
-// import { useState } from 'react';
+import { useState } from 'react';
 
-// import PersonalDataForm from '../PersonalDataForm/PersonalDataForm';
-// import PersonalDataFormEdit from '../PersonalDataFormEdit/PersonalDataFormEdit';
+import PersonalDataForm from '../PersonalDataForm/PersonalDataForm';
 import CurrentDataForm from '../CurrentDataForm/CurrentDataForm';
 
-
 export default function InformatoionEmployee() {
+  // const activeLi = 'current';
 
-  const activeLi = 'personal';
+  const [activeLi, setActiveli] = useState('personal');
 
-  // const [activeLi, setActiveli] = useState('personal');
+  function handlePersonalLi() {
+    setActiveli('personal');
+  }
 
-  // function handlePersonalLi() {
-  //   setActiveli('personal');
-  // }
+  function handleCurrentLi() {
+    setActiveli('current');
+  }
 
-  return(
-    <section className='informatoion-employee'>
-      <nav className='informatoion-employee__nav'
+  function handleArchiveLi() {
+    setActiveli('current');
+  }
 
-      >
-        <li className={`informatoion-employee__nav-link${(activeLi==='personal') ? " informatoion-employee__nav-link_active" : ""}`}
-
+  return (
+    <section className="informatoion-employee">
+      <nav className="informatoion-employee__nav">
+        <button
+          className={`informatoion-employee__nav-link${
+            activeLi === 'personal'
+              ? ' informatoion-employee__nav-link_active'
+              : ''
+          }`}
+          onClick={handlePersonalLi}
         >
           Личная информация
-          </li>
-        <li className={`informatoion-employee__nav-link${(activeLi==='current') ? " informatoion-employee__nav-link_active" : ""}`}
+        </button>
+        <button
+          className={`informatoion-employee__nav-link${
+            activeLi === 'current'
+              ? ' informatoion-employee__nav-link_active'
+              : ''
+          }`}
+          onClick={handleCurrentLi}
         >
           Текущая информация
-        </li>
+        </button>
 
-        <li className={`informatoion-employee__nav-link${(activeLi==='archive') ? " informatoion-employee__nav-link_active" : ""}`}
+        <button
+          className={`informatoion-employee__nav-link${
+            activeLi === 'archive'
+              ? ' informatoion-employee__nav-link_active'
+              : ''
+          }`}
+          onClick={handleArchiveLi}
         >
           Архивная информация
-        </li>
+        </button>
       </nav>
-      <div className='form-employee'>
-        {/* <PersonalDataFormEdit /> */}
-        <CurrentDataForm />
-
+      <div className="form-employee">
+        {activeLi === 'personal' ? <PersonalDataForm /> : ''}
+        {activeLi === 'current' ? <CurrentDataForm /> : ''}
+        {activeLi === 'archive' ? <CurrentDataForm /> : ''}
       </div>
-
     </section>
   );
 }
