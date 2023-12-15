@@ -1,0 +1,30 @@
+.career-development {
+  width: 640px;
+  display: flex;
+  // text-align: end;
+
+  &__add {
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-light, #EBFFFC);
+    color: var(--primary-dark, #00947E);
+    /* text bold */
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 24px */
+
+  }
+
+  &__control {
+    width: 200px;
+    margin-right: 12px;
+  }
+
+}
+
+
+
+// career-development-add добавить строки
+// career-development-remve удалить строки

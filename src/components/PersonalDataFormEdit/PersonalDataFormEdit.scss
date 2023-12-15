@@ -1,0 +1,75 @@
+.buttons-group {
+  margin-top: 32px;
+  margin-bottom: 68px;
+}
+
+.button-reset {
+  width: 220px;
+  padding: 11px 24px;
+  border-radius: 6px;
+}
+
+.button-save {
+  width: 136px;
+  margin-right: 20px;
+  margin-left: 12px;
+  padding: 11px 24px;
+  border-radius: 6px;
+}
+
+.checkbox {
+  &__legend {
+    color: var(--grey, #7A7A7A);
+  }
+
+  &__input {
+    margin: 8.5px 8px 0 0;
+  }
+}
+
+.field-cell {
+  width: 200px;
+}
+
+.field-cell-big {
+  width: 450px;
+}
+
+.file-name-color {
+  overflow: hidden;
+  color: var(--grey, #7A7A7A);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+.label-type {
+  // border: none;
+  box-shadow: none;
+  font-family: Open Sans;
+  color: var(--black, #0A0A0A);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 112.5%; /* 18px */
+}
+
+.personal-data-form-edit {
+  margin: 0;
+  padding: 0;
+  margin-top: 40px;
+  width: 720px;
+  background-color: white;
+}
+
+.select-field {
+  width: 200px;
+}
+
+
+
+
