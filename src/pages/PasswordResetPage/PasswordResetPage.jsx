@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from '../../components/Login/Login';
+import { resetPasswordSchema } from '../../utils/ValidationSchema';
 
 export default function AccessRestorePage() {
   return (
@@ -7,7 +8,8 @@ export default function AccessRestorePage() {
       <Login
         title="Создайте новый пароль"
         buttonLabel="Сохранить"
-        flag="access-restore"
+        flag="reset"
+        schema={resetPasswordSchema}
       />
     </section>
   );

@@ -5,7 +5,8 @@ export default function MainPage() {
     <section className="main-page">
       <Link to="/signin">ВОЙТИ HR</Link>
       <Link to="/admin">ВОЙТИ АДМИНУ</Link>
-      <Link to="/accessrestore">ВОССТАНОВИТЬ ПАРОЛЬ</Link>
+      <Link to="/access-restore">ВОССТАНОВИТЬ ПАРОЛЬ</Link>
+      <Link to="/password-reset">ВВЕСТИ НОВЫЙ ПАРОЛЬ</Link>
       <Link to="/employees">СОТРУДНИКИ</Link>
       <Link to="/departments">СОТРУДНИКИ И ДЕПАРТАМЕНТЫ</Link>
       <Link to="/company-structure">СТРУКТУРА КОМПАНИИ</Link>
