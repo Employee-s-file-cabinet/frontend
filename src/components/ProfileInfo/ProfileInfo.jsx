@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Icon } from '../UI/Icons/Icons';
 import ProfilePic from '../../assets/images/profile.jpg';
-import './ProfileInfo.scss';
 
 function ProfileInfo() {
   const [isEdit, setIsEdit] = useState(false);

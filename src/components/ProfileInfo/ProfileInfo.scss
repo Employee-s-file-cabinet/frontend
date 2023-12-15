@@ -51,6 +51,6 @@
     margin-right: 12px;
   }
   &__buttons-disabled {
-    display: none;
+    display: none !important;
   }
 }
