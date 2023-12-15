@@ -27,7 +27,17 @@ export default function Login({ title, buttonLabel, flag, schema }) {
 
   function onSubmit(data) {
     console.log(data);
-    navigate('/');
+    switch (flag) {
+      case 'reset':
+        navigate('/reset-success');
+        break;
+      case 'restore':
+        navigate('/success-sent-email', { state: { email: data.email } });
+        break;
+      default:
+        navigate('/');
+        break;
+    }
   }
 
   function handlePasswordType() {

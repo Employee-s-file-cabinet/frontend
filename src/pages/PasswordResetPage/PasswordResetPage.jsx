@@ -2,7 +2,7 @@ import React from 'react';
 import Login from '../../components/Login/Login';
 import { resetPasswordSchema } from '../../utils/ValidationSchema';
 
-export default function AccessRestorePage() {
+export default function PasswordResetPage() {
   return (
     <section className="access-restore-page">
       <Login
