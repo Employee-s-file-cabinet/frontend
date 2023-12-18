@@ -13,7 +13,7 @@ import Preloader from '../Preloader/Preloader';
 
 import GeneralLayout from '../../layouts/GeneralLayout/GeneralLayout';
 import ServiceLayout from '../../layouts/ServiceLayout/ServiceLayout';
-import AccessRestorePage from '../../pages/AccessRestorePage/AccessRestorePage';
+import RestorePasswordPage from '../../pages/RestorePasswordPage/RestorePasswordPage';
 import AdminPage from '../../pages/AdminPage/AdminPage';
 import CompanyStructurePage from '../../pages/CompanyStructurePage/CompanyStructurePage';
 import EmployeePage from '../../pages/EmployeePage/EmployeePage';
@@ -38,7 +38,7 @@ function App() {
       <Route element={<ServiceLayout />}>
         <Route index element={<MainPage />} />
         <Route path="signin" element={<LoginPage />} />
-        <Route path="access-restore" element={<AccessRestorePage />} />
+        <Route path="access-restore" element={<RestorePasswordPage />} />
         <Route path="success-sent-email" element={<SuccessSentToEmailPage />} />
         <Route path="reset-success" element={<ResetSuccessPage />} />
         <Route path="password-reset" element={<PasswordResetPage />} />

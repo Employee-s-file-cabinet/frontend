@@ -1,4 +1,4 @@
-.footer {
+.my-footer {
   padding: 0;
   @include flex(row, center, center);
   gap: 40px;
@@ -6,7 +6,7 @@
   background-color: transparent;
   margin: auto auto 0;
 
-  &-text {
+  &__text {
     color: #b5b5b5;
     @extend %smallText;
   }
