@@ -22,7 +22,7 @@
 @import '../layouts/ServiceLayout/ServiceLayout.scss';
 
 // PAGES
-@import '../pages/AccessRestorePage/AccessRestorePage.scss';
+@import '../pages/RestorePasswordPage/RestorePasswordPage.scss';
 @import '../pages/AdminPage/AdminPage.scss';
 @import '../pages/CompanyStructurePage/CompanyStructurePage.scss';
 @import '../pages/EmployeePage/EmployeePage.scss';
@@ -44,6 +44,6 @@
 @import '../components/Notification/Notification.scss';
 @import '../components/SideMenu/SideMenu.scss';
 @import '../components/ProfileInfo/ProfileInfo.scss';
-
-// COMPONENTS REUSABLE
+@import '../components/ResetPasswordForm/ResetPasswordForm.scss';
+@import '../components/RestorePasswordForm/RestorePasswordForm.scss';
 @import '../components/Login/Login.scss';

@@ -1,16 +1,10 @@
 import React from 'react';
-import Login from '../../components/Login/Login';
-import { resetPasswordSchema } from '../../utils/ValidationSchema';
+import ResetPasswordForm from '../../components/ResetPasswordForm/ResetPasswordForm';
 
 export default function PasswordResetPage() {
   return (
     <section className="access-restore-page">
-      <Login
-        title="Создайте новый пароль"
-        buttonLabel="Сохранить"
-        flag="reset"
-        schema={resetPasswordSchema}
-      />
+      <ResetPasswordForm />
     </section>
   );
 }
