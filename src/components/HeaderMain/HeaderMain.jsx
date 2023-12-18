@@ -1,14 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { Link, useNavigate } from 'react-router-dom';
-import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { Icon } from '../UI/Icons/Icons';
 import Avatar from '../../assets/images/avatar.png';
 
-export default function HeaderMain() {
+export default function HeaderMain({ children }) {
   const navigate = useNavigate();
   return (
     <header className="header-main">
-      <Breadcrumb />
+      {children}
       <div className="header-main__user">
         <Link to="/" className="header-main__link">
           <img className="header-main__avatar" src={Avatar} alt="аватар" />

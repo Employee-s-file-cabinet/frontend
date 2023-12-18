@@ -1,26 +1,19 @@
-/* eslint-disable no-unused-vars */
-import { Link, useLocation } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
-import translit from '../../utils/Translit';
+import { Link } from 'react-router-dom';
 
-export default function Breadcrumb() {
-  const location = useLocation();
-  const crumbPath = location.pathname.split('/').filter((path) => path !== '');
-
-  const breadCrumb = crumbPath.map((crumb, index) => {
-    const uniqueId = uuidv4();
+export default function Breadcrumb({ pagesPath }) {
+  const breadCrumb = pagesPath.map((crumb, index) => {
     let crumbLink = '';
-    crumbLink += `/${crumb}`;
+    crumbLink += `/${crumb.path}`;
 
     return (
-      <li key={uniqueId}>
+      <li key={crumb.id}>
         <Link
           to={crumbLink}
           className={`breadcrumb__link ${
-            index === crumbPath.length - 1 ? 'breadcrumb__link_is-active' : ''
+            index === pagesPath.length - 1 ? 'breadcrumb__link_is-active' : ''
           }`}
         >
-          {translit(crumb)}
+          {crumb.label}
         </Link>
       </li>
     );

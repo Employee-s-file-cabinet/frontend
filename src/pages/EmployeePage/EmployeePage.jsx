@@ -1,12 +1,22 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-undef */
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
 import InformatoionEmployee from '../../components/InfommatoionEmployee/InformatoionEmployee';
+import HeaderMain from '../../components/HeaderMain/HeaderMain';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
+import { pagesPath } from '../../utils/constants';
 
 export default function EmployeePage() {
+  const { home, employees, employee } = pagesPath;
   return (
     <section className="employee-page">
-      <ProfileInfo />
-      <InformatoionEmployee />
+      <HeaderMain>
+        <Breadcrumb pagesPath={[home, employees, employee]} />
+      </HeaderMain>
+      <main>
+        <ProfileInfo />
+        <InformatoionEmployee />
+      </main>
     </section>
   );
 }

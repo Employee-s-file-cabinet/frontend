@@ -2,25 +2,7 @@
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.svg';
 import { Icon } from '../UI/Icons/Icons';
-
-const sideMenuOptions = [
-  {
-    id: 1,
-    icon: 'fa-folder',
-    link: '/kartoteka_sotrudnikov',
-    text: 'Картотека сотрудников',
-  },
-  { id: 2, icon: 'fa-user', link: '/', text: 'Подбор персонала' },
-  { id: 3, icon: 'fa-graduation-cap', link: '/', text: 'Обучение сотрудников' },
-  {
-    id: 4,
-    icon: 'fa-hand-holding-dollar',
-    link: '/',
-    text: 'Льготы и компенсации',
-  },
-  { id: 5, icon: 'fa-file', link: '/', text: 'Отчеты' },
-  { id: 6, icon: 'fa-gear', link: '/', text: 'Настройки' },
-];
+import { sideMenuOptions } from '../../utils/constants';
 
 export default function SideMenu() {
   return (

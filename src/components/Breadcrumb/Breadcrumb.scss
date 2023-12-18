@@ -1,16 +1,15 @@
-.breadcrumb {
-  margin: 0 !important;
+.breadcrumb.breadcrumb.breadcrumb {
+  margin: 0;
+}
 
-  &__link {
-    @include text(16px, 24px);
-    color: $turquoise-dark !important;
-  }
+.breadcrumb__link.breadcrumb__link.breadcrumb__link {
+  @include text(16px, 24px);
+  color: $turquoise-dark;
+}
+.breadcrumb__link.breadcrumb__link.breadcrumb__link:hover {
+  color: $turquoise;
+}
 
-  &__link_is-active {
-    color: $black !important;
-  }
-
-  &__link:hover {
-    color: $turquoise !important;
-  }
+.breadcrumb__link_is-active.breadcrumb__link_is-active.breadcrumb__link_is-active {
+  color: $black;
 }

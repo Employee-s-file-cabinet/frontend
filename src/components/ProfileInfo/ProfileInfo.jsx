@@ -14,8 +14,7 @@ function ProfileInfo() {
   } = useForm();
 
   function handleEditButton() {
-    // eslint-disable-next-line no-unused-expressions
-    isEdit === true ? setIsEdit(false) : setIsEdit(true);
+    return isEdit === true ? setIsEdit(false) : setIsEdit(true);
   }
 
   return (
