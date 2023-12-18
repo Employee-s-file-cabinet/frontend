@@ -1,7 +1,5 @@
 .profile {
-  // @include flex(row, flex-start, center);
-  display: flex;
-  flex-direction: column;
+  @include flex(column, flex-start, flex-start);
   background-color: white;
   margin-top: 48px;
 
@@ -50,7 +48,8 @@
     width: 200px;
     margin-right: 12px;
   }
-  &__buttons-disabled {
-    display: none !important;
-  }
+}
+
+.profile__buttons-disabled.profile__buttons-disabled.profile__buttons-disabled {
+  display: none;
 }

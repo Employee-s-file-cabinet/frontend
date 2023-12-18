@@ -47,7 +47,7 @@ function App() {
       </Route>
       <Route element={<GeneralLayout />}>
         <Route
-          path="kartoteka_sotrudnikov"
+          path="employees"
           element={
             <ProtectedRoute
               element={EmployeesByAZPage}
@@ -56,7 +56,7 @@ function App() {
           }
         />
         <Route
-          path="departamenty"
+          path="departments"
           element={
             <ProtectedRoute
               element={EmpoyeesByDepartmentPage}
@@ -65,7 +65,7 @@ function App() {
           }
         />
         <Route
-          path="struktura_kompanii"
+          path="company-structure"
           element={
             <ProtectedRoute
               element={CompanyStructurePage}
@@ -74,13 +74,13 @@ function App() {
           }
         />
         <Route
-          path="kartochka_sotrudnika"
+          path="employee"
           element={
             <ProtectedRoute element={EmployeePage} isLoggedIn={isLoggedIn} />
           }
         />
         <Route
-          path="novyyi_sotrudnik"
+          path="new-employee"
           element={
             <ProtectedRoute element={NewEmployeePage} isLoggedIn={isLoggedIn} />
           }
