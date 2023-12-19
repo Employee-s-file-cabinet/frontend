@@ -4,9 +4,9 @@
   &_margined {
     margin-right: 30px;
   }
+}
 
-  &__clickable {
-    cursor: pointer;
-    pointer-events: initial !important;
-  }
+.icon__clickable.icon__clickable.icon__clickable {
+  cursor: pointer;
+  pointer-events: initial;
 }

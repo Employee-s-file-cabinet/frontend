@@ -5,12 +5,15 @@ export default function MainPage() {
     <section className="main-page">
       <Link to="/signin">ВОЙТИ HR</Link>
       <Link to="/admin">ВОЙТИ АДМИНУ</Link>
-      <Link to="/accessrestore">ВОССТАНОВИТЬ ПАРОЛЬ</Link>
+      <Link to="/access-restore">ВОССТАНОВИТЬ ПАРОЛЬ</Link>
+      <Link to="/success-sent-email">ССЫЛКА УСПЕШНО НАПРАВЛЕНА НА ПОЧТУ</Link>
+      <Link to="/password-reset">ВВЕСТИ НОВЫЙ ПАРОЛЬ</Link>
+      <Link to="/reset-success">ПАРОЛЬ ОБНОВЛЕН</Link>
       <Link to="/employees">СОТРУДНИКИ</Link>
       <Link to="/departments">СОТРУДНИКИ И ДЕПАРТАМЕНТЫ</Link>
       <Link to="/company-structure">СТРУКТУРА КОМПАНИИ</Link>
       <Link to="/employee">КАРТОЧКА СОТРУДНИКА</Link>
-      <Link to="/newemployee">СОЗДАТЬ НОВОГО СОТРУДНИКА</Link>
+      <Link to="/new-employee">СОЗДАТЬ НОВОГО СОТРУДНИКА</Link>
     </section>
   );
 }

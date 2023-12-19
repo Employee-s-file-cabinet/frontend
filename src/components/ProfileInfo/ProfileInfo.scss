@@ -1,0 +1,55 @@
+.profile {
+  @include flex(column, flex-start, flex-start);
+  background-color: white;
+  margin-top: 48px;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__image-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 42px;
+  }
+  &__image-file {
+    width: 160px;
+  }
+  &__image-cta {
+    width: 162px;
+    background: white;
+    border: none;
+  }
+  &__image {
+    width: 160px;
+    height: 196px;
+    object-fit: cover;
+  }
+
+  &__file-label {
+    font-size: 14px;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  &__edit-button {
+    margin: 0;
+    padding: 0;
+  }
+  &__form {
+    width: 720px;
+  }
+
+  &__control {
+    width: 200px;
+    margin-right: 12px;
+  }
+}
+
+.profile__buttons-disabled.profile__buttons-disabled.profile__buttons-disabled {
+  display: none;
+}

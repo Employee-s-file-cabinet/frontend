@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from '../../utils/ValidationSchema';
 import { MainButton } from '../UI/Buttons/MainButton';
 import { MainField } from '../UI/Fields/MainField';
 import { Icon } from '../UI/Icons/Icons';
+import { loginSchema } from '../../utils/ValidationSchema';
 
-export default function Login({ title, buttonLabel, flag }) {
+export default function Login() {
   const navigate = useNavigate();
   const {
     register,
@@ -15,7 +15,7 @@ export default function Login({ title, buttonLabel, flag }) {
     resetField,
     formState: { isValid, errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(loginSchema),
     mode: 'onChange',
   });
   // STATE TO CHANGE VISIBLY IN PASSWORD FIELD
@@ -76,10 +76,12 @@ export default function Login({ title, buttonLabel, flag }) {
 
   return (
     <form className="login" onSubmit={handleSubmit(onSubmit)}>
-      <h2 className="login__title">{title}</h2>
+      <h2 className="login__title">Добро пожаловать!</h2>
+
       <p className="login__authorization-error">
         Введены неверная почта и/или пароль
       </p>
+
       <fieldset className="login__fieldset">
         <p className="login__fieldset-text">Электронная почта</p>
         <MainField
@@ -106,8 +108,10 @@ export default function Login({ title, buttonLabel, flag }) {
           )}
         </MainField>
       </fieldset>
+
       <fieldset className="login__fieldset">
         <p className="login__fieldset-text">Пароль</p>
+
         <MainField
           type={passwordType}
           theme="is-primary"
@@ -138,12 +142,11 @@ export default function Login({ title, buttonLabel, flag }) {
           />
         </MainField>
       </fieldset>
+
       <div className="login__submit-container">
-        {flag === 'login' && (
-          <Link to="/accessrestore" className="login__restore-pass-link">
-            Забыли пароль?
-          </Link>
-        )}
+        <Link to="/access-restore" className="login__restore-pass-link">
+          Забыли пароль?
+        </Link>
 
         <MainButton
           disabled={!isValid}
@@ -152,7 +155,7 @@ export default function Login({ title, buttonLabel, flag }) {
           extraClass="login__button"
           type="submit"
         >
-          {buttonLabel}
+          Войти
         </MainButton>
       </div>
     </form>

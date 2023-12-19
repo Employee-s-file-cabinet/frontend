@@ -22,7 +22,7 @@
 @import '../layouts/ServiceLayout/ServiceLayout.scss';
 
 // PAGES
-@import '../pages/AccessRestorePage/AccessRestorePage.scss';
+@import '../pages/RestorePasswordPage/RestorePasswordPage.scss';
 @import '../pages/AdminPage/AdminPage.scss';
 @import '../pages/CompanyStructurePage/CompanyStructurePage.scss';
 @import '../pages/EmployeePage/EmployeePage.scss';
@@ -34,10 +34,16 @@
 @import '../pages/NotFoundPage/NotFoundPage.scss';
 
 // COMPONENTS
+@import '../components/Breadcrumb/Breadcrumb.scss';
 @import '../components/Footer/Footer.scss';
 @import '../components/Header/Header.scss';
+@import '../components/HeaderMain/HeaderMain.scss';
 @import '../components/Page/page.scss';
 @import '../components/Preloader/Preloader.scss';
-
-// COMPONENTS REUSABLE
+@import '../components/Logo/Logo.scss';
+@import '../components/Notification/Notification.scss';
+@import '../components/SideMenu/SideMenu.scss';
+@import '../components/ProfileInfo/ProfileInfo.scss';
+@import '../components/ResetPasswordForm/ResetPasswordForm.scss';
+@import '../components/RestorePasswordForm/RestorePasswordForm.scss';
 @import '../components/Login/Login.scss';
