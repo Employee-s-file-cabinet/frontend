@@ -120,7 +120,7 @@ export default function CurrentDataForm() {
           </legend>
         </div>
         <div className="column career-development-column">
-          <CareerDevelopment />
+          <CareerDevelopment isEdit={isEdit} />
         </div>
       </div>
       <div className="columns is-multiline is-mobile">
@@ -158,7 +158,7 @@ export default function CurrentDataForm() {
           </legend>
         </div>
         <div className="column career-development-column">
-          <Benefits />
+          <Benefits isEdit={isEdit} />
         </div>
       </div>
       <div className="current-data-form__group">
@@ -184,7 +184,7 @@ export default function CurrentDataForm() {
           </legend>
         </div>
         <div className="column career-development-column">
-          <CompletedTraining />
+          <CompletedTraining isEdit={isEdit} />
         </div>
       </div>
       <div className="columns is-multiline is-mobile">
@@ -194,13 +194,13 @@ export default function CurrentDataForm() {
           </legend>
         </div>
         <div className="column career-development-column">
-          <PlannedTraining />
+          <PlannedTraining isEdit={isEdit} />
         </div>
       </div>
       <div className="current-data-form__group">
         <h5 className="current-data-form__title">Дополнительно</h5>
       </div>
-      <Optionally />
+      <Optionally isEdit={isEdit} />
       <div className="buttons-group">
         <button className={` button-save${!isEdit ? ' button-disabled' : ''}`}>
           Сохранить
