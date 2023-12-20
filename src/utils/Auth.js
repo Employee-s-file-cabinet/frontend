@@ -57,10 +57,3 @@ export function changePassword(key, password) {
     .then((res) => res.data)
     .catch((error) => processError(error));
 }
-// функция проверки валидности токена
-export function checkToken() {
-  return axiosBase
-    .get(`users/me`)
-    .then((res) => res.data)
-    .catch((error) => this._processError(error));
-}
