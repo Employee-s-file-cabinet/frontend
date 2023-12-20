@@ -1,47 +1,59 @@
+import axios from 'axios';
+
 const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL } = process.env;
 
-const BASE_URL =
-  REACT_APP_NODE_ENV === 'production' ? REACT_APP_PUBLIC_URL : 'localhost:4000';
+const baseURL =
+  REACT_APP_NODE_ENV === 'production'
+    ? REACT_APP_PUBLIC_URL
+    : 'http://localhost:4000';
 
-function getRes(res) {
-  return res.ok ? res.json() : Promise.reject(new Error(res.status));
+const axiosBase = axios.create({
+  baseURL,
+  withCredentials: true,
+  headers: { 'Content-Type': 'application/json' },
+});
+
+// функция обработки ошибок
+// eslint-disable-next-line class-methods-use-this
+function processError(error) {
+  if (error.response) {
+    return Promise.reject(
+      new Error(
+        `Статус: ${error.response.status}. Данные ${error.response.data}`
+      )
+    );
+  }
+  if (error.request) {
+    return Promise.reject(new Error(error.request));
+  }
+  return Promise.reject(new Error(error.message));
 }
 
-function request(url, options) {
-  return fetch(BASE_URL + url, options).then(getRes);
+// функция отправки данных для авторизации пользователя
+export function authorize(login, password) {
+  return axiosBase
+    .post(`/login`, { login, password })
+    .then((res) => res.data)
+    .catch((error) => processError(error));
 }
-
-export function authorize({ login, password }) {
-  return request(`/login`, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    credentials: 'include',
-    body: JSON.stringify({ login, password }),
-  });
+// функция проверки наличия e-mail в базе
+export function checkEmail(login) {
+  return axiosBase
+    .post(`/login/init-change-password`, { login })
+    .then((res) => res.data)
+    .catch((error) => processError(error));
 }
-
-export function checkKey({ key }) {
-  return request(`/login/change-password?key=${key}`, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    credentials: 'include',
-  });
+// функция проверки ключа
+export function checkKey(key) {
+  return axiosBase
+    .get(`/login/change-password?key=${key}`)
+    .then((res) => res.data)
+    .catch((error) => processError(error));
 }
-
-export function changePassword({ key, password }) {
-  return request(`/login/change-password`, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    credentials: 'include',
-    body: JSON.stringify({ key, password }),
-  });
+// функция изменения пароля
+export function changePassword(key, password) {
+  return axiosBase
+    .post(`/login/change-password`, { key, password })
+    .then((res) => res.data)
+    .catch((error) => processError(error));
 }
