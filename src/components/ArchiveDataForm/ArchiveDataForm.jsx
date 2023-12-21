@@ -36,9 +36,21 @@ export default function ArchiveDataForm() {
             Опыт работы
           </legend>
         </div>
-        <div className="column career-development-column">
+        <div className="column ">
           <Experience isEdit={isEdit} />
         </div>
+        <button className="career-development__add">Добавить +</button>
+      </div>
+      <div className="buttons-group">
+        <button className={` button-save${!isEdit ? ' button-disabled' : ''}`}>
+          Сохранить
+        </button>
+        <button
+          className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
+          type="button"
+        >
+          Сбросить изменения
+        </button>
       </div>
     </form>
   );

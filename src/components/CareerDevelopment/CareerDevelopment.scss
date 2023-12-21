@@ -4,10 +4,13 @@
   // text-align: end;
 
   &__add {
-    border: none;
+    margin-top: 24px;
+    margin-left: 240px;
+    border: 1px solid var(--primary, #00d1b2);
     border-radius: 6px;
-    background: var(--primary-light, #ebfffc);
-    color: var(--primary-dark, #00947e);
+    background: white;
+    color: var(--primary, #00d1b2);
+
     /* text bold */
     font-family: Open Sans;
     font-size: 16px;
