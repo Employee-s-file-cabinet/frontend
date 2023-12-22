@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Icon } from '../UI/Icons/Icons';
