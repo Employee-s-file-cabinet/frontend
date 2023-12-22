@@ -9,7 +9,7 @@ export default function MainPage() {
       <Link to="/success-sent-email">ССЫЛКА УСПЕШНО НАПРАВЛЕНА НА ПОЧТУ</Link>
       <Link to="/password-reset">ВВЕСТИ НОВЫЙ ПАРОЛЬ</Link>
       <Link to="/reset-success">ПАРОЛЬ ОБНОВЛЕН</Link>
-      <Link to="/employees">СОТРУДНИКИ</Link>
+      <Link to="/employees">КАРТОТЕКА СОТРУДНИКОВ</Link>
       <Link to="/departments">СОТРУДНИКИ И ДЕПАРТАМЕНТЫ</Link>
       <Link to="/company-structure">СТРУКТУРА КОМПАНИИ</Link>
       <Link to="/employee">КАРТОЧКА СОТРУДНИКА</Link>

@@ -11,14 +11,13 @@ import * as auth from '../../utils/Auth';
 import Contexts from '../../contexts/Contexts';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Preloader from '../Preloader/Preloader';
-
 import GeneralLayout from '../../layouts/GeneralLayout/GeneralLayout';
 import ServiceLayout from '../../layouts/ServiceLayout/ServiceLayout';
 import RestorePasswordPage from '../../pages/RestorePasswordPage/RestorePasswordPage';
 import AdminPage from '../../pages/AdminPage/AdminPage';
 import CompanyStructurePage from '../../pages/CompanyStructurePage/CompanyStructurePage';
 import EmployeePage from '../../pages/EmployeePage/EmployeePage';
-import EmployeesByAZPage from '../../pages/EmployeesByAZPage/EmployeesByAZPage';
+import EmployeesPage from '../../pages/EmployeesPage/EmployeesPage';
 import EmpoyeesByDepartmentPage from '../../pages/EmployeesByDepartmentPage/EmployeesByDepartmentPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import MainPage from '../../pages/MainPage/MainPage';
@@ -50,10 +49,7 @@ function App() {
         <Route
           path="employees"
           element={
-            <ProtectedRoute
-              element={EmployeesByAZPage}
-              isLoggedIn={isLoggedIn}
-            />
+            <ProtectedRoute element={EmployeesPage} isLoggedIn={isLoggedIn} />
           }
         />
         <Route

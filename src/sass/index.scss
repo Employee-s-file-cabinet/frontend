@@ -26,7 +26,7 @@
 @import '../pages/AdminPage/AdminPage.scss';
 @import '../pages/CompanyStructurePage/CompanyStructurePage.scss';
 @import '../pages/EmployeePage/EmployeePage.scss';
-@import '../pages/EmployeesByAZPage/EmployeesByAZPage.scss';
+@import '../pages/EmployeesPage/EmployeesPage.scss';
 @import '../pages/EmployeesByDepartmentPage/EmployeesByDepartmentPage.scss';
 @import '../pages/LoginPage/LoginPage.scss';
 @import '../pages/MainPage/MainPage.scss';
@@ -34,7 +34,6 @@
 @import '../pages/NotFoundPage/NotFoundPage.scss';
 @import '../pages/SuccessSentToEmailPage/SuccessSentToEmailPage.scss';
 @import '../pages/ResetSuccessPage/ResetSuccessPage.scss';
-@import '../pages/EmployeesListPage/EmployeesListPage.scss';
 
 // COMPONENTS
 @import '../components/Breadcrumb/Breadcrumb.scss';
@@ -50,3 +49,4 @@
 @import '../components/ResetPasswordForm/ResetPasswordForm.scss';
 @import '../components/RestorePasswordForm/RestorePasswordForm.scss';
 @import '../components/Login/Login.scss';
+@import '../components/EmployeesList/EmployeesList.scss';

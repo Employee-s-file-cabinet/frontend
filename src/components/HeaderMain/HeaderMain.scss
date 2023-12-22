@@ -3,8 +3,9 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
-  min-height: 72px;
-  padding: 24px 26px 0 40px;
+  //Я думаю, что задавать паддинг лучше на самой странице, куда вставляется хидер
+  //min-height: 72px;
+  //padding: 24px 26px 0 40px;
   position: sticky;
   top: 0;
   left: 0;
