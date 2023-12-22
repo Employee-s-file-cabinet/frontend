@@ -41,7 +41,13 @@ MainField.propTypes = {
   /**
    * Field color: is-primary - green, is-link - blue, is-warning - yellow, is-danger - red
    */
-  theme: PropTypes.oneOf(['is-primary', 'is-link', 'is-warning', 'is-danger']),
+  theme: PropTypes.oneOf([
+    'is-primary',
+    'is-link',
+    'is-warning',
+    'is-danger',
+    '',
+  ]),
   /**
    * Field size: is-small - small, is-normal - standard, is-medium - medium, is-large - big
    */
