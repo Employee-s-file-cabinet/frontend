@@ -1,9 +1,27 @@
 .archive-data-form {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   margin-top: 40px;
   width: 900px;
   background-color: white;
+
+  & &__add {
+    margin-top: 24px;
+    margin-left: 240px;
+    margin-bottom: 32px;
+    border: 1px solid var(--primary, #00d1b2);
+    border-radius: 6px;
+    background: white;
+    color: var(--primary, #00d1b2);
+    /* text bold */
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 24px */
+  }
 
   &__button {
     width: 16px;

@@ -122,6 +122,7 @@ export default function CurrentDataForm() {
         <div className="column career-development-column">
           <CareerDevelopment isEdit={isEdit} />
         </div>
+        <button className="current-data-form__add">Добавить строки</button>
       </div>
       <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
@@ -160,6 +161,7 @@ export default function CurrentDataForm() {
         <div className="column career-development-column">
           <Benefits isEdit={isEdit} />
         </div>
+        <button className="current-data-form__add">Добавить строки</button>
       </div>
       <div className="current-data-form__group">
         <h5 className="current-data-form__title">Отпуск</h5>
@@ -173,6 +175,7 @@ export default function CurrentDataForm() {
         <div className="column career-development-column">
           <Vacation isEdit={isEdit} />
         </div>
+        <button className="current-data-form__add">Добавить строки</button>
       </div>
       <div className="current-data-form__group">
         <h5 className="current-data-form__title">Обучение</h5>
@@ -186,6 +189,7 @@ export default function CurrentDataForm() {
         <div className="column career-development-column">
           <CompletedTraining isEdit={isEdit} />
         </div>
+        <button className="current-data-form__add">Добавить строки</button>
       </div>
       <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
@@ -196,6 +200,7 @@ export default function CurrentDataForm() {
         <div className="column career-development-column">
           <PlannedTraining isEdit={isEdit} />
         </div>
+        <button className="current-data-form__add">Добавить строки</button>
       </div>
       <div className="current-data-form__group">
         <h5 className="current-data-form__title">Дополнительно</h5>

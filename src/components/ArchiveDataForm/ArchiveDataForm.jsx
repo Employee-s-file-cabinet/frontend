@@ -3,6 +3,7 @@ import 'bulma/css/bulma.min.css';
 import { useState } from 'react';
 
 import Experience from '../Experience/Experience';
+import Awards from '../Awards/Awards';
 
 export default function ArchiveDataForm() {
   const [isEdit, setIsEdit] = useState(false);
@@ -39,7 +40,18 @@ export default function ArchiveDataForm() {
         <div className="column ">
           <Experience isEdit={isEdit} />
         </div>
-        <button className="career-development__add">Добавить +</button>
+        <button className="archive-data-form__add">Добавить +</button>
+      </div>
+      <div className="columns is-multiline is-mobile">
+        <div className="column is-one-quarter">
+          <legend className="label label label-horizontal label-type">
+            Награды
+          </legend>
+        </div>
+        <div className="column ">
+          <Awards isEdit={isEdit} />
+        </div>
+        <button className="archive-data-form__add">Добавить +</button>
       </div>
       <div className="buttons-group">
         <button className={` button-save${!isEdit ? ' button-disabled' : ''}`}>
