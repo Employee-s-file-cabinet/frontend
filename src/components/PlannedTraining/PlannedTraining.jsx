@@ -81,7 +81,6 @@ export default function PlannedTraining({ isEdit }) {
           </div>
         </div>
       </div>
-      <button className="career-development__add">Добавить строки</button>
     </>
   );
 }

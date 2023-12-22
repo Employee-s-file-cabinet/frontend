@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import PersonalDataForm from '../PersonalDataForm/PersonalDataForm';
 import CurrentDataForm from '../CurrentDataForm/CurrentDataForm';
+import ArchiveDataForm from '../ArchiveDataForm/ArchiveDataForm';
 
 export default function InformatoionEmployee() {
   // const activeLi = 'current';
@@ -19,7 +20,7 @@ export default function InformatoionEmployee() {
   }
 
   function handleArchiveLi() {
-    setActiveli('current');
+    setActiveli('archive');
   }
 
   return (
@@ -60,7 +61,7 @@ export default function InformatoionEmployee() {
       <div className="form-employee">
         {activeLi === 'personal' ? <PersonalDataForm /> : ''}
         {activeLi === 'current' ? <CurrentDataForm /> : ''}
-        {activeLi === 'archive' ? <CurrentDataForm /> : ''}
+        {activeLi === 'archive' ? <ArchiveDataForm /> : ''}
       </div>
     </section>
   );

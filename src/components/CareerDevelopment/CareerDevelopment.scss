@@ -3,17 +3,8 @@
   display: flex;
   // text-align: end;
 
-  &__add {
-    border: none;
-    border-radius: 6px;
-    background: var(--primary-light, #ebfffc);
-    color: var(--primary-dark, #00947e);
-    /* text bold */
-    font-family: Open Sans;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 150%; /* 24px */
+  &__margin {
+    margin-left: 304px;
   }
 
   &__control {

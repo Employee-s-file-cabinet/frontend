@@ -21,7 +21,6 @@ export default function PersonalDataForm() {
       className="personal-data-form form-active"
       onSubmit={handleSubmit}
     >
-      {/* <div className='personal-data-form__group'> */}
       <input
         className={`personal-data-form__button${
           isEdit ? ' button-disabled' : ''
@@ -29,7 +28,7 @@ export default function PersonalDataForm() {
         type="button"
         onClick={handleEditButton}
       />
-      {/* </div> */}
+
       <div className="columns is-multiline is-mobile">
         <div className="column">
           <div className="field  field-cell">

@@ -48,7 +48,7 @@ export default function Vacation({ isEdit }) {
           </div>
         </div>
       </div>
-      <div className="columns is-gapless career-development career-development-add career-development-remve">
+      {/* <div className="columns is-gapless career-development career-development-add career-development-remve">
         <div className="column is-one-third">
           <div className="field  field-cell">
             <div className="control career-development__control">
@@ -83,8 +83,7 @@ export default function Vacation({ isEdit }) {
             </div>
           </div>
         </div>
-      </div>
-      <button className="career-development__add">Добавить строки</button>
+      </div> */}
     </>
   );
 }
