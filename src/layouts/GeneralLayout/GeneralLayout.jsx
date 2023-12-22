@@ -6,9 +6,7 @@ export default function GeneralLayout() {
   return (
     <div className="general-layout">
       <SideMenu />
-      <div className="general-layout__container">
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   );
 }
