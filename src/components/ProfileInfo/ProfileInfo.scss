@@ -1,9 +1,15 @@
 .profile {
-  @include flex(column, flex-start, flex-start);
+  display: flex;
+  flex-direction: column;
   background-color: white;
+  width: 1024px;
   margin-top: 48px;
 
-  &__content {
+  &__title {
+    padding-bottom: 24px;
+  }
+
+  &__container {
     display: flex;
     flex-direction: row;
   }
@@ -13,43 +19,73 @@
     flex-direction: column;
     margin-right: 42px;
   }
-  &__image-file {
-    width: 160px;
-  }
-  &__image-cta {
-    width: 162px;
-    background: white;
-    border: none;
-  }
   &__image {
     width: 160px;
     height: 196px;
     object-fit: cover;
+    margin-bottom: 4px;
   }
 
-  &__file-label {
+  &__cta {
+    width: 162px;
+    background-color: white;
+    color: var(--light-grey, #b5b5b5);
+    border: none;
+  }
+  &__label {
     font-size: 14px;
+    overflow: visible;
+  }
+  &__icon {
+    margin-left: 12px;
   }
 
-  &__inputs {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-  }
-  &__edit-button {
-    margin: 0;
-    padding: 0;
-  }
   &__form {
     width: 720px;
   }
+  &__column {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  &__input {
+    display: flex;
+    flex-direction: column;
+  }
 
-  &__control {
-    width: 200px;
-    margin-right: 12px;
+  &__input-label {
+    color: var(--black, #0a0a0a);
+    font-weight: 600;
+  }
+
+  &__input-error {
+    color: var(--light-grey, #b5b5b5);
+    font-size: 14px;
+    font-weight: 400;
+    min-height: 21px;
+    margin-bottom: 16px;
+  }
+
+  &__input-error_margin_custom {
+    margin-bottom: 11px;
+  }
+
+  &__button-edit {
+    margin-left: 80px;
+  }
+
+  &__button {
+    margin-right: 20px;
+  }
+  &__button:last-of-type {
+    margin-right: 0;
+  }
+
+  &__buttons-disabled {
+    display: none;
   }
 }
 
-.profile__buttons-disabled.profile__buttons-disabled.profile__buttons-disabled {
-  display: none;
+.columns.columns.columns {
+  margin-bottom: 0;
 }
