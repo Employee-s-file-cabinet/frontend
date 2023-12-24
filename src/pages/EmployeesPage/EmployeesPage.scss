@@ -1,14 +1,12 @@
 .employees {
   width: 100%;
   box-sizing: border-box;
-  padding: 24px 44px 0 44px;
-  height: 100vh;
   flex: 1;
   @include flex(column, flex-start, flex-start);
-
   background-color: $white;
 
   &__content {
+    padding: 0 44px;
     width: 100%;
     flex: 1;
     @include flex(column, center, flex-start);

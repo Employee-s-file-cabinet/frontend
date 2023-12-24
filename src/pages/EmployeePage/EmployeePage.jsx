@@ -13,7 +13,7 @@ export default function EmployeePage() {
       <HeaderMain>
         <Breadcrumb pagesPath={[home, employees, employee]} />
       </HeaderMain>
-      <main>
+      <main className="employee-page__content">
         <ProfileInfo />
         <InformatoionEmployee />
       </main>
