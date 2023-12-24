@@ -2,9 +2,9 @@
   width: 100%;
   flex: 1;
 
-  &__container {
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
+  &__container.employees-list__container.employees-list__container {
+    overflow-x: auto;
+    overflow-y: hidden;
     height: 100%;
   }
 
@@ -12,36 +12,36 @@
     height: 100%;
   }
 
-  &__table-column {
-    border-bottom: #dbdbdb 2px solid !important;
-    color: #363636 !important;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-    text-overflow: ellipsis !important;
-    font-family: $fontFamily !important;
-    font-size: 16px !important;
+  &__table-column.employees-list__table-column.employees-list__table-column {
+    border-bottom: $white-grey 4px solid;
+    color: $dark-grey;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: $fontFamily;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 400 !important;
-    line-height: 150% !important;
+    font-weight: 400;
+    line-height: 150%;
 
     &:nth-child(1) {
-      min-width: 376px !important;
+      min-width: 376px;
     }
 
     &:nth-child(2) {
-      min-width: 300px !important;
+      min-width: 300px;
     }
 
     &:nth-child(3) {
-      min-width: 300px !important;
+      min-width: 300px;
     }
 
     &:nth-child(4) {
-      min-width: 154px !important;
+      min-width: 154px;
     }
 
     &:nth-child(5) {
-      min-width: 154px !important;
+      min-width: 154px;
     }
   }
 
@@ -49,40 +49,40 @@
     transition: all ease-in 0.8s;
     &:hover {
       cursor: pointer;
-      background-color: rgba(0, 184, 156, 0.2);
+      background-color: $color-table-hover;
     }
   }
 
-  &__table-row-cell {
-    padding: 1.2% 12px 1.2% 12px !important;
-    color: #363636 !important;
-    font-family: $fontFamily !important;
-    font-size: 16px !important;
+  &__table-row-cell.employees-list__table-row-cell.employees-list__table-row-cell {
+    padding: 1.2% 12px 1.2% 12px;
+    color: $dark-grey;
+    font-family: $fontFamily;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 600 !important;
-    line-height: 150% !important;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-    text-overflow: ellipsis !important;
+    font-weight: 600;
+    line-height: 150%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     &:nth-child(1) {
-      max-width: 376px !important;
+      max-width: 376px;
     }
 
     &:nth-child(2) {
-      max-width: 300px !important;
+      max-width: 300px;
     }
 
     &:nth-child(3) {
-      max-width: 300px !important;
+      max-width: 300px;
     }
 
     &:nth-child(4) {
-      max-width: 154px !important;
+      max-width: 154px;
     }
 
     &:nth-child(5) {
-      max-width: 154px !important;
+      max-width: 154px;
     }
   }
 }

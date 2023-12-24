@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,32 +7,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { v4 as uuidv4 } from 'uuid';
 
-export default function EmployeesList() {
-  function createData(
-    name,
-    department,
-    position,
-    email,
-    mobPhone,
-    internalPhone
-  ) {
-    return { name, department, position, email, mobPhone, internalPhone };
-  }
+export default function EmployeesList({ employeesData }) {
+  const navigate = useNavigate();
 
-  const rows = Array(10)
-    .fill()
-    .map(() =>
-      createData(
-        'Абрамова Александра Андреевна',
-        'Отдел материально-технического снабжения',
-        'Торговый представитель',
-        'aabramova@logoipsum.ru ',
-        '+79093334455',
-        '11-11'
-      )
-    );
+  const handleClick = (employeeData) => {
+    console.log(employeeData);
+    navigate('/employee', { state: employeeData });
+  };
 
   return (
     <div className="employees-list">
@@ -60,16 +43,17 @@ export default function EmployeesList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {employeesData.map((row) => (
               <TableRow
-                key={uuidv4()}
+                key={row.userId}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 className="employees-list__table-row"
+                onClick={() => handleClick(row)}
               >
                 <TableCell
                   component="th"
                   scope="row"
-                  className="employees-list__table-row"
+                  className="employees-list__table-row-cell"
                 >
                   {row.name}
                 </TableCell>
@@ -95,7 +79,7 @@ export default function EmployeesList() {
                   align="right"
                   className="employees-list__table-row-cell"
                 >
-                  {row.mobPhone}
+                  {row.mobilePhone}
                 </TableCell>
                 <TableCell
                   align="right"
