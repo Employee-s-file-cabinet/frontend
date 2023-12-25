@@ -12,9 +12,9 @@ export default function Notification({ buttonLabel, title, description }) {
   };
 
   return (
-    <div className="notification">
-      <h2 className="notification__title">{title}</h2>
-      <p className="notification__description">{description}</p>
+    <div className="my-notification">
+      <h2 className="my-notification__title">{title}</h2>
+      <p className="my-notification__description">{description}</p>
       <MainButton
         size="is-medium"
         theme="is-primary"

@@ -1,0 +1,88 @@
+.employees-list {
+  width: 100%;
+  flex: 1;
+
+  &__container.employees-list__container.employees-list__container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+  }
+
+  &__table {
+    height: 100%;
+  }
+
+  &__table-column.employees-list__table-column.employees-list__table-column {
+    border-bottom: $white-grey 4px solid;
+    color: $dark-grey;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: $fontFamily;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+
+    &:nth-child(1) {
+      min-width: 376px;
+    }
+
+    &:nth-child(2) {
+      min-width: 300px;
+    }
+
+    &:nth-child(3) {
+      min-width: 300px;
+    }
+
+    &:nth-child(4) {
+      min-width: 154px;
+    }
+
+    &:nth-child(5) {
+      min-width: 154px;
+    }
+  }
+
+  &__table-row {
+    transition: all ease-in 0.8s;
+    &:hover {
+      cursor: pointer;
+      background-color: $color-table-hover;
+    }
+  }
+
+  &__table-row-cell.employees-list__table-row-cell.employees-list__table-row-cell {
+    padding: 1.2% 12px 1.2% 12px;
+    color: $dark-grey;
+    font-family: $fontFamily;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:nth-child(1) {
+      max-width: 376px;
+    }
+
+    &:nth-child(2) {
+      max-width: 300px;
+    }
+
+    &:nth-child(3) {
+      max-width: 300px;
+    }
+
+    &:nth-child(4) {
+      max-width: 154px;
+    }
+
+    &:nth-child(5) {
+      max-width: 154px;
+    }
+  }
+}

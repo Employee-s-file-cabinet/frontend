@@ -120,8 +120,9 @@ export default function CurrentDataForm() {
           </legend>
         </div>
         <div className="column career-development-column">
-          <CareerDevelopment />
+          <CareerDevelopment isEdit={isEdit} />
         </div>
+        <button className="current-data-form__add">Добавить строки</button>
       </div>
       <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
@@ -158,8 +159,9 @@ export default function CurrentDataForm() {
           </legend>
         </div>
         <div className="column career-development-column">
-          <Benefits />
+          <Benefits isEdit={isEdit} />
         </div>
+        <button className="current-data-form__add">Добавить строки</button>
       </div>
       <div className="current-data-form__group">
         <h5 className="current-data-form__title">Отпуск</h5>
@@ -173,6 +175,7 @@ export default function CurrentDataForm() {
         <div className="column career-development-column">
           <Vacation isEdit={isEdit} />
         </div>
+        <button className="current-data-form__add">Добавить строки</button>
       </div>
       <div className="current-data-form__group">
         <h5 className="current-data-form__title">Обучение</h5>
@@ -184,8 +187,9 @@ export default function CurrentDataForm() {
           </legend>
         </div>
         <div className="column career-development-column">
-          <CompletedTraining />
+          <CompletedTraining isEdit={isEdit} />
         </div>
+        <button className="current-data-form__add">Добавить строки</button>
       </div>
       <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
@@ -194,13 +198,14 @@ export default function CurrentDataForm() {
           </legend>
         </div>
         <div className="column career-development-column">
-          <PlannedTraining />
+          <PlannedTraining isEdit={isEdit} />
         </div>
+        <button className="current-data-form__add">Добавить строки</button>
       </div>
       <div className="current-data-form__group">
         <h5 className="current-data-form__title">Дополнительно</h5>
       </div>
-      <Optionally />
+      <Optionally isEdit={isEdit} />
       <div className="buttons-group">
         <button className={` button-save${!isEdit ? ' button-disabled' : ''}`}>
           Сохранить

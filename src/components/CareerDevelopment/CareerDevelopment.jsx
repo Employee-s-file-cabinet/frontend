@@ -84,7 +84,6 @@ export default function CareerDevelopment({ isEdit }) {
           </div>
         </div>
       </div>
-      <button className="career-development__add">Добавить строки</button>
     </>
   );
 }

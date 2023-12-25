@@ -7,7 +7,7 @@ export default function SuccessSentToEmailPage() {
   const email = location.state?.email;
 
   return (
-    <section className="reset-success-page">
+    <section className="success-sent-email-page">
       <Notification
         buttonLabel="Назад"
         title="Ссылка успешно отправлена"

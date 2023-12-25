@@ -1,4 +1,9 @@
 .employee-page {
-  @include flex(column, flex-end, center);
+  @include flex(column, flex-start, flex-start);
   background-color: $white;
+
+  &__content {
+    padding: 0 44px 0 44px;
+    width: 100%;
+  }
 }

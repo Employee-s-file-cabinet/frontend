@@ -1,0 +1,18 @@
+.experience {
+  &__input {
+    width: 640px;
+  }
+}
+
+.input-trash {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 16px;
+  height: 16px;
+}
+
+.field-trash {
+  display: flex;
+  // flex-direction: column;
+}
