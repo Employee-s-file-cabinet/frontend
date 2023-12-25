@@ -1,0 +1,10 @@
+.employees-pagination {
+  width: 100%;
+  padding: 18px 130px 40px 130px;
+  @include flex(row, center, flex-start);
+
+  & .pagination-link.is-current {
+    background-color: $turquoise;
+    border-color: $turquoise;
+  }
+}

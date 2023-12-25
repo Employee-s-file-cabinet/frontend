@@ -24,6 +24,8 @@ export default function ResetPasswordForm() {
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
   const [isFocusedConfirmPassword, setIsFocusedConfirmPassword] =
     useState(false);
+  const [isExtraClassForPasswordIcon, setIsExtraClassForPasswordIcon] =
+    useState('icon_margined');
 
   function onSubmit(data) {
     console.log(data);
@@ -46,8 +48,10 @@ export default function ResetPasswordForm() {
   const handleFocus = (event) => {
     if (event.target.name === 'confirmPassword') {
       setIsFocusedConfirmPassword(true);
+      setIsExtraClassForPasswordIcon('icon_margined icon__clickable');
     } else {
       setIsFocusedPassword(true);
+      setIsExtraClassForPasswordIcon('icon_margined icon__clickable');
     }
   };
 
@@ -55,10 +59,12 @@ export default function ResetPasswordForm() {
     if (event.target.name === 'confirmPassword') {
       setTimeout(() => {
         setIsFocusedConfirmPassword(false);
+        setIsExtraClassForPasswordIcon('icon_margined');
       }, 500);
     } else {
       setTimeout(() => {
         setIsFocusedPassword(false);
+        setIsExtraClassForPasswordIcon('icon_margined');
       }, 500);
     }
   };
@@ -98,6 +104,7 @@ export default function ResetPasswordForm() {
               size="is-small"
               position="is-right"
               onClick={handleClickIconReset}
+              extraClass="icon__clickable"
             />
           ) : (
             <Icon icon="fa-lock" size="is-small" position="is-right" />
@@ -106,8 +113,8 @@ export default function ResetPasswordForm() {
             icon={eyeType}
             size="is-small"
             position="is-right"
-            extraClass="icon_margined"
             onClick={handleEyeClick}
+            extraClass={isExtraClassForPasswordIcon}
           />
         </MainField>
       </fieldset>
@@ -130,6 +137,7 @@ export default function ResetPasswordForm() {
               size="is-small"
               position="is-right"
               onClick={handleClickIconReset}
+              extraClass="icon__clickable"
             />
           ) : (
             <Icon icon="fa-lock" size="is-small" position="is-right" />
@@ -138,8 +146,8 @@ export default function ResetPasswordForm() {
             icon={eyeType}
             size="is-small"
             position="is-right"
-            extraClass="icon_margined"
             onClick={handleEyeClick}
+            extraClass={isExtraClassForPasswordIcon}
           />
         </MainField>
       </fieldset>

@@ -25,6 +25,8 @@ export default function Login() {
   // STATES FOR WATCHING FOCUS ON FIELDS FOR CHANGE ICONS ON CROSS WHEN FIELD FOCUSED
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
+  const [isExtraClassForPasswordIcon, setIsExtraClassForPasswordIcon] =
+    useState('icon_margined');
 
   function onSubmit(data) {
     console.log(data);
@@ -49,6 +51,7 @@ export default function Login() {
       setIsFocusedEmail(true);
     } else {
       setIsFocusedPassword(true);
+      setIsExtraClassForPasswordIcon('icon_margined icon__clickable');
     }
   };
 
@@ -60,6 +63,7 @@ export default function Login() {
     } else {
       setTimeout(() => {
         setIsFocusedPassword(false);
+        setIsExtraClassForPasswordIcon('icon_margined');
       }, 500);
     }
   };
@@ -102,6 +106,7 @@ export default function Login() {
               size="is-small"
               position="is-right"
               onClick={handleClickIconReset}
+              extraClass="icon__clickable"
             />
           ) : (
             <Icon icon="fa-envelope" size="is-small" position="is-right" />
@@ -129,6 +134,7 @@ export default function Login() {
               size="is-small"
               position="is-right"
               onClick={handleClickIconReset}
+              extraClass="icon__clickable"
             />
           ) : (
             <Icon icon="fa-lock" size="is-small" position="is-right" />
@@ -137,7 +143,7 @@ export default function Login() {
             icon={eyeType}
             size="is-small"
             position="is-right"
-            extraClass="icon_margined"
+            extraClass={isExtraClassForPasswordIcon}
             onClick={handleEyeClick}
           />
         </MainField>
@@ -147,7 +153,6 @@ export default function Login() {
         <Link to="/access-restore" className="login__restore-pass-link">
           Забыли пароль?
         </Link>
-
         <MainButton
           disabled={!isValid}
           size="is-medium"

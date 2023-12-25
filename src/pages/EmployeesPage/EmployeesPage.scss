@@ -21,29 +21,4 @@
     line-height: 112.5%;
     letter-spacing: -0.4px;
   }
-
-  &__search-container {
-    margin: 24px 0 24px 0;
-    width: 100%;
-    @include flex(row, flex-start, flex-start);
-  }
-
-  &__filter-container {
-    margin: 0 0 10px 12px;
-  }
-
-  &__search-fieldset {
-    flex: 1;
-  }
-
-  &__pagination-container {
-    width: 100%;
-    padding: 18px 130px 40px 130px;
-    @include flex(row, center, flex-start);
-  }
-
-  & .pagination-link.is-current {
-    background-color: $turquoise;
-    border-color: $turquoise;
-  }
 }
