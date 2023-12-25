@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-no-undef */
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
 import InformatoionEmployee from '../../components/InfommatoionEmployee/InformatoionEmployee';
 import HeaderMain from '../../components/HeaderMain/HeaderMain';

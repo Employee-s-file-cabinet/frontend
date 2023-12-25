@@ -11,51 +11,48 @@ function ProfileInfo() {
     formState: { errors },
   } = useForm();
 
-  function handleEditButton() {
-    return isEdit === true ? setIsEdit(false) : setIsEdit(true);
-  }
-
   return (
     <section className="profile">
-      <h2 className="profile__title title is-2">Исаева Полина Артёмовна</h2>
+      <h2 className="title is-2 profile__title">Исаева Полина Артёмовна</h2>
       <div className="profile__container">
         <div className="profile__image-container">
           <img className="profile__image" alt="Логотип" src={ProfilePic} />
-          <div
-            className={`profile__file file ${
-              isEdit === false ? 'profile__buttons-disabled' : ''
-            }`}
-          >
-            <label className="profile__label file-label" htmlFor="profileImage">
-              <input
-                {...register('file')}
-                className="file-input"
-                type="file"
-                name="profileImage"
-              />
-              <span className="profile__cta file-cta">
-                <span className="profile__label file-label">
-                  Загрузить фото
+          {isEdit && (
+            <div className="file">
+              <label
+                className="profile__label file-label"
+                htmlFor="profileImage"
+              >
+                <input
+                  {...register('file')}
+                  className="file-input profile__upload-button"
+                  type="file"
+                  name="profileImage"
+                />
+                <span className="file-cta profile__cta">
+                  <span className="file-label">Загрузить фото</span>
+                  <span className="file-icon profile__icon">
+                    <i className="fas fa-upload" />
+                  </span>
                 </span>
-                <span className="profile__icon file-icon">
-                  <i className="fas fa-upload" />
-                </span>
+              </label>
+              <span className="profile__input-error">
+                {errors.email?.message}
               </span>
-            </label>
-            <span className="profile__input-error">
-              {errors.email?.message}
-            </span>
-          </div>
+            </div>
+          )}
         </div>
         <form className="profile__form" id="submit" name="profile">
-          <div className="columns">
-            <div className="column profile__column">
-              <div className="profile__input">
+          <div className="profile__columns">
+            <div className="profile__column">
+              <div className="profile__input-container">
                 <label className="profile__input-label" htmlFor="lastName">
                   Фамилия
                   <input
                     {...register('lastName')}
-                    className="input profile__input"
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
                     type="text"
                     minLength="2"
                     maxLength="150"
@@ -69,12 +66,14 @@ function ProfileInfo() {
                   {errors.lastName?.message}
                 </span>
               </div>
-              <div className="profile__input">
+              <div className="profile__input-container">
                 <label className="profile__input-label" htmlFor="firstName">
                   Имя
                   <input
                     {...register('firstName')}
-                    className="input profile__input"
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
                     type="text"
                     minLength="2"
                     maxLength="150"
@@ -88,12 +87,14 @@ function ProfileInfo() {
                   {errors.firstName?.message}
                 </span>
               </div>
-              <div className="profile__input">
+              <div className="profile__input-container">
                 <label className="profile__input-label" htmlFor="middleName">
                   Отчество
                   <input
                     {...register('middleName')}
-                    className="input profile__input"
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
                     type="text"
                     minLength="2"
                     maxLength="150"
@@ -103,18 +104,22 @@ function ProfileInfo() {
                     required
                   />
                 </label>
-                <span className="profile__input-error profile__input-error_margin_custom">
-                  {errors.middleName?.message}
-                </span>
+                {isEdit && (
+                  <span className="profile__input-error profile__input-error_margin_custom">
+                    {errors.middleName?.message}
+                  </span>
+                )}
               </div>
             </div>
-            <div className="profile__column column">
-              <div className="profile__input">
+            <div className="profile__column">
+              <div className="profile__input-container">
                 <label className="profile__input-label" htmlFor="department">
                   Отдел
                   <input
                     {...register('department')}
-                    className="input profile__input"
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
                     type="text"
                     minLength="2"
                     maxLength="150"
@@ -128,12 +133,14 @@ function ProfileInfo() {
                   {errors.department?.message}
                 </span>
               </div>
-              <div className="profile__input">
+              <div className="profile__input-container">
                 <label className="profile__input-label" htmlFor="jobTitle">
                   Должность
                   <input
                     {...register('jobTitle')}
-                    className="input profile__input"
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
                     type="text"
                     minLength="2"
                     maxLength="150"
@@ -147,12 +154,14 @@ function ProfileInfo() {
                   {errors.jobTitle?.message}
                 </span>
               </div>
-              <div className="profile__input">
+              <div className="profile__input-container">
                 <label className="profile__input-label" htmlFor="grade">
                   Грейд
                   <input
                     {...register('grade')}
-                    className="input profile__input"
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
                     type="text"
                     minLength="2"
                     maxLength="150"
@@ -162,18 +171,22 @@ function ProfileInfo() {
                     required
                   />
                 </label>
-                <span className="profile__input-error profile__input-error_margin_custom">
-                  {errors.grade?.message}
-                </span>
+                {isEdit && (
+                  <span className="profile__input-error profile__input-error_margin_custom">
+                    {errors.middleName?.message}
+                  </span>
+                )}
               </div>
             </div>
-            <div className="profile__column column">
-              <div className="profile__input">
+            <div className="profile__column">
+              <div className="profile__input-container">
                 <label className="profile__input-label" htmlFor="mobileNumber">
                   Мобильный телефон
                   <input
                     {...register('mobileNumber')}
-                    className="input profile__input"
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
                     type="text"
                     minLength="2"
                     maxLength="150"
@@ -187,12 +200,14 @@ function ProfileInfo() {
                   {errors.mobileNumber?.message}
                 </span>
               </div>
-              <div className="profile__input">
+              <div className="profile__input-container">
                 <label className="profile__input-label" htmlFor="extNumber">
                   Внутренний номер
                   <input
                     {...register('extNumber')}
-                    className="input profile__input"
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
                     type="text"
                     minLength="2"
                     maxLength="150"
@@ -206,13 +221,15 @@ function ProfileInfo() {
                   {errors.extNumber?.message}
                 </span>
               </div>
-              <div className="profile__input">
+              <div className="profile__input-container">
                 <label className="profile__input-label" htmlFor="email">
                   E-mail
                   <input
                     {...register('email')}
-                    className="input profile__input"
-                    type="text"
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
+                    type="email"
                     minLength="2"
                     maxLength="150"
                     placeholder="E-mail"
@@ -221,31 +238,33 @@ function ProfileInfo() {
                     required
                   />
                 </label>
-                <span className="profile__input-error profile__input-error_margin_custom">
-                  {errors.email?.message}
-                </span>
+                {isEdit && (
+                  <span className="profile__input-error profile__input-error_margin_custom">
+                    {errors.middleName?.message}
+                  </span>
+                )}
               </div>
             </div>
           </div>
-          <div
-            className={`profile__buttons ${
-              isEdit === false ? 'profile__buttons-disabled' : ''
-            }`}
-          >
-            <button className="profile__button button is-primary">
-              Сохранить
-            </button>
-            <button className="profile__button button is-primary is-light">
-              Сбросить изменения
-            </button>
-          </div>
+          {isEdit && (
+            <div className="profile__buttons">
+              <button className="profile__button button is-primary">
+                Сохранить
+              </button>
+              <button className="profile__button button is-primary is-light">
+                Сбросить изменения
+              </button>
+            </div>
+          )}
         </form>
         <div className="profile__button-edit">
-          <Icon
-            icon="fa-pen-to-square"
-            size="is-small"
-            onClick={() => handleEditButton()}
-          />
+          {!isEdit && (
+            <Icon
+              icon="fa-pen-to-square"
+              size="is-small"
+              onClick={() => setIsEdit(true)}
+            />
+          )}
         </div>
       </div>
     </section>

@@ -1,9 +1,9 @@
 .general-layout {
-  //display: flex;
-  //flex-direction: row;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 300px calc(100% - 300px);
+  max-width: 1440px;
+  margin: 0 auto;
 
   &__container {
     max-width: 100%;
