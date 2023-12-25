@@ -6,6 +6,7 @@ import { pagesPath } from '../../utils/constants';
 
 export default function EmployeePage() {
   const { home, employees, employee } = pagesPath;
+
   return (
     <section className="employee-page">
       <HeaderMain>
