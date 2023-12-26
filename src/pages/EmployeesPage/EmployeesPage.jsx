@@ -9,6 +9,8 @@ import { serviceMock } from '../../utils/ServiceMock';
 
 export default function EmployeesPage() {
   const [employeesData, setEmployeesData] = useState([]);
+  const [isCurrentPage, setIsCurrentPage] = useState(46);
+  const lastPage = 86;
 
   useEffect(() => {
     serviceMock
@@ -29,7 +31,11 @@ export default function EmployeesPage() {
         <h2 className="employees__title">Картотека сотрудников</h2>
         <EmployeesSearch />
         <EmployeesList employeesData={employeesData} />
-        <EmployeesPaginations />
+        <EmployeesPaginations
+          isCurrentPage={isCurrentPage}
+          setIsCurrentPage={setIsCurrentPage}
+          lastPage={lastPage}
+        />
       </main>
     </section>
   );
