@@ -7,12 +7,12 @@ export default function EmployeesPaginations({
 }) {
   const handlePreviousPagination = (event) => {
     event.preventDefault();
-    setIsCurrentPage(isCurrentPage - 1);
+    if (isCurrentPage !== 1) setIsCurrentPage(isCurrentPage - 1);
   };
 
   const handleNextPagination = (event) => {
     event.preventDefault();
-    setIsCurrentPage(isCurrentPage + 1);
+    if (isCurrentPage !== lastPage) setIsCurrentPage(isCurrentPage + 1);
   };
 
   const handlePageButtonsClick = (event) => {
