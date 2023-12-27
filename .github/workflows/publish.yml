@@ -58,4 +58,4 @@ jobs: # Задания
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          script: sudo nginx -s reload
+          script: echo ${{ secrets.PASSWORD }} | sudo -S nginx -s reload
