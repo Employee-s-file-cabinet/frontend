@@ -9,9 +9,9 @@ import { serviceMock } from '../../utils/ServiceMock';
 
 export default function EmployeesPage() {
   const [employeesData, setEmployeesData] = useState([]);
-  const [isCurrentPage, setIsCurrentPage] = useState(46);
+  const [isCurrentPage, setIsCurrentPage] = useState(1);
   const [isSearchFiltration, setIsSearchFiltration] = useState('alphabet');
-  const lastPage = 86;
+  const lastPage = 88;
 
   useEffect(() => {
     serviceMock
