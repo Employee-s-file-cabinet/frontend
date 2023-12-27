@@ -3,7 +3,7 @@ import axios from 'axios';
 // const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL, REACT_APP_DEV_URL } =
 //   process.env;
 
-const baseURL = 'http://127.0.0.1:9990/api/v1';
+const baseURL = 'https://127.0.0.1:9990/api/v1';
 // REACT_APP_NODE_ENV === 'production'
 //   ? REACT_APP_PUBLIC_URL
 //   : REACT_APP_DEV_URL;
