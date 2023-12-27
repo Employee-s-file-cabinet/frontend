@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL } = process.env;
+const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL, REACT_APP_DEV_URL } =
+  process.env;
 
 const baseURL =
   REACT_APP_NODE_ENV === 'production'
     ? REACT_APP_PUBLIC_URL
-    : 'http://localhost:4000';
+    : REACT_APP_DEV_URL;
 
 const axiosBase = axios.create({
   baseURL,
