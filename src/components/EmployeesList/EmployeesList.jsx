@@ -12,6 +12,7 @@ export default function EmployeesList({ employeesData }) {
   const navigate = useNavigate();
 
   const handleClick = (employeeData) => {
+    // eslint-disable-next-line no-console
     console.log(employeeData);
     navigate('/employee', { state: employeeData });
   };

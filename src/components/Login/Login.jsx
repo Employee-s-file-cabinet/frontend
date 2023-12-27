@@ -27,6 +27,7 @@ export default function Login() {
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
 
   function onSubmit(data) {
+    // eslint-disable-next-line no-console
     console.log(data);
     navigate('/');
   }
