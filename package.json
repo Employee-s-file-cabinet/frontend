@@ -1,5 +1,5 @@
 {
-  "homepage": "https://employee-s-file-cabinet.github.io/frontend/#",
+  "homepage": "https://ecabinet.acceleratorpracticum.ru/#",
   "name": "employee-card",
   "version": "0.1.0",
   "private": false,
@@ -38,8 +38,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "env-cmd -f .env react-scripts start",
-    "build": "env-cmd -f .env react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "jest",
     "predeploy": "npm run build",
