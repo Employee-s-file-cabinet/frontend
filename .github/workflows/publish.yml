@@ -45,4 +45,4 @@ jobs: # Задания
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          script: nginx -S reload
+          script: nginx -s reload
