@@ -86,7 +86,7 @@ function App() {
     </Route>
   );
 
-  const router = createHashRouter(routes);
+  const router = createBrowserRouter(routes);
 
   return (
     <Suspense fallback={<Preloader />}>
