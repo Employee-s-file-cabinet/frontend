@@ -1,4 +1,4 @@
-export const apiURL = 'https://ecabinet.acceleratorpracticum.ru/api/v1';
+export const apiURL = 'https://ecabinet.acceleratorpracticum.ru:8001/api/v1';
 
 export const pagesPath = {
   home: { path: '', label: 'Главная', id: 1 },
