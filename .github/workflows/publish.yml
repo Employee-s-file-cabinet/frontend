@@ -1,6 +1,9 @@
 name: Publish
 on:
-  workflow_dispatch:
+  push:
+    branches: ['feat/deploy']
+# on:
+#   workflow_dispatch:
 
 jobs: # Задания
   # test: # Тестирование
