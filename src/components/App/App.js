@@ -27,7 +27,7 @@ import PasswordResetPage from '../../pages/PasswordResetPage/PasswordResetPage';
 import ResetSuccessPage from '../../pages/ResetSuccessPage/ResetSuccessPage';
 import SuccessSentToEmailPage from '../../pages/SuccessSentToEmailPage/SuccessSentToEmailPage';
 
-const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL } = process.env;
+// const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL } = process.env;
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
