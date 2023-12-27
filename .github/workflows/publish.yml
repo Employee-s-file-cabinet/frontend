@@ -34,7 +34,7 @@ jobs: # Задания
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
+          password: ${{ secrets.PASSWORD }}
           source: build/
           target: /var/www/ecabinet
 
@@ -44,5 +44,5 @@ jobs: # Задания
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          script: nginx -s reload
+          password: ${{ secrets.PASSWORD }}
+          script: sudo nginx -s reload
