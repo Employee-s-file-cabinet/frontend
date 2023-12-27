@@ -6,7 +6,10 @@ import { Icon } from '../UI/Icons/Icons';
 import { MainButton } from '../UI/Buttons/MainButton';
 import { searchSchema } from '../../utils/ValidationSchema';
 
-export default function EmployeesSearch() {
+export default function EmployeesSearch({
+  setIsSearchFiltration,
+  isSearchFiltration,
+}) {
   const [isFocusedSearch, setIsFocusedSearch] = useState(false);
   const [isInputIconPosition, setInputIconPosition] =
     useState('has-icons-left');
@@ -40,6 +43,23 @@ export default function EmployeesSearch() {
   function onSubmit(data) {
     console.log(data);
   }
+
+  const handleClickFiltrationTag = (event) => {
+    switch (event.target.textContent) {
+      case 'Отделы':
+        setIsSearchFiltration('departments');
+        break;
+      case 'Орг.структура':
+        setIsSearchFiltration('structures');
+        break;
+      case 'Орг.структура полная':
+        setIsSearchFiltration('full-structures');
+        break;
+      default:
+        setIsSearchFiltration('alphabet');
+        break;
+    }
+  };
 
   return (
     <form className="employees-search" onSubmit={handleSubmit(onSubmit)}>
@@ -85,19 +105,40 @@ export default function EmployeesSearch() {
       <div className="employees-search__filter-container buttons has-addons">
         <MainButton
           size="is-normal"
-          theme="is-primary"
+          theme={`${isSearchFiltration === 'alphabet' ? 'is-primary' : ''}`}
           extraClass=""
           type="button"
+          onClick={handleClickFiltrationTag}
         >
           От А до Я
         </MainButton>
-        <MainButton size="is-normal" theme="" extraClass="" type="button">
+        <MainButton
+          size="is-normal"
+          theme={`${isSearchFiltration === 'departments' ? 'is-primary' : ''}`}
+          extraClass=""
+          type="button"
+          onClick={handleClickFiltrationTag}
+        >
           Отделы
         </MainButton>
-        <MainButton size="is-normal" theme="" extraClass="" type="button">
+        <MainButton
+          size="is-normal"
+          theme={`${isSearchFiltration === 'structures' ? 'is-primary' : ''}`}
+          extraClass=""
+          type="button"
+          onClick={handleClickFiltrationTag}
+        >
           Орг.структура
         </MainButton>
-        <MainButton size="is-normal" theme="" extraClass="" type="button">
+        <MainButton
+          size="is-normal"
+          theme={`${
+            isSearchFiltration === 'full-structures' ? 'is-primary' : ''
+          }`}
+          extraClass=""
+          type="button"
+          onClick={handleClickFiltrationTag}
+        >
           Орг.структура полная
         </MainButton>
       </div>

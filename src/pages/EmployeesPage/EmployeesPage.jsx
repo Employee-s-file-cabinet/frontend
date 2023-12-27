@@ -10,6 +10,7 @@ import { serviceMock } from '../../utils/ServiceMock';
 export default function EmployeesPage() {
   const [employeesData, setEmployeesData] = useState([]);
   const [isCurrentPage, setIsCurrentPage] = useState(46);
+  const [isSearchFiltration, setIsSearchFiltration] = useState('alphabet');
   const lastPage = 86;
 
   useEffect(() => {
@@ -29,7 +30,10 @@ export default function EmployeesPage() {
       </HeaderMain>
       <main className="employees__content">
         <h2 className="employees__title">Картотека сотрудников</h2>
-        <EmployeesSearch />
+        <EmployeesSearch
+          isSearchFiltration={isSearchFiltration}
+          setIsSearchFiltration={setIsSearchFiltration}
+        />
         <EmployeesList employeesData={employeesData} />
         <EmployeesPaginations
           isCurrentPage={isCurrentPage}
