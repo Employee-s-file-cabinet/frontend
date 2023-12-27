@@ -49,10 +49,11 @@ jobs: # Задания
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            cd /var/www/ecabinet/build
+            cd /var/www/ecabinet
             rm -rf .env
             echo REACT_APP_NODE_ENV=${{ secrets.REACT_APP_NODE_ENV }}  >> .env
             echo REACT_APP_PUBLIC_URL=${{ secrets.REACT_APP_PUBLIC_URL }}  >> .env
+            echo REACT_APP_DEV_URL=${{ secrets.REACT_APP_DEV_URL }}  >> .env
 
       - name: Restart nginx
         uses: appleboy/ssh-action@v1.0.0
