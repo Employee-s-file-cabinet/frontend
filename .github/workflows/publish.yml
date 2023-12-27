@@ -1,0 +1,48 @@
+name: Publish
+on:
+  workflow_dispatch:
+
+jobs: # Задания
+  test: # Тестирование
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18 # Запускать на 18 ноде
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm run codestyle
+
+  publish: # Опубликовать
+    name: Build and Publish
+    needs: test # Запускать только если тест прошёл успешно
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run build
+
+      - name: Copy build to server
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          source: build/
+          target: /var/www/ecabinet
+
+      - name: Restart nginx
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: sudo nginx -s reload
