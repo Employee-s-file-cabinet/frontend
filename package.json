@@ -41,7 +41,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "jest",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "lint": "eslint . --ext .js,.jsx .",
