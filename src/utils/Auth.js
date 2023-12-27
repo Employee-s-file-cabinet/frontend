@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiURL } from './Constans';
+import { apiURL } from './constants';
 
 // const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL, REACT_APP_DEV_URL } =
 //   process.env;
