@@ -1,10 +1,10 @@
 import axios from 'axios';
-// import { apiURL } from './constants';
+import { apiURL } from './constants';
 
 // const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL, REACT_APP_DEV_URL } =
 //   process.env;
 
-const baseURL = 'https://ecabinet.acceleratorpracticum.ru:8001/api/v1';
+const baseURL = apiURL;
 // REACT_APP_NODE_ENV === 'production'
 //   ? REACT_APP_PUBLIC_URL
 //   : REACT_APP_DEV_URL;
