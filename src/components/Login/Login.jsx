@@ -6,6 +6,7 @@ import { MainButton } from '../UI/Buttons/MainButton';
 import { MainField } from '../UI/Fields/MainField';
 import { Icon } from '../UI/Icons/Icons';
 import { loginSchema } from '../../utils/ValidationSchema';
+import * as auth from '../../utils/Auth';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ export default function Login() {
   function onSubmit(data) {
     // eslint-disable-next-line no-console
     console.log(data);
+    auth.authorize(data.email, data.password);
     navigate('/');
   }
 
