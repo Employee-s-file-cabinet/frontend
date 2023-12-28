@@ -1,15 +1,5 @@
-/* eslint-disable no-console */
 import axios from 'axios';
-
-const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL, REACT_APP_DEV_URL } =
-  process.env;
-
-const baseURL =
-  REACT_APP_NODE_ENV === 'production'
-    ? REACT_APP_PUBLIC_URL
-    : REACT_APP_DEV_URL;
-
-console.log(baseURL);
+import { baseURL } from './constants';
 
 const axiosBase = axios.create({
   baseURL,

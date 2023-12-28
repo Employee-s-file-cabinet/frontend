@@ -1,9 +1,7 @@
-/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import { useState, Suspense } from 'react';
 import {
   createBrowserRouter,
-  createHashRouter,
   createRoutesFromElements,
   RouterProvider,
   Route,
@@ -28,11 +26,7 @@ import PasswordResetPage from '../../pages/PasswordResetPage/PasswordResetPage';
 import ResetSuccessPage from '../../pages/ResetSuccessPage/ResetSuccessPage';
 import SuccessSentToEmailPage from '../../pages/SuccessSentToEmailPage/SuccessSentToEmailPage';
 
-const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL } = process.env;
-
 function App() {
-  console.log(REACT_APP_NODE_ENV);
-  console.log(REACT_APP_PUBLIC_URL);
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   // routes
