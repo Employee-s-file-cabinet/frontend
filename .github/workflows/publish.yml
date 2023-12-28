@@ -6,17 +6,8 @@ on:
 #   workflow_dispatch:
 
 jobs: # Задания
-  env: # определение env переменных
-    name: add env
-    runs-on: ubuntu-latest
-    env:
-      REACT_APP_NODE_ENV: ${{ secrets.REACT_APP_NODE_ENV }}
-      REACT_APP_PUBLIC_URL: ${{ secrets.REACT_APP_PUBLIC_URL }}
-      REACT_APP_DEV_URL: ${{ secrets.REACT_APP_DEV_URL }}
-
   publish: # Опубликовать
     name: Build and Publish
-    # needs: test # Запускать только если тест прошёл успешно
     runs-on: ubuntu-latest
 
     steps:
@@ -24,10 +15,12 @@ jobs: # Задания
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-
+        env:
+          REACT_APP_NODE_ENV: ${{ secrets.REACT_APP_NODE_ENV }}
+          REACT_APP_PUBLIC_URL: ${{ secrets.REACT_APP_PUBLIC_URL }}
+          REACT_APP_DEV_URL: ${{ secrets.REACT_APP_DEV_URL }}
       - run: npm ci
       - run: npm run build
-      - run:
 
       - name: Copy build to server
         uses: appleboy/scp-action@v0.1.4
