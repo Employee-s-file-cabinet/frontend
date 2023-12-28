@@ -2,6 +2,10 @@ name: Publish
 on:
   push:
     branches: ['feat/deploy']
+env:
+  REACT_APP_NODE_ENV: ${{ secrets.REACT_APP_NODE_ENV }}
+  REACT_APP_PUBLIC_URL: ${{ secrets.REACT_APP_PUBLIC_URL }}
+  REACT_APP_DEV_URL: ${{ secrets.REACT_APP_DEV_URL }}
 # on:
 #   workflow_dispatch:
 
@@ -30,6 +34,7 @@ jobs: # Задания
           node-version: 18
       - run: npm ci
       - run: npm run build
+      - run:
 
       - name: Copy build to server
         uses: appleboy/scp-action@v0.1.4
@@ -41,19 +46,19 @@ jobs: # Задания
           source: build/
           target: /var/www/ecabinet
 
-      - name: Set environment variables on server
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: |
-            cd /var/www/ecabinet
-            rm -rf .env
-            echo REACT_APP_NODE_ENV=${{ secrets.REACT_APP_NODE_ENV }}  >> .env
-            echo REACT_APP_PUBLIC_URL=${{ secrets.REACT_APP_PUBLIC_URL }}  >> .env
-            echo REACT_APP_DEV_URL=${{ secrets.REACT_APP_DEV_URL }}  >> .env
+      # - name: Set environment variables on server
+      #   uses: appleboy/ssh-action@v1.0.0
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     port: ${{ secrets.PORT }}
+      #     username: ${{ secrets.USERNAME }}
+      #     password: ${{ secrets.PASSWORD }}
+      #     script: |
+      #       cd /var/www/ecabinet
+      #       rm -rf .env
+      #       echo REACT_APP_NODE_ENV=${{ secrets.REACT_APP_NODE_ENV }}  >> .env
+      #       echo REACT_APP_PUBLIC_URL=${{ secrets.REACT_APP_PUBLIC_URL }}  >> .env
+      #       echo REACT_APP_DEV_URL=${{ secrets.REACT_APP_DEV_URL }}  >> .env
 
       - name: Restart nginx
         uses: appleboy/ssh-action@v1.0.0
