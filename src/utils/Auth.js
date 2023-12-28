@@ -1,12 +1,15 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 
 // const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL, REACT_APP_DEV_URL } =
 //   process.env;
 
-const baseURL = 'https://ecabinet.acceleratorpracticum.ru:8001/api/v1';
+const baseURL = 'https://ecabinet.acceleratorpracticum.ru/api/v1';
 // REACT_APP_NODE_ENV === 'production'
 //   ? REACT_APP_PUBLIC_URL
 //   : REACT_APP_DEV_URL;
+
+console.log(baseURL);
 
 const axiosBase = axios.create({
   baseURL,
@@ -32,6 +35,7 @@ function processError(error) {
 
 // функция отправки данных для авторизации пользователя
 export function authorize(login, password) {
+  console.log(baseURL);
   return axiosBase
     .post(`/login`, { login, password })
     .then((res) => res.data)
