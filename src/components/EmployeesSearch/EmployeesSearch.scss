@@ -1,0 +1,13 @@
+.employees-search {
+  margin: 24px 0 24px 0;
+  width: 100%;
+  @include flex(row, flex-start, flex-start);
+
+  &__filter-container {
+    margin: 0 0 10px 12px;
+  }
+
+  &__fieldset {
+    flex: 1;
+  }
+}

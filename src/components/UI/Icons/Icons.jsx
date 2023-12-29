@@ -17,14 +17,7 @@ export const Icon = ({
   ...props
 }) => (
   <span
-    className={[
-      'icon',
-      'icon__clickable',
-      size,
-      theme,
-      position,
-      extraClass,
-    ].join(' ')}
+    className={['icon', size, theme, position, extraClass].join(' ')}
     onClick={onClick}
     onKeyDown={onKeyDown}
     role="button"

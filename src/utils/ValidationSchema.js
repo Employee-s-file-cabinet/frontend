@@ -47,3 +47,9 @@ export const resetPasswordSchema = yup
       .oneOf([yup.ref('password'), null], 'Пароли должны совпадать.'),
   })
   .required();
+
+export const searchSchema = yup
+  .object({
+    search: yup.string().required('Задан пустой поисковой запрос'),
+  })
+  .required();
