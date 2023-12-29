@@ -19,6 +19,7 @@ export default function EmployeesPage() {
       .then((res) => {
         setEmployeesData(res);
       })
+      // eslint-disable-next-line no-console
       .catch((err) => console.log(`Ошибка: ${err}`));
   }, []);
 

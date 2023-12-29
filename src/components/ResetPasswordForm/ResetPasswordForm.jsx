@@ -28,6 +28,7 @@ export default function ResetPasswordForm() {
     useState('icon_margined');
 
   function onSubmit(data) {
+    // eslint-disable-next-line no-console
     console.log(data);
     navigate('/reset-success');
   }
