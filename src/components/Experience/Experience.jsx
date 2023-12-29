@@ -4,8 +4,7 @@ import './Experience.scss';
 
 export default function Experience({ isEdit }) {
   return (
-    <>
-      {/* <div className="columns is-gapless career-development"> */}
+    <section className="expirients">
       <div className="field">
         <legend className="label label-horizontal">Название компании</legend>
         <div className="control">
@@ -16,9 +15,6 @@ export default function Experience({ isEdit }) {
             disabled={!isEdit}
           />
         </div>
-        {/* <div className="columns is-gapless">
-          <img src={Trash} className='input-trash' alt="корзина" />
-        </div> */}
       </div>
       <div className="field">
         <legend className="label label-horizontal">Должность</legend>
@@ -30,9 +26,6 @@ export default function Experience({ isEdit }) {
             disabled={!isEdit}
           />
         </div>
-        {/* <div className="columns is-gapless">
-          <img src={Trash} className='input-trash' alt="корзина" />
-        </div> */}
       </div>
       <div className="columns is-gapless">
         <div className="column is-one-third">
@@ -71,7 +64,6 @@ export default function Experience({ isEdit }) {
           <textarea className="textarea is-small" disabled={!isEdit} />
         </div>
       </div>
-      {/* </div> */}
-    </>
+    </section>
   );
 }
