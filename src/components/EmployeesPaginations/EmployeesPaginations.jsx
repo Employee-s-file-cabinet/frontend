@@ -19,6 +19,7 @@ export default function EmployeesPaginations({
   const handlePageButtonsClick = (event) => {
     event.preventDefault();
     const targetElement = event.target;
+    // eslint-disable-next-line no-console
     console.log(Number(targetElement.textContent));
     setIsCurrentPage(Number(targetElement.textContent));
     if (isCurrentPage < 4) {
@@ -325,6 +326,7 @@ export default function EmployeesPaginations({
 
   useEffect(() => {
     renderPaginationButtons();
+    // eslint-disable-next-line no-console
     console.log('change');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCurrentPage]);

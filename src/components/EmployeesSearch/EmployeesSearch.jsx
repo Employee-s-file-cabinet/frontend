@@ -41,6 +41,7 @@ export default function EmployeesSearch({
   };
 
   function onSubmit(data) {
+    // eslint-disable-next-line no-console
     console.log(data);
   }
 
