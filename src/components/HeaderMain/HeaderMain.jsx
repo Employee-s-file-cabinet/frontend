@@ -1,10 +1,17 @@
 /* eslint-disable no-unused-vars */
 import { Link, useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 import { Icon } from '../UI/Icons/Icons';
 import Avatar from '../../assets/images/avatar.png';
 
 export default function HeaderMain({ children }) {
   const navigate = useNavigate();
+  const [_, __, removeCookie] = useCookies();
+
+  function logOut() {
+    removeCookie('ecabinet-token');
+  }
+
   return (
     <header className="header-main">
       {children}
@@ -17,7 +24,10 @@ export default function HeaderMain({ children }) {
           icon="fa-arrow-right-from-bracket"
           size="is-small"
           extraClass="header-main__icon"
-          onClick={() => navigate('/signin')}
+          onClick={() => {
+            logOut();
+            navigate('/signin');
+          }}
         />
       </div>
     </header>
