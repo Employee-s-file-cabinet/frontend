@@ -1,7 +1,7 @@
 name: Publish
 on:
   push:
-    branches: ['feat/develop']
+    branches: ['feat/deploy']
 
 jobs: # Задания
   publish: # Опубликовать
