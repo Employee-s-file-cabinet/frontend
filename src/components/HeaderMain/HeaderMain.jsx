@@ -9,6 +9,7 @@ export default function HeaderMain({ children }) {
   const [_, __, removeCookie] = useCookies();
 
   function logOut() {
+    console.log('remove-cookie');
     removeCookie('ecabinet-token');
   }
 

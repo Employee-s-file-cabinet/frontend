@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
@@ -12,17 +11,6 @@ import './ProfileInfo.scss';
 
 function ProfileInfo() {
   const [isEdit, setIsEdit] = useState(false);
-  const [number, setNumber] = useState('');
-
-  function numberOnChange(event) {
-    console.log(event.target.value);
-
-    // if (number.includes('+')) {
-    //   // console.log(event.target.value);
-    //   setNumber(number);
-    // }
-    // setNumber(`+${event.target.value}`);
-  }
 
   const {
     register,
@@ -63,12 +51,9 @@ function ProfileInfo() {
                       !isEdit && 'profile__input_type_disabled'
                     }`}
                     type="text"
-                    minLength="2"
-                    maxLength="150"
                     placeholder="Фамилия"
                     value="Исаева"
                     disabled={!isEdit}
-                    required
                   />
                 </label>
                 <span className="profile__input-error">
@@ -84,12 +69,9 @@ function ProfileInfo() {
                       !isEdit && 'profile__input_type_disabled'
                     }`}
                     type="text"
-                    minLength="2"
-                    maxLength="150"
                     placeholder="Имя"
                     value="Полина"
                     disabled={!isEdit}
-                    required
                   />
                 </label>
                 <span className="profile__input-error">
@@ -105,12 +87,9 @@ function ProfileInfo() {
                       !isEdit && 'profile__input_type_disabled'
                     }`}
                     type="text"
-                    minLength="2"
-                    maxLength="150"
                     placeholder="Отчество"
                     value="Артемовна"
                     disabled={!isEdit}
-                    required
                   />
                 </label>
                 {isEdit && (
@@ -130,12 +109,9 @@ function ProfileInfo() {
                       !isEdit && 'profile__input_type_disabled'
                     }`}
                     type="text"
-                    minLength="2"
-                    maxLength="150"
                     placeholder="Отдел"
                     value="Кадры"
                     disabled={!isEdit}
-                    required
                   />
                 </label>
                 <span className="profile__input-error">
@@ -151,12 +127,9 @@ function ProfileInfo() {
                       !isEdit && 'profile__input_type_disabled'
                     }`}
                     type="text"
-                    minLength="2"
-                    maxLength="150"
                     placeholder="Должность"
                     value="HR-менеджер"
                     disabled={!isEdit}
-                    required
                   />
                 </label>
                 <span className="profile__input-error">
@@ -172,12 +145,9 @@ function ProfileInfo() {
                       !isEdit && 'profile__input_type_disabled'
                     }`}
                     type="text"
-                    minLength="2"
-                    maxLength="150"
                     placeholder="Грейд"
                     value="4"
                     disabled={!isEdit}
-                    required
                   />
                 </label>
                 {isEdit && (
@@ -197,14 +167,9 @@ function ProfileInfo() {
                       !isEdit && 'profile__input_type_disabled'
                     }`}
                     type="tel"
-                    minLength="2"
-                    maxLength="150"
                     placeholder="Мобильный телефон"
-                    // value="+79991000203"
-                    value={number || ''}
+                    value="+79991000203"
                     disabled={!isEdit}
-                    required
-                    onChange={(event) => numberOnChange(event)}
                   />
                 </label>
                 <span className="profile__input-error">
@@ -220,12 +185,9 @@ function ProfileInfo() {
                       !isEdit && 'profile__input_type_disabled'
                     }`}
                     type="text"
-                    minLength="2"
-                    maxLength="150"
                     placeholder="Внутренний номер"
                     // value="33-33"
                     disabled={!isEdit}
-                    required
                   />
                 </label>
                 <span className="profile__input-error">
@@ -241,12 +203,9 @@ function ProfileInfo() {
                       !isEdit && 'profile__input_type_disabled'
                     }`}
                     type="email"
-                    minLength="2"
-                    maxLength="150"
                     placeholder="E-mail"
                     value="IsaevaPA@company.com"
                     disabled={!isEdit}
-                    required
                   />
                 </label>
                 {isEdit && (

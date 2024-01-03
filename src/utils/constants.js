@@ -31,3 +31,5 @@ export const sideMenuOptions = [
   { icon: 'fa-file', link: '/', text: 'Отчеты', id: 5 },
   { icon: 'fa-gear', link: '/', text: 'Настройки', id: 6 },
 ];
+
+export const requiredFieldError = 'Поле обязательно для заполнения';
