@@ -3,8 +3,8 @@ on:
   push:
     branches: ['develop']
 
-jobs: # Задания
-  publish: # Опубликовать
+jobs:
+  publish:
     name: Build and Publish
     runs-on: ubuntu-latest
     steps:
