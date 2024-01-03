@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-curly-brace-presence */ // uses to wrap Controller by curly brace
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Icon } from '../UI/Icons/Icons';
@@ -13,6 +14,7 @@ function ProfileInfo() {
   const [isEdit, setIsEdit] = useState(false);
 
   const {
+    control,
     register,
     formState: { errors },
   } = useForm({
@@ -23,6 +25,13 @@ function ProfileInfo() {
   const VisuallyHiddenInput = styled('input')({
     width: 0,
   });
+
+  function transformPhone(number) {
+    if (number.includes('+')) {
+      return number;
+    }
+    return `+${number}`;
+  }
 
   return (
     <section className="profile">
@@ -52,7 +61,7 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Фамилия"
-                    value="Исаева"
+                    defaultValue="Исаева"
                     disabled={!isEdit}
                   />
                 </label>
@@ -70,7 +79,7 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Имя"
-                    value="Полина"
+                    defaultValue="Полина"
                     disabled={!isEdit}
                   />
                 </label>
@@ -88,7 +97,7 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Отчество"
-                    value="Артемовна"
+                    defaultValue="Артемовна"
                     disabled={!isEdit}
                   />
                 </label>
@@ -110,7 +119,7 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Отдел"
-                    value="Кадры"
+                    defaultValue="Кадры"
                     disabled={!isEdit}
                   />
                 </label>
@@ -128,7 +137,7 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Должность"
-                    value="HR-менеджер"
+                    defaultValue="HR-менеджер"
                     disabled={!isEdit}
                   />
                 </label>
@@ -146,7 +155,7 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Грейд"
-                    value="4"
+                    defaultValue="4"
                     disabled={!isEdit}
                   />
                 </label>
@@ -161,16 +170,27 @@ function ProfileInfo() {
               <div className="profile__input-container">
                 <label className="profile__input-label" htmlFor="mobileNumber">
                   Мобильный телефон
-                  <input
-                    {...register('mobileNumber')}
-                    className={`profile__input ${
-                      !isEdit && 'profile__input_type_disabled'
-                    }`}
-                    type="tel"
-                    placeholder="Мобильный телефон"
-                    value="+79991000203"
-                    disabled={!isEdit}
-                  />
+                  {
+                    <Controller
+                      render={({ field }) => (
+                        <input
+                          {...field}
+                          className={`profile__input ${
+                            !isEdit && 'profile__input_type_disabled'
+                          }`}
+                          type="text"
+                          placeholder="Мобильный телефон"
+                          onChange={(e) =>
+                            field.onChange(transformPhone(e.target.value))
+                          }
+                          disabled={!isEdit}
+                        />
+                      )}
+                      name="mobileNumber"
+                      control={control}
+                      defaultValue="79991112233"
+                    />
+                  }
                 </label>
                 <span className="profile__input-error">
                   {errors.mobileNumber?.message}
@@ -186,7 +206,7 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Внутренний номер"
-                    // value="33-33"
+                    defaultValue="33-33"
                     disabled={!isEdit}
                   />
                 </label>
@@ -199,12 +219,12 @@ function ProfileInfo() {
                   E-mail
                   <input
                     {...register('email')}
-                    className={`profile__input ${
+                    className={`profile__input profile__input_no-capital-letter ${
                       !isEdit && 'profile__input_type_disabled'
                     }`}
                     type="email"
                     placeholder="E-mail"
-                    value="IsaevaPA@company.com"
+                    defaultValue="isaevaPA@company.com"
                     disabled={!isEdit}
                   />
                 </label>

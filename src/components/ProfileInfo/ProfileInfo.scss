@@ -95,6 +95,9 @@
     text-transform: capitalize;
     transition: 0.2s;
   }
+  &__input_no-capital-letter {
+    text-transform: none;
+  }
 
   &__input:focus {
     box-sizing: border-box;

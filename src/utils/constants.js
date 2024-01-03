@@ -32,4 +32,4 @@ export const sideMenuOptions = [
   { icon: 'fa-gear', link: '/', text: 'Настройки', id: 6 },
 ];
 
-export const requiredFieldError = 'Поле обязательно для заполнения';
+export const requiredFieldError = 'Заполните поле.';
