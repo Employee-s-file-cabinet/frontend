@@ -16,6 +16,7 @@ function ProfileInfo() {
   const {
     control,
     register,
+    handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(EmployeeProfileSchema),
@@ -33,6 +34,12 @@ function ProfileInfo() {
     return `+${number}`;
   }
 
+  function onSubmit(data) {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    setIsEdit(false);
+  }
+
   return (
     <section className="profile">
       <h2 className="title is-2 profile__title">Исаева Полина Артёмовна</h2>
@@ -48,7 +55,12 @@ function ProfileInfo() {
             </div>
           )}
         </div>
-        <form className="profile__form" id="submit" name="profile">
+        <form
+          className="profile__form"
+          id="submit"
+          name="profile"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="profile__columns">
             <div className="profile__column">
               <div className="profile__input-container">
@@ -137,7 +149,7 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Должность"
-                    defaultValue="HR-менеджер"
+                    defaultValue="Менеджер"
                     disabled={!isEdit}
                   />
                 </label>
@@ -188,7 +200,7 @@ function ProfileInfo() {
                       )}
                       name="mobileNumber"
                       control={control}
-                      defaultValue="79991112233"
+                      defaultValue="+79991112233"
                     />
                   }
                 </label>
