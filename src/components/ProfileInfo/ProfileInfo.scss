@@ -92,6 +92,7 @@
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
+    text-transform: capitalize;
     transition: 0.2s;
   }
 
@@ -114,7 +115,7 @@
   }
 
   &__input-error {
-    color: var(--light-grey, #b5b5b5);
+    color: #f14668;
     font-size: 14px;
     font-weight: 400;
     min-height: 21px;

@@ -1,18 +1,36 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Icon } from '../UI/Icons/Icons';
 import ProfilePic from '../../assets/images/profile.jpg';
+import { EmployeeProfileSchema } from '../../utils/validation/EmployeeProfileValidation';
 import './ProfileInfo.scss';
 
 function ProfileInfo() {
   const [isEdit, setIsEdit] = useState(false);
+  const [number, setNumber] = useState('');
+
+  function numberOnChange(event) {
+    console.log(event.target.value);
+
+    // if (number.includes('+')) {
+    //   // console.log(event.target.value);
+    //   setNumber(number);
+    // }
+    // setNumber(`+${event.target.value}`);
+  }
+
   const {
     register,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(EmployeeProfileSchema),
+    mode: 'onChange',
+  });
 
   const VisuallyHiddenInput = styled('input')({
     width: 0,
@@ -164,7 +182,7 @@ function ProfileInfo() {
                 </label>
                 {isEdit && (
                   <span className="profile__input-error profile__input-error_margin_custom">
-                    {errors.middleName?.message}
+                    {errors.grade?.message}
                   </span>
                 )}
               </div>
@@ -178,13 +196,15 @@ function ProfileInfo() {
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
                     }`}
-                    type="text"
+                    type="tel"
                     minLength="2"
                     maxLength="150"
                     placeholder="Мобильный телефон"
-                    value="+79991000203"
+                    // value="+79991000203"
+                    value={number || ''}
                     disabled={!isEdit}
                     required
+                    onChange={(event) => numberOnChange(event)}
                   />
                 </label>
                 <span className="profile__input-error">
@@ -203,7 +223,7 @@ function ProfileInfo() {
                     minLength="2"
                     maxLength="150"
                     placeholder="Внутренний номер"
-                    value="33-33"
+                    // value="33-33"
                     disabled={!isEdit}
                     required
                   />
@@ -231,7 +251,7 @@ function ProfileInfo() {
                 </label>
                 {isEdit && (
                   <span className="profile__input-error profile__input-error_margin_custom">
-                    {errors.middleName?.message}
+                    {errors.email?.message}
                   </span>
                 )}
               </div>
