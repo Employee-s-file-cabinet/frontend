@@ -1,8 +1,6 @@
-import './Experience.scss';
+import './ArhPriorWorkExperience.scss';
 
-// import Trash from '../../assets/images/trash.png';
-
-export default function Experience({ isEdit }) {
+export default function ArhPriorWorkExperience({ isEdit }) {
   return (
     <section className="expirients">
       <div className="field">
@@ -49,7 +47,7 @@ export default function Experience({ isEdit }) {
             </legend>
             <div className="control career-development__control">
               <input
-                className="input career-development__input"
+                className="input career-development__input "
                 type="date"
                 disabled={!isEdit}
               />

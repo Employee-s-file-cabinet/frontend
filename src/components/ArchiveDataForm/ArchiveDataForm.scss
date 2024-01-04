@@ -19,6 +19,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 150%; /* 24px */
+    cursor: pointer;
   }
 
   &__button {
@@ -35,6 +36,8 @@
 }
 
 .button-trash {
+  padding: 0;
+  padding-top: 46px;
   background-image: url(../../assets/images/trash.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -44,11 +47,15 @@
   height: 16px;
   cursor: pointer;
   border: none;
-  margin-top: 45px;
+  margin-top: 50px;
 }
 
 .button-trash:hover {
   opacity: 0.6;
+}
+
+.button-trash-none {
+  background-image: none;
 }
 
 .summaru::marker {
