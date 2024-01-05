@@ -2,7 +2,8 @@ import './CurrentDataForm.scss';
 import 'bulma/css/bulma.min.css';
 import { useState } from 'react';
 
-import CareerDevelopment from '../CareerDevelopment/CareerDevelopment';
+import CurrentDFFinance from '../CurrentDFFinance/CurrentDFFinance';
+
 import Benefits from '../Benefits/Benefits';
 import Vacation from '../Vacation/Vacation';
 import CompletedTraining from '../CompletedTraining/CompletedTraining';
@@ -28,17 +29,14 @@ export default function CurrentDataForm() {
       className="current-data-form form-active"
       onSubmit={handleSubmit}
     >
-      <div className="current-data-form__group">
-        <h5 className="current-data-form__title">Финансы</h5>
-        <input
-          className={`current-data-form__button${
-            isEdit ? ' button-disabled' : ''
-          }`}
-          type="button"
-          onClick={handleEditButton}
-        />
-      </div>
-
+      <input
+        className={`current-data-form__button${
+          isEdit ? ' button-disabled' : ''
+        }`}
+        type="button"
+        onClick={handleEditButton}
+      />
+      <CurrentDFFinance isEdit={isEdit} />
       <div className="column">
         <div className="field is-horizontal ">
           <legend className="label label-horizontal">Трудовой договор</legend>
@@ -120,7 +118,7 @@ export default function CurrentDataForm() {
           </legend>
         </div>
         <div className="column career-development-column">
-          <CareerDevelopment isEdit={isEdit} />
+          {/* <CareerDevelopment isEdit={isEdit} /> */}
         </div>
         <button className="current-data-form__add">Добавить строки</button>
       </div>

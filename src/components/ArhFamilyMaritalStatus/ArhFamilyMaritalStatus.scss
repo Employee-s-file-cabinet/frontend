@@ -1,0 +1,24 @@
+.scan-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__title {
+    margin-bottom: 8px;
+    margin-top: 45px;
+    color: var(--black, #0a0a0a);
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 112.5%; /* 18px */
+  }
+
+  &__title-margin {
+    margin-top: 10px;
+  }
+
+  &__label {
+    margin-left: 8px;
+  }
+}

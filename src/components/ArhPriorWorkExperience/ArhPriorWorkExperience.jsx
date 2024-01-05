@@ -1,11 +1,8 @@
-import './Experience.scss';
+import './ArhPriorWorkExperience.scss';
 
-// import Trash from '../../assets/images/trash.png';
-
-export default function Experience({ isEdit }) {
+export default function ArhPriorWorkExperience({ isEdit }) {
   return (
-    <>
-      {/* <div className="columns is-gapless career-development"> */}
+    <section className="expirients">
       <div className="field">
         <legend className="label label-horizontal">Название компании</legend>
         <div className="control">
@@ -16,9 +13,6 @@ export default function Experience({ isEdit }) {
             disabled={!isEdit}
           />
         </div>
-        {/* <div className="columns is-gapless">
-          <img src={Trash} className='input-trash' alt="корзина" />
-        </div> */}
       </div>
       <div className="field">
         <legend className="label label-horizontal">Должность</legend>
@@ -30,9 +24,6 @@ export default function Experience({ isEdit }) {
             disabled={!isEdit}
           />
         </div>
-        {/* <div className="columns is-gapless">
-          <img src={Trash} className='input-trash' alt="корзина" />
-        </div> */}
       </div>
       <div className="columns is-gapless">
         <div className="column is-one-third">
@@ -56,7 +47,7 @@ export default function Experience({ isEdit }) {
             </legend>
             <div className="control career-development__control">
               <input
-                className="input career-development__input"
+                className="input career-development__input "
                 type="date"
                 disabled={!isEdit}
               />
@@ -71,7 +62,6 @@ export default function Experience({ isEdit }) {
           <textarea className="textarea is-small" disabled={!isEdit} />
         </div>
       </div>
-      {/* </div> */}
-    </>
+    </section>
   );
 }
