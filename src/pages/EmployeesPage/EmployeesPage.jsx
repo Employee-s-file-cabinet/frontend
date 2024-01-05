@@ -7,11 +7,9 @@ import EmployeesSearch from '../../components/EmployeesSearch/EmployeesSearch';
 import EmployeesPaginations from '../../components/EmployeesPaginations/EmployeesPaginations';
 import { serviceMock } from '../../utils/ServiceMock';
 
-export default function EmployeesPage() {
+export default function EmployeesPage({ lastPage }) {
   const [employeesData, setEmployeesData] = useState([]);
-  const [isCurrentPage, setIsCurrentPage] = useState(1);
-  const [isSearchFiltration, setIsSearchFiltration] = useState('alphabet');
-  const lastPage = 88;
+  const [searchFiltration, setSearchFiltration] = useState('alphabet');
 
   useEffect(() => {
     serviceMock
@@ -20,7 +18,12 @@ export default function EmployeesPage() {
         setEmployeesData(res);
       })
       // eslint-disable-next-line no-console
-      .catch((err) => console.log(`Ошибка: ${err}`));
+      .catch((err) =>
+        console.log(`
+      Ошибка: ${err}
+      Обратитесь в службу поддержки.
+      `)
+      );
   }, []);
 
   const { home, employees } = pagesPath;
@@ -32,15 +35,11 @@ export default function EmployeesPage() {
       <main className="employees__content">
         <h2 className="employees__title">Картотека сотрудников</h2>
         <EmployeesSearch
-          isSearchFiltration={isSearchFiltration}
-          setIsSearchFiltration={setIsSearchFiltration}
+          searchFiltration={searchFiltration}
+          setSearchFiltration={setSearchFiltration}
         />
         <EmployeesList employeesData={employeesData} />
-        <EmployeesPaginations
-          isCurrentPage={isCurrentPage}
-          setIsCurrentPage={setIsCurrentPage}
-          lastPage={lastPage}
-        />
+        <EmployeesPaginations lastPage={lastPage} />
       </main>
     </section>
   );

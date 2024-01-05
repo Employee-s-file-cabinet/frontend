@@ -24,8 +24,12 @@ export default function ResetPasswordForm() {
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
   const [isFocusedConfirmPassword, setIsFocusedConfirmPassword] =
     useState(false);
-  const [isExtraClassForPasswordIcon, setIsExtraClassForPasswordIcon] =
-    useState('icon_margined');
+  const extraClassForPasswordIcon = isFocusedPassword
+    ? 'icon_margined icon__clickable'
+    : 'icon_margined';
+  const extraClassForConfirmPasswordIcon = isFocusedConfirmPassword
+    ? 'icon_margined icon__clickable'
+    : 'icon_margined';
 
   function onSubmit(data) {
     // eslint-disable-next-line no-console
@@ -49,10 +53,8 @@ export default function ResetPasswordForm() {
   const handleFocus = (event) => {
     if (event.target.name === 'confirmPassword') {
       setIsFocusedConfirmPassword(true);
-      setIsExtraClassForPasswordIcon('icon_margined icon__clickable');
     } else {
       setIsFocusedPassword(true);
-      setIsExtraClassForPasswordIcon('icon_margined icon__clickable');
     }
   };
 
@@ -60,12 +62,10 @@ export default function ResetPasswordForm() {
     if (event.target.name === 'confirmPassword') {
       setTimeout(() => {
         setIsFocusedConfirmPassword(false);
-        setIsExtraClassForPasswordIcon('icon_margined');
       }, 500);
     } else {
       setTimeout(() => {
         setIsFocusedPassword(false);
-        setIsExtraClassForPasswordIcon('icon_margined');
       }, 500);
     }
   };
@@ -115,7 +115,7 @@ export default function ResetPasswordForm() {
             size="is-small"
             position="is-right"
             onClick={handleEyeClick}
-            extraClass={isExtraClassForPasswordIcon}
+            extraClass={extraClassForPasswordIcon}
           />
         </MainField>
       </fieldset>
@@ -148,7 +148,7 @@ export default function ResetPasswordForm() {
             size="is-small"
             position="is-right"
             onClick={handleEyeClick}
-            extraClass={isExtraClassForPasswordIcon}
+            extraClass={extraClassForConfirmPasswordIcon}
           />
         </MainField>
       </fieldset>
