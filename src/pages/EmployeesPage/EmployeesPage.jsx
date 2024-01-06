@@ -17,12 +17,10 @@ export default function EmployeesPage({ lastPage }) {
       .then((res) => {
         setEmployeesData(res);
       })
-      // eslint-disable-next-line no-console
+
       .catch((err) =>
-        console.log(`
-      Ошибка: ${err}
-      Обратитесь в службу поддержки.
-      `)
+        // eslint-disable-next-line no-console
+        console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
       );
   }, []);
 
