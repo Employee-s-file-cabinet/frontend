@@ -1,335 +1,98 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
-export default function EmployeesPaginations({
-  isCurrentPage,
-  setIsCurrentPage,
-  lastPage,
-}) {
-  const [isPaginationsButtons, setIsPaginationsButtons] = useState('');
+export default function EmployeesPaginations({ lastPage }) {
+  const { pageNumber, filterTeg } = useParams();
+  const currentPage = parseInt(pageNumber, 10);
+  const navigate = useNavigate();
+
   const handlePreviousPagination = (event) => {
     event.preventDefault();
-    if (isCurrentPage !== 1) setIsCurrentPage(isCurrentPage - 1);
+    if (currentPage !== 1) {
+      const previousPage = currentPage - 1;
+      navigate(`/employees/${filterTeg}/${previousPage}`);
+    }
   };
 
   const handleNextPagination = (event) => {
     event.preventDefault();
-    if (isCurrentPage !== lastPage) setIsCurrentPage(isCurrentPage + 1);
+    if (currentPage !== lastPage) {
+      const nextPage = currentPage + 1;
+      navigate(`/employees/${filterTeg}/${nextPage}`);
+    }
   };
 
   const handlePageButtonsClick = (event) => {
     event.preventDefault();
     const targetElement = event.target;
-    // eslint-disable-next-line no-console
-    console.log(Number(targetElement.textContent));
-    setIsCurrentPage(Number(targetElement.textContent));
-    if (isCurrentPage < 4) {
-      targetElement.classList.add('is-current');
-    }
+    navigate(`/employees/${filterTeg}/${Number(targetElement.textContent)}`);
   };
 
   const renderPaginationButtons = () => {
+    // make layouts from basic massive
+    const mapPaginationMassive = (mass) => {
+      const pageElements = mass.map((page) => {
+        if (page === '.') {
+          return <span className="pagination-ellipsis">&hellip;</span>;
+        }
+
+        return (
+          <a
+            className={`pagination-link ${
+              page === currentPage ? 'is-current' : ''
+            }`}
+            href={`/employees/${filterTeg}/${Number(page)}`}
+            onClick={handlePageButtonsClick}
+          >
+            {page}
+          </a>
+        );
+      });
+
+      // insert layouts to jsx
+      return (
+        <ul className="pagination-list">
+          {/* eslint-disable react/no-array-index-key */}
+          {pageElements.map((pageElement, index) => (
+            <li key={index}>{pageElement}</li>
+          ))}
+        </ul>
+      );
+    };
+
+    // Make basic massive for different case pagination buttons positions
     switch (true) {
       // Case when to low pages - from 1 to 6
       case lastPage < 7:
-        setIsPaginationsButtons(
-          <ul className="pagination-list">
-            {lastPage > 1 && (
-              <li>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a
-                  className={`pagination-link ${
-                    isCurrentPage === 1 ? 'is-current' : ''
-                  }`}
-                  href="#"
-                  onClick={handlePageButtonsClick}
-                >
-                  1
-                </a>
-              </li>
-            )}
-            {lastPage > 2 && (
-              <li>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a
-                  className={`pagination-link ${
-                    isCurrentPage === 2 ? 'is-current' : ''
-                  }`}
-                  href="#"
-                  onClick={handlePageButtonsClick}
-                >
-                  2
-                </a>
-              </li>
-            )}
-            {lastPage > 3 && (
-              <li>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a
-                  className={`pagination-link ${
-                    isCurrentPage === 3 ? 'is-current' : ''
-                  }`}
-                  href="#"
-                  onClick={handlePageButtonsClick}
-                >
-                  3
-                </a>
-              </li>
-            )}
-            {lastPage > 4 && (
-              <li>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a
-                  className={`pagination-link ${
-                    isCurrentPage === 4 ? 'is-current' : ''
-                  }`}
-                  href="#"
-                  onClick={handlePageButtonsClick}
-                >
-                  4
-                </a>
-              </li>
-            )}
-            {lastPage > 5 && (
-              <li>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a
-                  className={`pagination-link ${
-                    isCurrentPage === 5 ? 'is-current' : ''
-                  }`}
-                  href="#"
-                  onClick={handlePageButtonsClick}
-                >
-                  5
-                </a>
-              </li>
-            )}
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className={`pagination-link ${
-                  isCurrentPage === lastPage ? 'is-current' : ''
-                }`}
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                {lastPage}
-              </a>
-            </li>
-          </ul>
+        return mapPaginationMassive(
+          Array.from({ length: lastPage }, (_, index) => index + 1)
         );
-        break;
-
       // Case when chose one of lasts pages
-      case isCurrentPage > lastPage - 3:
-        setIsPaginationsButtons(
-          <ul className="pagination-list">
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className="pagination-link"
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                1
-              </a>
-            </li>
-            <li>
-              <span className="pagination-ellipsis">&hellip;</span>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className={`pagination-link ${
-                  isCurrentPage === lastPage - 3 ? 'is-current' : ''
-                }`}
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                {lastPage - 3}
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className={`pagination-link ${
-                  isCurrentPage === lastPage - 2 ? 'is-current' : ''
-                }`}
-                aria-current="page"
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                {lastPage - 2}
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className={`pagination-link ${
-                  isCurrentPage === lastPage - 1 ? 'is-current' : ''
-                }`}
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                {lastPage - 1}
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className={`pagination-link ${
-                  isCurrentPage === lastPage ? 'is-current' : ''
-                }`}
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                {lastPage}
-              </a>
-            </li>
-          </ul>
-        );
-        break;
-
+      case currentPage > lastPage - 3:
+        return mapPaginationMassive([
+          1,
+          '.',
+          lastPage - 3,
+          lastPage - 2,
+          lastPage - 1,
+          lastPage,
+        ]);
       // Case when chose middle of pages list
-      case isCurrentPage > 3:
-        setIsPaginationsButtons(
-          <ul className="pagination-list">
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className="pagination-link"
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                1
-              </a>
-            </li>
-            <li>
-              <span className="pagination-ellipsis">&hellip;</span>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className="pagination-link"
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                {isCurrentPage - 1}
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className="pagination-link is-current"
-                aria-current="page"
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                {isCurrentPage}
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className="pagination-link"
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                {isCurrentPage + 1}
-              </a>
-            </li>
-            <li>
-              <span className="pagination-ellipsis">&hellip;</span>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className="pagination-link"
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                {lastPage}
-              </a>
-            </li>
-          </ul>
-        );
-        break;
-
+      case currentPage > 3:
+        return mapPaginationMassive([
+          1,
+          '.',
+          currentPage - 1,
+          currentPage,
+          currentPage + 1,
+          '.',
+          lastPage,
+        ]);
       // Case when chose one of first pages - start state
       default:
-        setIsPaginationsButtons(
-          <ul className="pagination-list">
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className={`pagination-link ${
-                  isCurrentPage === 1 ? 'is-current' : ''
-                }`}
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                1
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className={`pagination-link ${
-                  isCurrentPage === 2 ? 'is-current' : ''
-                }`}
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                2
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className={`pagination-link ${
-                  isCurrentPage === 3 ? 'is-current' : ''
-                }`}
-                aria-current="page"
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                3
-              </a>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className="pagination-link"
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                4
-              </a>
-            </li>
-            <li>
-              <span className="pagination-ellipsis">&hellip;</span>
-            </li>
-            <li>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a
-                className="pagination-link"
-                href="#"
-                onClick={handlePageButtonsClick}
-              >
-                {lastPage}
-              </a>
-            </li>
-          </ul>
-        );
-        break;
+        return mapPaginationMassive([1, 2, 3, 4, '.', lastPage]);
     }
   };
-
-  useEffect(() => {
-    renderPaginationButtons();
-    // eslint-disable-next-line no-console
-    console.log('change');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isCurrentPage]);
 
   return (
     <div className="employees-pagination">
@@ -338,19 +101,21 @@ export default function EmployeesPaginations({
         role="navigation"
         aria-label="pagination"
       >
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a
           className="pagination-previous"
-          href="#"
+          href={`/employees/${filterTeg}/${currentPage - 1}`}
           onClick={handlePreviousPagination}
         >
           Предыдущая
         </a>
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a className="pagination-next" href="#" onClick={handleNextPagination}>
+        <a
+          className="pagination-next"
+          href={`/employees/${filterTeg}/${currentPage + 1}`}
+          onClick={handleNextPagination}
+        >
           Следующая
         </a>
-        {isPaginationsButtons}
+        {renderPaginationButtons()}
       </nav>
     </div>
   );

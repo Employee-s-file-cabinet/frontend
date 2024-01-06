@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { MainField } from '../UI/Fields/MainField';
@@ -7,12 +8,14 @@ import { MainButton } from '../UI/Buttons/MainButton';
 import { searchSchema } from '../../utils/ValidationSchema';
 
 export default function EmployeesSearch({
-  setIsSearchFiltration,
-  isSearchFiltration,
+  setSearchFiltration,
+  searchFiltration,
 }) {
   const [isFocusedSearch, setIsFocusedSearch] = useState(false);
-  const [isInputIconPosition, setInputIconPosition] =
-    useState('has-icons-left');
+  const inputIconPosition = isFocusedSearch
+    ? 'has-icons-right'
+    : 'has-icons-left';
+  const navigate = useNavigate();
 
   const {
     register,
@@ -26,13 +29,11 @@ export default function EmployeesSearch({
 
   const handleFocus = () => {
     setIsFocusedSearch(true);
-    setInputIconPosition('has-icons-right');
   };
 
   const handleBlur = () => {
     setTimeout(() => {
       setIsFocusedSearch(false);
-      setInputIconPosition('has-icons-left');
     }, 100);
   };
 
@@ -46,18 +47,23 @@ export default function EmployeesSearch({
   }
 
   const handleClickFiltrationTag = (event) => {
+    event.preventDefault();
     switch (event.target.textContent) {
       case 'Отделы':
-        setIsSearchFiltration('departments');
+        setSearchFiltration('departments');
+        navigate(`/employees/departments/1`);
         break;
       case 'Орг.структура':
-        setIsSearchFiltration('structures');
+        navigate(`/employees/structures/1`);
+        setSearchFiltration('structures');
         break;
       case 'Орг.структура полная':
-        setIsSearchFiltration('full-structures');
+        navigate(`/employees/full-structures/1`);
+        setSearchFiltration('full-structures');
         break;
       default:
-        setIsSearchFiltration('alphabet');
+        navigate(`/employees/alphabet/1`);
+        setSearchFiltration('alphabet');
         break;
     }
   };
@@ -71,7 +77,7 @@ export default function EmployeesSearch({
           size="is-normal"
           extraClass="is-fullwidth"
           placeholder="Поиск"
-          icon={isInputIconPosition}
+          icon={inputIconPosition}
           focus={handleFocus}
           blur={handleBlur}
           register={register('search')}
@@ -106,7 +112,7 @@ export default function EmployeesSearch({
       <div className="employees-search__filter-container buttons has-addons">
         <MainButton
           size="is-normal"
-          theme={`${isSearchFiltration === 'alphabet' ? 'is-primary' : ''}`}
+          theme={`${searchFiltration === 'alphabet' ? 'is-primary' : ''}`}
           extraClass=""
           type="button"
           onClick={handleClickFiltrationTag}
@@ -115,7 +121,7 @@ export default function EmployeesSearch({
         </MainButton>
         <MainButton
           size="is-normal"
-          theme={`${isSearchFiltration === 'departments' ? 'is-primary' : ''}`}
+          theme={`${searchFiltration === 'departments' ? 'is-primary' : ''}`}
           extraClass=""
           type="button"
           onClick={handleClickFiltrationTag}
@@ -124,7 +130,7 @@ export default function EmployeesSearch({
         </MainButton>
         <MainButton
           size="is-normal"
-          theme={`${isSearchFiltration === 'structures' ? 'is-primary' : ''}`}
+          theme={`${searchFiltration === 'structures' ? 'is-primary' : ''}`}
           extraClass=""
           type="button"
           onClick={handleClickFiltrationTag}
@@ -134,7 +140,7 @@ export default function EmployeesSearch({
         <MainButton
           size="is-normal"
           theme={`${
-            isSearchFiltration === 'full-structures' ? 'is-primary' : ''
+            searchFiltration === 'full-structures' ? 'is-primary' : ''
           }`}
           extraClass=""
           type="button"

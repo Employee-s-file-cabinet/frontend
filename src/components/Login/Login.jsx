@@ -19,15 +19,16 @@ export default function Login() {
     resolver: yupResolver(loginSchema),
     mode: 'onChange',
   });
-  // STATE TO CHANGE VISIBLY IN PASSWORD FIELD
+  // State to change visibly in password field
   const [passwordType, setPasswordType] = useState('password');
-  // STATE TO CHANGE EYE ICON IN PASSWORD FIELD
+  // State to change eye icon in password field
   const [eyeType, setEyeType] = useState('fa-eye-slash');
-  // STATES FOR WATCHING FOCUS ON FIELDS FOR CHANGE ICONS ON CROSS WHEN FIELD FOCUSED
+  // States for watching focus on fields for change icons on cross when field focused
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
-  const [isExtraClassForPasswordIcon, setIsExtraClassForPasswordIcon] =
-    useState('icon_margined');
+  const extraClassForPasswordIcon = isFocusedPassword
+    ? 'icon_margined icon__clickable'
+    : 'icon_margined';
 
   function onSubmit(data) {
     // eslint-disable-next-line no-console
@@ -54,7 +55,6 @@ export default function Login() {
       setIsFocusedEmail(true);
     } else {
       setIsFocusedPassword(true);
-      setIsExtraClassForPasswordIcon('icon_margined icon__clickable');
     }
   };
 
@@ -66,7 +66,6 @@ export default function Login() {
     } else {
       setTimeout(() => {
         setIsFocusedPassword(false);
-        setIsExtraClassForPasswordIcon('icon_margined');
       }, 500);
     }
   };
@@ -146,7 +145,7 @@ export default function Login() {
             icon={eyeType}
             size="is-small"
             position="is-right"
-            extraClass={isExtraClassForPasswordIcon}
+            extraClass={extraClassForPasswordIcon}
             onClick={handleEyeClick}
           />
         </MainField>
