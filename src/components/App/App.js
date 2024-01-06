@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, Suspense } from 'react';
+import { useState, Suspense, useEffect } from 'react';
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -27,11 +27,28 @@ import PasswordResetPage from '../../pages/PasswordResetPage/PasswordResetPage';
 import ResetSuccessPage from '../../pages/ResetSuccessPage/ResetSuccessPage';
 import SuccessSentToEmailPage from '../../pages/SuccessSentToEmailPage/SuccessSentToEmailPage';
 import { EmployeesFilterWrapper } from '../EmployeesFilterWrapper/EmployeesFilterWrapper';
+import { getEmployees } from '../../utils/UsersApi';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const lastPage = 10;
+  const [lastPage, setLastPage] = useState(1);
+  const [usersList, setUsersList] = useState([]);
+  // const lastPage = 10;
+
+  // Get initial users list and quantity pages
+  useEffect(() => {
+    getEmployees(2, '', 1)
+      .then((res) => {
+        setLastPage(res.total_pages);
+        setUsersList(res.users);
+        console.log(res.users, 'res.users');
+      })
+      .catch((err) =>
+        // eslint-disable-next-line no-console
+        console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
+      );
+  }, []);
 
   // routes
   const routes = createRoutesFromElements(
@@ -55,6 +72,8 @@ function App() {
                 element={EmployeesPage}
                 isLoggedIn={isLoggedIn}
                 lastPage={lastPage}
+                usersList={usersList}
+                setUsersList={setUsersList}
               />
             </EmployeesFilterWrapper>
           }

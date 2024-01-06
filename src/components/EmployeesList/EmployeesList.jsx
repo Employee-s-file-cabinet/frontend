@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-export default function EmployeesList({ employeesData }) {
+export default function EmployeesList({ usersList }) {
   const navigate = useNavigate();
 
   const handleClick = (employeeData) => {
@@ -44,9 +44,9 @@ export default function EmployeesList({ employeesData }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {employeesData.map((row) => (
+            {usersList.map((row) => (
               <TableRow
-                key={row.userId}
+                key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 className="employees-list__table-row"
                 onClick={() => handleClick(row)}
@@ -56,7 +56,7 @@ export default function EmployeesList({ employeesData }) {
                   scope="row"
                   className="employees-list__table-row-cell"
                 >
-                  {row.name}
+                  {`${row.first_name} ${row.middle_name} ${row.last_name}`}
                 </TableCell>
                 <TableCell
                   align="right"
@@ -68,7 +68,7 @@ export default function EmployeesList({ employeesData }) {
                   align="right"
                   className="employees-list__table-row-cell"
                 >
-                  {row.position}
+                  {row.department}
                 </TableCell>
                 <TableCell
                   align="right"
@@ -80,13 +80,13 @@ export default function EmployeesList({ employeesData }) {
                   align="right"
                   className="employees-list__table-row-cell"
                 >
-                  {row.mobilePhone}
+                  {row.phone_numbers.mobile}
                 </TableCell>
                 <TableCell
                   align="right"
                   className="employees-list__table-row-cell"
                 >
-                  {row.internalPhone}
+                  {row.phone_numbers.mobile}
                 </TableCell>
               </TableRow>
             ))}

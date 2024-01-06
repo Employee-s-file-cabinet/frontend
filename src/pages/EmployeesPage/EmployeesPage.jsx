@@ -1,28 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import HeaderMain from '../../components/HeaderMain/HeaderMain';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import { pagesPath } from '../../utils/constants';
 import EmployeesList from '../../components/EmployeesList/EmployeesList';
 import EmployeesSearch from '../../components/EmployeesSearch/EmployeesSearch';
 import EmployeesPaginations from '../../components/EmployeesPaginations/EmployeesPaginations';
-import { serviceMock } from '../../utils/ServiceMock';
+import { getEmployees } from '../../utils/UsersApi';
 
-export default function EmployeesPage({ lastPage }) {
-  const [employeesData, setEmployeesData] = useState([]);
+export default function EmployeesPage({ lastPage, usersList, setUsersList }) {
   const [searchFiltration, setSearchFiltration] = useState('alphabet');
+  const { pageNumber } = useParams();
+  const currentPage = Number(parseInt(pageNumber, 10));
 
+  // Change users list after change page
   useEffect(() => {
-    serviceMock
-      .getEmployees()
+    console.log(currentPage);
+    getEmployees(2, '', currentPage)
       .then((res) => {
-        setEmployeesData(res);
+        setUsersList(res.users);
+        console.log(res.users, 'res.users');
       })
-
       .catch((err) =>
         // eslint-disable-next-line no-console
         console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
       );
-  }, []);
+  }, [currentPage, setUsersList]);
 
   const { home, employees } = pagesPath;
   return (
@@ -36,7 +39,7 @@ export default function EmployeesPage({ lastPage }) {
           searchFiltration={searchFiltration}
           setSearchFiltration={setSearchFiltration}
         />
-        <EmployeesList employeesData={employeesData} />
+        <EmployeesList usersList={usersList} />
         <EmployeesPaginations lastPage={lastPage} />
       </main>
     </section>
