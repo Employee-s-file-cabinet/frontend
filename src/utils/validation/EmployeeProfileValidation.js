@@ -1,19 +1,6 @@
 import * as yup from 'yup';
 import { requiredFieldError } from '../constants';
 
-const MAX_FILE_SIZE = 1024000;
-
-const validFileExtensions = {
-  image: ['jpg', 'jpeg', 'png', 'webp'],
-};
-
-function isValidFileType(fileName, fileType) {
-  return (
-    fileName &&
-    validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1
-  );
-}
-
 export const EmployeeProfileSchema = yup
   .object({
     lastName: yup
@@ -21,14 +8,14 @@ export const EmployeeProfileSchema = yup
       .required(requiredFieldError)
       .matches(
         /^(?=.{1,150}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$/,
-        'Используйте кириллицу, а также дефис и(или) апостроф.'
+        'Используйте кириллицу, дефис и(или) апостроф.'
       ),
     firstName: yup
       .string()
       .required(requiredFieldError)
       .matches(
         /^(?=.{1,150}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$/,
-        'Используйте кириллицу, а также дефис и(или) апостроф.'
+        'Используйте кириллицу, дефис и(или) апостроф.'
       ),
     middleName: yup
       .string()
@@ -74,16 +61,34 @@ export const EmployeeProfileSchema = yup
       .required(requiredFieldError)
       .matches(/^\S+@\S+\.[a-zA-Z]{2,}$/, 'Введите корректный email.'),
 
-    photoUpload: yup
-      .mixed()
-      .required('Required')
-      .test('is-valid-type', 'Not a valid image type', (value) =>
-        isValidFileType(value && value.name.toLowerCase(), 'image')
-      )
-      .test(
-        'is-valid-size',
-        'Max allowed size is 1000KB',
-        (value) => value && value.size <= MAX_FILE_SIZE
-      ),
+    picture: yup.mixed().test(
+      'fileSize',
+      'Размер файла не должен превышать 5 Мб.',
+      (value) => value.length && value[0].size <= 5242880
+      // {
+      //   name: 'fileSize',
+      //   skipAbsent: true,
+      //   test(value, ctx) {
+      //     if (!value.length) {
+      //       ctx.createError({
+      //         message: 'Размер файла не должен превышать 5 Мб.',
+      //       });
+      //     }
+      //   },
+      // }
+    ),
+    // .test('required', 'Загрузите фотографию', (value) => value > 0)
+
+    test: yup.string().test({
+      name: 'fileSize',
+      skipAbsent: true,
+      test(value, ctx) {
+        if (!value.length) {
+          ctx.createError({
+            message: 'Размер файла не должен превышать 5 Мб.',
+          });
+        }
+      },
+    }),
   })
   .required();

@@ -1,7 +1,4 @@
-/* eslint-disable react/jsx-curly-brace-presence */ // uses to wrap Controller by curly brace
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
 import { useForm, Controller } from 'react-hook-form';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -21,10 +18,6 @@ function ProfileInfo() {
   } = useForm({
     resolver: yupResolver(EmployeeProfileSchema),
     mode: 'onChange',
-  });
-
-  const VisuallyHiddenInput = styled('input')({
-    width: 200,
   });
 
   function transformPhone(number) {
@@ -47,13 +40,26 @@ function ProfileInfo() {
         <div className="profile__image-container">
           <img className="profile__image" alt="Логотип" src={ProfilePic} />
           {isEdit && (
-            <div className="profile__file">
-              <Button component="label">
-                <div className="profile__file-title">Загрузить фото</div>
-                <VisuallyHiddenInput type="file" />
-              </Button>
+            <div className="file">
+              <label className="file-label" htmlFor="picture">
+                <input
+                  {...register('picture')}
+                  className="file-input"
+                  type="file"
+                  accept=".jpg,,.png,.jpeg"
+                />
+                <span className="profile__file-upload-container">
+                  <span className="profile__file-upload-label">
+                    Загрузить фото
+                  </span>
+                  <i className="fas fa-upload" />
+                </span>
+              </label>
             </div>
           )}
+          <span className="profile__input-error">
+            {errors.picture?.message}
+          </span>
         </div>
         <form
           className="profile__form"
@@ -180,30 +186,28 @@ function ProfileInfo() {
             </div>
             <div className="profile__column">
               <div className="profile__input-container">
-                <label className="profile__input-label" htmlFor="mobileNumber">
+                <span className="profile__input-label">
                   Мобильный телефон
-                  {
-                    <Controller
-                      render={({ field }) => (
-                        <input
-                          {...field}
-                          className={`profile__input ${
-                            !isEdit && 'profile__input_type_disabled'
-                          }`}
-                          type="text"
-                          placeholder="Мобильный телефон"
-                          onChange={(e) =>
-                            field.onChange(transformPhone(e.target.value))
-                          }
-                          disabled={!isEdit}
-                        />
-                      )}
-                      name="mobileNumber"
-                      control={control}
-                      defaultValue="+79991112233"
-                    />
-                  }
-                </label>
+                  <Controller
+                    render={({ field }) => (
+                      <input
+                        {...field}
+                        className={`profile__input ${
+                          !isEdit && 'profile__input_type_disabled'
+                        }`}
+                        type="text"
+                        placeholder="Мобильный телефон"
+                        onChange={(e) =>
+                          field.onChange(transformPhone(e.target.value))
+                        }
+                        disabled={!isEdit}
+                      />
+                    )}
+                    name="mobileNumber"
+                    control={control}
+                    defaultValue="+79991112233"
+                  />
+                </span>
                 <span className="profile__input-error">
                   {errors.mobileNumber?.message}
                 </span>
@@ -243,6 +247,26 @@ function ProfileInfo() {
                 {isEdit && (
                   <span className="profile__input-error profile__input-error_margin_custom">
                     {errors.email?.message}
+                  </span>
+                )}
+              </div>
+              <div className="profile__input-container">
+                <label className="profile__input-label" htmlFor="email">
+                  E-mail
+                  <input
+                    {...register('test')}
+                    className={`profile__input profile__input_no-capital-letter ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
+                    type="text"
+                    placeholder="E-mail"
+                    // defaultValue="isaevaPA@company.com"
+                    disabled={!isEdit}
+                  />
+                </label>
+                {isEdit && (
+                  <span className="profile__input-error profile__input-error_margin_custom">
+                    {errors.test?.message}
                   </span>
                 )}
               </div>
