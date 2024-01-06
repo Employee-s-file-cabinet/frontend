@@ -1,6 +1,19 @@
 import * as yup from 'yup';
 import { requiredFieldError } from '../constants';
 
+const MAX_FILE_SIZE = 1024000;
+
+const validFileExtensions = {
+  image: ['jpg', 'jpeg', 'png', 'webp'],
+};
+
+function isValidFileType(fileName, fileType) {
+  return (
+    fileName &&
+    validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1
+  );
+}
+
 export const EmployeeProfileSchema = yup
   .object({
     lastName: yup
@@ -60,5 +73,17 @@ export const EmployeeProfileSchema = yup
       .string()
       .required(requiredFieldError)
       .matches(/^\S+@\S+\.[a-zA-Z]{2,}$/, 'Введите корректный email.'),
+
+    photoUpload: yup
+      .mixed()
+      .required('Required')
+      .test('is-valid-type', 'Not a valid image type', (value) =>
+        isValidFileType(value && value.name.toLowerCase(), 'image')
+      )
+      .test(
+        'is-valid-size',
+        'Max allowed size is 1000KB',
+        (value) => value && value.size <= MAX_FILE_SIZE
+      ),
   })
   .required();

@@ -24,7 +24,7 @@ function ProfileInfo() {
   });
 
   const VisuallyHiddenInput = styled('input')({
-    width: 0,
+    width: 200,
   });
 
   function transformPhone(number) {
