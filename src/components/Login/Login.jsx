@@ -6,6 +6,7 @@ import { MainButton } from '../UI/Buttons/MainButton';
 import { MainField } from '../UI/Fields/MainField';
 import { Icon } from '../UI/Icons/Icons';
 import { loginSchema } from '../../utils/ValidationSchema';
+import * as auth from '../../utils/Auth';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -18,16 +19,21 @@ export default function Login() {
     resolver: yupResolver(loginSchema),
     mode: 'onChange',
   });
-  // STATE TO CHANGE VISIBLY IN PASSWORD FIELD
+  // State to change visibly in password field
   const [passwordType, setPasswordType] = useState('password');
-  // STATE TO CHANGE EYE ICON IN PASSWORD FIELD
+  // State to change eye icon in password field
   const [eyeType, setEyeType] = useState('fa-eye-slash');
-  // STATES FOR WATCHING FOCUS ON FIELDS FOR CHANGE ICONS ON CROSS WHEN FIELD FOCUSED
+  // States for watching focus on fields for change icons on cross when field focused
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
+  const extraClassForPasswordIcon = isFocusedPassword
+    ? 'icon_margined icon__clickable'
+    : 'icon_margined';
 
   function onSubmit(data) {
+    // eslint-disable-next-line no-console
     console.log(data);
+    auth.authorize(data.email, data.password);
     navigate('/');
   }
 
@@ -102,6 +108,7 @@ export default function Login() {
               size="is-small"
               position="is-right"
               onClick={handleClickIconReset}
+              extraClass="icon__clickable"
             />
           ) : (
             <Icon icon="fa-envelope" size="is-small" position="is-right" />
@@ -129,6 +136,7 @@ export default function Login() {
               size="is-small"
               position="is-right"
               onClick={handleClickIconReset}
+              extraClass="icon__clickable"
             />
           ) : (
             <Icon icon="fa-lock" size="is-small" position="is-right" />
@@ -137,7 +145,7 @@ export default function Login() {
             icon={eyeType}
             size="is-small"
             position="is-right"
-            extraClass="icon_margined"
+            extraClass={extraClassForPasswordIcon}
             onClick={handleEyeClick}
           />
         </MainField>
@@ -147,7 +155,6 @@ export default function Login() {
         <Link to="/access-restore" className="login__restore-pass-link">
           Забыли пароль?
         </Link>
-
         <MainButton
           disabled={!isValid}
           size="is-medium"

@@ -24,8 +24,15 @@ export default function ResetPasswordForm() {
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
   const [isFocusedConfirmPassword, setIsFocusedConfirmPassword] =
     useState(false);
+  const extraClassForPasswordIcon = isFocusedPassword
+    ? 'icon_margined icon__clickable'
+    : 'icon_margined';
+  const extraClassForConfirmPasswordIcon = isFocusedConfirmPassword
+    ? 'icon_margined icon__clickable'
+    : 'icon_margined';
 
   function onSubmit(data) {
+    // eslint-disable-next-line no-console
     console.log(data);
     navigate('/reset-success');
   }
@@ -98,6 +105,7 @@ export default function ResetPasswordForm() {
               size="is-small"
               position="is-right"
               onClick={handleClickIconReset}
+              extraClass="icon__clickable"
             />
           ) : (
             <Icon icon="fa-lock" size="is-small" position="is-right" />
@@ -106,8 +114,8 @@ export default function ResetPasswordForm() {
             icon={eyeType}
             size="is-small"
             position="is-right"
-            extraClass="icon_margined"
             onClick={handleEyeClick}
+            extraClass={extraClassForPasswordIcon}
           />
         </MainField>
       </fieldset>
@@ -130,6 +138,7 @@ export default function ResetPasswordForm() {
               size="is-small"
               position="is-right"
               onClick={handleClickIconReset}
+              extraClass="icon__clickable"
             />
           ) : (
             <Icon icon="fa-lock" size="is-small" position="is-right" />
@@ -138,8 +147,8 @@ export default function ResetPasswordForm() {
             icon={eyeType}
             size="is-small"
             position="is-right"
-            extraClass="icon_margined"
             onClick={handleEyeClick}
+            extraClass={extraClassForConfirmPasswordIcon}
           />
         </MainField>
       </fieldset>

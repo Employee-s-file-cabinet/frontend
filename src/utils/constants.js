@@ -1,3 +1,5 @@
+export const baseURL = 'https://ecabinet.acceleratorpracticum.ru/api/v1';
+
 export const pagesPath = {
   home: { path: '', label: 'Главная', id: 1 },
   employees: { path: 'employees', label: 'Картотека сотрудников', id: 2 },

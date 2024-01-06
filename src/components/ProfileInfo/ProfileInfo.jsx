@@ -1,3 +1,6 @@
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Icon } from '../UI/Icons/Icons';
@@ -11,6 +14,10 @@ function ProfileInfo() {
     formState: { errors },
   } = useForm();
 
+  const VisuallyHiddenInput = styled('input')({
+    width: 0,
+  });
+
   return (
     <section className="profile">
       <h2 className="title is-2 profile__title">Исаева Полина Артёмовна</h2>
@@ -18,27 +25,11 @@ function ProfileInfo() {
         <div className="profile__image-container">
           <img className="profile__image" alt="Логотип" src={ProfilePic} />
           {isEdit && (
-            <div className="file">
-              <label
-                className="profile__label file-label"
-                htmlFor="profileImage"
-              >
-                <input
-                  {...register('file')}
-                  className="file-input profile__upload-button"
-                  type="file"
-                  name="profileImage"
-                />
-                <span className="file-cta profile__cta">
-                  <span className="file-label">Загрузить фото</span>
-                  <span className="file-icon profile__icon">
-                    <i className="fas fa-upload" />
-                  </span>
-                </span>
-              </label>
-              <span className="profile__input-error">
-                {errors.email?.message}
-              </span>
+            <div className="profile__file">
+              <Button component="label">
+                <div className="profile__file-title">Загрузить фото</div>
+                <VisuallyHiddenInput type="file" />
+              </Button>
             </div>
           )}
         </div>

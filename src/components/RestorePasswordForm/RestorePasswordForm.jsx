@@ -73,6 +73,7 @@ export default function RestorePasswordForm() {
               size="is-small"
               position="is-right"
               onClick={handleClickIconReset}
+              extraClass="icon__clickable"
             />
           ) : (
             <Icon icon="fa-envelope" size="is-small" position="is-right" />

@@ -2,10 +2,10 @@
 import { useState, Suspense } from 'react';
 import {
   createBrowserRouter,
-  createHashRouter,
   createRoutesFromElements,
   RouterProvider,
   Route,
+  useParams,
 } from 'react-router-dom';
 import * as auth from '../../utils/Auth';
 import Contexts from '../../contexts/Contexts';
@@ -26,12 +26,13 @@ import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 import PasswordResetPage from '../../pages/PasswordResetPage/PasswordResetPage';
 import ResetSuccessPage from '../../pages/ResetSuccessPage/ResetSuccessPage';
 import SuccessSentToEmailPage from '../../pages/SuccessSentToEmailPage/SuccessSentToEmailPage';
-
-const { REACT_APP_NODE_ENV, REACT_APP_PUBLIC_URL } = process.env;
+import { EmployeesFilterWrapper } from '../EmployeesFilterWrapper/EmployeesFilterWrapper';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const lastPage = 10;
+
   // routes
   const routes = createRoutesFromElements(
     <Route path="/">
@@ -47,9 +48,15 @@ function App() {
       </Route>
       <Route element={<GeneralLayout />}>
         <Route
-          path="employees"
+          path="employees/:filterTeg/:pageNumber"
           element={
-            <ProtectedRoute element={EmployeesPage} isLoggedIn={isLoggedIn} />
+            <EmployeesFilterWrapper lastPage={lastPage}>
+              <ProtectedRoute
+                element={EmployeesPage}
+                isLoggedIn={isLoggedIn}
+                lastPage={lastPage}
+              />
+            </EmployeesFilterWrapper>
           }
         />
         <Route
@@ -86,7 +93,7 @@ function App() {
     </Route>
   );
 
-  const router = createHashRouter(routes);
+  const router = createBrowserRouter(routes);
 
   return (
     <Suspense fallback={<Preloader />}>
