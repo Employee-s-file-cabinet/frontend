@@ -2,6 +2,9 @@ import './PersonalDataForm.scss';
 import 'bulma/css/bulma.min.css';
 import { useState } from 'react';
 
+import PersonalDFOpenData from '../PersonalDFOpenData/PersonalDFOpenData';
+import PersonalDFPassportData from '../PersonalDFPassportData/PersonalDFPassportData';
+
 export default function PersonalDataForm() {
   const [isEdit, setIsEdit] = useState(false);
 
@@ -28,6 +31,9 @@ export default function PersonalDataForm() {
         type="button"
         onClick={handleEditButton}
       />
+
+      <PersonalDFOpenData isEdit={isEdit} />
+      <PersonalDFPassportData isEdit={isEdit} />
 
       <div className="columns is-multiline is-mobile">
         <div className="column">

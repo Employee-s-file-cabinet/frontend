@@ -2,6 +2,7 @@ import './ArhMilitaryRegistration.scss';
 
 import ArhMilitaryRegStatus from '../ArhMilitaryRegStatus/ArhMilitaryRegStatus';
 import ArhMilitaryRegMilitaryID from '../ArhMilitaryRegMilitaryID/ArhMilitaryRegMilitaryID';
+import ArhMilitaryRegCommissariat from '../ArhMilitaryRegCommissariat/ArhMilitaryRegCommissariat';
 
 export default function ArhMilitaryRegistration({ isEdit }) {
   return (
@@ -36,7 +37,7 @@ export default function ArhMilitaryRegistration({ isEdit }) {
           </legend>
         </div>
         <div className="column block-gap">
-          {/* <ArhMilitaryRegMilitaryID isEdit={!isEdit} /> */}
+          <ArhMilitaryRegCommissariat isEdit={!isEdit} />
         </div>
         <input type="button" className="button-trash button-trash-none " />
       </div>
