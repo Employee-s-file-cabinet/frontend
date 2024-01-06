@@ -1,0 +1,36 @@
+.horizontal-wrapper {
+  display: flex;
+  margin-bottom: 20px;
+
+  &__title {
+    margin-right: 50px;
+    width: 200px;
+    text-wrap: wrap;
+    color: var(--black, #0a0a0a);
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 112.5%; /* 18px */
+  }
+
+  &__input {
+    width: 250px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--Shades-grey-lighter, #dbdbdb);
+    background: var(--White-white, #fff);
+  }
+
+  &__input:focus {
+    border: 1px solid var(--Primary-primary, #00d1b2);
+  }
+}
+
+.file-cta-padding {
+  height: 26px;
+}
+
+.file-name-padding {
+  width: 240px;
+}
