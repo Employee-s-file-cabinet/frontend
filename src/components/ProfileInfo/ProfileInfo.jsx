@@ -250,26 +250,6 @@ function ProfileInfo() {
                   </span>
                 )}
               </div>
-              <div className="profile__input-container">
-                <label className="profile__input-label" htmlFor="email">
-                  E-mail
-                  <input
-                    {...register('test')}
-                    className={`profile__input profile__input_no-capital-letter ${
-                      !isEdit && 'profile__input_type_disabled'
-                    }`}
-                    type="text"
-                    placeholder="E-mail"
-                    // defaultValue="isaevaPA@company.com"
-                    disabled={!isEdit}
-                  />
-                </label>
-                {isEdit && (
-                  <span className="profile__input-error profile__input-error_margin_custom">
-                    {errors.test?.message}
-                  </span>
-                )}
-              </div>
             </div>
           </div>
           {isEdit && (

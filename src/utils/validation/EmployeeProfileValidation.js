@@ -61,34 +61,16 @@ export const EmployeeProfileSchema = yup
       .required(requiredFieldError)
       .matches(/^\S+@\S+\.[a-zA-Z]{2,}$/, 'Введите корректный email.'),
 
-    picture: yup.mixed().test(
-      'fileSize',
-      'Размер файла не должен превышать 5 Мб.',
-      (value) => value.length && value[0].size <= 5242880
-      // {
-      //   name: 'fileSize',
-      //   skipAbsent: true,
-      //   test(value, ctx) {
-      //     if (!value.length) {
-      //       ctx.createError({
-      //         message: 'Размер файла не должен превышать 5 Мб.',
-      //       });
-      //     }
-      //   },
-      // }
+    picture: yup.lazy((value) =>
+      value.length !== 0
+        ? yup
+            .mixed()
+            .test(
+              'fileSize',
+              'Размер файла превышает 5 Мб',
+              (file) => file[0].size <= 5242880
+            )
+        : yup.mixed().notRequired()
     ),
-    // .test('required', 'Загрузите фотографию', (value) => value > 0)
-
-    test: yup.string().test({
-      name: 'fileSize',
-      skipAbsent: true,
-      test(value, ctx) {
-        if (!value.length) {
-          ctx.createError({
-            message: 'Размер файла не должен превышать 5 Мб.',
-          });
-        }
-      },
-    }),
   })
   .required();
