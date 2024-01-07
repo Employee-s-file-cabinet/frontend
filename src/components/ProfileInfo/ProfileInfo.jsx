@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Icon } from '../UI/Icons/Icons';
 import ProfilePic from '../../assets/images/profile.jpg';
@@ -8,23 +9,39 @@ import { EmployeeProfileSchema } from '../../utils/validation/EmployeeProfileVal
 import './ProfileInfo.scss';
 
 function ProfileInfo() {
-  const [isEdit, setIsEdit] = useState(false);
-
   const {
     control,
     register,
     handleSubmit,
-    formState: { errors },
+    watch,
+    formState: { isValid, errors, isDirty },
   } = useForm({
+    defaultValues: {
+      lastName: 'Исаева',
+      firstName: 'Полина',
+      middleName: 'Артемовна',
+      department: 'Кадры',
+      jobTitle: 'Менеджер',
+      grade: '4',
+      mobileNumber: '+79091114422',
+      extNumber: '32-23',
+      email: 'isaevaPA@company.com',
+    },
     resolver: yupResolver(EmployeeProfileSchema),
     mode: 'onChange',
   });
+  const [isEdit, setIsEdit] = useState(false);
 
   function transformPhone(number) {
     if (number.includes('+')) {
       return number;
     }
     return `+${number}`;
+  }
+
+  function onReset() {
+    // тут должен быть прописан возврат к дефолтным значением полей
+    setIsEdit(false);
   }
 
   function onSubmit(data) {
@@ -79,7 +96,6 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Фамилия"
-                    defaultValue="Исаева"
                     disabled={!isEdit}
                   />
                 </label>
@@ -97,7 +113,6 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Имя"
-                    defaultValue="Полина"
                     disabled={!isEdit}
                   />
                 </label>
@@ -115,7 +130,6 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Отчество"
-                    defaultValue="Артемовна"
                     disabled={!isEdit}
                   />
                 </label>
@@ -137,7 +151,6 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Отдел"
-                    defaultValue="Кадры"
                     disabled={!isEdit}
                   />
                 </label>
@@ -155,7 +168,6 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Должность"
-                    defaultValue="Менеджер"
                     disabled={!isEdit}
                   />
                 </label>
@@ -173,7 +185,6 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Грейд"
-                    defaultValue="4"
                     disabled={!isEdit}
                   />
                 </label>
@@ -205,7 +216,6 @@ function ProfileInfo() {
                     )}
                     name="mobileNumber"
                     control={control}
-                    defaultValue="+79991112233"
                   />
                 </span>
                 <span className="profile__input-error">
@@ -222,7 +232,6 @@ function ProfileInfo() {
                     }`}
                     type="text"
                     placeholder="Внутренний номер"
-                    defaultValue="33-33"
                     disabled={!isEdit}
                   />
                 </label>
@@ -240,7 +249,6 @@ function ProfileInfo() {
                     }`}
                     type="email"
                     placeholder="E-mail"
-                    defaultValue="isaevaPA@company.com"
                     disabled={!isEdit}
                   />
                 </label>
@@ -254,23 +262,32 @@ function ProfileInfo() {
           </div>
           {isEdit && (
             <div className="profile__buttons">
-              <button className="profile__button button is-primary">
+              <button
+                type="submit"
+                className="button is-primary profile__button"
+                disabled={!isValid || !isDirty}
+              >
                 Сохранить
               </button>
-              <button className="profile__button button is-primary is-light">
+              <button
+                type="button"
+                className="button is-primary is-light profile__button"
+                disabled={!isDirty}
+                onClick={onReset}
+              >
                 Сбросить изменения
               </button>
             </div>
           )}
         </form>
         <div className="profile__button-edit">
-          {!isEdit && (
-            <Icon
-              icon="fa-pen-to-square"
-              size="is-small"
-              onClick={() => setIsEdit(true)}
-            />
-          )}
+          <Icon
+            icon="fa-pen-to-square"
+            size="is-small"
+            onClick={() =>
+              isEdit === false ? setIsEdit(true) : setIsEdit(false)
+            }
+          />
         </div>
       </div>
     </section>

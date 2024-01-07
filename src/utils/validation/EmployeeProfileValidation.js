@@ -20,7 +20,7 @@ export const EmployeeProfileSchema = yup
     middleName: yup
       .string()
       .required(requiredFieldError)
-      .matches(/^(?=.*?[а-яёА-ЯЁ]).{1,150}$/, 'Используйте кириллицу.'),
+      .matches(/^(?=.{1,150}$)[а-яёА-ЯЁ]*$/, 'Используйте кириллицу.'),
     department: yup
       .string()
       .required(requiredFieldError)
@@ -46,31 +46,37 @@ export const EmployeeProfileSchema = yup
       .string()
       .required(requiredFieldError)
       .matches(
-        /^(?=.{12,15}$)[+]+[0-9]*$/,
-        'Используйте формат записи номера "+79991110022". Макс. длина номера 14 цифр.'
+        /^([+]{1,1})([0-9]{11,14})$/,
+        'Укажите телефон в формате "+79991110022". Длина номера от 11 до 14 цифр'
       ),
     extNumber: yup
       .string()
       .required(requiredFieldError)
       .matches(
         /^[0-9]{2,2}[-][0-9]{2,2}$/,
-        'Используйте формат записи номера "00-00".'
+        'Укажите телефон в формате "00-00".'
       ),
     email: yup
       .string()
       .required(requiredFieldError)
-      .matches(/^\S+@\S+\.[a-zA-Z]{2,}$/, 'Введите корректный email.'),
+      .matches(
+        /^\S+@\S+\.[a-zA-Z]{2,}$/,
+        'Введите корректный email. Пример: ru@ru.ru'
+      ),
 
-    picture: yup.lazy((value) =>
-      value.length !== 0
-        ? yup
-            .mixed()
-            .test(
-              'fileSize',
-              'Размер файла превышает 5 Мб',
-              (file) => file[0].size <= 5242880
-            )
-        : yup.mixed().notRequired()
-    ),
+    picture: yup.lazy((value) => {
+      if (value) {
+        return value.length !== 0
+          ? yup
+              .mixed()
+              .test(
+                'fileSize',
+                'Размер файла превышает 5 Мб.',
+                (file) => file[0].size <= 5242880
+              )
+          : yup.mixed().notRequired();
+      }
+      return yup.mixed().notRequired();
+    }),
   })
   .required();
