@@ -16,7 +16,7 @@ export default function EmployeesPage({ lastPage, usersList, setUsersList }) {
   // Change users list after change page
   useEffect(() => {
     console.log(currentPage);
-    getEmployees(2, '', currentPage)
+    getEmployees(5, '', currentPage)
       .then((res) => {
         setUsersList(res.users);
         console.log(res.users, 'res.users');

@@ -34,11 +34,10 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [lastPage, setLastPage] = useState(1);
   const [usersList, setUsersList] = useState([]);
-  // const lastPage = 10;
 
   // Get initial users list and quantity pages
   useEffect(() => {
-    getEmployees(2, '', 1)
+    getEmployees(5, '', 1)
       .then((res) => {
         setLastPage(res.total_pages);
         setUsersList(res.users);
@@ -97,7 +96,7 @@ function App() {
           }
         />
         <Route
-          path="employee"
+          path="employee/:id"
           element={
             <ProtectedRoute element={EmployeePage} isLoggedIn={isLoggedIn} />
           }
