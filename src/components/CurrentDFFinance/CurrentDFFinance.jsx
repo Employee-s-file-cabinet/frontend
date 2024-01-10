@@ -38,7 +38,9 @@ export default function CurrentDFFinance({ isEdit }) {
                 name="resume"
                 disabled={!isEdit}
               />
-              <span className="file-cta file-cta-padding">
+              <span className="file-cta ">
+                {' '}
+                {/* file-cta-padding */}
                 <span className="file-icon">
                   <i className="fas fa-upload" />
                 </span>

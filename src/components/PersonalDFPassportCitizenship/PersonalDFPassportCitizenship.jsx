@@ -2,14 +2,11 @@ import PersonalDFPassportCitizenshipInput from '../PersonalDFPassportCitizenship
 
 export default function PersonalDFPassportCitizenship({ isEdit }) {
   return (
-    // <>
-    <div className="columns is-multiline is-mobile">
+    <div className="columns is-multiline is-mobile input-none ">
       <div className="column">
         <PersonalDFPassportCitizenshipInput isEdit={isEdit} />
       </div>
-      <input type="button" className="button-trash" />
+      <input type="button" className="button-trash button-trash-personal" />
     </div>
-
-    // </>
   );
 }

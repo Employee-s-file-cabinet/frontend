@@ -28,6 +28,11 @@
   line-height: 150%; /* 24px */
 }
 
+.file-name-span {
+  display: inline-block;
+  max-width: 40px;
+}
+
 .label-type {
   // border: none;
   box-shadow: none;

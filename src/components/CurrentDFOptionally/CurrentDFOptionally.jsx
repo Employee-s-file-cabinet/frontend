@@ -7,7 +7,6 @@ export default function CurrentDFOptionally({ isEdit }) {
       <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
           <legend className="label label-horizontal label-type">
-            {/* Пройденный &emsp;инструктаж */}
             Особые &emsp;профессиональные &emsp;навыки
           </legend>
         </div>
