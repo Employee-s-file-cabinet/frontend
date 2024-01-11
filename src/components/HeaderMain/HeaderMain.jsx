@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Link, useNavigate } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { useCookies } from 'react-cookie';
 import { Icon } from '../UI/Icons/Icons';
 import Avatar from '../../assets/images/avatar.png';

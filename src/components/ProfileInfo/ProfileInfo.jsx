@@ -52,12 +52,12 @@ function ProfileInfo() {
 
   return (
     <section className="profile">
-      <h2 className="title is-2 profile__title">Исаева Полина Артёмовна</h2>
+      <h2 className="profile__title">Исаева Полина Артёмовна</h2>
       <div className="profile__container">
         <div className="profile__image-container">
           <img className="profile__image" alt="Логотип" src={ProfilePic} />
           {isEdit && (
-            <div className="file">
+            <div className="file is-normal">
               <label className="file-label" htmlFor="picture">
                 <input
                   {...register('picture')}
@@ -65,12 +65,14 @@ function ProfileInfo() {
                   type="file"
                   accept=".jpg,,.png,.jpeg"
                 />
-                <span className="profile__file-upload-container">
-                  <span className="profile__file-upload-label">
+                <div className="profile__file-upload-container">
+                  <span className="profile__file-upload-label file-label">
                     Загрузить фото
                   </span>
-                  <i className="fas fa-upload" />
-                </span>
+                  <span className="file-icon">
+                    <i className="fas fa-upload" />
+                  </span>
+                </div>
               </label>
             </div>
           )}
@@ -84,9 +86,9 @@ function ProfileInfo() {
           name="profile"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="profile__columns">
-            <div className="profile__column">
-              <div className="profile__input-container">
+          <fieldset className="profile__columns">
+            <ul className="profile__column">
+              <li className="profile__input-container">
                 <label className="profile__input-label" htmlFor="lastName">
                   Фамилия
                   <input
@@ -102,46 +104,8 @@ function ProfileInfo() {
                 <span className="profile__input-error">
                   {errors.lastName?.message}
                 </span>
-              </div>
-              <div className="profile__input-container">
-                <label className="profile__input-label" htmlFor="firstName">
-                  Имя
-                  <input
-                    {...register('firstName')}
-                    className={`profile__input ${
-                      !isEdit && 'profile__input_type_disabled'
-                    }`}
-                    type="text"
-                    placeholder="Имя"
-                    disabled={!isEdit}
-                  />
-                </label>
-                <span className="profile__input-error">
-                  {errors.firstName?.message}
-                </span>
-              </div>
-              <div className="profile__input-container">
-                <label className="profile__input-label" htmlFor="middleName">
-                  Отчество
-                  <input
-                    {...register('middleName')}
-                    className={`profile__input ${
-                      !isEdit && 'profile__input_type_disabled'
-                    }`}
-                    type="text"
-                    placeholder="Отчество"
-                    disabled={!isEdit}
-                  />
-                </label>
-                {isEdit && (
-                  <span className="profile__input-error profile__input-error_margin_custom">
-                    {errors.middleName?.message}
-                  </span>
-                )}
-              </div>
-            </div>
-            <div className="profile__column">
-              <div className="profile__input-container">
+              </li>
+              <li className="profile__input-container">
                 <label className="profile__input-label" htmlFor="department">
                   Отдел
                   <input
@@ -157,46 +121,8 @@ function ProfileInfo() {
                 <span className="profile__input-error">
                   {errors.department?.message}
                 </span>
-              </div>
-              <div className="profile__input-container">
-                <label className="profile__input-label" htmlFor="jobTitle">
-                  Должность
-                  <input
-                    {...register('jobTitle')}
-                    className={`profile__input ${
-                      !isEdit && 'profile__input_type_disabled'
-                    }`}
-                    type="text"
-                    placeholder="Должность"
-                    disabled={!isEdit}
-                  />
-                </label>
-                <span className="profile__input-error">
-                  {errors.jobTitle?.message}
-                </span>
-              </div>
-              <div className="profile__input-container">
-                <label className="profile__input-label" htmlFor="grade">
-                  Грейд
-                  <input
-                    {...register('grade')}
-                    className={`profile__input ${
-                      !isEdit && 'profile__input_type_disabled'
-                    }`}
-                    type="text"
-                    placeholder="Грейд"
-                    disabled={!isEdit}
-                  />
-                </label>
-                {isEdit && (
-                  <span className="profile__input-error profile__input-error_margin_custom">
-                    {errors.grade?.message}
-                  </span>
-                )}
-              </div>
-            </div>
-            <div className="profile__column">
-              <div className="profile__input-container">
+              </li>
+              <li className="profile__input-container">
                 <span className="profile__input-label">
                   Мобильный телефон
                   <Controller
@@ -221,8 +147,44 @@ function ProfileInfo() {
                 <span className="profile__input-error">
                   {errors.mobileNumber?.message}
                 </span>
-              </div>
-              <div className="profile__input-container">
+              </li>
+            </ul>
+            <ul className="profile__column">
+              <li className="profile__input-container">
+                <label className="profile__input-label" htmlFor="firstName">
+                  Имя
+                  <input
+                    {...register('firstName')}
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
+                    type="text"
+                    placeholder="Имя"
+                    disabled={!isEdit}
+                  />
+                </label>
+                <span className="profile__input-error">
+                  {errors.firstName?.message}
+                </span>
+              </li>
+              <li className="profile__input-container">
+                <label className="profile__input-label" htmlFor="jobTitle">
+                  Должность
+                  <input
+                    {...register('jobTitle')}
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
+                    type="text"
+                    placeholder="Должность"
+                    disabled={!isEdit}
+                  />
+                </label>
+                <span className="profile__input-error">
+                  {errors.jobTitle?.message}
+                </span>
+              </li>
+              <li className="profile__input-container">
                 <label className="profile__input-label" htmlFor="extNumber">
                   Внутренний номер
                   <input
@@ -238,8 +200,48 @@ function ProfileInfo() {
                 <span className="profile__input-error">
                   {errors.extNumber?.message}
                 </span>
-              </div>
-              <div className="profile__input-container">
+              </li>
+            </ul>
+            <ul className="profile__column">
+              <li className="profile__input-container">
+                <label className="profile__input-label" htmlFor="middleName">
+                  Отчество
+                  <input
+                    {...register('middleName')}
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
+                    type="text"
+                    placeholder="Отчество"
+                    disabled={!isEdit}
+                  />
+                </label>
+                {isEdit && (
+                  <span className="profile__input-error profile__input-error_margin_custom">
+                    {errors.middleName?.message}
+                  </span>
+                )}
+              </li>
+              <li className="profile__input-container">
+                <label className="profile__input-label" htmlFor="grade">
+                  Грейд
+                  <input
+                    {...register('grade')}
+                    className={`profile__input ${
+                      !isEdit && 'profile__input_type_disabled'
+                    }`}
+                    type="text"
+                    placeholder="Грейд"
+                    disabled={!isEdit}
+                  />
+                </label>
+                {isEdit && (
+                  <span className="profile__input-error profile__input-error_margin_custom">
+                    {errors.grade?.message}
+                  </span>
+                )}
+              </li>
+              <li className="profile__input-container">
                 <label className="profile__input-label" htmlFor="email">
                   E-mail
                   <input
@@ -257,9 +259,9 @@ function ProfileInfo() {
                     {errors.email?.message}
                   </span>
                 )}
-              </div>
-            </div>
-          </div>
+              </li>
+            </ul>
+          </fieldset>
           {isEdit && (
             <div className="profile__buttons">
               <button
