@@ -33,6 +33,7 @@ MainButton.propTypes = {
     'is-link',
     'is-warning',
     'is-danger',
+    'is-light',
     '',
   ]),
   /**

@@ -45,8 +45,8 @@ export default function RestorePasswordForm() {
 
       <div>
         <p className="restore-password__annotation">
-          Введите адрес электронной почты, на которую зарегистрирован аккаунт.
-          Мы отправим на него ссылку для изменения пароля.
+          Введите адрес электронной почты, на которую зарегистрирован аккаунт,
+          чтобы сбросить пароль.
         </p>
         <p className="restore-password__authorization-error">
           Не удалось найти аккаунт с указанным email.

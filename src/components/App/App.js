@@ -27,27 +27,12 @@ import PasswordResetPage from '../../pages/PasswordResetPage/PasswordResetPage';
 import ResetSuccessPage from '../../pages/ResetSuccessPage/ResetSuccessPage';
 import SuccessSentToEmailPage from '../../pages/SuccessSentToEmailPage/SuccessSentToEmailPage';
 import { EmployeesFilterWrapper } from '../EmployeesFilterWrapper/EmployeesFilterWrapper';
-import { getEmployees } from '../../utils/UsersApi';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [lastPage, setLastPage] = useState(1);
   const [usersList, setUsersList] = useState([]);
-
-  // Get initial users list and quantity pages
-  useEffect(() => {
-    getEmployees(5, '', 1)
-      .then((res) => {
-        setLastPage(res.total_pages);
-        setUsersList(res.users);
-        console.log(res.users, 'res.users');
-      })
-      .catch((err) =>
-        // eslint-disable-next-line no-console
-        console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
-      );
-  }, []);
 
   // routes
   const routes = createRoutesFromElements(
@@ -64,7 +49,7 @@ function App() {
       </Route>
       <Route element={<GeneralLayout />}>
         <Route
-          path="employees/:filterTeg/:pageNumber"
+          path="employees/:filterTeg/:searchQuery?/:pageNumber"
           element={
             <EmployeesFilterWrapper lastPage={lastPage}>
               <ProtectedRoute
@@ -73,6 +58,7 @@ function App() {
                 lastPage={lastPage}
                 usersList={usersList}
                 setUsersList={setUsersList}
+                setLastPage={setLastPage}
               />
             </EmployeesFilterWrapper>
           }
