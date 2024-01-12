@@ -28,6 +28,11 @@
   line-height: 150%; /* 24px */
 }
 
+.file-name-span {
+  display: inline-block;
+  max-width: 40px;
+}
+
 .label-type {
   // border: none;
   box-shadow: none;
@@ -53,6 +58,22 @@
   width: 720px;
   background-color: white;
 
+  &__add {
+    margin-top: 24px;
+    margin-left: 210px;
+    margin-bottom: 32px;
+    border: 1px solid var(--primary, #00d1b2);
+    border-radius: 6px;
+    background: white;
+    color: var(--primary, #00d1b2);
+    /* text bold */
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 24px */
+  }
+
   &__button {
     width: 16px;
     height: 16px;
@@ -69,10 +90,6 @@
     display: flex;
     background-color: aqua;
   }
-}
-
-.form-active {
-  // display: block;
 }
 
 .select-field {

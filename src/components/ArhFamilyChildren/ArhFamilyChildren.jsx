@@ -1,5 +1,3 @@
-import './ArhFamilyChildren.scss';
-
 import scanLabel from '../../assets/images/scan-label.png';
 
 export default function ArhFamilyChildren({ isEdit }) {

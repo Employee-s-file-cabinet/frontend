@@ -1,5 +1,3 @@
-import './ArhFamilyParents.scss';
-
 export default function ArhFamilyParents({ isEdit }) {
   return (
     <>
