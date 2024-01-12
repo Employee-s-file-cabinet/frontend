@@ -1,3 +1,4 @@
+import './ArhPriorWorkAwards.scss';
 import { useFieldArray } from 'react-hook-form';
 import ConditionalInput from '../Reusable/ConditionalInput/ConditionalInput';
 
@@ -16,7 +17,7 @@ export default function ArhPriorWorkAwards({
     <section className="awards">
       {fields.map((field, index) => (
         <div className="awards__container" key={field.id}>
-          <fieldset className="columns">
+          <fieldset className="columns awards__field-set">
             <div className="column is-two-quarters">
               <div className="control">
                 <legend className="label label label-horizontal is-one-quarter">

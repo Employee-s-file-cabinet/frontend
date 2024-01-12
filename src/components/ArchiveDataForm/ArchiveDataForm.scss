@@ -9,7 +9,6 @@
 
   &__add {
     margin-top: 24px;
-    margin-left: 260px;
     margin-bottom: 42px;
     border: 1px solid var(--primary, #00d1b2);
     border-radius: 6px;
@@ -37,7 +36,6 @@
 
 .button-trash {
   padding: 0;
-  padding-top: 46px;
   background-image: url(../../assets/images/trash.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -47,7 +45,7 @@
   height: 16px;
   cursor: pointer;
   border: none;
-  margin-top: 50px;
+  margin-top: 38px;
 }
 
 .button-trash:hover {

@@ -1,6 +1,6 @@
-import './ArhPriorWorkExperience.scss';
 import { useFieldArray } from 'react-hook-form';
 import ConditionalInput from '../Reusable/ConditionalInput/ConditionalInput';
+import './ArhPriorWorkExperience.scss';
 
 export default function ArhPriorWorkExperience({
   isEdit,
@@ -14,10 +14,10 @@ export default function ArhPriorWorkExperience({
     rules: { required: 'Введите хотя бы одно значение' },
   });
   return (
-    <section className="expirience">
+    <section className="experience">
       {fields.map((field, index) => (
-        <div className="expirience__container" key={field.id}>
-          <fieldset>
+        <div className="experience__container" key={field.id}>
+          <fieldset className="experience__field-set">
             <div className="field">
               <legend className="label label-horizontal">
                 Название компании
