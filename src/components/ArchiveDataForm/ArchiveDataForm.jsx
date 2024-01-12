@@ -1,6 +1,9 @@
 import './ArchiveDataForm.scss';
 import 'bulma/css/bulma.min.css';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { EmployeeArcInfoValidationSchema } from '../../utils/validation/EmployeeArcInfoValidation';
 
 import ArhPriorWork from '../ArhPriorWork/ArhPriorWork';
 import ArhFamily from '../ArhFamily/ArhFamily';
@@ -8,14 +11,41 @@ import ArhEducation from '../ArhEducation/ArhEducation';
 import ArhMilitaryRegistration from '../ArhMilitaryRegistration/ArhMilitaryRegistration';
 
 export default function ArchiveDataForm() {
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      priorWorkExperienceFieldSet: [
+        {
+          companyName: 'Рeкрутинг Рус',
+          position: 'Менеджер',
+          beginDate: '',
+          endDate: '',
+          jobDescription: 'Счастье, радость он приносит людям',
+        },
+      ],
+      awardsFieldSet: [
+        {
+          awardTitle: '',
+          awardDate: '',
+        },
+      ],
+    },
+    resolver: yupResolver(EmployeeArcInfoValidationSchema),
+    mode: 'onChange',
+  });
   const [isEdit, setIsEdit] = useState(false);
 
   function handleEditButton() {
     setIsEdit(true);
   }
 
-  function handleSubmit(evt) {
-    evt.preventDefault();
+  function onSubmit(data) {
+    // eslint-disable-next-line no-console
+    console.log(data);
     setIsEdit(false);
   }
 
@@ -23,7 +53,7 @@ export default function ArchiveDataForm() {
     <form
       action="#"
       method="post"
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit((data) => onSubmit(data))}
       className="archive-data-form form-active"
     >
       <input
@@ -34,7 +64,12 @@ export default function ArchiveDataForm() {
         onClick={handleEditButton}
       />
 
-      <ArhPriorWork isEdit={isEdit} />
+      <ArhPriorWork
+        isEdit={isEdit}
+        errors={errors}
+        register={register}
+        control={control}
+      />
       <ArhFamily isEdit={isEdit} />
       <ArhEducation isEdit={isEdit} />
       <ArhMilitaryRegistration isEdit={isEdit} />

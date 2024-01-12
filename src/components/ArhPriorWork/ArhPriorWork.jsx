@@ -1,7 +1,7 @@
 import ArhPriorWorkExperience from '../ArhPriorWorkExperience/ArhPriorWorkExperience';
 import ArhPriorWorkAwards from '../ArhPriorWorkAwards/ArhPriorWorkAwards';
 
-export default function ArhPriorWork({ isEdit }) {
+export default function ArhPriorWork({ isEdit, errors, register, control }) {
   return (
     <details className="details" open>
       <summary className="summaru">Предыдущая работа</summary>
@@ -12,11 +12,14 @@ export default function ArhPriorWork({ isEdit }) {
           </legend>
         </div>
         <div className="column block-gap">
-          <ArhPriorWorkExperience isEdit={isEdit} />
+          <ArhPriorWorkExperience
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            control={control}
+          />
         </div>
-        <input type="button" className="button-trash" />
       </div>
-      <button className="archive-data-form__add">Добавить +</button>
       <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter block-gap">
           <legend className="label label label-horizontal label-type">
@@ -24,11 +27,14 @@ export default function ArhPriorWork({ isEdit }) {
           </legend>
         </div>
         <div className="column block-gap">
-          <ArhPriorWorkAwards isEdit={isEdit} />
+          <ArhPriorWorkAwards
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            control={control}
+          />
         </div>
-        <input type="button" className="button-trash" />
       </div>
-      <button className="archive-data-form__add">Добавить +</button>
     </details>
   );
 }
