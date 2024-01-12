@@ -96,27 +96,35 @@ export default function EmployeesPaginations({ lastPage }) {
 
   return (
     <div className="employees-pagination">
-      <nav
-        className="pagination is-centered employees-pagination_container"
-        role="navigation"
-        aria-label="pagination"
-      >
-        <a
-          className="pagination-previous"
-          href={`/employees/${filterTeg}/${currentPage - 1}`}
-          onClick={handlePreviousPagination}
+      {lastPage !== 1 && (
+        <nav
+          className="pagination is-centered employees-pagination_container"
+          role="navigation"
+          aria-label="pagination"
         >
-          Предыдущая
-        </a>
-        <a
-          className="pagination-next"
-          href={`/employees/${filterTeg}/${currentPage + 1}`}
-          onClick={handleNextPagination}
-        >
-          Следующая
-        </a>
-        {renderPaginationButtons()}
-      </nav>
+          <a
+            className="pagination-previous"
+            href={`/employees/${filterTeg}/${currentPage - 1}`}
+            onClick={handlePreviousPagination}
+            aria-label="previous page"
+          >
+            <span className="icon is-small">
+              <i className="fas fa-angle-left" />
+            </span>
+          </a>
+          <a
+            className="pagination-next"
+            href={`/employees/${filterTeg}/${currentPage + 1}`}
+            onClick={handleNextPagination}
+            aria-label="next page"
+          >
+            <span className="icon is-small">
+              <i className="fas fa-angle-right" />
+            </span>
+          </a>
+          {renderPaginationButtons()}
+        </nav>
+      )}
     </div>
   );
 }

@@ -38,6 +38,14 @@ export function getEmployees(limit, query, page) {
     .catch((error) => processError(error));
 }
 
+// Function get select employee
+export function getSelectEmployee(userId) {
+  return axiosBase
+    .get(`/users/${userId}`)
+    .then((res) => res.data)
+    .catch((error) => processError(error));
+}
+
 // функция добавления нового сотрудника
 export function addEmployee(data) {
   return axiosBase

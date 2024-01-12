@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, Suspense } from 'react';
+import { useState, Suspense, useEffect } from 'react';
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -31,7 +31,8 @@ import { EmployeesFilterWrapper } from '../EmployeesFilterWrapper/EmployeesFilte
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const lastPage = 10;
+  const [lastPage, setLastPage] = useState(1);
+  const [usersList, setUsersList] = useState([]);
 
   // routes
   const routes = createRoutesFromElements(
@@ -48,13 +49,16 @@ function App() {
       </Route>
       <Route element={<GeneralLayout />}>
         <Route
-          path="employees/:filterTeg/:pageNumber"
+          path="employees/:filterTeg/:searchQuery?/:pageNumber"
           element={
             <EmployeesFilterWrapper lastPage={lastPage}>
               <ProtectedRoute
                 element={EmployeesPage}
                 isLoggedIn={isLoggedIn}
                 lastPage={lastPage}
+                usersList={usersList}
+                setUsersList={setUsersList}
+                setLastPage={setLastPage}
               />
             </EmployeesFilterWrapper>
           }
@@ -78,7 +82,7 @@ function App() {
           }
         />
         <Route
-          path="employee"
+          path="employee/:id"
           element={
             <ProtectedRoute element={EmployeePage} isLoggedIn={isLoggedIn} />
           }

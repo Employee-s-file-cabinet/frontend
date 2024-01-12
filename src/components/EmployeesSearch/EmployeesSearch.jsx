@@ -10,6 +10,7 @@ import { searchSchema } from '../../utils/ValidationSchema';
 export default function EmployeesSearch({
   setSearchFiltration,
   searchFiltration,
+  setSearchQuery,
 }) {
   const [isFocusedSearch, setIsFocusedSearch] = useState(false);
   const inputIconPosition = isFocusedSearch
@@ -39,11 +40,11 @@ export default function EmployeesSearch({
 
   const handleClickIconReset = () => {
     resetField('search');
+    setSearchQuery('');
   };
 
   function onSubmit(data) {
-    // eslint-disable-next-line no-console
-    console.log(data);
+    setSearchQuery(data.search);
   }
 
   const handleClickFiltrationTag = (event) => {
@@ -112,7 +113,7 @@ export default function EmployeesSearch({
       <div className="employees-search__filter-container buttons has-addons">
         <MainButton
           size="is-normal"
-          theme={`${searchFiltration === 'alphabet' ? 'is-primary' : ''}`}
+          theme={`${searchFiltration === 'alphabet' ? '' : 'is-light'}`}
           extraClass=""
           type="button"
           onClick={handleClickFiltrationTag}
@@ -121,7 +122,7 @@ export default function EmployeesSearch({
         </MainButton>
         <MainButton
           size="is-normal"
-          theme={`${searchFiltration === 'departments' ? 'is-primary' : ''}`}
+          theme={`${searchFiltration === 'departments' ? '' : 'is-light'}`}
           extraClass=""
           type="button"
           onClick={handleClickFiltrationTag}
@@ -130,7 +131,7 @@ export default function EmployeesSearch({
         </MainButton>
         <MainButton
           size="is-normal"
-          theme={`${searchFiltration === 'structures' ? 'is-primary' : ''}`}
+          theme={`${searchFiltration === 'structures' ? '' : 'is-light'}`}
           extraClass=""
           type="button"
           onClick={handleClickFiltrationTag}
@@ -139,9 +140,7 @@ export default function EmployeesSearch({
         </MainButton>
         <MainButton
           size="is-normal"
-          theme={`${
-            searchFiltration === 'full-structures' ? 'is-primary' : ''
-          }`}
+          theme={`${searchFiltration === 'full-structures' ? '' : 'is-light'}`}
           extraClass=""
           type="button"
           onClick={handleClickFiltrationTag}
