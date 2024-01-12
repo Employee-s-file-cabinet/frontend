@@ -26,6 +26,7 @@ export default function EmployeesPage({
   // Change users list after change page
   useEffect(() => {
     if (searchQuery !== previousSearchQuery) {
+      // eslint-disable-next-line no-console
       console.log('privet');
       // eslint-disable-next-line no-unused-expressions
       searchQuery
