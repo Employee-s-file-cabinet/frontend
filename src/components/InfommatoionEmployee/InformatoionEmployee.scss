@@ -7,19 +7,17 @@
 
   &__nav {
     display: flex;
-    padding: 7px;
-    // align-items: flex-start;
+    padding: 0;
   }
 
   &__nav-link {
+    padding: 0;
     padding-right: 7px;
-    // text-decoration: none;
     list-style-type: none;
     border: none;
     border-bottom: 1px solid var(--very-light-grey, #dbdbdb);
     background-color: white;
     color: var(--black, #0a0a0a);
-    /* text */
     font-family: Open Sans;
     font-size: 16px;
     font-style: normal;
@@ -27,18 +25,17 @@
     line-height: 150%; /* 24px */
   }
 
-  &__nav-link:last-child {
-    padding-right: 0;
-  }
-
   &__nav-link_active {
     border-bottom: 1px solid var(--primary, #00d1b2);
     color: var(--black, #0a0a0a);
-    /* text bold */
     font-family: Open Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: 150%; /* 24px */
   }
+}
+
+.block-gap {
+  margin-top: 32px;
 }

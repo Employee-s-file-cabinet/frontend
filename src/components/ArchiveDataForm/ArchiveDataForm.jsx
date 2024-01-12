@@ -2,8 +2,10 @@ import './ArchiveDataForm.scss';
 import 'bulma/css/bulma.min.css';
 import { useState } from 'react';
 
-import Experience from '../Experience/Experience';
-import Awards from '../Awards/Awards';
+import ArhPriorWork from '../ArhPriorWork/ArhPriorWork';
+import ArhFamily from '../ArhFamily/ArhFamily';
+import ArhEducation from '../ArhEducation/ArhEducation';
+import ArhMilitaryRegistration from '../ArhMilitaryRegistration/ArhMilitaryRegistration';
 
 export default function ArchiveDataForm() {
   const [isEdit, setIsEdit] = useState(false);
@@ -22,7 +24,7 @@ export default function ArchiveDataForm() {
       action="#"
       method="post"
       onSubmit={handleSubmit}
-      className="archive-data-form archive-data-form"
+      className="archive-data-form form-active"
     >
       <input
         className={`archive-data-form__button${
@@ -31,28 +33,12 @@ export default function ArchiveDataForm() {
         type="button"
         onClick={handleEditButton}
       />
-      <div className="columns is-multiline is-mobile">
-        <div className="column is-one-quarter">
-          <legend className="label label label-horizontal label-type">
-            Опыт работы
-          </legend>
-        </div>
-        <div className="column ">
-          <Experience isEdit={isEdit} />
-        </div>
-        <button className="archive-data-form__add">Добавить +</button>
-      </div>
-      <div className="columns is-multiline is-mobile">
-        <div className="column is-one-quarter">
-          <legend className="label label label-horizontal label-type">
-            Награды
-          </legend>
-        </div>
-        <div className="column ">
-          <Awards isEdit={isEdit} />
-        </div>
-        <button className="archive-data-form__add">Добавить +</button>
-      </div>
+
+      <ArhPriorWork isEdit={isEdit} />
+      <ArhFamily isEdit={isEdit} />
+      <ArhEducation isEdit={isEdit} />
+      <ArhMilitaryRegistration isEdit={isEdit} />
+
       <div className="buttons-group">
         <button className={` button-save${!isEdit ? ' button-disabled' : ''}`}>
           Сохранить
