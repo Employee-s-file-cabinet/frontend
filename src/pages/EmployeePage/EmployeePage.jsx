@@ -5,7 +5,7 @@ import InformatoionEmployee from '../../components/InfommatoionEmployee/Informat
 import HeaderMain from '../../components/HeaderMain/HeaderMain';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import { pagesPath } from '../../utils/constants';
-import { getSelectEmployee } from '../../utils/UsersApi';
+import { getSelectEmployee } from '../../utils/api/UsersApi';
 
 export default function EmployeePage() {
   const { home, employees, employee } = pagesPath;

@@ -5,8 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { MainButton } from '../UI/Buttons/MainButton';
 import { MainField } from '../UI/Fields/MainField';
 import { Icon } from '../UI/Icons/Icons';
-import { loginSchema } from '../../utils/ValidationSchema';
-import * as auth from '../../utils/Auth';
+import { loginSchema } from '../../utils/validation/LoginAndRestorePasswordValidation';
+import * as auth from '../../utils/api/Auth';
 
 export default function Login() {
   const navigate = useNavigate();

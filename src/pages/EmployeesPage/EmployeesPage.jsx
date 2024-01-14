@@ -6,7 +6,7 @@ import { pagesPath } from '../../utils/constants';
 import EmployeesList from '../../components/EmployeesList/EmployeesList';
 import EmployeesSearch from '../../components/EmployeesSearch/EmployeesSearch';
 import EmployeesPaginations from '../../components/EmployeesPaginations/EmployeesPaginations';
-import { getEmployees } from '../../utils/UsersApi';
+import { getEmployees } from '../../utils/api/UsersApi';
 import { MainButton } from '../../components/UI/Buttons/MainButton';
 
 export default function EmployeesPage({

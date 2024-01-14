@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { MainButton } from '../UI/Buttons/MainButton';
 import { MainField } from '../UI/Fields/MainField';
 import { Icon } from '../UI/Icons/Icons';
-import { resetPasswordSchema } from '../../utils/ValidationSchema';
+import { resetPasswordSchema } from '../../utils/validation/LoginAndRestorePasswordValidation';
 
 export default function ResetPasswordForm() {
   const navigate = useNavigate();

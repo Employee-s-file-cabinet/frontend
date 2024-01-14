@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { MainField } from '../UI/Fields/MainField';
 import { Icon } from '../UI/Icons/Icons';
 import { MainButton } from '../UI/Buttons/MainButton';
-import { searchSchema } from '../../utils/ValidationSchema';
+import { searchSchema } from '../../utils/validation/LoginAndRestorePasswordValidation';
 
 export default function EmployeesSearch({
   setSearchFiltration,

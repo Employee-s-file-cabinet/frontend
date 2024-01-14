@@ -7,7 +7,7 @@ import {
   Route,
   useParams,
 } from 'react-router-dom';
-import * as auth from '../../utils/Auth';
+import * as auth from '../../utils/api/Auth';
 import Contexts from '../../contexts/Contexts';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Preloader from '../Preloader/Preloader';
