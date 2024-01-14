@@ -3,7 +3,7 @@ import 'bulma/css/bulma.min.css';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { EmployeeArcInfoValidationSchema } from '../../utils/validation/EmployeeArcInfoValidation';
+import { ArchiveDataFormValidationSchema } from '../../utils/validation/ArchiveDataFormValidation';
 
 import ArhPriorWork from '../ArhPriorWork/ArhPriorWork';
 import ArhFamily from '../ArhFamily/ArhFamily';
@@ -34,7 +34,7 @@ export default function ArchiveDataForm() {
         },
       ],
     },
-    resolver: yupResolver(EmployeeArcInfoValidationSchema),
+    resolver: yupResolver(ArchiveDataFormValidationSchema),
     mode: 'onChange',
   });
   const [isEdit, setIsEdit] = useState(false);

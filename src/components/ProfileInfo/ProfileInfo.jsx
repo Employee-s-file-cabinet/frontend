@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Icon } from '../UI/Icons/Icons';
 import ProfilePic from '../../assets/images/profile.jpg';
-import { EmployeeProfileSchema } from '../../utils/validation/EmployeeProfileValidation';
+import { ProfileInfoValidationSchema } from '../../utils/validation/ProfileInfoValidation';
 import './ProfileInfo.scss';
 
 function ProfileInfo() {
@@ -27,7 +27,7 @@ function ProfileInfo() {
       extNumber: '32-23',
       email: 'isaevaPA@company.com',
     },
-    resolver: yupResolver(EmployeeProfileSchema),
+    resolver: yupResolver(ProfileInfoValidationSchema),
     mode: 'onChange',
   });
   const [isEdit, setIsEdit] = useState(false);

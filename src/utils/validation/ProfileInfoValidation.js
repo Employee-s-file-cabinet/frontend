@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import { requiredFieldError } from '../constants';
 
-export const EmployeeProfileSchema = yup
+export const ProfileInfoValidationSchema = yup
   .object({
     lastName: yup
       .string()

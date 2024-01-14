@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */ // added for useCookies hook variables.
 import { Link, useNavigate } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useCookies } from 'react-cookie';
 import { Icon } from '../UI/Icons/Icons';
 import Avatar from '../../assets/images/avatar.png';

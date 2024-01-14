@@ -5,7 +5,7 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString().replaceAll('/', '.');
 }
 
-export const EmployeeArcInfoValidationSchema = yup.object().shape({
+export const ArchiveDataFormValidationSchema = yup.object().shape({
   priorWorkExperienceFieldSet: yup.array().of(
     yup.object({
       companyName: yup
