@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-export const Logo = () => {
+export const Logo = ({ extraClass }) => {
   const navigate = useNavigate();
   function handleClick() {
     navigate('/');
@@ -9,7 +9,7 @@ export const Logo = () => {
   return (
     <button
       type="button"
-      className="logo"
+      className={`logo ${extraClass}`}
       aria-label="Logo Button"
       onClick={handleClick}
     >

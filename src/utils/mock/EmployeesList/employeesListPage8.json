@@ -1,0 +1,19 @@
+{
+  "current_page": 8,
+  "total_pages": 8,
+  "total_users": 71,
+  "users": [
+    {
+      "department": "Бухгалтерия",
+      "email": "yatsunova@company.com",
+      "first_name": "Пелагея",
+      "id": 68,
+      "last_name": "Яцунова",
+      "middle_name": "Георгьевна",
+      "phone_numbers": {
+        "mobile": "79409863489"
+      },
+      "position": "Специалист"
+    }
+  ]
+}

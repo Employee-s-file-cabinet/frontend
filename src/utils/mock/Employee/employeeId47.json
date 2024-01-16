@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1981-07-22",
+  "department_id": 2,
+  "email": "starkov@company.com",
+  "first_name": "Афанасий",
+  "gender": "male",
+  "grade": "3",
+  "id": 47,
+  "insurance": {
+    "number": "71988362091"
+  },
+  "last_name": "Старков",
+  "middle_name": "Кириллович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79099494526"
+  },
+  "place_of_birth": "г. Салават",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Санкт-Петербург, Ленина В.И.ул., д. 13 кв.113",
+  "residential_address": "Россия, г. Тольятти, Октябрьская ул., д. 4 кв.205",
+  "taxpayer": {
+    "number": "3803473783912"
+  }
+}

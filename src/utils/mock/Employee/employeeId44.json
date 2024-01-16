@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1992-07-14",
+  "department_id": 2,
+  "email": "mednikova@company.com",
+  "first_name": "Ольга",
+  "gender": "female",
+  "grade": "3",
+  "id": 44,
+  "insurance": {
+    "number": "65530515369"
+  },
+  "last_name": "Медникова",
+  "middle_name": "Лукьяновна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79276997364"
+  },
+  "place_of_birth": "г. Майкоп",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Рыбинск, Речной пер., д. 4 кв.102",
+  "residential_address": "Россия, г. Хабаровск, Солнечная ул., д. 22 кв.94",
+  "taxpayer": {
+    "number": "3576410983234"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1988-09-01",
+  "department_id": 3,
+  "email": "bylinkin@company.com",
+  "first_name": "Максим",
+  "gender": "male",
+  "grade": "3",
+  "id": 53,
+  "insurance": {
+    "number": "95999412492"
+  },
+  "last_name": "Былинкин",
+  "middle_name": "Наумович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79579591744"
+  },
+  "place_of_birth": "г. Оренбург",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Тюмень, Ленина В.И.ул., д. 19 кв.67",
+  "residential_address": "Россия, г. Таганрог, Полевая ул., д. 17 кв.194",
+  "taxpayer": {
+    "number": "5806641668080"
+  }
+}

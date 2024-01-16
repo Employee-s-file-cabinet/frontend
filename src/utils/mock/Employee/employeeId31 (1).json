@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1995-04-07",
+  "department_id": 4,
+  "email": "shipulin@company.com",
+  "first_name": "Афанасий",
+  "gender": "male",
+  "grade": "3",
+  "id": 31,
+  "insurance": {
+    "number": "36483678276"
+  },
+  "last_name": "Шипулин",
+  "middle_name": "Макарович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79119999599"
+  },
+  "place_of_birth": "г. Ростов-на-Дону",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Кызыл, Пионерская ул., д. 9 кв.14",
+  "residential_address": "Россия, г. Одинцово, Сосновая ул., д. 25 кв.128",
+  "taxpayer": {
+    "number": "6574271573697"
+  }
+}

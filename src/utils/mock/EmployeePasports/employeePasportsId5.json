@@ -1,0 +1,20 @@
+[
+  {
+    "has_scan": false,
+    "id": 5,
+    "issued_by": "Отделением УФМС России по г. Смоленск",
+    "issued_date": "2015-03-24",
+    "number": "4994682897",
+    "type": "external",
+    "visas_count": 1
+  },
+  {
+    "has_scan": false,
+    "id": 71,
+    "issued_by": "ТП № 28 отдела УФМС России по СПб и ЛО",
+    "issued_date": "2015-03-24",
+    "number": "4011364219",
+    "type": "internal",
+    "visas_count": 0
+  }
+]

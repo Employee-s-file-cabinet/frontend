@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1982-01-14",
+  "department_id": 4,
+  "email": "kazakevich@company.com",
+  "first_name": "Федор",
+  "gender": "male",
+  "grade": "3",
+  "id": 59,
+  "insurance": {
+    "number": "44896722178"
+  },
+  "last_name": "Казакевич",
+  "middle_name": "Яковлевич",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79367992981"
+  },
+  "place_of_birth": "г. Брянск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Новый Уренгой, Солнечная ул., д. 11 кв.67",
+  "residential_address": "Россия, г. Невинномысск, Луговой пер., д. 8 кв.123",
+  "taxpayer": {
+    "number": "9068643204708"
+  }
+}

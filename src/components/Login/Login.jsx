@@ -34,7 +34,7 @@ export default function Login() {
     // eslint-disable-next-line no-console
     console.log(data);
     auth.authorize(data.email, data.password);
-    navigate('/');
+    navigate('/employees/alphabet/1');
   }
 
   function handlePasswordType() {

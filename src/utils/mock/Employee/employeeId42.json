@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1986-05-28",
+  "department_id": 4,
+  "email": "kuimova@company.com",
+  "first_name": "Сюзанна",
+  "gender": "female",
+  "grade": "3",
+  "id": 42,
+  "insurance": {
+    "number": "44309505398"
+  },
+  "last_name": "Куимова",
+  "middle_name": "Макаровна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79801933746"
+  },
+  "place_of_birth": "г. Киров",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Благовещенск, Полевая ул., д. 6 кв.197",
+  "residential_address": "Россия, г. Нижневартовск, Речная ул., д. 7 кв.56",
+  "taxpayer": {
+    "number": "8053998095525"
+  }
+}

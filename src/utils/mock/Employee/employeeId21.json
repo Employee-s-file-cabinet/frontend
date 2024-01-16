@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1985-09-19",
+  "department_id": 2,
+  "email": "sabitova@company.com",
+  "first_name": "Варвара",
+  "gender": "female",
+  "grade": "3",
+  "id": 21,
+  "insurance": {
+    "number": "28369435526"
+  },
+  "last_name": "Сабитова",
+  "middle_name": "Юлиановна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79806549141"
+  },
+  "place_of_birth": "г. Якутск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Волгодонск, Приозерная ул., д. 11 кв.186",
+  "residential_address": "Россия, г. Пермь, Первомайский пер., д. 8 кв.40",
+  "taxpayer": {
+    "number": "543210987654321"
+  }
+}

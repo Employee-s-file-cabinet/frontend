@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1983-06-10",
+  "department_id": 2,
+  "email": "murogov@company.com",
+  "first_name": "Никита",
+  "gender": "male",
+  "grade": "3",
+  "id": 41,
+  "insurance": {
+    "number": "51300921828"
+  },
+  "last_name": "Мурогов",
+  "middle_name": "Леонтьевич",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79437377216"
+  },
+  "place_of_birth": "г. Ульяновск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Волгодонск, Октябрьская ул., д. 16 кв.43",
+  "residential_address": "Россия, г. Краснодар, Озерная ул., д. 14 кв.151",
+  "taxpayer": {
+    "number": "3372247699424"
+  }
+}

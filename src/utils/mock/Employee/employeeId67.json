@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1984-12-01",
+  "department_id": 2,
+  "email": "patrushev@company.com",
+  "first_name": "Иван",
+  "gender": "male",
+  "grade": "3",
+  "id": 67,
+  "insurance": {
+    "number": "75907609408"
+  },
+  "last_name": "Патрушев",
+  "middle_name": "Аркадинович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79356079725"
+  },
+  "place_of_birth": "г. Южно-Сахалинск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Рыбинск, Лесной пер., д. 6 кв.156",
+  "residential_address": "Россия, г. Пушкино, Молодежный пер., д. 23 кв.90",
+  "taxpayer": {
+    "number": "9432375976810"
+  }
+}

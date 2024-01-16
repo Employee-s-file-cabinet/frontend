@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1985-09-10",
+  "department_id": 3,
+  "email": "doronin@company.com",
+  "first_name": "Вениамин",
+  "gender": "male",
+  "grade": "3",
+  "id": 33,
+  "insurance": {
+    "number": "72732841066"
+  },
+  "last_name": "Доронин",
+  "middle_name": "Ильич",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79734057572"
+  },
+  "place_of_birth": "г. Пермь",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Ростов-на-Дону, Солнечная ул., д. 9 кв.140",
+  "residential_address": "Россия, г. Иркутск, Березовая ул., д. 15 кв.146",
+  "taxpayer": {
+    "number": "8056901318928"
+  }
+}

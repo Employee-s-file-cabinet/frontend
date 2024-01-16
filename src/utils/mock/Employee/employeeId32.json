@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1970-12-18",
+  "department_id": 4,
+  "email": "chukchov@company.com",
+  "first_name": "Тарас",
+  "gender": "male",
+  "grade": "3",
+  "id": 32,
+  "insurance": {
+    "number": "67781725748"
+  },
+  "last_name": "Чукчов",
+  "middle_name": "Антонович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79838094276"
+  },
+  "place_of_birth": "г. Уфа",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Хабаровск, Новоселов ул., д. 14 кв.179",
+  "residential_address": "Россия, г. Дербент, Березовая ул., д. 11 кв.18",
+  "taxpayer": {
+    "number": "2331609835263"
+  }
+}

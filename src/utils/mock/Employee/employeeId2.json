@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1993-08-09",
+  "department_id": 2,
+  "email": "yapparova@company.com",
+  "first_name": "Галина",
+  "gender": "female",
+  "grade": "5",
+  "id": 2,
+  "insurance": {
+    "number": "52759362623"
+  },
+  "last_name": "Яппарова",
+  "middle_name": "Гермоновна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79215511436"
+  },
+  "place_of_birth": "г. Дербент",
+  "position_id": 2,
+  "position_track": null,
+  "registration_address": "Россия, г. Рязань, Ленина В.И.ул., д. 6 кв.145",
+  "residential_address": "Россия, г. Дербент, Комсомольская ул., д. 21 кв.50",
+  "taxpayer": {
+    "number": "154912198705"
+  }
+}

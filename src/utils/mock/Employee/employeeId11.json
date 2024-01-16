@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1981-12-16",
+  "department_id": 2,
+  "email": "trohin@company.com",
+  "first_name": "Леонид",
+  "gender": "male",
+  "grade": "3",
+  "id": 11,
+  "insurance": {
+    "number": "78905432165"
+  },
+  "last_name": "Трохин",
+  "middle_name": "Юринович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79944477518"
+  },
+  "place_of_birth": "г. Владимир",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Тверь, Строителей ул., д. 14 кв.2",
+  "residential_address": "Россия, г. Октябрьский, Строителей ул., д. 22 кв.179",
+  "taxpayer": {
+    "number": "546486428967"
+  }
+}

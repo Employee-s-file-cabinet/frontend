@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1979-04-17",
+  "department_id": 4,
+  "email": "yalovenko@company.com",
+  "first_name": "Римма",
+  "gender": "female",
+  "grade": "4",
+  "id": 5,
+  "insurance": {
+    "number": "48499927384"
+  },
+  "last_name": "Яловенко",
+  "middle_name": "Феодосьевна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79215511436"
+  },
+  "place_of_birth": "г. Нижний Тагил",
+  "position_id": 3,
+  "position_track": null,
+  "registration_address": "Россия, г. Ковров, Колхозный пер., д. 11 кв.57",
+  "residential_address": "Россия, г. Нижний Тагил, Новоселов ул., д. 17 кв.105",
+  "taxpayer": {
+    "number": "660070348269"
+  }
+}
