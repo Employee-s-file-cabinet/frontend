@@ -2,9 +2,9 @@ import scanLabel from '../../assets/images/scan-label.png';
 
 export default function PersonalDOtherDocumentsConsentInput() {
   return (
-    <div className="columns">
-      <div className="scan-wrapper input-none">
-        <h6 className="scan-wrapper__title scan-wrapper__title-margin">
+    <div className="columns columns-margin">
+      <div className="scan-wrapper">
+        <h6 className="scan-wrapper__title scan-wrapper__title-long scan-wrapper__title-margin">
           Скан документа
           <img
             src={scanLabel}
@@ -14,15 +14,19 @@ export default function PersonalDOtherDocumentsConsentInput() {
         </h6>
         <div className="file has-name is-right">
           <legend className="file-label" maxLength={10}>
-            <input className="file-input" type="file" name="resume" />
+            <input
+              className="file-input horizontal-wrapper__input-one-half"
+              type="file"
+              name="passport"
+            />
             <span className="file-cta">
               <span className="file-icon">
                 <i className="fas fa-upload" />
               </span>
               <span className="file-label">Выбрать файл</span>
             </span>
-            <span className="file-name file-name-padding">
-              Screen Shot 2017-07-29 at 15.54.25.png
+            <span className="file-name file-name-span">
+              Consent_IsaevaPA_scan.pdf
             </span>
           </legend>
         </div>

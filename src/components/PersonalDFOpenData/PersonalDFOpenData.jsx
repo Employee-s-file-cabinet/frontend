@@ -4,7 +4,9 @@ export default function PersonalDFOpenData({ isEdit }) {
       <div className="horizontal-wrapper">
         <h6 className="horizontal-wrapper__title">Дата рождения</h6>
         <input
-          className="horizontal-wrapper__input"
+          className={`horizontal-wrapper__input${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
           type="date"
           placeholder="№4486"
           disabled={!isEdit}
@@ -13,7 +15,9 @@ export default function PersonalDFOpenData({ isEdit }) {
       <div className="horizontal-wrapper">
         <h6 className="horizontal-wrapper__title">Место рождения</h6>
         <input
-          className="horizontal-wrapper__input"
+          className={`horizontal-wrapper__input${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
           type="text"
           placeholder="№4486"
           disabled={!isEdit}
@@ -22,7 +26,9 @@ export default function PersonalDFOpenData({ isEdit }) {
       <div className="horizontal-wrapper">
         <h6 className="horizontal-wrapper__title">Пол</h6>
         <select
-          className="control-horizontal horizontal-wrapper__input"
+          className={`horizontal-wrapper__input${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
           disabled={!isEdit}
         >
           <option>Женский</option>
@@ -33,7 +39,9 @@ export default function PersonalDFOpenData({ isEdit }) {
         <h6 className="horizontal-wrapper__title">Адрес регистрации</h6>
         <div className="horizontal-wrapper__box">
           <input
-            className="horizontal-wrapper__input horizontal-wrapper__input-long"
+            className={`horizontal-wrapper__input-long${
+              (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+            }`}
             type="text"
             disabled={!isEdit}
           />
@@ -46,7 +54,9 @@ export default function PersonalDFOpenData({ isEdit }) {
       <div className="horizontal-wrapper">
         <h6 className="horizontal-wrapper__title">Адрес проживания</h6>
         <input
-          className="horizontal-wrapper__input horizontal-wrapper__input-long"
+          className={`horizontal-wrapper__input-long${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
           type="text"
           disabled={!isEdit}
         />

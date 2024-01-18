@@ -2,10 +2,12 @@ import PersonalDForeignEmployeeWorkVisaInput from '../PersonalDForeignEmployeeWo
 
 export default function PersonalDForeignEmployeeWorkVisa({ isEdit }) {
   return (
-    <div className="columns is-multiline is-mobile input-none ">
-      <div className="column">
+    <section className="columns is-multiline is-mobile input-none ">
+      <fieldset className="column">
         <PersonalDForeignEmployeeWorkVisaInput isEdit={isEdit} />
-      </div>
-    </div>
+      </fieldset>
+      <input type="button" className="button-trash button-trash-personal" />
+      <button className="personal-data-form__add">+ &ensp;Добавить</button>
+    </section>
   );
 }

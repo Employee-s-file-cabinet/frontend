@@ -1,60 +1,73 @@
 export default function PersonalDForeignEmployeeWorkVisaInput({ isEdit }) {
   return (
     <>
-      <div className="columns">
-        <div className="column is-one-quarter">
-          <div className="control">
-            <legend className="label label label-horizontal is-one-quarter">
-              Номер
-            </legend>
-            <input
-              className="input"
-              type="number"
-              placeholder="Иванов"
-              disabled={!isEdit}
-            />
-          </div>
+      <div className="columns columns-margin">
+        <div className="control">
+          <legend className="label label label-horizontal is-one-quarter">
+            Номер
+          </legend>
+          <input
+            className={`horizontal-wrapper__input-small${
+              (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+            }`}
+            type="number"
+            placeholder=""
+            disabled={!isEdit}
+          />
         </div>
-        <div className="column is-one-quarter">
+        <div className="control">
           <legend className="label label label-horizontal is-two-quarters">
             Категория
           </legend>
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              placeholder="Иван"
-              disabled={!isEdit}
-            />
-          </div>
+          <input
+            className={`horizontal-wrapper__input-small${
+              (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+            }`}
+            type="text"
+            placeholder=""
+            disabled={!isEdit}
+          />
+        </div>
+        <div className="control horizontal-wrapper__input-small-hide">
+          <legend className="label label label-horizontal is-two-quarters">
+            Категория
+          </legend>
+          <input
+            className={`horizontal-wrapper__input-small${
+              (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+            }`}
+            type="text"
+            placeholder=""
+            disabled={!isEdit}
+          />
         </div>
       </div>
-      <div className="columns">
-        <div className="column is-two-quarters">
+      <div className="columns columns-margin">
+        <div className="control">
           <legend className="label label label-horizontal is-two-quarters">
             Дата выдачи
           </legend>
-          <div className="control">
-            <input
-              className="input"
-              type="date"
-              placeholder=""
-              disabled={!isEdit}
-            />
-          </div>
+          <input
+            className={`horizontal-wrapper__input-small${
+              (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+            }`}
+            type="date"
+            placeholder=""
+            disabled={!isEdit}
+          />
         </div>
-        <div className="column is-two-quarters">
+        <div className="control">
           <legend className="label label label-horizontal is-two-quarters">
             Действителен до
           </legend>
-          <div className="control">
-            <input
-              className="input"
-              type="date"
-              placeholder=""
-              disabled={!isEdit}
-            />
-          </div>
+          <input
+            className={`horizontal-wrapper__input-small${
+              (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+            }`}
+            type="date"
+            placeholder=""
+            disabled={!isEdit}
+          />
         </div>
       </div>
     </>

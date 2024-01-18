@@ -2,10 +2,12 @@ import PersonalDOtherDocumentsInnInput from '../PersonalDOtherDocumentsInnInput/
 
 export default function PersonalDOtherDocumentsInn({ isEdit }) {
   return (
-    <div className="columns is-multiline is-mobile input-none ">
-      <div className="column">
+    <section className="columns is-multiline is-mobile input-none ">
+      <fieldset className="column">
         <PersonalDOtherDocumentsInnInput isEdit={isEdit} />
-      </div>
-    </div>
+      </fieldset>
+      <input type="button" className="button-trash button-trash-personal" />
+      <button className="personal-data-form__add">+ &ensp;Добавить</button>
+    </section>
   );
 }

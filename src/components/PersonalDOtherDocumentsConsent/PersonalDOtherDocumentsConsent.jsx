@@ -2,10 +2,12 @@ import PersonalDOtherDocumentsConsentInput from '../PersonalDOtherDocumentsConse
 
 export default function PersonalDOtherDocumentsConsent({ isEdit }) {
   return (
-    <div className="columns is-multiline is-mobile input-none ">
-      <div className="column">
+    <section className="columns is-multiline is-mobile input-none ">
+      <fieldset className="column">
         <PersonalDOtherDocumentsConsentInput isEdit={isEdit} />
-      </div>
-    </div>
+      </fieldset>
+      <input type="button" className="button-trash button-trash-personal" />
+      <button className="personal-data-form__add">+ &ensp;Добавить</button>
+    </section>
   );
 }

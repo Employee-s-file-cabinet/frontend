@@ -5,7 +5,7 @@ export default function PersonalDOtherDocumentstData({ isEdit }) {
   return (
     <details className="details" open>
       <summary className="summaru">Прочие документы</summary>
-      <div className="columns is-multiline is-mobile input-none ">
+      <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
             ИНН

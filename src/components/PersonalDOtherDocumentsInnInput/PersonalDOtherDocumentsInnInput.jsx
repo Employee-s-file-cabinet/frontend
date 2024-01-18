@@ -2,16 +2,20 @@ import scanLabel from '../../assets/images/scan-label.png';
 
 export default function PersonalDOtherDocumentsInnInput({ isEdit }) {
   return (
-    <div className="columns">
-      <div className="column is-two-quarters">
+    <div className="columns columns-margin">
+      <div className="control">
         <legend className="label label label-horizontal is-two-quarters">
           Номер
         </legend>
-        <div className="control is-two-quarters">
-          <input className="input" type="text" disabled={!isEdit} />
-        </div>
+        <input
+          className={`horizontal-wrapper__input-small${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
+          type="text"
+          disabled={!isEdit}
+        />
       </div>
-      <div className="scan-wrapper input-none">
+      <div className="scan-wrapper">
         <h6 className="scan-wrapper__title scan-wrapper__title-margin">
           Скан документа
           <img
@@ -22,14 +26,20 @@ export default function PersonalDOtherDocumentsInnInput({ isEdit }) {
         </h6>
         <div className="file has-name is-right">
           <legend className="file-label" maxLength={10}>
-            <input className="file-input" type="file" name="resume" />
+            <input
+              className="file-input horizontal-wrapper__input-one-half"
+              type="file"
+              name="passport"
+            />
             <span className="file-cta">
               <span className="file-icon">
                 <i className="fas fa-upload" />
               </span>
               <span className="file-label">Выбрать файл</span>
             </span>
-            <span className="file-name file-name-span">Scre.</span>
+            <span className="file-name file-name-span">
+              INN_IsaevaPA_scan.pdf
+            </span>
           </legend>
         </div>
       </div>

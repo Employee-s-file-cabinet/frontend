@@ -2,11 +2,12 @@ import PersonalDFPassportForeignInput from '../PersonalDFPassportForeignInput/Pe
 
 export default function PersonalDFPassportForeign({ isEdit }) {
   return (
-    <div className="columns is-multiline is-mobile input-none ">
-      <div className="column">
+    <section className="columns is-multiline is-mobile input-none ">
+      <fieldset className="column">
         <PersonalDFPassportForeignInput isEdit={isEdit} />
-      </div>
+      </fieldset>
       <input type="button" className="button-trash button-trash-personal" />
-    </div>
+      <button className="personal-data-form__add">+ &ensp;Добавить</button>
+    </section>
   );
 }
