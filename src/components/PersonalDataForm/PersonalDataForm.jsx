@@ -68,8 +68,6 @@ export default function PersonalDataForm() {
     setIsEdit(false);
   }
 
-  console.log(errors);
-
   return (
     <form
       action="#"
