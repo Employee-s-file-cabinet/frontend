@@ -22,8 +22,6 @@ export default function ResetPasswordForm() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const encodedKey = searchParams.get('key');
-
-  // Декодируем значение ключа
   const key = encodedKey.replace(/ /g, '+');
 
   const [passwordType, setPasswordType] = useState('password');
@@ -42,11 +40,9 @@ export default function ResetPasswordForm() {
     console.log(key);
 
     checkKey(key).then(() => {
-      console.log('success');
       changePassword(key, data.password)
         .then(() => {
           // eslint-disable-next-line no-console
-          console.log(data);
           navigate('/reset-success');
         })
         .catch((err) => {
