@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 export const Logo = ({ extraClass }) => {
   const navigate = useNavigate();
   function handleClick() {
-    navigate('/');
+    navigate('/employees/alphabet/1');
   }
 
   return (
