@@ -2,7 +2,12 @@ import PersonalDFPassportCitizenship from '../PersonalDFPassportCitizenship/Pers
 import PersonalDFPassportForeign from '../PersonalDFPassportForeign/PersonalDFPassportForeign';
 import PersonalDFPassportVisa from '../PersonalDFPassportVisa/PersonalDFPassportVisa';
 
-export default function PersonalDFPassportData({ isEdit }) {
+export default function PersonalDFPassportData({
+  isEdit,
+  control,
+  errors,
+  register,
+}) {
   return (
     <details className="details" open>
       <summary className="summaru">Паспортные данные</summary>
@@ -13,10 +18,14 @@ export default function PersonalDFPassportData({ isEdit }) {
           </legend>
         </div>
         <div className="column">
-          <PersonalDFPassportCitizenship isEdit={isEdit} />
+          <PersonalDFPassportCitizenship
+            isEdit={isEdit}
+            control={control}
+            errors={errors}
+            register={register}
+          />
         </div>
       </div>
-      <button className="personal-data-form__add">Добавить +</button>
       <div className="columns is-multiline is-mobile input-none ">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
@@ -24,10 +33,14 @@ export default function PersonalDFPassportData({ isEdit }) {
           </legend>
         </div>
         <div className="column">
-          <PersonalDFPassportForeign isEdit={isEdit} />
+          <PersonalDFPassportForeign
+            isEdit={isEdit}
+            control={control}
+            errors={errors}
+            register={register}
+          />
         </div>
       </div>
-      <button className="personal-data-form__add">Добавить +</button>
       <div className="columns is-multiline is-mobile input-none ">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
@@ -35,10 +48,14 @@ export default function PersonalDFPassportData({ isEdit }) {
           </legend>
         </div>
         <div className="column">
-          <PersonalDFPassportVisa isEdiVt={isEdit} />
+          <PersonalDFPassportVisa
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            control={control}
+          />
         </div>
       </div>
-      <button className="personal-data-form__add">Добавить +</button>
     </details>
   );
 }

@@ -1,9 +1,6 @@
 import * as yup from 'yup';
 import { requiredFieldError } from '../constants';
-
-function formatDate(date) {
-  return new Date(date).toLocaleDateString().replaceAll('/', '.');
-}
+import trasnformDate from './transformDate';
 
 export const ArchiveDataFormValidationSchema = yup.object().shape({
   priorWorkExperienceFieldSet: yup.array().of(
@@ -28,9 +25,8 @@ export const ArchiveDataFormValidationSchema = yup.object().shape({
         )
         .max(
           Date(),
-          `Дата начала не должна быть позднее ${formatDate(Date())}`
+          `Дата начала не должна быть позднее ${trasnformDate(Date())}`
         ),
-
       endDate: yup
         .date()
         .typeError('Введите дату в формате ДД.ММ.ГГГГ')
@@ -44,7 +40,7 @@ export const ArchiveDataFormValidationSchema = yup.object().shape({
               .min(
                 yup.ref('beginDate'),
                 ({ min }) =>
-                  `Дата окончания не должна быть ранее ${formatDate(min)}`
+                  `Дата окончания не должна быть ранее ${trasnformDate(min)}`
               ),
         }),
       jobDescription: yup
@@ -71,7 +67,7 @@ export const ArchiveDataFormValidationSchema = yup.object().shape({
         )
         .max(
           Date(),
-          `Дата начала не должна быть позднее ${formatDate(Date())}`
+          `Дата начала не должна быть позднее ${trasnformDate(Date())}`
         ),
     })
   ),

@@ -3,21 +3,21 @@ import { requiredFieldError } from '../constants';
 
 export const ProfileInfoValidationSchema = yup
   .object({
-    lastName: yup
+    last_name: yup
       .string()
       .required(requiredFieldError)
       .matches(
         /^(?=.{1,150}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$/,
         'Используйте кириллицу, дефис и(или) апостроф.'
       ),
-    firstName: yup
+    first_name: yup
       .string()
       .required(requiredFieldError)
       .matches(
         /^(?=.{1,150}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$/,
         'Используйте кириллицу, дефис и(или) апостроф.'
       ),
-    middleName: yup
+    middle_name: yup
       .string()
       .required(requiredFieldError)
       .matches(/^(?=.{1,150}$)[а-яёА-ЯЁ]*$/, 'Используйте кириллицу.'),
@@ -42,7 +42,7 @@ export const ProfileInfoValidationSchema = yup
         /^(?=.{1,3}$)[0-9]*$/,
         'Используте цифры. Макс. длина поля 3 символа.'
       ),
-    mobileNumber: yup
+    mobile: yup
       .string()
       .required(requiredFieldError)
       .matches(
