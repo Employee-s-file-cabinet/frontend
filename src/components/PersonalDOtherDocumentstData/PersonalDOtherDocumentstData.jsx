@@ -1,7 +1,14 @@
-import PersonalDOtherDocumentsInn from '../PersonalDOtherDocumentsInn/PersonalDOtherDocumentsInn';
-import PersonalDOtherDocumentsConsent from '../PersonalDOtherDocumentsConsent/PersonalDOtherDocumentsConsent';
+/* eslint-disable no-unused-vars */
+import PersonalDOtherDocumentsTaxNumber from '../PersonalDOtherDocumentsTaxNumber/PersonalDOtherDocumentsTaxNumber';
+import PersonalDOtherDocumentsInsuranceNumber from '../PersonalDOtherDocumentsInsuranceNumber/PersonalDOtherDocumentsInsuranceNumber';
+import PersonalDOtherDocumentsAgreement from '../PersonalDOtherDocumentsAgreement/PersonalDOtherDocumentsAgreement';
 
-export default function PersonalDOtherDocumentstData({ isEdit }) {
+export default function PersonalDOtherDocumentstData({
+  isEdit,
+  errors,
+  register,
+  watch,
+}) {
   return (
     <details className="details" open>
       <summary className="summaru">Прочие документы</summary>
@@ -12,7 +19,12 @@ export default function PersonalDOtherDocumentstData({ isEdit }) {
           </legend>
         </div>
         <div className="column">
-          <PersonalDOtherDocumentsInn isEdit={isEdit} />
+          <PersonalDOtherDocumentsTaxNumber
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            watch={watch}
+          />
         </div>
       </div>
       <div className="columns is-multiline is-mobile input-none ">
@@ -22,7 +34,12 @@ export default function PersonalDOtherDocumentstData({ isEdit }) {
           </legend>
         </div>
         <div className="column">
-          <PersonalDOtherDocumentsInn isEdit={isEdit} />
+          <PersonalDOtherDocumentsInsuranceNumber
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            watch={watch}
+          />
         </div>
       </div>
       <div className="columns is-multiline is-mobile input-none ">
@@ -32,7 +49,12 @@ export default function PersonalDOtherDocumentstData({ isEdit }) {
           </legend>
         </div>
         <div className="column">
-          <PersonalDOtherDocumentsConsent isEdit={isEdit} />
+          <PersonalDOtherDocumentsAgreement
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            watch={watch}
+          />
         </div>
       </div>
     </details>

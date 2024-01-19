@@ -1,8 +1,15 @@
+/* eslint-disable no-unused-vars */
 import PersonalDFPassportCitizenship from '../PersonalDFPassportCitizenship/PersonalDFPassportCitizenship';
 import PersonalDFPassportForeign from '../PersonalDFPassportForeign/PersonalDFPassportForeign';
 import PersonalDFPassportVisa from '../PersonalDFPassportVisa/PersonalDFPassportVisa';
 
-export default function PersonalDFPassportData({ isEdit }) {
+export default function PersonalDFPassportData({
+  isEdit,
+  control,
+  errors,
+  register,
+  watch,
+}) {
   return (
     <details className="details" open>
       <summary className="summaru">Паспортные данные</summary>
@@ -13,10 +20,15 @@ export default function PersonalDFPassportData({ isEdit }) {
           </legend>
         </div>
         <div className="column">
-          <PersonalDFPassportCitizenship isEdit={isEdit} />
+          <PersonalDFPassportCitizenship
+            isEdit={isEdit}
+            control={control}
+            errors={errors}
+            register={register}
+            watch={watch}
+          />
         </div>
       </div>
-
       <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
@@ -24,7 +36,12 @@ export default function PersonalDFPassportData({ isEdit }) {
           </legend>
         </div>
         <div className="column">
-          <PersonalDFPassportForeign isEdit={isEdit} />
+          <PersonalDFPassportForeign
+            isEdit={isEdit}
+            control={control}
+            errors={errors}
+            register={register}
+          />
         </div>
       </div>
       <div className="columns is-multiline is-mobile">
@@ -34,7 +51,12 @@ export default function PersonalDFPassportData({ isEdit }) {
           </legend>
         </div>
         <div className="column">
-          <PersonalDFPassportVisa isEdit={isEdit} />
+          <PersonalDFPassportVisa
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            control={control}
+          />
         </div>
       </div>
     </details>

@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Icon } from '../UI/Icons/Icons';
 import ProfilePic from '../../assets/images/profile.jpg';
@@ -13,7 +12,7 @@ function ProfileInfo() {
     control,
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { isValid, errors, isDirty },
   } = useForm({
     defaultValues: {
@@ -40,16 +39,16 @@ function ProfileInfo() {
   }
 
   function onReset() {
-    // тут должен быть прописан возврат к дефолтным значением полей
+    reset(undefined, { keepDirtyValues: false });
     setIsEdit(false);
   }
 
   function onSubmit(data) {
     // eslint-disable-next-line no-console
     console.log(data);
+    reset(undefined, { keepValues: true });
     setIsEdit(false);
   }
-
   return (
     <section className="profile">
       <h2 className="profile__title">Исаева Полина Артёмовна</h2>
