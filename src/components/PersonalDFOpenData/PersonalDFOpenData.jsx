@@ -16,8 +16,11 @@ export default function PersonalDFOpenData({
       <div className="horizontal-wrapper">
         <h6 className="horizontal-wrapper__title">Дата рождения</h6>
         <input
-          className="horizontal-wrapper__input"
+          className={`horizontal-wrapper__input${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
           type="date"
+          placeholder="Введите дату рождения"
           disabled={!isEdit}
           {...register('date_of_birth')}
         />
@@ -26,7 +29,9 @@ export default function PersonalDFOpenData({
       <div className="horizontal-wrapper">
         <h6 className="horizontal-wrapper__title">Место рождения</h6>
         <input
-          className="horizontal-wrapper__input"
+          className={`horizontal-wrapper__input${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
           type="text"
           placeholder="Введите место рождения"
           disabled={!isEdit}
@@ -37,7 +42,9 @@ export default function PersonalDFOpenData({
       <div className="horizontal-wrapper">
         <h6 className="horizontal-wrapper__title">Пол</h6>
         <select
-          className="control-horizontal horizontal-wrapper__input"
+          className={`horizontal-wrapper__input${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
           disabled={!isEdit}
           {...register('gender')}
         >
@@ -50,17 +57,20 @@ export default function PersonalDFOpenData({
         <h6 className="horizontal-wrapper__title">Адрес регистрации</h6>
         <div className="horizontal-wrapper__box">
           <input
-            className="horizontal-wrapper__input horizontal-wrapper__input-long"
+            className={`horizontal-wrapper__input-long${
+              (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+            }`}
             type="text"
             disabled={!isEdit}
             {...register('registration_address')}
           />
           <span className="">{errors.registration_address?.message}</span>
-          <h6 className="checkbox checkbox__legend">
+          <legend className="checkbox checkbox__legend">
             <input
               type="checkbox"
               className="checkbox__input"
               readOnly={!isEdit}
+              disabled={!isEdit}
               onChange={() => {
                 if (!isChecked) {
                   setValue(
@@ -83,16 +93,17 @@ export default function PersonalDFOpenData({
               checked={
                 watch().residential_address === watch().registration_address
               }
-              disabled={!isEdit}
             />
             Совпадает с адресом проживания
-          </h6>
+          </legend>
         </div>
       </div>
       <div className="horizontal-wrapper">
         <h6 className="horizontal-wrapper__title">Адрес проживания</h6>
         <input
-          className="horizontal-wrapper__input horizontal-wrapper__input-long"
+          className={`horizontal-wrapper__input-long${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
           type="text"
           disabled={!isEdit || isChecked}
           {...register('residential_address')}

@@ -39,13 +39,15 @@
   background-image: url(../../assets/images/trash.png);
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: transparent;
+  background-color: white;
   background-position: center;
   width: 16px;
   height: 16px;
   cursor: pointer;
   border: none;
   margin-top: 38px;
+  margin-left: 88px;
+  margin-right: 26px;
 }
 
 .button-trash:hover {
@@ -62,10 +64,6 @@
 
 .button-trash-place {
   margin-left: 30px;
-}
-
-.button-trash-personal {
-  margin-top: 25px;
 }
 
 .summaru::marker {

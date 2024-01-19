@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+import './PersonalDFPassportVisa.scss';
 import { useFieldArray } from 'react-hook-form';
 import ConditionalInput from '../Reusable/ConditionalInput/ConditionalInput';
 
@@ -14,15 +14,21 @@ export default function PersonalDFPassportVisa({
     rules: { required: 'Введите хотя бы одно значение' },
   });
   return (
-    <div className="columns is-multiline is-mobile input-none ">
+    <section>
       {fields.map((field, index) => (
-        <fieldset className="column" key={field.id}>
-          <div className="columns">
-            <div className="column">
+        <div
+          className="columns is-multiline is-mobile input-none passport-visa"
+          key={field.id}
+        >
+          <fieldset className="column">
+            <div className="columns columns-margin">
               <div className="control">
                 <legend className="label label label-horizontal">Страна</legend>
                 <input
-                  className="input"
+                  className={`horizontal-wrapper__input-long${
+                    (!isEdit && ' horizontal-wrapper__input-type-disabled') ||
+                    ''
+                  }`}
                   type="text"
                   placeholder="Страна"
                   disabled={!isEdit}
@@ -38,17 +44,18 @@ export default function PersonalDFPassportVisa({
                 </span>
               </div>
             </div>
-          </div>
-          <div className="columns">
-            <div className="column is-one-quarter">
+            <div className="columns columns-margin">
               <div className="control">
                 <legend className="label label label-horizontal is-one-quarter">
                   Категория
                 </legend>
                 <input
-                  className="input"
+                  className={`horizontal-wrapper__input-small${
+                    (!isEdit && ' horizontal-wrapper__input-type-disabled') ||
+                    ''
+                  }`}
                   type="text"
-                  placeholder=""
+                  placeholder="Категория"
                   disabled={!isEdit}
                   {...register(
                     `personalDFPassportVisaFieldSet.${index}.category`
@@ -59,14 +66,15 @@ export default function PersonalDFPassportVisa({
                     ?.message
                 }
               </div>
-            </div>
-            <div className="column is-one-quarter">
-              <legend className="label label label-horizontal is-two-quarters">
-                Дата выдачи
-              </legend>
               <div className="control">
+                <legend className="label label label-horizontal is-two-quarters">
+                  Дата выдачи
+                </legend>
                 <input
-                  className="input"
+                  className={`horizontal-wrapper__input-small${
+                    (!isEdit && ' horizontal-wrapper__input-type-disabled') ||
+                    ''
+                  }`}
                   type="date"
                   disabled={!isEdit}
                   {...register(
@@ -78,14 +86,15 @@ export default function PersonalDFPassportVisa({
                     ?.message
                 }
               </div>
-            </div>
-            <div className="column is-two-quarters">
-              <legend className="label label label-horizontal is-two-quarters">
-                Действителен до
-              </legend>
               <div className="control">
+                <legend className="label label label-horizontal is-two-quarters">
+                  Действителен до
+                </legend>
                 <ConditionalInput
-                  className="input"
+                  className={`horizontal-wrapper__input-small${
+                    (!isEdit && ' horizontal-wrapper__input-type-disabled') ||
+                    ''
+                  }`}
                   control={control}
                   type="date"
                   register={register}
@@ -105,17 +114,16 @@ export default function PersonalDFPassportVisa({
                 </span>
               </div>
             </div>
-          </div>
+          </fieldset>
           {isEdit && (
             <input
               type="button"
-              className="button-trash"
+              className="button-trash button-trash-personal"
               onClick={() => remove(index)}
             />
           )}
-        </fieldset>
+        </div>
       ))}
-
       {isEdit && (
         <button
           className="personal-data-form__add"
@@ -129,9 +137,9 @@ export default function PersonalDFPassportVisa({
             });
           }}
         >
-          Добавить +
+          + &ensp;Добавить
         </button>
       )}
-    </div>
+    </section>
   );
 }

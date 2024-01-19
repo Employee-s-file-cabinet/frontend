@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import PersonalDFPassportCitizenship from '../PersonalDFPassportCitizenship/PersonalDFPassportCitizenship';
 import PersonalDFPassportForeign from '../PersonalDFPassportForeign/PersonalDFPassportForeign';
 import PersonalDFPassportVisa from '../PersonalDFPassportVisa/PersonalDFPassportVisa';
@@ -7,11 +8,12 @@ export default function PersonalDFPassportData({
   control,
   errors,
   register,
+  watch,
 }) {
   return (
     <details className="details" open>
       <summary className="summaru">Паспортные данные</summary>
-      <div className="columns is-multiline is-mobile input-none ">
+      <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
             Паспорт гражданина
@@ -23,10 +25,11 @@ export default function PersonalDFPassportData({
             control={control}
             errors={errors}
             register={register}
+            watch={watch}
           />
         </div>
       </div>
-      <div className="columns is-multiline is-mobile input-none ">
+      <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
             Заграничный паспорт
@@ -41,7 +44,7 @@ export default function PersonalDFPassportData({
           />
         </div>
       </div>
-      <div className="columns is-multiline is-mobile input-none ">
+      <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
             Выданные визы
