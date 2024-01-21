@@ -46,7 +46,6 @@ export function checkKey(key) {
 }
 // функция изменения пароля
 export function changePassword(key, password) {
-  console.log(key, password);
   return axiosBase
     .post(`/login/change-password`, { key, password })
     .then((res) => res.data)
