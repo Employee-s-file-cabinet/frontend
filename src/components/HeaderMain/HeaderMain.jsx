@@ -15,6 +15,7 @@ export default function HeaderMain({ children }) {
   function logOut() {
     removeCookie('ecabinet-token');
     setIsLoggedIn(false);
+    localStorage.setItem('login', 'false');
     navigate('/singin');
   }
 

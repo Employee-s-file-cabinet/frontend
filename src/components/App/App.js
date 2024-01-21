@@ -36,6 +36,10 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    if (localStorage.getItem('login') === 'true') setIsLoggedIn(true);
+  }, []);
+
   // routes
   const routes = createRoutesFromElements(
     <>

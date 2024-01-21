@@ -40,6 +40,7 @@ export default function Login() {
       .authorize(data.email, data.password)
       .then(() => {
         setIsLoggedIn(true);
+        localStorage.setItem('login', 'true');
         navigate('/employees/alphabet/1');
       })
       .catch((err) => {
