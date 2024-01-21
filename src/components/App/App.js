@@ -33,7 +33,7 @@ import { EmployeesFilterWrapper } from '../EmployeesFilterWrapper/EmployeesFilte
 function App() {
   const [lastPage, setLastPage] = useState(1);
   const [usersList, setUsersList] = useState([]);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -126,6 +126,7 @@ function App() {
     <Suspense fallback={<Preloader />}>
       <Contexts
         currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
       >

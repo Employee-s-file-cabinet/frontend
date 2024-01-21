@@ -1,13 +1,19 @@
 import * as React from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Icon } from '../UI/Icons/Icons';
 import ProfilePic from '../../assets/images/profile.jpg';
 import { ProfileInfoValidationSchema } from '../../utils/validation/ProfileInfoValidation';
 import './ProfileInfo.scss';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function ProfileInfo() {
+  // eslint-disable-next-line
+  const { currentUser } = useContext(CurrentUserContext);
+
+  console.log(currentUser, 'currentUser.last_name');
+
   const {
     control,
     register,
@@ -29,6 +35,22 @@ function ProfileInfo() {
     resolver: yupResolver(ProfileInfoValidationSchema),
     mode: 'onChange',
   });
+
+  useEffect(() => {
+    // Обновление defaultValues при изменении currentUser
+    reset({
+      last_name: currentUser.last_name,
+      first_name: currentUser.first_name,
+      middle_name: currentUser.middle_name,
+      department: currentUser.department,
+      jobTitle: currentUser.position,
+      grade: currentUser.grade,
+      mobile: currentUser.mobile_phone_number,
+      extNumber: currentUser.office_phone_number,
+      email: currentUser.email,
+    });
+  }, [currentUser, reset]);
+
   const [isEdit, setIsEdit] = useState(false);
 
   function transformPhone(number) {
@@ -51,7 +73,7 @@ function ProfileInfo() {
   }
   return (
     <section className="profile">
-      <h2 className="profile__title">Исаева Полина Артёмовна</h2>
+      <h2 className="profile__title">{`${currentUser.first_name} ${currentUser.middle_name} ${currentUser.last_name}`}</h2>
       <div className="profile__container">
         <div className="profile__image-container">
           <img className="profile__image" alt="Логотип" src={ProfilePic} />

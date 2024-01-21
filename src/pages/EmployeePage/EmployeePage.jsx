@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
 import InformatoionEmployee from '../../components/InfommatoionEmployee/InformatoionEmployee';
@@ -13,37 +13,28 @@ import {
   getEmployeeEducations,
   getEmployeeTrainings,
 } from '../../utils/api/UsersApi';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export default function EmployeePage() {
   const { home, employees, employee } = pagesPath;
-  const [userData, setUserData] = useState([]);
   const { id } = useParams();
-  const currentUser = Number(parseInt(id, 10));
+  const currentUserId = Number(parseInt(id, 10));
+  // eslint-disable-next-line
+  const { setCurrentUser } = useContext(CurrentUserContext);
 
   // Get initial data about user
   useEffect(() => {
-    getSelectEmployee(currentUser)
+    getSelectEmployee(currentUserId)
       .then((res) => {
         // eslint-disable-next-line no-console
-        console.log(res);
-        setUserData(res);
+        setCurrentUser(res);
       })
       .catch((err) =>
         // eslint-disable-next-line no-console
         console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
       );
 
-    getEmployeePasports(currentUser)
-      .then((res) => {
-        // eslint-disable-next-line no-console
-        console.log(res);
-      })
-      .catch((err) =>
-        // eslint-disable-next-line no-console
-        console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
-      );
-
-    getEmployeeVacations(currentUser)
+    getEmployeePasports(currentUserId)
       .then((res) => {
         // eslint-disable-next-line no-console
         console.log(res);
@@ -53,7 +44,7 @@ export default function EmployeePage() {
         console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
       );
 
-    getEmployeeEducations(currentUser)
+    getEmployeeVacations(currentUserId)
       .then((res) => {
         // eslint-disable-next-line no-console
         console.log(res);
@@ -63,7 +54,7 @@ export default function EmployeePage() {
         console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
       );
 
-    getEmployeeTrainings(currentUser)
+    getEmployeeEducations(currentUserId)
       .then((res) => {
         // eslint-disable-next-line no-console
         console.log(res);
@@ -72,12 +63,18 @@ export default function EmployeePage() {
         // eslint-disable-next-line no-console
         console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
       );
-  }, [currentUser]);
 
-  useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(userData, 'userData');
-  }, [userData]);
+    getEmployeeTrainings(currentUserId)
+      .then((res) => {
+        // eslint-disable-next-line no-console
+        console.log(res);
+      })
+      .catch((err) =>
+        // eslint-disable-next-line no-console
+        console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
+      );
+    // eslint-disable-next-line
+  }, [currentUserId]);
 
   return (
     <section className="employee-page">
