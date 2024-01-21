@@ -1,30 +1,18 @@
-/* eslint-disable no-unused-vars */
-import PersonalDOtherDocumentsTaxNumber from '../PersonalDOtherDocumentsTaxNumber/PersonalDOtherDocumentsTaxNumber';
-import PersonalDOtherDocumentsInsuranceNumber from '../PersonalDOtherDocumentsInsuranceNumber/PersonalDOtherDocumentsInsuranceNumber';
-import PersonalDOtherDocumentsAgreement from '../PersonalDOtherDocumentsAgreement/PersonalDOtherDocumentsAgreement';
+import PersonalDOtherDocumentsInn from '../PersonalDOtherDocumentsInn/PersonalDOtherDocumentsInn';
+import PersonalDOtherDocumentsConsent from '../PersonalDOtherDocumentsConsent/PersonalDOtherDocumentsConsent';
 
-export default function PersonalDOtherDocumentstData({
-  isEdit,
-  errors,
-  register,
-  watch,
-}) {
+export default function PersonalDOtherDocumentstData({ isEdit }) {
   return (
     <details className="details" open>
       <summary className="summaru">Прочие документы</summary>
-      <div className="columns is-multiline is-mobile">
+      <div className="columns is-multiline is-mobile input-none ">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
             ИНН
           </legend>
         </div>
         <div className="column">
-          <PersonalDOtherDocumentsTaxNumber
-            isEdit={isEdit}
-            errors={errors}
-            register={register}
-            watch={watch}
-          />
+          <PersonalDOtherDocumentsInn isEdit={isEdit} />
         </div>
       </div>
       <div className="columns is-multiline is-mobile input-none ">
@@ -34,12 +22,7 @@ export default function PersonalDOtherDocumentstData({
           </legend>
         </div>
         <div className="column">
-          <PersonalDOtherDocumentsInsuranceNumber
-            isEdit={isEdit}
-            errors={errors}
-            register={register}
-            watch={watch}
-          />
+          <PersonalDOtherDocumentsInn isEdit={isEdit} />
         </div>
       </div>
       <div className="columns is-multiline is-mobile input-none ">
@@ -49,12 +32,7 @@ export default function PersonalDOtherDocumentstData({
           </legend>
         </div>
         <div className="column">
-          <PersonalDOtherDocumentsAgreement
-            isEdit={isEdit}
-            errors={errors}
-            register={register}
-            watch={watch}
-          />
+          <PersonalDOtherDocumentsConsent isEdit={isEdit} />
         </div>
       </div>
     </details>

@@ -94,7 +94,7 @@ export default function CurrentDFFinance({ isEdit }) {
           <option>Смешанная</option>
         </select>
       </div>
-      <div className="columns input-none">
+      <div className="columns is-multiline is-mobile input-none ">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
             Передвижение по должностям
@@ -105,7 +105,7 @@ export default function CurrentDFFinance({ isEdit }) {
         </div>
       </div>
       <button className="current-data-form__add">Добавить строки</button>
-      <div className="columns">
+      <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
           <legend className="label label-horizontal label-type">
             Оклад и прочие отчисления
@@ -115,7 +115,7 @@ export default function CurrentDFFinance({ isEdit }) {
           <CurrentFinanceSalary isEdit={isEdit} />
         </div>
       </div>
-      <div className="columns input-none ">
+      <div className="columns is-multiline is-mobile input-none ">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
             Льготы
@@ -126,7 +126,7 @@ export default function CurrentDFFinance({ isEdit }) {
         </div>
       </div>
       <button className="current-data-form__add">Добавить строки</button>
-      <div className="columns input-none ">
+      <div className="columns is-multiline is-mobile input-none ">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
             Индексация
@@ -137,7 +137,7 @@ export default function CurrentDFFinance({ isEdit }) {
         </div>
       </div>
       <button className="current-data-form__add">Добавить строки</button>
-      <div className="columns input-none ">
+      <div className="columns is-multiline is-mobile input-none ">
         <div className="column is-one-quarter">
           <legend className="label label label-horizontal label-type">
             Стоимость сотрудника (р.)
