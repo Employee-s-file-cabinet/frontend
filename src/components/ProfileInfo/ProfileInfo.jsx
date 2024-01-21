@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Icon } from '../UI/Icons/Icons';
 import ProfilePic from '../../assets/images/profile.jpg';
@@ -13,17 +12,17 @@ function ProfileInfo() {
     control,
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { isValid, errors, isDirty },
   } = useForm({
     defaultValues: {
-      lastName: 'Исаева',
-      firstName: 'Полина',
-      middleName: 'Артемовна',
+      last_name: 'Исаева',
+      first_name: 'Полина',
+      middle_name: 'Артемовна',
       department: 'Кадры',
       jobTitle: 'Менеджер',
       grade: '4',
-      mobileNumber: '+79091114422',
+      mobile: '+79091114422',
       extNumber: '32-23',
       email: 'isaevaPA@company.com',
     },
@@ -40,16 +39,16 @@ function ProfileInfo() {
   }
 
   function onReset() {
-    // тут должен быть прописан возврат к дефолтным значением полей
+    reset(undefined, { keepDirtyValues: false });
     setIsEdit(false);
   }
 
   function onSubmit(data) {
     // eslint-disable-next-line no-console
     console.log(data);
+    reset(undefined, { keepValues: true });
     setIsEdit(false);
   }
-
   return (
     <section className="profile">
       <h2 className="profile__title">Исаева Полина Артёмовна</h2>
@@ -89,10 +88,10 @@ function ProfileInfo() {
           <fieldset className="profile__columns">
             <ul className="profile__column">
               <li className="profile__input-container">
-                <label className="profile__input-label" htmlFor="lastName">
+                <label className="profile__input-label" htmlFor="last_name">
                   Фамилия
                   <input
-                    {...register('lastName')}
+                    {...register('last_name')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
                     }`}
@@ -102,7 +101,7 @@ function ProfileInfo() {
                   />
                 </label>
                 <span className="profile__input-error">
-                  {errors.lastName?.message}
+                  {errors.last_name?.message}
                 </span>
               </li>
               <li className="profile__input-container">
@@ -140,21 +139,21 @@ function ProfileInfo() {
                         disabled={!isEdit}
                       />
                     )}
-                    name="mobileNumber"
+                    name="mobile"
                     control={control}
                   />
                 </span>
                 <span className="profile__input-error">
-                  {errors.mobileNumber?.message}
+                  {errors.mobile?.message}
                 </span>
               </li>
             </ul>
             <ul className="profile__column">
               <li className="profile__input-container">
-                <label className="profile__input-label" htmlFor="firstName">
+                <label className="profile__input-label" htmlFor="first_name">
                   Имя
                   <input
-                    {...register('firstName')}
+                    {...register('first_name')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
                     }`}
@@ -164,7 +163,7 @@ function ProfileInfo() {
                   />
                 </label>
                 <span className="profile__input-error">
-                  {errors.firstName?.message}
+                  {errors.first_name?.message}
                 </span>
               </li>
               <li className="profile__input-container">
@@ -204,10 +203,10 @@ function ProfileInfo() {
             </ul>
             <ul className="profile__column">
               <li className="profile__input-container">
-                <label className="profile__input-label" htmlFor="middleName">
+                <label className="profile__input-label" htmlFor="middle_name">
                   Отчество
                   <input
-                    {...register('middleName')}
+                    {...register('middle_name')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
                     }`}
@@ -218,7 +217,7 @@ function ProfileInfo() {
                 </label>
                 {isEdit && (
                   <span className="profile__input-error profile__input-error_margin_custom">
-                    {errors.middleName?.message}
+                    {errors.middle_name?.message}
                   </span>
                 )}
               </li>

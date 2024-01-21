@@ -75,7 +75,7 @@ export default function EmployeePage() {
 
   useEffect(() => {
     // eslint-disable-next-line no-console
-    console.log(userData, 'userData');
+    // console.log(userData, 'userData');
   }, [userData]);
 
   return (

@@ -23,18 +23,14 @@
     @include text(16px, 24px);
     color: $grey-dark;
   }
-  &__link:hover {
-    background-color: $turquoise-light;
-    color: $turquoise-dark;
-  }
   &__item {
     @include flex(row, flex-start, center);
     width: 100%;
     padding: 12px 20px;
-    border-radius: 2px;
+    border-radius: 8px;
   }
   &__item:hover {
-    background-color: $turquoise-light;
+    background-color: $white;
   }
   &__icon {
     margin-right: 12px;
