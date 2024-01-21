@@ -33,8 +33,10 @@ export const PersonalDataFormValidationSchema = yup
         citizenship: yup
           .string()
           .required(requiredFieldError)
-          .min(2, 'Минимальное кол-во символов 2')
-          .max(60, 'Максимальное кол-во символов 60'),
+          .matches(
+            /^(?=.{2,150}$)[а-яёА-ЯЁ0-9. -]*$/,
+            'Используйте кириллицу.'
+          ),
         number: yup
           .string()
           .required(requiredFieldError)
@@ -56,8 +58,7 @@ export const PersonalDataFormValidationSchema = yup
           ),
         issued_by: yup
           .string()
-          .min(2, 'Минимальное кол-во символов 2')
-          .max(200, 'Максимальное кол-во символов 200')
+          .matches(/^(?=.{1,150}$)[а-яёА-ЯЁ0-9. -]*$/, 'Используйте кириллицу.')
           .notRequired(),
         department_code: yup
           .string()
@@ -83,234 +84,234 @@ export const PersonalDataFormValidationSchema = yup
       })
     ),
 
-    personalDFPassportForeignFieldSet: yup.array().of(
-      yup.object({
-        number: yup
-          .string()
-          .required(requiredFieldError)
-          .matches(
-            /^[0-9]{9,9}$/,
-            'Используйте цифры. Необходимое количество символов 9.'
-          ),
-        issued_date: yup
-          .date('Введите дату в формате ДД.ММ.ГГГГ')
-          .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-          .required('Введите дату в формате ДД.ММ.ГГГГ')
-          .min('Jan 1 1900', 'Дата выдачи не должна быть раньше 01.01.1900')
-          .max(
-            Date(),
-            `Дата начала не должна быть позднее ${trasnformDate(Date())}`
-          ),
-        expired: yup
-          .date()
-          .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-          .when('issued_date', {
-            is: (value) => value.toString().includes('GMT'),
-            then: () =>
-              yup
-                .date()
-                .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-                .required('Введите дату в формате ДД.ММ.ГГГГ')
-                .min(
-                  yup.ref('issued_date'),
-                  ({ min }) =>
-                    `Дата истечения срока не должна быть ранее ${trasnformDate(
-                      min
-                    )}`
-                ),
-          }),
-      })
-    ),
+    // personalDFPassportForeignFieldSet: yup.array().of(
+    //   yup.object({
+    //     number: yup
+    //       .string()
+    //       .required(requiredFieldError)
+    //       .matches(
+    //         /^[0-9]{9,9}$/,
+    //         'Используйте цифры. Необходимое количество символов 9.'
+    //       ),
+    //     issued_date: yup
+    //       .date('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .required('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .min('Jan 1 1900', 'Дата выдачи не должна быть раньше 01.01.1900')
+    //       .max(
+    //         Date(),
+    //         `Дата начала не должна быть позднее ${trasnformDate(Date())}`
+    //       ),
+    //     expired: yup
+    //       .date()
+    //       .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .when('issued_date', {
+    //         is: (value) => value.toString().includes('GMT'),
+    //         then: () =>
+    //           yup
+    //             .date()
+    //             .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //             .required('Введите дату в формате ДД.ММ.ГГГГ')
+    //             .min(
+    //               yup.ref('issued_date'),
+    //               ({ min }) =>
+    //                 `Дата истечения срока не должна быть ранее ${trasnformDate(
+    //                   min
+    //                 )}`
+    //             ),
+    //       }),
+    //   })
+    // ),
 
-    personalDFPassportVisaFieldSet: yup.array().of(
-      yup.object({
-        issued_by: yup
-          .string()
-          .required(requiredFieldError)
-          .min(2, 'Минимальное кол-во символов 2')
-          .max(70, 'Максимальное кол-во символов 70'),
-        category: yup
-          .string()
-          .required(requiredFieldError)
-          .min(1, 'Минимальное кол-во символов 1')
-          .max(70, 'Максимальное кол-во символов 70'),
-        issued_date: yup
-          .date('Введите дату в формате ДД.ММ.ГГГГ')
-          .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-          .required('Введите дату в формате ДД.ММ.ГГГГ')
-          .min('Jan 1 1900', 'Дата выдачи не должна быть раньше 01.01.1900')
-          .max(
-            Date(),
-            `Дата начала не должна быть позднее ${trasnformDate(Date())}`
-          ),
-        expired: yup
-          .date()
-          .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-          .when('issued_date', {
-            is: (value) => value.toString().includes('GMT'),
-            then: () =>
-              yup
-                .date()
-                .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-                .required('Введите дату в формате ДД.ММ.ГГГГ')
-                .min(
-                  yup.ref('issued_date'),
-                  ({ min }) =>
-                    `Дата истечения срока не должна быть ранее ${trasnformDate(
-                      min
-                    )}`
-                ),
-          }),
-      })
-    ),
+    // personalDFPassportVisaFieldSet: yup.array().of(
+    //   yup.object({
+    //     issued_by: yup
+    //       .string()
+    //       .required(requiredFieldError)
+    //       .min(2, 'Минимальное кол-во символов 2')
+    //       .max(70, 'Максимальное кол-во символов 70'),
+    //     category: yup
+    //       .string()
+    //       .required(requiredFieldError)
+    //       .min(1, 'Минимальное кол-во символов 1')
+    //       .max(70, 'Максимальное кол-во символов 70'),
+    //     issued_date: yup
+    //       .date('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .required('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .min('Jan 1 1900', 'Дата выдачи не должна быть раньше 01.01.1900')
+    //       .max(
+    //         Date(),
+    //         `Дата начала не должна быть позднее ${trasnformDate(Date())}`
+    //       ),
+    //     expired: yup
+    //       .date()
+    //       .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .when('issued_date', {
+    //         is: (value) => value.toString().includes('GMT'),
+    //         then: () =>
+    //           yup
+    //             .date()
+    //             .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //             .required('Введите дату в формате ДД.ММ.ГГГГ')
+    //             .min(
+    //               yup.ref('issued_date'),
+    //               ({ min }) =>
+    //                 `Дата истечения срока не должна быть ранее ${trasnformDate(
+    //                   min
+    //                 )}`
+    //             ),
+    //       }),
+    //   })
+    // ),
 
-    personalDForeignEmployeeWorkVisaFieldSet: yup.array().of(
-      yup.object({
-        number: yup
-          .string()
-          .required(requiredFieldError)
-          .matches(
-            /^[0-9]{9,9}$/,
-            'Используйте цифры. Необходимое количество символов 9.'
-          ),
-        category: yup
-          .string()
-          .required(requiredFieldError)
-          .oneOf(['Однократная', 'Многократная']),
-        issued_date: yup
-          .date('Введите дату в формате ДД.ММ.ГГГГ')
-          .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-          .required('Введите дату в формате ДД.ММ.ГГГГ')
-          .min('Jan 1 1900', 'Дата выдачи не должна быть раньше 01.01.1900')
-          .max(
-            Date(),
-            `Дата начала не должна быть позднее ${trasnformDate(Date())}`
-          ),
-        expired: yup
-          .date()
-          .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-          .when('issued_date', {
-            is: (value) => value.toString().includes('GMT'),
-            then: () =>
-              yup
-                .date()
-                .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-                .required('Введите дату в формате ДД.ММ.ГГГГ')
-                .min(
-                  yup.ref('issued_date'),
-                  ({ min }) =>
-                    `Дата истечения срока не должна быть ранее ${trasnformDate(
-                      min
-                    )}`
-                ),
-          }),
-      })
-    ),
+    // personalDForeignEmployeeWorkVisaFieldSet: yup.array().of(
+    //   yup.object({
+    //     number: yup
+    //       .string()
+    //       .required(requiredFieldError)
+    //       .matches(
+    //         /^[0-9]{9,9}$/,
+    //         'Используйте цифры. Необходимое количество символов 9.'
+    //       ),
+    //     category: yup
+    //       .string()
+    //       .required(requiredFieldError)
+    //       .oneOf(['Однократная', 'Многократная']),
+    //     issued_date: yup
+    //       .date('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .required('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .min('Jan 1 1900', 'Дата выдачи не должна быть раньше 01.01.1900')
+    //       .max(
+    //         Date(),
+    //         `Дата начала не должна быть позднее ${trasnformDate(Date())}`
+    //       ),
+    //     expired: yup
+    //       .date()
+    //       .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .when('issued_date', {
+    //         is: (value) => value.toString().includes('GMT'),
+    //         then: () =>
+    //           yup
+    //             .date()
+    //             .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //             .required('Введите дату в формате ДД.ММ.ГГГГ')
+    //             .min(
+    //               yup.ref('issued_date'),
+    //               ({ min }) =>
+    //                 `Дата истечения срока не должна быть ранее ${trasnformDate(
+    //                   min
+    //                 )}`
+    //             ),
+    //       }),
+    //   })
+    // ),
 
-    personalDForeignEmployeeWorkPermitFieldSet: yup.array().of(
-      yup.object({
-        number: yup
-          .string()
-          .required(requiredFieldError)
-          .matches(
-            /^[0-9]{12,12}$/,
-            'Используйте цифры. Необходимое количество символов 12.'
-          ),
-        issued_date: yup
-          .date('Введите дату в формате ДД.ММ.ГГГГ')
-          .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-          .required('Введите дату в формате ДД.ММ.ГГГГ')
-          .min('Jan 1 1900', 'Дата выдачи не должна быть раньше 01.01.1900')
-          .max(
-            Date(),
-            `Дата начала не должна быть позднее ${trasnformDate(Date())}`
-          ),
-        expired: yup
-          .date()
-          .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-          .when('issued_date', {
-            is: (value) => value.toString().includes('GMT'),
-            then: () =>
-              yup
-                .date()
-                .typeError('Введите дату в формате ДД.ММ.ГГГГ')
-                .required('Введите дату в формате ДД.ММ.ГГГГ')
-                .min(
-                  yup.ref('issued_date'),
-                  ({ min }) =>
-                    `Дата истечения срока не должна быть ранее ${trasnformDate(
-                      min
-                    )}`
-                ),
-          }),
-      })
-    ),
-    taxpayer: yup.object().shape({
-      number: yup
-        .string()
-        .required(requiredFieldError)
-        .matches(
-          /^[0-9]{12,12}$/,
-          'Используйте цифры. Необходимое количество символов 12.'
-        ),
-      has_scan: yup.boolean().notRequired(),
-      scan: yup.lazy((value) => {
-        if (value) {
-          return value.length !== 0
-            ? yup
-                .mixed()
-                .test(
-                  'fileSize',
-                  'Размер файла превышает 5 Мб.',
-                  (file) => file[0].size <= 5242880
-                )
-            : yup.mixed().notRequired();
-        }
-        return yup.mixed().notRequired();
-      }),
-    }),
+    // personalDForeignEmployeeWorkPermitFieldSet: yup.array().of(
+    //   yup.object({
+    //     number: yup
+    //       .string()
+    //       .required(requiredFieldError)
+    //       .matches(
+    //         /^[0-9]{12,12}$/,
+    //         'Используйте цифры. Необходимое количество символов 12.'
+    //       ),
+    //     issued_date: yup
+    //       .date('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .required('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .min('Jan 1 1900', 'Дата выдачи не должна быть раньше 01.01.1900')
+    //       .max(
+    //         Date(),
+    //         `Дата начала не должна быть позднее ${trasnformDate(Date())}`
+    //       ),
+    //     expired: yup
+    //       .date()
+    //       .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //       .when('issued_date', {
+    //         is: (value) => value.toString().includes('GMT'),
+    //         then: () =>
+    //           yup
+    //             .date()
+    //             .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+    //             .required('Введите дату в формате ДД.ММ.ГГГГ')
+    //             .min(
+    //               yup.ref('issued_date'),
+    //               ({ min }) =>
+    //                 `Дата истечения срока не должна быть ранее ${trasnformDate(
+    //                   min
+    //                 )}`
+    //             ),
+    //       }),
+    //   })
+    // ),
+    // taxpayer: yup.object().shape({
+    //   number: yup
+    //     .string()
+    //     .required(requiredFieldError)
+    //     .matches(
+    //       /^[0-9]{12,12}$/,
+    //       'Используйте цифры. Необходимое количество символов 12.'
+    //     ),
+    //   has_scan: yup.boolean().notRequired(),
+    //   scan: yup.lazy((value) => {
+    //     if (value) {
+    //       return value.length !== 0
+    //         ? yup
+    //             .mixed()
+    //             .test(
+    //               'fileSize',
+    //               'Размер файла превышает 5 Мб.',
+    //               (file) => file[0].size <= 5242880
+    //             )
+    //         : yup.mixed().notRequired();
+    //     }
+    //     return yup.mixed().notRequired();
+    //   }),
+    // }),
 
-    insurance: yup.object().shape({
-      number: yup
-        .string()
-        .required(requiredFieldError)
-        .matches(
-          /^[0-9]{3,3}[-][0-9]{3,3}[-][0-9]{3,3}[ ][0-9]{2,2}$/,
-          'Укажите СНИЛС в формате "000-000-000 00"'
-        ),
-      has_scan: yup.boolean().notRequired(),
-      scan: yup.lazy((value) => {
-        if (value) {
-          return value.length !== 0
-            ? yup
-                .mixed()
-                .test(
-                  'fileSize',
-                  'Размер файла превышает 5 Мб.',
-                  (file) => file[0].size <= 5242880
-                )
-            : yup.mixed().notRequired();
-        }
-        return yup.mixed().notRequired();
-      }),
-    }),
+    // insurance: yup.object().shape({
+    //   number: yup
+    //     .string()
+    //     .required(requiredFieldError)
+    //     .matches(
+    //       /^[0-9]{3,3}[-][0-9]{3,3}[-][0-9]{3,3}[ ][0-9]{2,2}$/,
+    //       'Укажите СНИЛС в формате "000-000-000 00"'
+    //     ),
+    //   has_scan: yup.boolean().notRequired(),
+    //   scan: yup.lazy((value) => {
+    //     if (value) {
+    //       return value.length !== 0
+    //         ? yup
+    //             .mixed()
+    //             .test(
+    //               'fileSize',
+    //               'Размер файла превышает 5 Мб.',
+    //               (file) => file[0].size <= 5242880
+    //             )
+    //         : yup.mixed().notRequired();
+    //     }
+    //     return yup.mixed().notRequired();
+    //   }),
+    // }),
 
-    agreement: yup.object().shape({
-      has_scan: yup.boolean().notRequired(),
-      scan: yup.lazy((value) => {
-        if (value) {
-          return value.length !== 0
-            ? yup
-                .mixed()
-                .test(
-                  'fileSize',
-                  'Размер файла превышает 5 Мб.',
-                  (file) => file[0].size <= 5242880
-                )
-            : yup.mixed().notRequired();
-        }
-        return yup.mixed().notRequired();
-      }),
-    }),
+    // agreement: yup.object().shape({
+    //   has_scan: yup.boolean().notRequired(),
+    //   scan: yup.lazy((value) => {
+    //     if (value) {
+    //       return value.length !== 0
+    //         ? yup
+    //             .mixed()
+    //             .test(
+    //               'fileSize',
+    //               'Размер файла превышает 5 Мб.',
+    //               (file) => file[0].size <= 5242880
+    //             )
+    //         : yup.mixed().notRequired();
+    //     }
+    //     return yup.mixed().notRequired();
+    //   }),
+    // }),
   })
   .required();

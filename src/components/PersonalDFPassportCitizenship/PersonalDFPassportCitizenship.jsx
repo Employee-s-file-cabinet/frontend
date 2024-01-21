@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import './PersonalDFPassportCitizenship.scss';
 import { useFieldArray } from 'react-hook-form';
 import scanLabel from '../../assets/images/scan-label.png';
@@ -8,7 +7,7 @@ export default function PersonalDFPassportCitizenship({
   control,
   register,
   errors,
-  watch,
+  getValues,
 }) {
   const { fields, append, remove } = useFieldArray({
     name: 'personalDFPassportCitizenshipFieldSet',
@@ -156,32 +155,35 @@ export default function PersonalDFPassportCitizenship({
                     <input
                       className="file-input horizontal-wrapper__input-one-half"
                       type="file"
+                      disabled={!isEdit}
                       accept=".pdf,.jpg,,.png,.jpeg"
                       {...register(
                         `personalDFPassportCitizenshipFieldSet.${index}.scan`
                       )}
                     />
-                    {/* <span className="file-cta">
+                    <span className="file-cta">
                       <span className="file-icon">
                         <i className="fas fa-upload" />
                       </span>
                       <span className="file-label">Выбрать файл</span>
                     </span>
                     <span className="file-name file-name-span">
-                      test
-                      {watch().personalDFPassportCitizenshipFieldSet?.[index]
-                        .scan?.[0]?.name ||
-                        (watch().personalDFPassportCitizenshipFieldSet?.[index]
-                          .has_scan &&
-                          watch().personalDFPassportCitizenshipFieldSet?.[index]
-                            .scan_name)}
+                      {getValues().personalDFPassportCitizenshipFieldSet?.[
+                        index
+                      ].scan?.[0]?.name ||
+                        (getValues().personalDFPassportCitizenshipFieldSet?.[
+                          index
+                        ].has_scan &&
+                          getValues().personalDFPassportCitizenshipFieldSet?.[
+                            index
+                          ].scan_name)}
                     </span>
                     <span>
                       {
                         errors?.personalDFPassportCitizenshipFieldSet?.[index]
                           ?.scan?.message
                       }
-                    </span> */}
+                    </span>
                   </legend>
                 </div>
               </div>

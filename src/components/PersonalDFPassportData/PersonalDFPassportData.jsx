@@ -9,6 +9,7 @@ export default function PersonalDFPassportData({
   errors,
   register,
   watch,
+  getValues,
 }) {
   return (
     <details className="details" open>
@@ -26,6 +27,7 @@ export default function PersonalDFPassportData({
             errors={errors}
             register={register}
             watch={watch}
+            getValues={getValues}
           />
         </div>
       </div>

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from 'react';
 
 export default function PersonalDFOpenData({
   isEdit,
@@ -7,10 +8,37 @@ export default function PersonalDFOpenData({
   getValues,
   setValue,
   watch,
+  reset,
 }) {
   const [isChecked, setIsChecked] = useState(
-    watch().residential_address === watch().registration_address
+    getValues()?.residential_address === getValues()?.registration_address
   );
+  const [residentalAddress, setResidentalAddress] = useState(
+    getValues()?.residential_address
+  );
+  const [registrationAddress, setRegistrationAddress] = useState(
+    getValues()?.registration_address
+  );
+  useEffect(() => {
+    const resAddress = watch((value) => {
+      setResidentalAddress(value.residential_address);
+      return value.residential_address;
+    });
+    const regAddress = watch((value) => {
+      setRegistrationAddress(value.registration_address);
+      return value.registration_address;
+    });
+    if (residentalAddress === registrationAddress) {
+      setIsChecked(true);
+    } else setIsChecked(false);
+
+    return () => {
+      resAddress.unsubscribe();
+      regAddress.unsubscribe();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [watch, reset]);
+
   return (
     <fieldset>
       <div className="horizontal-wrapper">
@@ -83,16 +111,14 @@ export default function PersonalDFOpenData({
                   );
                   setIsChecked(true);
                 } else {
-                  setIsChecked(false);
                   setValue('residential_address', '', {
                     shouldValidate: true,
                     shouldDirty: true,
                   });
+                  setIsChecked(false);
                 }
               }}
-              checked={
-                watch().residential_address === watch().registration_address
-              }
+              checked={isChecked}
             />
             Совпадает с адресом проживания
           </legend>

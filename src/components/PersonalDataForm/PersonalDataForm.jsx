@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable no-unused-vars */
 import './PersonalDataForm.scss';
 import 'bulma/css/bulma.min.css';
@@ -10,7 +11,11 @@ import PersonalDFPassportData from '../PersonalDFPassportData/PersonalDFPassport
 import PersonalDForeignEmployeetData from '../PersonalDForeignEmployeetData/PersonalDForeignEmployeetData';
 import PersonalDOtherDocumentstData from '../PersonalDOtherDocumentstData/PersonalDOtherDocumentstData';
 
+let counter = 0;
+
 export default function PersonalDataForm() {
+  // eslint-disable-next-line no-plusplus
+  counter++;
   const [isEdit, setIsEdit] = useState(false);
 
   const {
@@ -119,6 +124,7 @@ export default function PersonalDataForm() {
       className="personal-data-form form-active"
       onSubmit={handleSubmit((data) => onSubmit(data))}
     >
+      <p>{`RENDERS ${counter}`}</p>
       <input
         className={`personal-data-form__button${
           isEdit ? ' button-disabled' : ''
@@ -133,26 +139,28 @@ export default function PersonalDataForm() {
         getValues={getValues}
         setValue={setValue}
         watch={watch}
+        reset={onReset}
       />
-      <PersonalDFPassportData
+      {/* <PersonalDFPassportData
         isEdit={isEdit}
         errors={errors}
         register={register}
         control={control}
         watch={watch}
-      />
-      <PersonalDForeignEmployeetData
+        getValues={getValues}
+      /> */}
+      {/* <PersonalDForeignEmployeetData
         isEdit={isEdit}
         errors={errors}
         register={register}
         control={control}
-      />
-      <PersonalDOtherDocumentstData
+      /> */}
+      {/* <PersonalDOtherDocumentstData
         isEdit={isEdit}
         errors={errors}
         register={register}
         watch={watch}
-      />
+      /> */}
       <div className="buttons-group">
         <button
           className={` button-save${!isEdit ? ' button-disabled' : ''}`}
