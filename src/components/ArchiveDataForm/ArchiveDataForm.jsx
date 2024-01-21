@@ -22,15 +22,15 @@ export default function ArchiveDataForm() {
         {
           companyName: 'Рeкрутинг Рус',
           position: 'Менеджер',
-          beginDate: '1999-12-31',
-          endDate: '2000-12-31',
+          beginDate: '',
+          endDate: '',
           jobDescription: 'Счастье, радость он приносит людям',
         },
       ],
       awardsFieldSet: [
         {
-          awardTitle: 'Совесть компании',
-          awardDate: '2000-12-31',
+          awardTitle: '',
+          awardDate: '',
         },
       ],
     },

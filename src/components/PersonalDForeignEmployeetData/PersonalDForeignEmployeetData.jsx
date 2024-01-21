@@ -1,12 +1,7 @@
 import PersonalDForeignEmployeeWorkVisa from '../PersonalDForeignEmployeeWorkVisa/PersonalDForeignEmployeeWorkVisa';
 import PersonalDForeignEmployeeWorkPermit from '../PersonalDForeignEmployeeWorkPermit/PersonalDForeignEmployeeWorkPermit';
 
-export default function PersonalDForeignEmployeetData({
-  isEdit,
-  control,
-  errors,
-  register,
-}) {
+export default function PersonalDForeignEmployeetData({ isEdit }) {
   return (
     <details className="details" open>
       <summary className="summaru">Документы иностранного сотрудника</summary>
@@ -17,12 +12,7 @@ export default function PersonalDForeignEmployeetData({
           </legend>
         </div>
         <div className="column">
-          <PersonalDForeignEmployeeWorkVisa
-            isEdit={isEdit}
-            errors={errors}
-            register={register}
-            control={control}
-          />
+          <PersonalDForeignEmployeeWorkVisa isEdit={isEdit} />
         </div>
       </div>
       <div className="columns is-multiline is-mobile input-none ">
@@ -32,12 +22,7 @@ export default function PersonalDForeignEmployeetData({
           </legend>
         </div>
         <div className="column">
-          <PersonalDForeignEmployeeWorkPermit
-            isEdit={isEdit}
-            errors={errors}
-            register={register}
-            control={control}
-          />
+          <PersonalDForeignEmployeeWorkPermit isEdit={isEdit} />
         </div>
       </div>
     </details>
