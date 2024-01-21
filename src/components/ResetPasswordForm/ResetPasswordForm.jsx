@@ -37,6 +37,7 @@ export default function ResetPasswordForm() {
     : 'icon_margined';
 
   function onSubmit(data) {
+    // eslint-disable-next-line no-console
     console.log(key);
 
     checkKey(key).then(() => {

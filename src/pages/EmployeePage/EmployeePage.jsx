@@ -23,6 +23,7 @@ export default function EmployeePage() {
   useEffect(() => {
     getSelectEmployee(currentUser)
       .then((res) => {
+        // eslint-disable-next-line no-console
         console.log(res);
         setUserData(res);
       })
@@ -33,6 +34,7 @@ export default function EmployeePage() {
 
     getEmployeePasports(currentUser)
       .then((res) => {
+        // eslint-disable-next-line no-console
         console.log(res);
       })
       .catch((err) =>
@@ -42,6 +44,7 @@ export default function EmployeePage() {
 
     getEmployeeVacations(currentUser)
       .then((res) => {
+        // eslint-disable-next-line no-console
         console.log(res);
       })
       .catch((err) =>
@@ -51,6 +54,7 @@ export default function EmployeePage() {
 
     getEmployeeEducations(currentUser)
       .then((res) => {
+        // eslint-disable-next-line no-console
         console.log(res);
       })
       .catch((err) =>
@@ -60,6 +64,7 @@ export default function EmployeePage() {
 
     getEmployeeTrainings(currentUser)
       .then((res) => {
+        // eslint-disable-next-line no-console
         console.log(res);
       })
       .catch((err) =>
