@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1986-08-24",
+  "department_id": 3,
+  "email": "tsereteli@company.com",
+  "first_name": "Тимофей",
+  "gender": "male",
+  "grade": "3",
+  "id": 29,
+  "insurance": {
+    "number": "38776852740"
+  },
+  "last_name": "Церетели",
+  "middle_name": "Александрович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79181232092"
+  },
+  "place_of_birth": "г. Самара",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Дзержинск, Спортивная ул., д. 2 кв.63",
+  "residential_address": "Россия, г. Таганрог, Западная ул., д. 3 кв.108",
+  "taxpayer": {
+    "number": "5347369877528"
+  }
+}

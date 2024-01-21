@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1998-11-14",
+  "department_id": 3,
+  "email": "siyanovich@company.com",
+  "first_name": "Мила",
+  "gender": "female",
+  "grade": "3",
+  "id": 9,
+  "insurance": {
+    "number": "65167909125"
+  },
+  "last_name": "Сиянович",
+  "middle_name": "Павловна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79215511436"
+  },
+  "place_of_birth": "г. Первоуральск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Муром, Березовая ул., д. 5 кв.201",
+  "residential_address": "Россия, г. Первоуральск, Заводская ул., д. 5 кв.56",
+  "taxpayer": {
+    "number": "350651114375"
+  }
+}

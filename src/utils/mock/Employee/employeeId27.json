@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1983-05-08",
+  "department_id": 4,
+  "email": "sudlenkov@company.com",
+  "first_name": "Афанасий",
+  "gender": "male",
+  "grade": "3",
+  "id": 27,
+  "insurance": {
+    "number": "21629807121"
+  },
+  "last_name": "Судленков",
+  "middle_name": "Даниилович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79063102049"
+  },
+  "place_of_birth": "г. Нижний Новгород",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Находка, Тихая ул., д. 6 кв.85",
+  "residential_address": "Россия, г. Сергиев Посад, Речная ул., д. 4 кв.38",
+  "taxpayer": {
+    "number": "5221364142313"
+  }
+}

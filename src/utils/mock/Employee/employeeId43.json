@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1983-01-04",
+  "department_id": 3,
+  "email": "krivchikov@company.com",
+  "first_name": "Павел",
+  "gender": "male",
+  "grade": "3",
+  "id": 43,
+  "insurance": {
+    "number": "61635024193"
+  },
+  "last_name": "Кривчиков",
+  "middle_name": "Константинович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79096856887"
+  },
+  "place_of_birth": "г. Нефтеюганск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Брянск, Новый пер., д. 10 кв.187",
+  "residential_address": "Россия, г. Петропавловск-Камчатский, Дорожная ул., д. 11 кв.204",
+  "taxpayer": {
+    "number": "7196674884026"
+  }
+}

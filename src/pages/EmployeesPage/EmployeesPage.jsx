@@ -20,8 +20,8 @@ export default function EmployeesPage({
   const [previousSearchQuery, setPreviousSearchQuery] = useState('');
   const { filterTeg, pageNumber } = useParams();
   const navigate = useNavigate();
-  const currentPage = Number.parseInt(pageNumber, 10);
-  const limitRowsOnPage = 1;
+  const currentPage = parseInt(pageNumber, 10);
+  const limitRowsOnPage = 10;
 
   // Change users list after change page
   useEffect(() => {

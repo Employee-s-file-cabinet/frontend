@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1956-09-09",
+  "department_id": 3,
+  "email": "gribov@company.com",
+  "first_name": "Захар",
+  "gender": "male",
+  "grade": "3",
+  "id": 10,
+  "insurance": {
+    "number": "27281788613"
+  },
+  "last_name": "Грибов",
+  "middle_name": "Вениаминович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79215511436"
+  },
+  "place_of_birth": "г. Норильск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Салават, Молодежный пер., д. 12 кв.141",
+  "residential_address": "Россия, г. Норильск, Речная ул., д. 23 кв.82",
+  "taxpayer": {
+    "number": "993152634947"
+  }
+}

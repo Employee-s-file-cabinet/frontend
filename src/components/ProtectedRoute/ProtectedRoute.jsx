@@ -7,7 +7,9 @@ const ProtectedRoute = ({ element: Component, ...props }) =>
     <Component {...props} />
   ) : (
     <Navigate
-      to={`${REACT_APP_NODE_ENV === 'production' ? REACT_APP_PUBLIC_URL : '/'}`}
+      to={`${
+        REACT_APP_NODE_ENV === 'production' ? REACT_APP_PUBLIC_URL : '/signin'
+      }`}
       replace
     />
   );

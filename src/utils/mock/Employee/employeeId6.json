@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1997-02-23",
+  "department_id": 4,
+  "email": "grossman@company.com",
+  "first_name": "Семен",
+  "gender": "male",
+  "grade": "3",
+  "id": 6,
+  "insurance": {
+    "number": "26899661063"
+  },
+  "last_name": "Гроссман",
+  "middle_name": "Сергеевич",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79215511436"
+  },
+  "place_of_birth": "г. Новомосковск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Одинцово, Коммунистическая ул., д. 7 кв.102",
+  "residential_address": "Россия, г. Новомосковск, Якуба Коласа ул., д. 15 кв.101",
+  "taxpayer": {
+    "number": "472328433371"
+  }
+}

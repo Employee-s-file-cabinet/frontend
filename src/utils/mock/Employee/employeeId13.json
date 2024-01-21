@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1996-06-11",
+  "department_id": 2,
+  "email": "ermilova@company.com",
+  "first_name": "Оксана",
+  "gender": "female",
+  "grade": "3",
+  "id": 13,
+  "insurance": {
+    "number": "27890543216"
+  },
+  "last_name": "Ермилова",
+  "middle_name": "Константиновна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79855621221"
+  },
+  "place_of_birth": "г.  Рыбинск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Коломна, Октябрьская ул., д. 11 кв.160",
+  "residential_address": "Россия, г. Якутск, Березовая ул., д. 25 кв.99",
+  "taxpayer": {
+    "number": "112418777221"
+  }
+}

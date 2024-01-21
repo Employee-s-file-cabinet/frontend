@@ -1,0 +1,127 @@
+{
+  "current_page": 4,
+  "total_pages": 8,
+  "total_users": 71,
+  "users": [
+    {
+      "department": "Отдел управления персоналом",
+      "email": "martyusheva@company.com",
+      "first_name": "Полина",
+      "id": 8,
+      "last_name": "Мартюшева",
+      "middle_name": "Акимовна",
+      "phone_numbers": {
+        "mobile": "79215511436"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "mednikova@company.com",
+      "first_name": "Ольга",
+      "id": 44,
+      "last_name": "Медникова",
+      "middle_name": "Лукьяновна",
+      "phone_numbers": {
+        "mobile": "79276997364"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Бухгалтерия",
+      "email": "meshchinko@company.com",
+      "first_name": "Герман",
+      "id": 23,
+      "last_name": "Менщико",
+      "middle_name": "Игнатьевич",
+      "phone_numbers": {
+        "mobile": "79962889768"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "milehina@company.com",
+      "first_name": "Светлана",
+      "id": 14,
+      "last_name": "Милехина",
+      "middle_name": "Артемова",
+      "phone_numbers": {
+        "mobile": "79927083380"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "murogov@company.com",
+      "first_name": "Никита",
+      "id": 41,
+      "last_name": "Мурогов",
+      "middle_name": "Леонтьевич",
+      "phone_numbers": {
+        "mobile": "79437377216"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "musin@company.com",
+      "first_name": "Георгий",
+      "id": 36,
+      "last_name": "Мусин",
+      "middle_name": "Никанорович",
+      "phone_numbers": {
+        "mobile": "79313982935"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "muchin@company.com",
+      "first_name": "Тимофей",
+      "id": 24,
+      "last_name": "Мухин",
+      "middle_name": "Панкратович",
+      "phone_numbers": {
+        "mobile": "79108704309"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Бухгалтерия",
+      "email": "oskorbin@company.com",
+      "first_name": "Лидия",
+      "id": 51,
+      "last_name": "Оскорбина",
+      "middle_name": "Семеновна",
+      "phone_numbers": {
+        "mobile": "79703787295"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "osminin@company.com",
+      "first_name": "Давид",
+      "id": 40,
+      "last_name": "Осминин",
+      "middle_name": "Макарович",
+      "phone_numbers": {
+        "mobile": "79135503371"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "patrushev@company.com",
+      "first_name": "Иван",
+      "id": 67,
+      "last_name": "Патрушев",
+      "middle_name": "Аркадинович",
+      "phone_numbers": {
+        "mobile": "79356079725"
+      },
+      "position": "Специалист"
+    }
+  ]
+}

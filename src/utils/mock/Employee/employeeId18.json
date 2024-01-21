@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1977-05-12",
+  "department_id": 4,
+  "email": "gordeev@company.com",
+  "first_name": "Вениамин",
+  "gender": "male",
+  "grade": "3",
+  "id": 18,
+  "insurance": {
+    "number": "27890543216"
+  },
+  "last_name": "Гордеев",
+  "middle_name": "Федорович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79544053136"
+  },
+  "place_of_birth": "г. Красногорск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Тула, Трудовая ул., д. 3 кв.83",
+  "residential_address": "Россия, г. Березники, Дорожная ул., д. 2 кв.70",
+  "taxpayer": {
+    "number": "876543210987654"
+  }
+}

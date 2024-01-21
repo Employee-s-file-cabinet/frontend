@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1984-03-28",
+  "department_id": 3,
+  "email": "bruevich@company.com",
+  "first_name": "Леонтий",
+  "gender": "male",
+  "grade": "3",
+  "id": 50,
+  "insurance": {
+    "number": "84865996801"
+  },
+  "last_name": "Бруевич",
+  "middle_name": "Леонидович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79672162945"
+  },
+  "place_of_birth": "г. Ярославль",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Тольятти, Железнодорожная ул., д. 11 кв.25",
+  "residential_address": "Россия, г. Смоленск, Почтовая ул., д. 4 кв.183",
+  "taxpayer": {
+    "number": "7111740143620"
+  }
+}

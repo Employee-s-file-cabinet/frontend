@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1970-07-06",
+  "department_id": 3,
+  "email": "milehina@company.com",
+  "first_name": "Светлана",
+  "gender": "female",
+  "grade": "3",
+  "id": 14,
+  "insurance": {
+    "number": "53978718262"
+  },
+  "last_name": "Милехина",
+  "middle_name": "Артемова",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79927083380"
+  },
+  "place_of_birth": "г. Ижевск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Каспийск, Первомайский пер., д. 15 кв.216",
+  "residential_address": "Россия, г. Псков, Колхозная ул., д. 19 кв.76",
+  "taxpayer": {
+    "number": "333640999544"
+  }
+}

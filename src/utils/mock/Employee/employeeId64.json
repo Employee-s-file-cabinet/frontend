@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1982-02-16",
+  "department_id": 2,
+  "email": "rudavin@company.com",
+  "first_name": "Виктор",
+  "gender": "male",
+  "grade": "3",
+  "id": 64,
+  "insurance": {
+    "number": "98060107578"
+  },
+  "last_name": "Рудавин",
+  "middle_name": "Феликсович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79695048457"
+  },
+  "place_of_birth": "г. Ковров",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Норильск, Лесная ул., д. 25 кв.164",
+  "residential_address": "Россия, г. Электросталь, Парковая ул., д. 10 кв.152",
+  "taxpayer": {
+    "number": "3754323622036"
+  }
+}

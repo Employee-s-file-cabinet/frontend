@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1977-01-08",
+  "department_id": 2,
+  "email": "yadykin@company.com",
+  "first_name": "Семен",
+  "gender": "male",
+  "grade": "3",
+  "id": 60,
+  "insurance": {
+    "number": "35845404620"
+  },
+  "last_name": "Ядыкин",
+  "middle_name": "Михаилович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79175034535"
+  },
+  "place_of_birth": "г. Курск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Керчь, Приозерная ул., д. 13 кв.180",
+  "residential_address": "Россия, г. Камышин, Центральная ул., д. 11 кв.215",
+  "taxpayer": {
+    "number": "7637811608355"
+  }
+}

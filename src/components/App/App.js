@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
-import { useState, Suspense, useEffect } from 'react';
+import { useState, Suspense, useEffect, useContext } from 'react';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
   Route,
+  Routes,
   useParams,
+  Navigate,
 } from 'react-router-dom';
 import * as auth from '../../utils/api/Auth';
 import Contexts from '../../contexts/Contexts';
@@ -29,23 +31,40 @@ import SuccessSentToEmailPage from '../../pages/SuccessSentToEmailPage/SuccessSe
 import { EmployeesFilterWrapper } from '../EmployeesFilterWrapper/EmployeesFilterWrapper';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [lastPage, setLastPage] = useState(1);
   const [usersList, setUsersList] = useState([]);
+  const [currentUser, setCurrentUser] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // routes
   const routes = createRoutesFromElements(
-    <Route path="/">
+    <>
       <Route element={<ServiceLayout />}>
-        <Route index element={<MainPage />} />
+        <Route
+          index
+          element={
+            isLoggedIn ? (
+              <Navigate to="/employees/alphabet/1" />
+            ) : (
+              <Navigate to="/signin" />
+            )
+          }
+        />
         <Route path="signin" element={<LoginPage />} />
         <Route path="access-restore" element={<RestorePasswordPage />} />
         <Route path="success-sent-email" element={<SuccessSentToEmailPage />} />
         <Route path="reset-success" element={<ResetSuccessPage />} />
-        <Route path="password-reset" element={<PasswordResetPage />} />
+        <Route
+          path="access-restore/password-reset"
+          element={<PasswordResetPage />}
+        />
         <Route path="admin" element={<AdminPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route
+          path="*"
+          element={
+            <ProtectedRoute element={NotFoundPage} isLoggedIn={isLoggedIn} />
+          }
+        />
       </Route>
       <Route element={<GeneralLayout />}>
         <Route
@@ -94,14 +113,18 @@ function App() {
           }
         />
       </Route>
-    </Route>
+    </>
   );
 
   const router = createBrowserRouter(routes);
 
   return (
     <Suspense fallback={<Preloader />}>
-      <Contexts currentUser={currentUser} isLoggedIn={isLoggedIn}>
+      <Contexts
+        currentUser={currentUser}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+      >
         <RouterProvider router={router} />
       </Contexts>
     </Suspense>

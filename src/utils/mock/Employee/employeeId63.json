@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1982-10-13",
+  "department_id": 4,
+  "email": "semenov@company.com",
+  "first_name": "Семен",
+  "gender": "male",
+  "grade": "3",
+  "id": 63,
+  "insurance": {
+    "number": "30781982018"
+  },
+  "last_name": "Семенов",
+  "middle_name": "Валерьевич",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79179293188"
+  },
+  "place_of_birth": "г. Магнитогорск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Майкоп, Рабочая ул., д. 2 кв.201",
+  "residential_address": "Россия, г. Екатеринбург, Сосновая ул., д. 21 кв.203",
+  "taxpayer": {
+    "number": "5951377369073"
+  }
+}

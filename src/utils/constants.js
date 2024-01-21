@@ -16,7 +16,7 @@ export const pagesPath = {
 export const sideMenuOptions = [
   {
     icon: 'fa-folder',
-    link: '/employees',
+    link: '/employees/alphabet/1',
     text: 'Картотека сотрудников',
     id: 1,
   },

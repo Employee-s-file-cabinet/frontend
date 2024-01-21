@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1988-04-04",
+  "department_id": 4,
+  "email": "uitskaya@company.com",
+  "first_name": "Лариса",
+  "gender": "female",
+  "grade": "3",
+  "id": 39,
+  "insurance": {
+    "number": "33177106120"
+  },
+  "last_name": "Уицкая",
+  "middle_name": "Нифонтовна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79779914854"
+  },
+  "place_of_birth": "г. Ижевск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Мурманск, Заречная ул., д. 23 кв.37",
+  "residential_address": "Россия, г. Октябрьский, Интернациональная ул., д. 24 кв.15",
+  "taxpayer": {
+    "number": "0164525574120"
+  }
+}

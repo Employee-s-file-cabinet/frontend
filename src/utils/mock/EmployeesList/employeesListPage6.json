@@ -1,0 +1,127 @@
+{
+  "current_page": 6,
+  "total_pages": 8,
+  "total_users": 71,
+  "users": [
+    {
+      "department": "Бухгалтерия",
+      "email": "sudlenkov@company.com",
+      "first_name": "Афанасий",
+      "id": 27,
+      "last_name": "Судленков",
+      "middle_name": "Даниилович",
+      "phone_numbers": {
+        "mobile": "79063102049"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Бухгалтерия",
+      "email": "tesla@company.com",
+      "first_name": "Елена",
+      "id": 16,
+      "last_name": "Тесла",
+      "middle_name": "Антоновна",
+      "phone_numbers": {
+        "mobile": "79791034416"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "trohin@company.com",
+      "first_name": "Леонид",
+      "id": 11,
+      "last_name": "Трохин",
+      "middle_name": "Юринович",
+      "phone_numbers": {
+        "mobile": "79944477518"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "trush@company.com",
+      "first_name": "Ксения",
+      "id": 58,
+      "last_name": "Труш",
+      "middle_name": "Афанасьевна",
+      "phone_numbers": {
+        "mobile": "79796773040"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Бухгалтерия",
+      "email": "uitskaya@company.com",
+      "first_name": "Лариса",
+      "id": 39,
+      "last_name": "Уицкая",
+      "middle_name": "Нифонтовна",
+      "phone_numbers": {
+        "mobile": "79779914854"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "filipova@company.com",
+      "first_name": "Алина",
+      "id": 55,
+      "last_name": "Филипова",
+      "middle_name": "Захаровна",
+      "phone_numbers": {
+        "mobile": "79208394674"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "halski@company.com",
+      "first_name": "Севастьян",
+      "id": 37,
+      "last_name": "Халски",
+      "middle_name": "Арсеньевич",
+      "phone_numbers": {
+        "mobile": "79091157195"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "zelner@company.com",
+      "first_name": "Татьяна",
+      "id": 7,
+      "last_name": "Цельнер",
+      "middle_name": "Аркадивна",
+      "phone_numbers": {
+        "mobile": "79215511436"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "tsereteli@company.com",
+      "first_name": "Тимофей",
+      "id": 29,
+      "last_name": "Церетели",
+      "middle_name": "Александрович",
+      "phone_numbers": {
+        "mobile": "79181232092"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Бухгалтерия",
+      "email": "chukchov@company.com",
+      "first_name": "Тарас",
+      "id": 32,
+      "last_name": "Чукчов",
+      "middle_name": "Антонович",
+      "phone_numbers": {
+        "mobile": "79838094276"
+      },
+      "position": "Специалист"
+    }
+  ]
+}

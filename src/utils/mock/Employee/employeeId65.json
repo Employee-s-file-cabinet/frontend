@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1979-08-06",
+  "department_id": 3,
+  "email": "katkova@company.com",
+  "first_name": "Надежда",
+  "gender": "female",
+  "grade": "3",
+  "id": 65,
+  "insurance": {
+    "number": "53502999802"
+  },
+  "last_name": "Каткова",
+  "middle_name": "Ефимовна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79906247558"
+  },
+  "place_of_birth": "г. Выкса",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Химки, Первомайская ул., д. 12 кв.6",
+  "residential_address": "Россия, г. Сызрань, Шоссейная ул., д. 16 кв.132",
+  "taxpayer": {
+    "number": "8385119026114"
+  }
+}
