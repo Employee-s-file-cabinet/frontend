@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1980-06-27",
+  "department_id": 2,
+  "email": "gershelman@company.com",
+  "first_name": "Зоя",
+  "gender": "female",
+  "grade": "3",
+  "id": 38,
+  "insurance": {
+    "number": "87054957934"
+  },
+  "last_name": "Гершельмана",
+  "middle_name": "Семеновна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79201611579"
+  },
+  "place_of_birth": "г. Тольятти",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Шахты, Совхозная ул., д. 7 кв.88",
+  "residential_address": "Россия, г. Саранск, Лесной пер., д. 20 кв.60",
+  "taxpayer": {
+    "number": "3314247309585"
+  }
+}

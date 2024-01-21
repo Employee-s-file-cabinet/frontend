@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1983-05-13",
+  "department_id": 4,
+  "email": "daryushina@company.com",
+  "first_name": "Ольга",
+  "gender": "female",
+  "grade": "5",
+  "id": 4,
+  "insurance": {
+    "number": "87293349859"
+  },
+  "last_name": "Дарюшина",
+  "middle_name": "Герасимовна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79215511436"
+  },
+  "place_of_birth": "г. Железногорск",
+  "position_id": 2,
+  "position_track": null,
+  "registration_address": "Россия, г. Казань, Чкалова ул., д. 7 кв.149",
+  "residential_address": "Россия, г. Железногорск, Речная ул., д. 22 кв.137",
+  "taxpayer": {
+    "number": "110483833670"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "current_page": 2,
+  "total_pages": 8,
+  "total_users": 71,
+  "users": [
+    {
+      "department": "Бухгалтерия",
+      "email": "gordeev@company.com",
+      "first_name": "Вениамин",
+      "id": 18,
+      "last_name": "Гордеев",
+      "middle_name": "Федорович",
+      "phone_numbers": {
+        "mobile": "79544053136"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "gribov@company.com",
+      "first_name": "Захар",
+      "id": 10,
+      "last_name": "Грибов",
+      "middle_name": "Вениаминович",
+      "phone_numbers": {
+        "mobile": "79215511436"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Бухгалтерия",
+      "email": "grossman@company.com",
+      "first_name": "Семен",
+      "id": 6,
+      "last_name": "Гроссман",
+      "middle_name": "Сергеевич",
+      "phone_numbers": {
+        "mobile": "79215511436"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Бухгалтерия",
+      "email": "daryushina@company.com",
+      "first_name": "Ольга",
+      "id": 4,
+      "last_name": "Дарюшина",
+      "middle_name": "Герасимовна",
+      "phone_numbers": {
+        "mobile": "79215511436"
+      },
+      "position": "Начальник отдела"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "doronin@company.com",
+      "first_name": "Вениамин",
+      "id": 33,
+      "last_name": "Доронин",
+      "middle_name": "Ильич",
+      "phone_numbers": {
+        "mobile": "79734057572"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "ermilova@company.com",
+      "first_name": "Оксана",
+      "id": 13,
+      "last_name": "Ермилова",
+      "middle_name": "Константиновна",
+      "phone_numbers": {
+        "mobile": "79855621221"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "erofeev@company.com",
+      "first_name": "Адам",
+      "id": 30,
+      "last_name": "Ерофеев",
+      "middle_name": "Константинович",
+      "phone_numbers": {
+        "mobile": "79108704379"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Бухгалтерия",
+      "email": "kazakevich@company.com",
+      "first_name": "Федор",
+      "id": 59,
+      "last_name": "Казакевич",
+      "middle_name": "Яковлевич",
+      "phone_numbers": {
+        "mobile": "79367992981"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "kankiya@company.com",
+      "first_name": "Настасья",
+      "id": 35,
+      "last_name": "Канкия",
+      "middle_name": "Емельяновна",
+      "phone_numbers": {
+        "mobile": "79203235793"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "katkova@company.com",
+      "first_name": "Надежда",
+      "id": 65,
+      "last_name": "Каткова",
+      "middle_name": "Ефимовна",
+      "phone_numbers": {
+        "mobile": "79906247558"
+      },
+      "position": "Специалист"
+    }
+  ]
+}

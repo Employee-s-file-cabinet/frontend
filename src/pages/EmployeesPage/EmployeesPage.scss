@@ -12,8 +12,14 @@
     @include flex(column, center, flex-start);
   }
 
-  &__title {
+  &__container {
+    width: 100%;
     margin: 24px 0 0 0;
+    @include flex(row, space-between, center);
+  }
+
+  &__title {
+    margin: 0;
     color: #0a0a0a;
     font-size: 40px;
     font-style: normal;

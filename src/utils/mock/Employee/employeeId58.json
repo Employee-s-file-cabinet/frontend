@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1974-02-10",
+  "department_id": 3,
+  "email": "trush@company.com",
+  "first_name": "Ксения",
+  "gender": "female",
+  "grade": "3",
+  "id": 58,
+  "insurance": {
+    "number": "86019834881"
+  },
+  "last_name": "Труш",
+  "middle_name": "Афанасьевна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79796773040"
+  },
+  "place_of_birth": "г. Калининград",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Батайск, Колхозная ул., д. 17 кв.85",
+  "residential_address": "Россия, г. Каменск - Уральский, Ленина ул., д. 25 кв.5",
+  "taxpayer": {
+    "number": "0311109975018"
+  }
+}

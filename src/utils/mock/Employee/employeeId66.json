@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1980-04-17",
+  "department_id": 3,
+  "email": "katkin@company.com",
+  "first_name": "Афанасий",
+  "gender": "female",
+  "grade": "3",
+  "id": 66,
+  "insurance": {
+    "number": "15981774341"
+  },
+  "last_name": "Катькин",
+  "middle_name": "Иванович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79363351874"
+  },
+  "place_of_birth": "г. Армавир",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Нефтеюганск, Победы ул., д. 20 кв.139",
+  "residential_address": "Россия, г. Южно-Сахалинск, Минская ул., д. 15 кв.142",
+  "taxpayer": {
+    "number": "0595406763826"
+  }
+}

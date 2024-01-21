@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1971-08-26",
+  "department_id": 3,
+  "email": "platushchihina@company.com",
+  "first_name": "Жанна",
+  "gender": "female",
+  "grade": "4",
+  "id": 15,
+  "insurance": {
+    "number": "12372689744"
+  },
+  "last_name": "Платущихина",
+  "middle_name": "Петровна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "7996327453"
+  },
+  "place_of_birth": "г. Санкт-Петербург",
+  "position_id": 3,
+  "position_track": null,
+  "registration_address": "Россия, г. Сургут, Дорожная ул., д. 14 кв.75",
+  "residential_address": "Россия, г. Братск, Приозерная ул., д. 9 кв.156",
+  "taxpayer": {
+    "number": "543210987654321"
+  }
+}

@@ -5,7 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { MainButton } from '../UI/Buttons/MainButton';
 import { MainField } from '../UI/Fields/MainField';
 import { Icon } from '../UI/Icons/Icons';
-import { restorePasswordSchema } from '../../utils/ValidationSchema';
+import { restorePasswordSchema } from '../../utils/validation/LoginAndRestorePasswordValidation';
+import { checkEmail } from '../../utils/api/Auth';
 
 export default function RestorePasswordForm() {
   const navigate = useNavigate();
@@ -22,7 +23,14 @@ export default function RestorePasswordForm() {
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
 
   function onSubmit(data) {
-    navigate('/success-sent-email', { state: { email: data.email } });
+    checkEmail(data.email)
+      .then(() => {
+        navigate('/success-sent-email', { state: { email: data.email } });
+      })
+      .catch((err) =>
+        // eslint-disable-next-line no-console
+        console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`)
+      );
   }
 
   const handleFocus = () => {
@@ -45,8 +53,8 @@ export default function RestorePasswordForm() {
 
       <div>
         <p className="restore-password__annotation">
-          Введите адрес электронной почты, на которую зарегистрирован аккаунт.
-          Мы отправим на него ссылку для изменения пароля.
+          Введите адрес электронной почты, на которую зарегистрирован аккаунт,
+          чтобы сбросить пароль.
         </p>
         <p className="restore-password__authorization-error">
           Не удалось найти аккаунт с указанным email.

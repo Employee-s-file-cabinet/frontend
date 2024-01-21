@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1984-06-20",
+  "department_id": 4,
+  "email": "shegoleva@company.com",
+  "first_name": "Валерия",
+  "gender": "female",
+  "grade": "3",
+  "id": 25,
+  "insurance": {
+    "number": "84810380798"
+  },
+  "last_name": "Щеголева",
+  "middle_name": "Павловна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79614205510"
+  },
+  "place_of_birth": "г. Новосибирск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Кемерово, Озерная ул., д. 12 кв.214",
+  "residential_address": "Россия, г. Новомосковск, Светлая ул., д. 12 кв.140",
+  "taxpayer": {
+    "number": "9433854869035"
+  }
+}

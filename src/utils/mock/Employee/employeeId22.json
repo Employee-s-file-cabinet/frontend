@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1983-06-20",
+  "department_id": 3,
+  "email": "shchukhin@company.com",
+  "first_name": "Георгий",
+  "gender": "male",
+  "grade": "3",
+  "id": 22,
+  "insurance": {
+    "number": "71546772611"
+  },
+  "last_name": "Шукшин",
+  "middle_name": "Ильич",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79691164323"
+  },
+  "place_of_birth": "г. Армавир",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Новокузнецк, 3 Марта ул., д. 25 кв.1",
+  "residential_address": "Россия, г. Новошахтинск, Молодежная ул., д. 5 кв.131",
+  "taxpayer": {
+    "number": "1480495294212"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1989-03-27",
+  "department_id": 4,
+  "email": "yatsunova@company.com",
+  "first_name": "Пелагея",
+  "gender": "female",
+  "grade": "3",
+  "id": 68,
+  "insurance": {
+    "number": "19362311071"
+  },
+  "last_name": "Яцунова",
+  "middle_name": "Георгьевна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79409863489"
+  },
+  "place_of_birth": "г. Шахты",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Владивосток, Колхозный пер., д. 25 кв.152",
+  "residential_address": "Россия, г. Черкесск, Солнечная ул., д. 5 кв.185",
+  "taxpayer": {
+    "number": "9779328543647"
+  }
+}

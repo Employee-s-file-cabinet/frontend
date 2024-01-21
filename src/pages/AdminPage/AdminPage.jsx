@@ -1,5 +1,5 @@
 import Login from '../../components/Login/Login';
-import { loginSchema } from '../../utils/ValidationSchema';
+import { loginSchema } from '../../utils/validation/LoginAndRestorePasswordValidation';
 
 export default function AdminPage() {
   return (

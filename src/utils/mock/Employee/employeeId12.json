@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1977-10-17",
+  "department_id": 2,
+  "email": "golovaha@company.com",
+  "first_name": "Юлия",
+  "gender": "female",
+  "grade": "3",
+  "id": 12,
+  "insurance": {
+    "number": "43216543217"
+  },
+  "last_name": "Головаха",
+  "middle_name": "Валерьевна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79068801143"
+  },
+  "place_of_birth": " г. Улан-Удэ",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Белгород, Заречная ул., д. 2 кв.73",
+  "residential_address": "Россия, г. Череповец, Ленинская ул., д. 13 кв.111",
+  "taxpayer": {
+    "number": "110408673323"
+  }
+}

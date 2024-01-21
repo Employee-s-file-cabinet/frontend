@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1981-08-22",
+  "department_id": 3,
+  "email": "kucherov@company.com",
+  "first_name": "Герман",
+  "gender": "male",
+  "grade": "5",
+  "id": 3,
+  "insurance": {
+    "number": "64190091782"
+  },
+  "last_name": "Кучеров",
+  "middle_name": "Антонович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79215511436"
+  },
+  "place_of_birth": "г. Красноярск",
+  "position_id": 2,
+  "position_track": null,
+  "registration_address": "Россия, г. Реутов, Ленина В.И.ул., д. 23 кв.22",
+  "residential_address": "Россия, г. Красноярск, Почтовая ул., д. 3 кв.201",
+  "taxpayer": {
+    "number": "581551039113"
+  }
+}

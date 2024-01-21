@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1989-08-20",
+  "department_id": 3,
+  "email": "halski@company.com",
+  "first_name": "Севастьян",
+  "gender": "male",
+  "grade": "3",
+  "id": 37,
+  "insurance": {
+    "number": "03199069569"
+  },
+  "last_name": "Халски",
+  "middle_name": "Арсеньевич",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79091157195"
+  },
+  "place_of_birth": "г. Тюмень",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Иваново, Дзержинского ул., д. 25 кв.184",
+  "residential_address": "Россия, г. Курган, Полевая ул., д. 5 кв.146",
+  "taxpayer": {
+    "number": "9888488425679"
+  }
+}

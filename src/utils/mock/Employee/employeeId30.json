@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1985-09-09",
+  "department_id": 2,
+  "email": "erofeev@company.com",
+  "first_name": "Адам",
+  "gender": "male",
+  "grade": "3",
+  "id": 30,
+  "insurance": {
+    "number": "41836931546"
+  },
+  "last_name": "Ерофеев",
+  "middle_name": "Константинович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79108704379"
+  },
+  "place_of_birth": "г. Омск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Ижевск, Заводская ул., д. 16 кв.99",
+  "residential_address": "Россия, г. Раменское, Школьный пер., д. 16 кв.189",
+  "taxpayer": {
+    "number": "5526895429122"
+  }
+}

@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { MainButton } from '../UI/Buttons/MainButton';
 import { MainField } from '../UI/Fields/MainField';
 import { Icon } from '../UI/Icons/Icons';
-import { loginSchema } from '../../utils/ValidationSchema';
-import * as auth from '../../utils/Auth';
+import { loginSchema } from '../../utils/validation/LoginAndRestorePasswordValidation';
+import * as auth from '../../utils/api/Auth';
+import { GeneralContext } from '../../contexts/GeneralContext';
 
 export default function Login() {
+  // eslint-disable-next-line
+  const { isLoggedIn, setIsLoggedIn } = useContext(GeneralContext);
   const navigate = useNavigate();
   const {
     register,
@@ -33,8 +36,16 @@ export default function Login() {
   function onSubmit(data) {
     // eslint-disable-next-line no-console
     console.log(data);
-    auth.authorize(data.email, data.password);
-    navigate('/');
+    auth
+      .authorize(data.email, data.password)
+      .then(() => {
+        setIsLoggedIn(true);
+        navigate('/employees/alphabet/1');
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log(`Ошибка: ${err} Обратитесь в службу поддержки.`);
+      });
   }
 
   function handlePasswordType() {

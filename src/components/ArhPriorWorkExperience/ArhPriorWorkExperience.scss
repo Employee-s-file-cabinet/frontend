@@ -1,0 +1,29 @@
+.experience {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+  &__container:first-of-type {
+    margin-top: 0px;
+  }
+  &__field-set {
+    width: 100%;
+    margin-right: 30px;
+  }
+}
+
+.input-trash {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 16px;
+  height: 16px;
+}
+
+.field-trash {
+  display: flex;
+  // flex-direction: column;
+}

@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1992-05-02",
+  "department_id": 2,
+  "email": "shchurov@company.com",
+  "first_name": "Филипп",
+  "gender": "male",
+  "grade": "3",
+  "id": 69,
+  "insurance": {
+    "number": "31265094203"
+  },
+  "last_name": "Щуров",
+  "middle_name": "Федорович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79191102860"
+  },
+  "place_of_birth": "г. Березники",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Ставрополь, Солнечная ул., д. 11 кв.93",
+  "residential_address": "Россия, г. Якутск, Заводская ул., д. 12 кв.76",
+  "taxpayer": {
+    "number": "0417420441423"
+  }
+}

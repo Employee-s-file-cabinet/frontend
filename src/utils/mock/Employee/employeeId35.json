@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1986-02-06",
+  "department_id": 2,
+  "email": "kankiya@company.com",
+  "first_name": "Настасья",
+  "gender": "female",
+  "grade": "3",
+  "id": 35,
+  "insurance": {
+    "number": "96439603291"
+  },
+  "last_name": "Канкия",
+  "middle_name": "Емельяновна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79203235793"
+  },
+  "place_of_birth": "г. Краснодар",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Березники, Майская ул., д. 9 кв.6",
+  "residential_address": "Россия, г. Иваново, Заречная ул., д. 17 кв.6",
+  "taxpayer": {
+    "number": "3986750350379"
+  }
+}

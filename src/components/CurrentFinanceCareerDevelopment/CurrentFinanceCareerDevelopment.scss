@@ -1,0 +1,16 @@
+.career-development {
+  width: 640px;
+  display: flex;
+
+  &__margin {
+    margin-left: 304px;
+  }
+
+  &__control {
+    width: 200px;
+    margin-right: 12px;
+  }
+}
+
+// career-development-add добавить строки
+// career-development-remve удалить строки

@@ -1,19 +1,51 @@
 import './ArchiveDataForm.scss';
 import 'bulma/css/bulma.min.css';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { ArchiveDataFormValidationSchema } from '../../utils/validation/ArchiveDataFormValidation';
 
-import Experience from '../Experience/Experience';
-import Awards from '../Awards/Awards';
+import ArhPriorWork from '../ArhPriorWork/ArhPriorWork';
+import ArhFamily from '../ArhFamily/ArhFamily';
+import ArhEducation from '../ArhEducation/ArhEducation';
+import ArhMilitaryRegistration from '../ArhMilitaryRegistration/ArhMilitaryRegistration';
 
 export default function ArchiveDataForm() {
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      priorWorkExperienceFieldSet: [
+        {
+          companyName: 'Рeкрутинг Рус',
+          position: 'Менеджер',
+          beginDate: '',
+          endDate: '',
+          jobDescription: 'Счастье, радость он приносит людям',
+        },
+      ],
+      awardsFieldSet: [
+        {
+          awardTitle: '',
+          awardDate: '',
+        },
+      ],
+    },
+    resolver: yupResolver(ArchiveDataFormValidationSchema),
+    mode: 'onChange',
+  });
   const [isEdit, setIsEdit] = useState(false);
 
   function handleEditButton() {
     setIsEdit(true);
   }
 
-  function handleSubmit(evt) {
-    evt.preventDefault();
+  function onSubmit(data) {
+    // eslint-disable-next-line no-console
+    console.log(data);
     setIsEdit(false);
   }
 
@@ -21,8 +53,8 @@ export default function ArchiveDataForm() {
     <form
       action="#"
       method="post"
-      onSubmit={handleSubmit}
-      className="archive-data-form archive-data-form"
+      onSubmit={handleSubmit((data) => onSubmit(data))}
+      className="archive-data-form form-active"
     >
       <input
         className={`archive-data-form__button${
@@ -31,28 +63,17 @@ export default function ArchiveDataForm() {
         type="button"
         onClick={handleEditButton}
       />
-      <div className="columns is-multiline is-mobile">
-        <div className="column is-one-quarter">
-          <legend className="label label label-horizontal label-type">
-            Опыт работы
-          </legend>
-        </div>
-        <div className="column ">
-          <Experience isEdit={isEdit} />
-        </div>
-        <button className="archive-data-form__add">Добавить +</button>
-      </div>
-      <div className="columns is-multiline is-mobile">
-        <div className="column is-one-quarter">
-          <legend className="label label label-horizontal label-type">
-            Награды
-          </legend>
-        </div>
-        <div className="column ">
-          <Awards isEdit={isEdit} />
-        </div>
-        <button className="archive-data-form__add">Добавить +</button>
-      </div>
+
+      <ArhPriorWork
+        isEdit={isEdit}
+        errors={errors}
+        register={register}
+        control={control}
+      />
+      <ArhFamily isEdit={isEdit} />
+      <ArhEducation isEdit={isEdit} />
+      <ArhMilitaryRegistration isEdit={isEdit} />
+
       <div className="buttons-group">
         <button className={` button-save${!isEdit ? ' button-disabled' : ''}`}>
           Сохранить

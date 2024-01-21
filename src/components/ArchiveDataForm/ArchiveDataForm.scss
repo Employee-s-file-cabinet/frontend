@@ -7,10 +7,9 @@
   width: 900px;
   background-color: white;
 
-  & &__add {
+  &__add {
     margin-top: 24px;
-    margin-left: 240px;
-    margin-bottom: 32px;
+    margin-bottom: 42px;
     border: 1px solid var(--primary, #00d1b2);
     border-radius: 6px;
     background: white;
@@ -19,6 +18,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 150%; /* 24px */
+    cursor: pointer;
   }
 
   &__button {
@@ -27,8 +27,83 @@
     margin-left: auto;
     padding: 4px;
     background-image: url(../../assets/fontawesome-free-6.5.1-web/svgs/solid/edit.svg);
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-color: none;
     border: none;
   }
+}
+
+.button-trash {
+  padding: 0;
+  background-image: url(../../assets/images/trash.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  border: none;
+  margin-top: 38px;
+}
+
+.button-trash:hover {
+  opacity: 0.6;
+}
+
+.button-trash-none {
+  background-image: none;
+}
+
+.button-trash-margin {
+  margin-top: 0;
+}
+
+.button-trash-place {
+  margin-left: 30px;
+}
+
+.button-trash-personal {
+  margin-top: 25px;
+}
+
+.summaru::marker {
+  display: none;
+}
+
+.summaru {
+  display: inline-block;
+  padding: 6px 30px 6px 0;
+  margin-top: 40px;
+  margin-bottom: 32px;
+  cursor: pointer;
+  position: relative;
+  color: black;
+  font-family: Open Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 112.5%; /* 22.5px */
+}
+
+.summaru:hover {
+  opacity: 0.6;
+}
+
+.summaru::before {
+  right: 5px;
+  top: 8px;
+  color: transparent;
+  background: url(../../assets/images/arrow_up_down.png) no-repeat;
+  background-position: center;
+  width: 1em;
+  height: 1em;
+  content: '';
+  position: absolute;
+  transition: transform 0.5s;
+}
+
+details[open] > summary:before {
+  transform: rotateZ(180deg);
 }

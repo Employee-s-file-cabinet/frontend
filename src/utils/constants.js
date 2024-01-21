@@ -16,7 +16,7 @@ export const pagesPath = {
 export const sideMenuOptions = [
   {
     icon: 'fa-folder',
-    link: '/employees',
+    link: '/employees/alphabet/1',
     text: 'Картотека сотрудников',
     id: 1,
   },
@@ -31,3 +31,5 @@ export const sideMenuOptions = [
   { icon: 'fa-file', link: '/', text: 'Отчеты', id: 5 },
   { icon: 'fa-gear', link: '/', text: 'Настройки', id: 6 },
 ];
+
+export const requiredFieldError = 'Заполните поле.';
