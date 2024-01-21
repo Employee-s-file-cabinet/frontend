@@ -7,10 +7,11 @@ import ProfilePic from '../../assets/images/profile.jpg';
 import { ProfileInfoValidationSchema } from '../../utils/validation/ProfileInfoValidation';
 import './ProfileInfo.scss';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+// import { patchSelectEmployee } from '../../utils/api/UsersApi';
 
 function ProfileInfo() {
   // eslint-disable-next-line
-  const { currentUser } = useContext(CurrentUserContext);
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
   console.log(currentUser, 'currentUser.last_name');
 
@@ -37,7 +38,6 @@ function ProfileInfo() {
   });
 
   useEffect(() => {
-    // Обновление defaultValues при изменении currentUser
     reset({
       last_name: currentUser.last_name,
       first_name: currentUser.first_name,
@@ -67,8 +67,40 @@ function ProfileInfo() {
 
   function onSubmit(data) {
     // eslint-disable-next-line no-console
-    console.log(data);
-    reset(undefined, { keepValues: true });
+    console.log(data, 'data');
+
+    // Not implemented in backend
+
+    // patchSelectEmployee(currentUser.id,
+    //   {
+    //     last_name: data.last_name,
+    //     first_name: data.first_name,
+    //     middle_name: data.middle_name,
+    //     department: data.department,
+    //     position: data.jobTitle,
+    //     grade: data.grade,
+    //     mobile_phone_number: data.mobile,
+    //     office_phone_number: data.extNumber,
+    //     email: data.email,
+    //   }).then((res)=>{
+    //   setCurrentUser(res);
+    //
+    // }).catch((err) =>
+    //   // eslint-disable-next-line no-console
+    //   console.log(`Ошибка: ${err} Обратитесь в службу поддержки. Вы ввели ${data}`)
+    // );
+
+    setCurrentUser({
+      last_name: data.last_name,
+      first_name: data.first_name,
+      middle_name: data.middle_name,
+      department: data.department,
+      position: data.jobTitle,
+      grade: data.grade,
+      mobile_phone_number: data.mobile,
+      office_phone_number: data.extNumber,
+      email: data.email,
+    });
     setIsEdit(false);
   }
   return (
