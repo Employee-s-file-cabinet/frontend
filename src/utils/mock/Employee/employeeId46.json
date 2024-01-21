@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1989-09-18",
+  "department_id": 4,
+  "email": "kiselev@company.com",
+  "first_name": "Степан",
+  "gender": "male",
+  "grade": "3",
+  "id": 46,
+  "insurance": {
+    "number": "06074932773"
+  },
+  "last_name": "Киселев",
+  "middle_name": "Михаилович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79248207576"
+  },
+  "place_of_birth": "г. Батайск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Ульяновск, Космонавтов ул., д. 24 кв.218",
+  "residential_address": "Россия, г. Волжский, Озерная ул., д. 8 кв.81",
+  "taxpayer": {
+    "number": "2070390458745"
+  }
+}

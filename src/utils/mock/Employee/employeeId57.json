@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1989-10-12",
+  "department_id": 4,
+  "email": "babkina@company.com",
+  "first_name": "Римма",
+  "gender": "female",
+  "grade": "3",
+  "id": 57,
+  "insurance": {
+    "number": "89794973665"
+  },
+  "last_name": "Бабкина",
+  "middle_name": "Захаровна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79703303338"
+  },
+  "place_of_birth": "г. Чебоксары",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Салават, Кирова ул., д. 1 кв.140",
+  "residential_address": "Россия, г. Санкт-Петербург, Ленина В.И.ул., д. 25 кв.157",
+  "taxpayer": {
+    "number": "8720213388760"
+  }
+}

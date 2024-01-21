@@ -7,4 +7,12 @@
   &:hover {
     scale: 1.1;
   }
+
+  &_size_small {
+    scale: 0.8;
+
+    &:hover {
+      scale: 0.9;
+    }
+  }
 }

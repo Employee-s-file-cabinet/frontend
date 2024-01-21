@@ -4,7 +4,7 @@ export default function CurrentDFOptionally({ isEdit }) {
   return (
     <details className="details" open>
       <summary className="summaru">Дополнительно</summary>
-      <div className="columns">
+      <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
           <legend className="label label-horizontal label-type">
             Особые &emsp;профессиональные &emsp;навыки
@@ -16,7 +16,7 @@ export default function CurrentDFOptionally({ isEdit }) {
           </div>
         </div>
       </div>
-      <div className="columns">
+      <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
           <legend className="label label-horizontal label-type">
             Иностранные языки
@@ -33,7 +33,7 @@ export default function CurrentDFOptionally({ isEdit }) {
           </div>
         </div>
       </div>
-      <div className="columns">
+      <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter">
           <legend className="label label-horizontal label-type">Хобби</legend>
         </div>

@@ -4,7 +4,7 @@ export default function PersonalDOtherDocumentsInsuranceNumber({
   isEdit,
   errors,
   register,
-  watch,
+  getValues,
 }) {
   return (
     <section className="columns is-multiline is-mobile input-none ">
@@ -38,6 +38,7 @@ export default function PersonalDOtherDocumentsInsuranceNumber({
                 <input
                   className="file-input horizontal-wrapper__input-one-half"
                   type="file"
+                  disabled={!isEdit}
                   {...register(`insurance.scan`)}
                 />
                 <span className="file-cta">
@@ -47,9 +48,9 @@ export default function PersonalDOtherDocumentsInsuranceNumber({
                   <span className="file-label">Выбрать файл</span>
                 </span>
                 <span className="file-name file-name-span">
-                  {watch().insurance?.scan?.[0]?.name ||
-                    (watch().insurance?.has_scan &&
-                      watch().insurance?.scan_name)}
+                  {getValues().insurance?.scan?.[0]?.name ||
+                    (getValues().insurance?.has_scan &&
+                      getValues().insurance.scan_name)}
                 </span>
               </legend>
               <span className="">{errors.insurance?.scan?.message}</span>

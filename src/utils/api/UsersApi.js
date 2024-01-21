@@ -65,6 +65,15 @@ export function updloadEmployeePhoto(userId, formData) {
     .catch((error) => processError(error));
 }
 
+// Function get photo
+
+export function getEmployeePhoto(userId) {
+  return axiosUpload
+    .get(`/users/${userId}/photo`)
+    .then((res) => res.data)
+    .catch((error) => processError(error));
+}
+
 // КОНТРАКТЫ
 // функция получения списка контрактов сотрудника
 export function getEmployeeContracts(userId) {

@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1986-02-01",
+  "department_id": 3,
+  "email": "prikhodko@company.com",
+  "first_name": "Лидия",
+  "gender": "female",
+  "grade": "3",
+  "id": 45,
+  "insurance": {
+    "number": "08336732477"
+  },
+  "last_name": "Приходько",
+  "middle_name": "Афанасьевна",
+  "nationality": "Россия",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79257346427"
+  },
+  "place_of_birth": "г. Новый Уренгой",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Саранск, Лесной пер., д. 21 кв.33",
+  "residential_address": "Россия, г. Омск, Новоселов ул., д. 18 кв.157",
+  "taxpayer": {
+    "number": "500100732259"
+  }
+}

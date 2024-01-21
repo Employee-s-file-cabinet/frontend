@@ -1,0 +1,128 @@
+{
+  "current_page": 1,
+  "total_pages": 8,
+  "total_users": 71,
+  "users": [
+    {
+      "department": "Отдел подбора персонала",
+      "email": "pushkin@dantes.net",
+      "first_name": "Alexander",
+      "id": 72,
+      "last_name": "Pushkin",
+      "middle_name": "Sergeyevich",
+      "phone_numbers": {
+        "mobile": "799183712345",
+        "office": "1837"
+      },
+      "position": "Начальник отдела"
+    },
+    {
+      "department": "Бухгалтерия",
+      "email": "ajikelyamova@company.com",
+      "first_name": "Римма",
+      "id": 19,
+      "last_name": "Ажикелямова",
+      "middle_name": "Николаевна",
+      "phone_numbers": {
+        "mobile": "79292561624"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "babanin@company.com",
+      "first_name": "Артем",
+      "id": 70,
+      "last_name": "Бабанин",
+      "middle_name": "Филиппович",
+      "phone_numbers": {
+        "mobile": "79579592711"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Бухгалтерия",
+      "email": "babkina@company.com",
+      "first_name": "Римма",
+      "id": 57,
+      "last_name": "Бабкина",
+      "middle_name": "Захаровна",
+      "phone_numbers": {
+        "mobile": "79703303338"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "babchenko@company.com",
+      "first_name": "Георгий",
+      "id": 49,
+      "last_name": "Бабченко",
+      "middle_name": "Денисович",
+      "phone_numbers": {
+        "mobile": "79841561595"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "bruevich@company.com",
+      "first_name": "Леонтий",
+      "id": 50,
+      "last_name": "Бруевич",
+      "middle_name": "Леонидович",
+      "phone_numbers": {
+        "mobile": "79672162945"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел подбора персонала",
+      "email": "bylinkin@company.com",
+      "first_name": "Максим",
+      "id": 53,
+      "last_name": "Былинкин",
+      "middle_name": "Наумович",
+      "phone_numbers": {
+        "mobile": "79579591744"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "gershelman@company.com",
+      "first_name": "Зоя",
+      "id": 38,
+      "last_name": "Гершельмана",
+      "middle_name": "Семеновна",
+      "phone_numbers": {
+        "mobile": "79201611579"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "golovaha@company.com",
+      "first_name": "Юлия",
+      "id": 12,
+      "last_name": "Головаха",
+      "middle_name": "Валерьевна",
+      "phone_numbers": {
+        "mobile": "79068801143"
+      },
+      "position": "Специалист"
+    },
+    {
+      "department": "Отдел управления персоналом",
+      "email": "golubev@company.com",
+      "first_name": "Серафим",
+      "id": 56,
+      "last_name": "Голубев",
+      "middle_name": "Аркадинович",
+      "phone_numbers": {
+        "mobile": "79132868783"
+      },
+      "position": "Специалист"
+    }
+  ]
+}

@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable no-unused-vars */
 import './PersonalDataForm.scss';
 import 'bulma/css/bulma.min.css';
 import { useState, useEffect } from 'react';
@@ -11,11 +9,7 @@ import PersonalDFPassportData from '../PersonalDFPassportData/PersonalDFPassport
 import PersonalDForeignEmployeetData from '../PersonalDForeignEmployeetData/PersonalDForeignEmployeetData';
 import PersonalDOtherDocumentstData from '../PersonalDOtherDocumentstData/PersonalDOtherDocumentstData';
 
-let counter = 0;
-
 export default function PersonalDataForm() {
-  // eslint-disable-next-line no-plusplus
-  counter++;
   const [isEdit, setIsEdit] = useState(false);
 
   const {
@@ -106,10 +100,10 @@ export default function PersonalDataForm() {
     setIsEdit(true);
   }
 
-  function onReset() {
+  const onReset = () => {
     reset(undefined, { keepDirtyValues: false });
     setIsEdit(false);
-  }
+  };
 
   function onSubmit(data) {
     // eslint-disable-next-line no-console
@@ -117,6 +111,7 @@ export default function PersonalDataForm() {
     reset(undefined, { keepValues: true });
     setIsEdit(false);
   }
+
   return (
     <form
       action="#"
@@ -124,7 +119,6 @@ export default function PersonalDataForm() {
       className="personal-data-form form-active"
       onSubmit={handleSubmit((data) => onSubmit(data))}
     >
-      <p>{`RENDERS ${counter}`}</p>
       <input
         className={`personal-data-form__button${
           isEdit ? ' button-disabled' : ''
@@ -141,26 +135,25 @@ export default function PersonalDataForm() {
         watch={watch}
         reset={onReset}
       />
-      {/* <PersonalDFPassportData
+      <PersonalDFPassportData
         isEdit={isEdit}
         errors={errors}
         register={register}
         control={control}
-        watch={watch}
         getValues={getValues}
-      /> */}
-      {/* <PersonalDForeignEmployeetData
+      />
+      <PersonalDForeignEmployeetData
         isEdit={isEdit}
         errors={errors}
         register={register}
         control={control}
-      /> */}
-      {/* <PersonalDOtherDocumentstData
+      />
+      <PersonalDOtherDocumentstData
         isEdit={isEdit}
         errors={errors}
         register={register}
-        watch={watch}
-      /> */}
+        getValues={getValues}
+      />
       <div className="buttons-group">
         <button
           className={` button-save${!isEdit ? ' button-disabled' : ''}`}

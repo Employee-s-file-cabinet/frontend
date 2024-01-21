@@ -96,7 +96,7 @@ export default function EmployeesPaginations({ lastPage }) {
 
   return (
     <div className="employees-pagination">
-      {lastPage !== 1 && (
+      {lastPage > 0 && lastPage !== 1 && (
         <nav
           className="pagination is-centered employees-pagination_container"
           role="navigation"

@@ -5,7 +5,7 @@ export default function PersonalDOtherDocumentsTaxNumber({
   isEdit,
   errors,
   register,
-  watch,
+  getValues,
 }) {
   return (
     <section className="columns is-multiline is-mobile input-none ">
@@ -39,6 +39,7 @@ export default function PersonalDOtherDocumentsTaxNumber({
                 <input
                   className="file-input horizontal-wrapper__input-one-half"
                   type="file"
+                  disabled={!isEdit}
                   {...register(`taxpayer.scan`)}
                 />
                 <span className="file-cta">
@@ -48,8 +49,9 @@ export default function PersonalDOtherDocumentsTaxNumber({
                   <span className="file-label">Выбрать файл</span>
                 </span>
                 <span className="file-name file-name-span">
-                  {watch().taxpayer?.scan?.[0]?.name ||
-                    (watch().taxpayer?.has_scan && watch().taxpayer?.scan_name)}
+                  {getValues().taxpayer?.scan?.[0]?.name ||
+                    (getValues().taxpayer?.has_scan &&
+                      getValues().taxpayer.scan_name)}
                 </span>
               </legend>
               <span className="">{errors.taxpayer?.scan?.message}</span>

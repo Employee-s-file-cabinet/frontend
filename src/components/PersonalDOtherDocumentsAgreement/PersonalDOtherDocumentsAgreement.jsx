@@ -5,7 +5,7 @@ export default function PersonalDOtherDocumentsAgreement({
   isEdit,
   errors,
   register,
-  watch,
+  getValues,
 }) {
   return (
     <section className="columns is-multiline is-mobile input-none ">
@@ -26,6 +26,7 @@ export default function PersonalDOtherDocumentsAgreement({
                   className="file-input horizontal-wrapper__input-one-half"
                   type="file"
                   {...register(`agreement.scan`)}
+                  disabled={!isEdit}
                 />
                 <span className="file-cta">
                   <span className="file-icon">
@@ -34,9 +35,9 @@ export default function PersonalDOtherDocumentsAgreement({
                   <span className="file-label">Выбрать файл</span>
                 </span>
                 <span className="file-name file-name-span">
-                  {watch().agreement?.scan?.[0]?.name ||
-                    (watch().agreement?.has_scan &&
-                      watch().agreement?.scan_name)}
+                  {getValues().agreement?.scan?.[0]?.name ||
+                    (getValues().agreement?.has_scan &&
+                      getValues().agreement?.scan_name)}
                 </span>
               </legend>
               <span className="">{errors.agreement?.scan?.message}</span>

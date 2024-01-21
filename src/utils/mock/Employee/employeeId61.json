@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1985-02-06",
+  "department_id": 3,
+  "email": "yadrenkin@company.com",
+  "first_name": "Прохор",
+  "gender": "male",
+  "grade": "3",
+  "id": 61,
+  "insurance": {
+    "number": "22107045052"
+  },
+  "last_name": "Ядренкин",
+  "middle_name": "Валентинович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79628462275"
+  },
+  "place_of_birth": "г. Иваново",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Череповец, Комсомольская ул., д. 24 кв.196",
+  "residential_address": "Россия, г. Астрахань, Трудовая ул., д. 21 кв.165",
+  "taxpayer": {
+    "number": "8139522191377"
+  }
+}

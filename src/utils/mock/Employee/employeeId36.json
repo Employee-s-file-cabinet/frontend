@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1987-09-24",
+  "department_id": 3,
+  "email": "musin@company.com",
+  "first_name": "Георгий",
+  "gender": "male",
+  "grade": "3",
+  "id": 36,
+  "insurance": {
+    "number": "78020750868"
+  },
+  "last_name": "Мусин",
+  "middle_name": "Никанорович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79313982935"
+  },
+  "place_of_birth": "г. Саратов",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Пермь, Песчаная ул., д. 10 кв.141",
+  "residential_address": "Россия, г. Сызрань, Светлая ул., д. 3 кв.110",
+  "taxpayer": {
+    "number": "4107579111453"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1987-03-09",
+  "department_id": 2,
+  "email": "zelner@company.com",
+  "first_name": "Татьяна",
+  "gender": "female",
+  "grade": "3",
+  "id": 7,
+  "insurance": {
+    "number": "30049154628"
+  },
+  "last_name": "Цельнер",
+  "middle_name": "Аркадивна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79215511436"
+  },
+  "place_of_birth": "г. Брянск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Абакан, Юбилейная ул., д. 15 кв.64",
+  "residential_address": "Россия, г. Брянск, Речная ул., д. 2 кв.3",
+  "taxpayer": {
+    "number": "273169571690"
+  }
+}

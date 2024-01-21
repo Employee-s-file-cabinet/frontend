@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import HeaderMain from '../../components/HeaderMain/HeaderMain';
@@ -20,8 +21,8 @@ export default function EmployeesPage({
   const [previousSearchQuery, setPreviousSearchQuery] = useState('');
   const { filterTeg, pageNumber } = useParams();
   const navigate = useNavigate();
-  const currentPage = Number.parseInt(pageNumber, 10);
-  const limitRowsOnPage = 1;
+  const currentPage = parseInt(pageNumber, 10);
+  const limitRowsOnPage = 10;
 
   // Change users list after change page
   useEffect(() => {

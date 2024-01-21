@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1986-01-12",
+  "department_id": 3,
+  "email": "osminin@company.com",
+  "first_name": "Давид",
+  "gender": "male",
+  "grade": "3",
+  "id": 40,
+  "insurance": {
+    "number": "20952813008"
+  },
+  "last_name": "Осминин",
+  "middle_name": "Макарович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79135503371"
+  },
+  "place_of_birth": "г. Барнаул",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Южно-Сахалинск, 17 Сентября ул., д. 2 кв.152",
+  "residential_address": "Россия, г. Салават, Ленинская ул., д. 7 кв.130",
+  "taxpayer": {
+    "number": "0976966956815"
+  }
+}

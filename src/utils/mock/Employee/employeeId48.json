@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1988-02-24",
+  "department_id": 3,
+  "email": "popyrin@company.com",
+  "first_name": "Роман",
+  "gender": "male",
+  "grade": "3",
+  "id": 48,
+  "insurance": {
+    "number": "82792460780"
+  },
+  "last_name": "Попырин",
+  "middle_name": "Никитович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79993905153"
+  },
+  "place_of_birth": "г. Иркутск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Раменское, Майская ул., д. 2 кв.65",
+  "residential_address": "Россия, г. Старый Оскол, Комсомольская ул., д. 10 кв.103",
+  "taxpayer": {
+    "number": "9248200895907"
+  }
+}

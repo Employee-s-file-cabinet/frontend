@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1988-03-24",
+  "department_id": 3,
+  "email": "maltsev@company.com",
+  "first_name": "Леонтий",
+  "gender": "male",
+  "grade": "3",
+  "id": 34,
+  "insurance": {
+    "number": "22531683042"
+  },
+  "last_name": "Мальцев",
+  "middle_name": "Иванович",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79498495019"
+  },
+  "place_of_birth": "г. Воронеж",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Сергиев Посад, Октябрьская ул., д. 25 кв.131",
+  "residential_address": "Россия, г. Новокузнецк, Садовый пер., д. 19 кв.16",
+  "taxpayer": {
+    "number": "3411664941598"
+  }
+}

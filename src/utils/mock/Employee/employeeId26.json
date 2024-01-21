@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1973-01-05",
+  "department_id": 3,
+  "email": "kucherova@company.com",
+  "first_name": "Дарья",
+  "gender": "female",
+  "grade": "3",
+  "id": 26,
+  "insurance": {
+    "number": "62214262842"
+  },
+  "last_name": "Кучерова",
+  "middle_name": "Валентиновна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79184159769"
+  },
+  "place_of_birth": "г. Екатеринбург",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Улан-Удэ, Трудовая ул., д. 12 кв.216",
+  "residential_address": "Россия, г. Ярославль, Дорожная ул., д. 7 кв.22",
+  "taxpayer": {
+    "number": "8378404073107"
+  }
+}

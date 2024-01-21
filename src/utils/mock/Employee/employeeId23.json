@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1983-06-17",
+  "department_id": 4,
+  "email": "meshchinko@company.com",
+  "first_name": "Герман",
+  "gender": "male",
+  "grade": "3",
+  "id": 23,
+  "insurance": {
+    "number": "34579007891"
+  },
+  "last_name": "Менщико",
+  "middle_name": "Игнатьевич",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79962889768"
+  },
+  "place_of_birth": "г.Саранск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Владивосток, Школьная ул., д. 1 кв.168",
+  "residential_address": "Россия, г. Димитровград, Садовый пер., д. 17 кв.165",
+  "taxpayer": {
+    "number": "7871752964758"
+  }
+}

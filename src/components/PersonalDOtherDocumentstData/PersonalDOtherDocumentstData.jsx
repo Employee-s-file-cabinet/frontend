@@ -7,7 +7,7 @@ export default function PersonalDOtherDocumentstData({
   isEdit,
   errors,
   register,
-  watch,
+  getValues,
 }) {
   return (
     <details className="details" open>
@@ -23,7 +23,7 @@ export default function PersonalDOtherDocumentstData({
             isEdit={isEdit}
             errors={errors}
             register={register}
-            watch={watch}
+            getValues={getValues}
           />
         </div>
       </div>
@@ -38,7 +38,7 @@ export default function PersonalDOtherDocumentstData({
             isEdit={isEdit}
             errors={errors}
             register={register}
-            watch={watch}
+            getValues={getValues}
           />
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function PersonalDOtherDocumentstData({
             isEdit={isEdit}
             errors={errors}
             register={register}
-            watch={watch}
+            getValues={getValues}
           />
         </div>
       </div>

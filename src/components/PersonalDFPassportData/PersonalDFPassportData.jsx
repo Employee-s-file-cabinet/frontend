@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import PersonalDFPassportCitizenship from '../PersonalDFPassportCitizenship/PersonalDFPassportCitizenship';
 import PersonalDFPassportForeign from '../PersonalDFPassportForeign/PersonalDFPassportForeign';
 import PersonalDFPassportVisa from '../PersonalDFPassportVisa/PersonalDFPassportVisa';
@@ -8,7 +7,6 @@ export default function PersonalDFPassportData({
   control,
   errors,
   register,
-  watch,
   getValues,
 }) {
   return (
@@ -26,7 +24,6 @@ export default function PersonalDFPassportData({
             control={control}
             errors={errors}
             register={register}
-            watch={watch}
             getValues={getValues}
           />
         </div>

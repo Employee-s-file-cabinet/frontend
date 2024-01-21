@@ -1,0 +1,29 @@
+{
+  "date_of_birth": "1995-07-16",
+  "department_id": 4,
+  "email": "tesla@company.com",
+  "first_name": "Елена",
+  "gender": "female",
+  "grade": "3",
+  "id": 16,
+  "insurance": {
+    "number": "65432178905"
+  },
+  "last_name": "Тесла",
+  "middle_name": "Антоновна",
+  "nationality": "русский",
+  "personal_data_processing": {
+    "has_scan": false
+  },
+  "phone_numbers": {
+    "mobile": "79791034416"
+  },
+  "place_of_birth": "г. Новочеркасск",
+  "position_id": 4,
+  "position_track": null,
+  "registration_address": "Россия, г. Владимир, Сельская ул., д. 22 кв.138",
+  "residential_address": "Россия, г. Норильск, Чкалова ул., д. 2 кв.102",
+  "taxpayer": {
+    "number": "543210987654321"
+  }
+}
