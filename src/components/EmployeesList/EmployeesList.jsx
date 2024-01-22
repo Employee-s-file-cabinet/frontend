@@ -66,7 +66,7 @@ export default function EmployeesList({ usersList }) {
                   align="right"
                   className="employees-list__table-row-cell"
                 >
-                  {row.department}
+                  {row.position}
                 </TableCell>
                 <TableCell
                   align="right"
@@ -84,7 +84,7 @@ export default function EmployeesList({ usersList }) {
                   align="right"
                   className="employees-list__table-row-cell"
                 >
-                  {row.mobile_phone_number}
+                  {row.office_phone_number}
                 </TableCell>
               </TableRow>
             ))}

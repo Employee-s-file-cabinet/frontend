@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import HeaderMain from '../../components/HeaderMain/HeaderMain';
@@ -33,6 +34,8 @@ export default function EmployeesPage({
     }
     getEmployees(limitRowsOnPage, searchQuery, currentPage)
       .then((res) => {
+        // eslint-disable-next-line no-console
+        console.log(res.users, 'res.users');
         setUsersList(res.users);
         setLastPage(res.total_pages);
       })
