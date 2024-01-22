@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { useState, Suspense, useEffect, useContext } from 'react';
-import { useCookies } from 'react-cookie';
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -36,13 +35,6 @@ function App() {
   const [usersList, setUsersList] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { cookies } = useCookies();
-
-  useEffect(() => {
-    if (cookies !== undefined) {
-      setIsLoggedIn(true);
-    }
-  }, [setIsLoggedIn, cookies]);
 
   useEffect(() => {
     if (localStorage.getItem('login') === 'true') setIsLoggedIn(true);
