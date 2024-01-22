@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import { useState, Suspense, useEffect, useContext } from 'react';
 import {
@@ -34,7 +35,9 @@ function App() {
   const [lastPage, setLastPage] = useState(1);
   const [usersList, setUsersList] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem('login') || false
+  );
 
   useEffect(() => {
     if (localStorage.getItem('login') === 'true') setIsLoggedIn(true);
