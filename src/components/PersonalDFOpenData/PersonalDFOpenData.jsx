@@ -19,6 +19,7 @@ export default function PersonalDFOpenData({
   const [registrationAddress, setRegistrationAddress] = useState(
     getValues()?.registration_address
   );
+
   useEffect(() => {
     const resAddress = watch((value) => {
       setResidentalAddress(value.residential_address);

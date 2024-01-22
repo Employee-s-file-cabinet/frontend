@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
 import InformatoionEmployee from '../../components/InfommatoionEmployee/InformatoionEmployee';
 import HeaderMain from '../../components/HeaderMain/HeaderMain';
@@ -15,7 +14,9 @@ import {
 } from '../../utils/api/UsersApi';
 
 export default function EmployeePage() {
-  const { home, employees, employee } = pagesPath;
+  const location = useLocation();
+  const { home, employee } = pagesPath;
+  const updatedEmployee = { ...employee, path: location.pathname };
   const [userData, setUserData] = useState([]);
   const { id } = useParams();
   const currentUser = Number(parseInt(id, 10));
@@ -82,7 +83,7 @@ export default function EmployeePage() {
   return (
     <section className="employee-page">
       <HeaderMain>
-        <Breadcrumb pagesPath={[home, employees, employee]} />
+        <Breadcrumb pagesPath={[home, updatedEmployee]} />
       </HeaderMain>
       <main className="employee-page__content">
         <ProfileInfo />

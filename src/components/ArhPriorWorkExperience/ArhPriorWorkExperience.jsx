@@ -13,6 +13,7 @@ export default function ArhPriorWorkExperience({
     control,
     rules: { required: 'Введите хотя бы одно значение' },
   });
+
   return (
     <section className="experience">
       {fields.map((field, index) => (

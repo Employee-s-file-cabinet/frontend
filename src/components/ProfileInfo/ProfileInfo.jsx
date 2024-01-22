@@ -56,23 +56,19 @@ function ProfileInfo() {
         <div className="profile__image-container">
           <img className="profile__image" alt="Логотип" src={ProfilePic} />
           {isEdit && (
-            <div className="file is-normal">
-              <label className="file-label" htmlFor="picture">
-                <input
-                  {...register('picture')}
-                  className="file-input"
-                  type="file"
-                  accept=".jpg,,.png,.jpeg"
-                />
-                <div className="profile__file-upload-container">
-                  <span className="profile__file-upload-label file-label">
-                    Загрузить фото
-                  </span>
-                  <span className="file-icon">
-                    <i className="fas fa-upload" />
-                  </span>
-                </div>
-              </label>
+            <div className="file profile__file-upload">
+              <div className="profile__file-upload-container">
+                <span className="profile__file-upload-label file-label">
+                  Загрузить фото
+                </span>
+                <i className="fas fa-upload" />
+              </div>
+              <input
+                {...register('picture')}
+                className="file-input"
+                type="file"
+                accept=".jpg,,.png,.jpeg"
+              />
             </div>
           )}
           <span className="profile__input-error">
@@ -270,26 +266,36 @@ function ProfileInfo() {
               >
                 Сохранить
               </button>
-              <button
-                type="button"
-                className="button is-primary is-light profile__button"
-                disabled={!isDirty}
-                onClick={onReset}
-              >
-                Сбросить изменения
-              </button>
+              {isDirty ? (
+                <button
+                  type="button"
+                  className="button is-primary is-light profile__button"
+                  disabled={!isDirty}
+                  onClick={onReset}
+                >
+                  Сбросить изменения
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="button is-primary is-light profile__button"
+                  onClick={() => setIsEdit(false)}
+                >
+                  Отмена
+                </button>
+              )}
             </div>
           )}
         </form>
-        <div className="profile__button-edit">
-          <Icon
-            icon="fa-pen-to-square"
-            size="is-small"
-            onClick={() =>
-              isEdit === false ? setIsEdit(true) : setIsEdit(false)
-            }
-          />
-        </div>
+        {!isEdit && (
+          <div className="profile__button-edit">
+            <Icon
+              icon="fa-pen-to-square"
+              size="is-small"
+              onClick={() => setIsEdit(true)}
+            />
+          </div>
+        )}
       </div>
     </section>
   );

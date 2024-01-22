@@ -12,19 +12,24 @@
     font-weight: 600;
   }
 
+  &__file-upload {
+    width: 160px;
+  }
+
   &__file-upload-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 7px 4px;
+    justify-content: space-between;
+    padding: 7px 10px;
+    width: 100%;
     color: #b5b5b5;
-    margin-left: 5px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 160%;
   }
   &__file-upload-label {
-    margin-right: 8px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
   }
 
   &__file-title {
@@ -38,7 +43,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-between;
+    // justify-content: space-between;
   }
 
   &__image-container {
@@ -152,7 +157,7 @@
   }
 
   &__button-edit {
-    margin: 0 auto 0 94px;
+    margin-left: auto;
   }
 
   &__button {

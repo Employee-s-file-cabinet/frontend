@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function Breadcrumb({ pagesPath }) {
   const breadCrumb = pagesPath.map((crumb, index) => {
     let crumbLink = '';
-    crumbLink += `/${crumb.path}`;
+    crumbLink += `${crumb.path}`;
 
     return (
       <li key={crumb.id}>

@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { Link } from 'react-router-dom';
+import Logo from '../../assets/images/logo.svg';
 import { Icon } from '../UI/Icons/Icons';
 import { sideMenuOptions } from '../../utils/constants';
-import { Logo } from '../Logo/Logo';
 
 export default function SideMenu() {
   return (
     <aside className="side-menu">
       <div className="side-menu__container">
-        <Logo extraClass="logo_size_small" />
+        <img src={Logo} alt="side-menu__logo'" />
         <ul className="side-menu__list">
           {sideMenuOptions.map((el) => (
             <li key={el.id}>

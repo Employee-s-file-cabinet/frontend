@@ -78,13 +78,13 @@ export default function EmployeesList({ usersList }) {
                   align="right"
                   className="employees-list__table-row-cell"
                 >
-                  {row.phone_numbers.mobile}
+                  {row.mobile_phone_number}
                 </TableCell>
                 <TableCell
                   align="right"
                   className="employees-list__table-row-cell"
                 >
-                  {row.phone_numbers.mobile}
+                  {row.mobile_phone_number}
                 </TableCell>
               </TableRow>
             ))}

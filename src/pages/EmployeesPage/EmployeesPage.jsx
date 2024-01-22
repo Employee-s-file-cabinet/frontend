@@ -1,9 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import HeaderMain from '../../components/HeaderMain/HeaderMain';
-import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
-import { pagesPath } from '../../utils/constants';
 import EmployeesList from '../../components/EmployeesList/EmployeesList';
 import EmployeesSearch from '../../components/EmployeesSearch/EmployeesSearch';
 import EmployeesPaginations from '../../components/EmployeesPaginations/EmployeesPaginations';
@@ -47,12 +44,9 @@ export default function EmployeesPage({
     // eslint-disable-next-line
   }, [currentPage, searchQuery, filterTeg]);
 
-  const { home, employees } = pagesPath;
   return (
     <section className="employees">
-      <HeaderMain>
-        <Breadcrumb pagesPath={[home, employees]} />
-      </HeaderMain>
+      <HeaderMain />
       <main className="employees__content">
         <div className="employees__container">
           <h2 className="employees__title">Картотека сотрудников</h2>

@@ -63,7 +63,6 @@ export default function ArchiveDataForm() {
         type="button"
         onClick={handleEditButton}
       />
-
       <ArhPriorWork
         isEdit={isEdit}
         errors={errors}

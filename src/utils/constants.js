@@ -1,16 +1,19 @@
 export const baseURL = 'https://ecabinet.acceleratorpracticum.ru/api/v1';
 
 export const pagesPath = {
-  home: { path: '', label: 'Главная', id: 1 },
-  employees: { path: 'employees', label: 'Картотека сотрудников', id: 2 },
-  employee: { path: 'employee', label: 'Сотрудник', id: 3 },
+  home: {
+    path: '/employees/alphabet/1',
+    label: 'Картотека сотрудников',
+    id: 1,
+  },
+  employee: { path: '', label: 'Сотрудник', id: 2 },
   companyStructure: {
     path: 'company-srtucture',
     label: 'Cтруктура компании',
-    id: 4,
+    id: 3,
   },
-  departments: { path: 'departments', label: 'Департаменты', id: 5 },
-  newEmployee: { path: 'new-employee', label: 'Новый сотрудник', id: 6 },
+  departments: { path: 'departments', label: 'Департаменты', id: 4 },
+  newEmployee: { path: 'new-employee', label: 'Новый сотрудник', id: 5 },
 };
 
 export const sideMenuOptions = [
