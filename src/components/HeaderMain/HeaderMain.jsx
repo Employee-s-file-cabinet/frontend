@@ -12,6 +12,7 @@ export default function HeaderMain({ children }) {
   const { setIsLoggedIn } = useContext(GeneralContext);
 
   function logOut() {
+    localStorage.removeItem('login');
     removeCookie('ecabinet-token');
     setIsLoggedIn(false);
     navigate('/signin');
