@@ -42,14 +42,14 @@ export const ProfileInfoValidationSchema = yup
         /^(?=.{1,3}$)[0-9]*$/,
         'Используте цифры. Макс. длина поля 3 символа.'
       ),
-    mobile: yup
+    mobile_phone_number: yup
       .string()
       .required(requiredFieldError)
       .matches(
         /^([+]{1,1})([0-9]{11,14})$/,
         'Укажите телефон в формате "+79991110022". Длина номера от 11 до 14 цифр'
       ),
-    extNumber: yup
+    office_phone_number: yup
       .string()
       .required(requiredFieldError)
       .matches(

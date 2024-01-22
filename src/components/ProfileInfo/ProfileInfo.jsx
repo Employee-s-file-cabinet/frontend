@@ -13,6 +13,14 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 function ProfileInfo() {
   // eslint-disable-next-line
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+  const [isEdit, setIsEdit] = useState(false);
+
+  function transformPhone(number) {
+    if (number?.includes('+')) {
+      return number;
+    }
+    return `+${number}`;
+  }
 
   console.log(currentUser, 'currentUser.last_name');
 
@@ -30,8 +38,8 @@ function ProfileInfo() {
       department: 'Кадры',
       jobTitle: 'Менеджер',
       grade: '4',
-      mobile: '+79091114422',
-      extNumber: '32-23',
+      mobile_phone_number: '+79091114422',
+      office_phone_number: '32-23',
       email: 'isaevaPA@company.com',
     },
     resolver: yupResolver(ProfileInfoValidationSchema),
@@ -43,23 +51,14 @@ function ProfileInfo() {
       last_name: currentUser.last_name,
       first_name: currentUser.first_name,
       middle_name: currentUser.middle_name,
-      department: currentUser.department,
-      jobTitle: currentUser.position,
+      department: 'Кадры',
+      jobTitle: 'Менеджер',
       grade: currentUser.grade,
-      mobile: currentUser.mobile_phone_number,
-      extNumber: currentUser.office_phone_number,
+      mobile_phone_number: transformPhone(currentUser.mobile_phone_number),
+      office_phone_number: '32-23',
       email: currentUser.email,
     });
   }, [currentUser, reset]);
-
-  const [isEdit, setIsEdit] = useState(false);
-
-  function transformPhone(number) {
-    if (number.includes('+')) {
-      return number;
-    }
-    return `+${number}`;
-  }
 
   function onReset() {
     reset(undefined, { keepDirtyValues: false });
@@ -80,8 +79,8 @@ function ProfileInfo() {
     //     department: data.department,
     //     position: data.jobTitle,
     //     grade: data.grade,
-    //     mobile_phone_number: data.mobile,
-    //     office_phone_number: data.extNumber,
+    //     mobile_phone_number: data.mobile_phone_number,
+    //     office_phone_number: data.office_phone_number,
     //     email: data.email,
     //   }).then((res)=>{
     //   setCurrentUser(res);
@@ -98,8 +97,8 @@ function ProfileInfo() {
       department: data.department,
       position: data.jobTitle,
       grade: data.grade,
-      mobile_phone_number: data.mobile,
-      office_phone_number: data.extNumber,
+      mobile_phone_number: data.mobile_phone_number,
+      office_phone_number: data.office_phone_number,
       email: data.email,
     });
     setIsEdit(false);
@@ -190,12 +189,12 @@ function ProfileInfo() {
                         disabled={!isEdit}
                       />
                     )}
-                    name="mobile"
+                    name="mobile_phone_number"
                     control={control}
                   />
                 </span>
                 <span className="profile__input-error">
-                  {errors.mobile?.message}
+                  {errors.mobile_phone_number?.message}
                 </span>
               </li>
             </ul>
@@ -235,10 +234,13 @@ function ProfileInfo() {
                 </span>
               </li>
               <li className="profile__input-container">
-                <label className="profile__input-label" htmlFor="extNumber">
+                <label
+                  className="profile__input-label"
+                  htmlFor="office_phone_number"
+                >
                   Внутренний номер
                   <input
-                    {...register('extNumber')}
+                    {...register('office_phone_number')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
                     }`}
@@ -248,7 +250,7 @@ function ProfileInfo() {
                   />
                 </label>
                 <span className="profile__input-error">
-                  {errors.extNumber?.message}
+                  {errors.office_phone_number?.message}
                 </span>
               </li>
             </ul>
