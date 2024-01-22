@@ -5,20 +5,29 @@ import { GeneralContext } from './GeneralContext';
 export default function Contexts({
   children,
   currentUser,
+  setCurrentUser,
   isLoggedIn,
   setIsLoggedIn,
 }) {
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider
+      value={useMemo(
+        () => ({
+          currentUser,
+          setCurrentUser,
+        }),
+        // eslint-disable-next-line
+        [currentUser, setCurrentUser]
+      )}
+    >
       <GeneralContext.Provider
         value={useMemo(
           () => ({
-            currentUser,
             isLoggedIn,
             setIsLoggedIn,
           }),
           // eslint-disable-next-line
-          [currentUser, isLoggedIn]
+          [setIsLoggedIn, isLoggedIn]
         )}
       >
         {children}

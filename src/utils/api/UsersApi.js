@@ -46,6 +46,14 @@ export function getSelectEmployee(userId) {
     .catch((error) => processError(error));
 }
 
+// Function patch select employee
+export function patchSelectEmployee(userId, userData) {
+  return axiosBase
+    .patch(`/users/${userId}`, userData)
+    .then((res) => res.data)
+    .catch((error) => processError(error));
+}
+
 // функция добавления нового сотрудника
 export function addEmployee(data) {
   return axiosBase

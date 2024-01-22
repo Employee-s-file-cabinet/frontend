@@ -36,6 +36,7 @@ export default function EmployeesPage({
     }
     getEmployees(limitRowsOnPage, searchQuery, currentPage)
       .then((res) => {
+        console.log(res.users, 'res.users');
         setUsersList(res.users);
         setLastPage(res.total_pages);
       })

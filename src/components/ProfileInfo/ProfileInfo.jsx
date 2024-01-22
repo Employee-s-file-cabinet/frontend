@@ -1,13 +1,20 @@
 import * as React from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Icon } from '../UI/Icons/Icons';
 import ProfilePic from '../../assets/images/profile.jpg';
 import { ProfileInfoValidationSchema } from '../../utils/validation/ProfileInfoValidation';
 import './ProfileInfo.scss';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+// import { patchSelectEmployee } from '../../utils/api/UsersApi';
 
 function ProfileInfo() {
+  // eslint-disable-next-line
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+
+  console.log(currentUser, 'currentUser.last_name');
+
   const {
     control,
     register,
@@ -29,6 +36,21 @@ function ProfileInfo() {
     resolver: yupResolver(ProfileInfoValidationSchema),
     mode: 'onChange',
   });
+
+  useEffect(() => {
+    reset({
+      last_name: currentUser.last_name,
+      first_name: currentUser.first_name,
+      middle_name: currentUser.middle_name,
+      department: currentUser.department,
+      jobTitle: currentUser.position,
+      grade: currentUser.grade,
+      mobile: currentUser.mobile_phone_number,
+      extNumber: currentUser.office_phone_number,
+      email: currentUser.email,
+    });
+  }, [currentUser, reset]);
+
   const [isEdit, setIsEdit] = useState(false);
 
   function transformPhone(number) {
@@ -45,13 +67,45 @@ function ProfileInfo() {
 
   function onSubmit(data) {
     // eslint-disable-next-line no-console
-    console.log(data);
-    reset(undefined, { keepValues: true });
+    console.log(data, 'data');
+
+    // Not implemented in backend
+
+    // patchSelectEmployee(currentUser.id,
+    //   {
+    //     last_name: data.last_name,
+    //     first_name: data.first_name,
+    //     middle_name: data.middle_name,
+    //     department: data.department,
+    //     position: data.jobTitle,
+    //     grade: data.grade,
+    //     mobile_phone_number: data.mobile,
+    //     office_phone_number: data.extNumber,
+    //     email: data.email,
+    //   }).then((res)=>{
+    //   setCurrentUser(res);
+    //
+    // }).catch((err) =>
+    //   // eslint-disable-next-line no-console
+    //   console.log(`Ошибка: ${err} Обратитесь в службу поддержки. Вы ввели ${data}`)
+    // );
+
+    setCurrentUser({
+      last_name: data.last_name,
+      first_name: data.first_name,
+      middle_name: data.middle_name,
+      department: data.department,
+      position: data.jobTitle,
+      grade: data.grade,
+      mobile_phone_number: data.mobile,
+      office_phone_number: data.extNumber,
+      email: data.email,
+    });
     setIsEdit(false);
   }
   return (
     <section className="profile">
-      <h2 className="profile__title">Исаева Полина Артёмовна</h2>
+      <h2 className="profile__title">{`${currentUser.first_name} ${currentUser.middle_name} ${currentUser.last_name}`}</h2>
       <div className="profile__container">
         <div className="profile__image-container">
           <img className="profile__image" alt="Логотип" src={ProfilePic} />
