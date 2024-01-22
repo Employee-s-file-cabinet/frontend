@@ -1,79 +1,128 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import * as React from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { useState, useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Icon } from '../UI/Icons/Icons';
 import ProfilePic from '../../assets/images/profile.jpg';
 import { ProfileInfoValidationSchema } from '../../utils/validation/ProfileInfoValidation';
 import './ProfileInfo.scss';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+// import { patchSelectEmployee } from '../../utils/api/UsersApi';
 
 function ProfileInfo() {
-  const {
-    control,
-    register,
-    handleSubmit,
-    watch,
-    formState: { isValid, errors, isDirty },
-  } = useForm({
-    defaultValues: {
-      lastName: 'Исаева',
-      firstName: 'Полина',
-      middleName: 'Артемовна',
-      department: 'Кадры',
-      jobTitle: 'Менеджер',
-      grade: '4',
-      mobileNumber: '+79091114422',
-      extNumber: '32-23',
-      email: 'isaevaPA@company.com',
-    },
-    resolver: yupResolver(ProfileInfoValidationSchema),
-    mode: 'onChange',
-  });
+  // eslint-disable-next-line
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [isEdit, setIsEdit] = useState(false);
 
   function transformPhone(number) {
-    if (number.includes('+')) {
+    if (number?.includes('+')) {
       return number;
     }
     return `+${number}`;
   }
 
+  console.log(currentUser, 'currentUser.last_name');
+
+  const {
+    control,
+    register,
+    handleSubmit,
+    reset,
+    formState: { isValid, errors, isDirty },
+  } = useForm({
+    defaultValues: {
+      last_name: 'Исаева',
+      first_name: 'Полина',
+      middle_name: 'Артемовна',
+      department: 'Кадры',
+      jobTitle: 'Менеджер',
+      grade: '4',
+      mobile_phone_number: '+79091114422',
+      office_phone_number: '32-23',
+      email: 'isaevaPA@company.com',
+    },
+    resolver: yupResolver(ProfileInfoValidationSchema),
+    mode: 'onChange',
+  });
+
+  useEffect(() => {
+    reset({
+      last_name: currentUser.last_name,
+      first_name: currentUser.first_name,
+      middle_name: currentUser.middle_name,
+      department: 'Кадры',
+      jobTitle: 'Менеджер',
+      grade: currentUser.grade,
+      mobile_phone_number: transformPhone(currentUser.mobile_phone_number),
+      office_phone_number: '32-23',
+      email: currentUser.email,
+    });
+  }, [currentUser, reset]);
+
   function onReset() {
-    // тут должен быть прописан возврат к дефолтным значением полей
+    reset(undefined, { keepDirtyValues: false });
     setIsEdit(false);
   }
 
   function onSubmit(data) {
     // eslint-disable-next-line no-console
-    console.log(data);
+    console.log(data, 'data');
+
+    // Not implemented in backend
+
+    // patchSelectEmployee(currentUser.id,
+    //   {
+    //     last_name: data.last_name,
+    //     first_name: data.first_name,
+    //     middle_name: data.middle_name,
+    //     department: data.department,
+    //     position: data.jobTitle,
+    //     grade: data.grade,
+    //     mobile_phone_number: data.mobile_phone_number,
+    //     office_phone_number: data.office_phone_number,
+    //     email: data.email,
+    //   }).then((res)=>{
+    //   setCurrentUser(res);
+    //
+    // }).catch((err) =>
+    //   // eslint-disable-next-line no-console
+    //   console.log(`Ошибка: ${err} Обратитесь в службу поддержки. Вы ввели ${data}`)
+    // );
+
+    setCurrentUser({
+      last_name: data.last_name,
+      first_name: data.first_name,
+      middle_name: data.middle_name,
+      department: data.department,
+      position: data.jobTitle,
+      grade: data.grade,
+      mobile_phone_number: data.mobile_phone_number,
+      office_phone_number: data.office_phone_number,
+      email: data.email,
+    });
     setIsEdit(false);
   }
-
   return (
     <section className="profile">
-      <h2 className="profile__title">Исаева Полина Артёмовна</h2>
+      <h2 className="profile__title">{`${currentUser.first_name} ${currentUser.middle_name} ${currentUser.last_name}`}</h2>
       <div className="profile__container">
         <div className="profile__image-container">
           <img className="profile__image" alt="Логотип" src={ProfilePic} />
           {isEdit && (
-            <div className="file is-normal">
-              <label className="file-label" htmlFor="picture">
-                <input
-                  {...register('picture')}
-                  className="file-input"
-                  type="file"
-                  accept=".jpg,,.png,.jpeg"
-                />
-                <div className="profile__file-upload-container">
-                  <span className="profile__file-upload-label file-label">
-                    Загрузить фото
-                  </span>
-                  <span className="file-icon">
-                    <i className="fas fa-upload" />
-                  </span>
-                </div>
-              </label>
+            <div className="file profile__file-upload">
+              <div className="profile__file-upload-container">
+                <span className="profile__file-upload-label file-label">
+                  Загрузить фото
+                </span>
+                <i className="fas fa-upload" />
+              </div>
+              <input
+                {...register('picture')}
+                className="file-input"
+                type="file"
+                accept=".jpg,,.png,.jpeg"
+              />
             </div>
           )}
           <span className="profile__input-error">
@@ -89,10 +138,10 @@ function ProfileInfo() {
           <fieldset className="profile__columns">
             <ul className="profile__column">
               <li className="profile__input-container">
-                <label className="profile__input-label" htmlFor="lastName">
+                <label className="profile__input-label" htmlFor="last_name">
                   Фамилия
                   <input
-                    {...register('lastName')}
+                    {...register('last_name')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
                     }`}
@@ -102,7 +151,7 @@ function ProfileInfo() {
                   />
                 </label>
                 <span className="profile__input-error">
-                  {errors.lastName?.message}
+                  {errors.last_name?.message}
                 </span>
               </li>
               <li className="profile__input-container">
@@ -140,21 +189,21 @@ function ProfileInfo() {
                         disabled={!isEdit}
                       />
                     )}
-                    name="mobileNumber"
+                    name="mobile_phone_number"
                     control={control}
                   />
                 </span>
                 <span className="profile__input-error">
-                  {errors.mobileNumber?.message}
+                  {errors.mobile_phone_number?.message}
                 </span>
               </li>
             </ul>
             <ul className="profile__column">
               <li className="profile__input-container">
-                <label className="profile__input-label" htmlFor="firstName">
+                <label className="profile__input-label" htmlFor="first_name">
                   Имя
                   <input
-                    {...register('firstName')}
+                    {...register('first_name')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
                     }`}
@@ -164,7 +213,7 @@ function ProfileInfo() {
                   />
                 </label>
                 <span className="profile__input-error">
-                  {errors.firstName?.message}
+                  {errors.first_name?.message}
                 </span>
               </li>
               <li className="profile__input-container">
@@ -185,10 +234,13 @@ function ProfileInfo() {
                 </span>
               </li>
               <li className="profile__input-container">
-                <label className="profile__input-label" htmlFor="extNumber">
+                <label
+                  className="profile__input-label"
+                  htmlFor="office_phone_number"
+                >
                   Внутренний номер
                   <input
-                    {...register('extNumber')}
+                    {...register('office_phone_number')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
                     }`}
@@ -198,16 +250,16 @@ function ProfileInfo() {
                   />
                 </label>
                 <span className="profile__input-error">
-                  {errors.extNumber?.message}
+                  {errors.office_phone_number?.message}
                 </span>
               </li>
             </ul>
             <ul className="profile__column">
               <li className="profile__input-container">
-                <label className="profile__input-label" htmlFor="middleName">
+                <label className="profile__input-label" htmlFor="middle_name">
                   Отчество
                   <input
-                    {...register('middleName')}
+                    {...register('middle_name')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
                     }`}
@@ -218,7 +270,7 @@ function ProfileInfo() {
                 </label>
                 {isEdit && (
                   <span className="profile__input-error profile__input-error_margin_custom">
-                    {errors.middleName?.message}
+                    {errors.middle_name?.message}
                   </span>
                 )}
               </li>
@@ -271,26 +323,36 @@ function ProfileInfo() {
               >
                 Сохранить
               </button>
-              <button
-                type="button"
-                className="button is-primary is-light profile__button"
-                disabled={!isDirty}
-                onClick={onReset}
-              >
-                Сбросить изменения
-              </button>
+              {isDirty ? (
+                <button
+                  type="button"
+                  className="button is-primary is-light profile__button"
+                  disabled={!isDirty}
+                  onClick={onReset}
+                >
+                  Сбросить изменения
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="button is-primary is-light profile__button"
+                  onClick={() => setIsEdit(false)}
+                >
+                  Отмена
+                </button>
+              )}
             </div>
           )}
         </form>
-        <div className="profile__button-edit">
-          <Icon
-            icon="fa-pen-to-square"
-            size="is-small"
-            onClick={() =>
-              isEdit === false ? setIsEdit(true) : setIsEdit(false)
-            }
-          />
-        </div>
+        {!isEdit && (
+          <div className="profile__button-edit">
+            <Icon
+              icon="fa-pen-to-square"
+              size="is-small"
+              onClick={() => setIsEdit(true)}
+            />
+          </div>
+        )}
       </div>
     </section>
   );

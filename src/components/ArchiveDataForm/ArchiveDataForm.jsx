@@ -22,15 +22,15 @@ export default function ArchiveDataForm() {
         {
           companyName: 'Рeкрутинг Рус',
           position: 'Менеджер',
-          beginDate: '',
-          endDate: '',
+          beginDate: '1999-12-31',
+          endDate: '2000-12-31',
           jobDescription: 'Счастье, радость он приносит людям',
         },
       ],
       awardsFieldSet: [
         {
-          awardTitle: '',
-          awardDate: '',
+          awardTitle: 'Совесть компании',
+          awardDate: '2000-12-31',
         },
       ],
     },
@@ -63,7 +63,6 @@ export default function ArchiveDataForm() {
         type="button"
         onClick={handleEditButton}
       />
-
       <ArhPriorWork
         isEdit={isEdit}
         errors={errors}

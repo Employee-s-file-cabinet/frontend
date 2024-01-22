@@ -7,15 +7,18 @@
     margin-bottom: 8px;
     margin-top: 45px;
     color: var(--black, #0a0a0a);
-    font-family: Open Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: 112.5%; /* 18px */
   }
 
+  &__title-long {
+    width: 640px;
+  }
+
   &__title-margin {
-    margin-top: 10px;
+    margin-top: 0;
   }
 
   &__label {
