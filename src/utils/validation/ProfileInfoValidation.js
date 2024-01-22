@@ -28,7 +28,7 @@ export const ProfileInfoValidationSchema = yup
         /^(?=.{2,150}$)[а-яёА-ЯЁ0-9]+(?:[-][а-яёА-ЯЁ0-9]+)*$/,
         'Используте кириллицу, цифры, дефис.'
       ),
-    jobTitle: yup
+    position: yup
       .string()
       .required(requiredFieldError)
       .matches(

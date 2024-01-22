@@ -36,7 +36,7 @@ function ProfileInfo() {
       first_name: 'Полина',
       middle_name: 'Артемовна',
       department: 'Кадры',
-      jobTitle: 'Менеджер',
+      position: 'Менеджер',
       grade: '4',
       mobile_phone_number: '+79091114422',
       office_phone_number: '32-23',
@@ -52,7 +52,7 @@ function ProfileInfo() {
       first_name: currentUser.first_name,
       middle_name: currentUser.middle_name,
       department: 'Кадры',
-      jobTitle: 'Менеджер',
+      position: 'Менеджер',
       grade: currentUser.grade,
       mobile_phone_number: transformPhone(currentUser.mobile_phone_number),
       office_phone_number: '32-23',
@@ -77,7 +77,7 @@ function ProfileInfo() {
     //     first_name: data.first_name,
     //     middle_name: data.middle_name,
     //     department: data.department,
-    //     position: data.jobTitle,
+    //     position: data.position,
     //     grade: data.grade,
     //     mobile_phone_number: data.mobile_phone_number,
     //     office_phone_number: data.office_phone_number,
@@ -90,17 +90,18 @@ function ProfileInfo() {
     //   console.log(`Ошибка: ${err} Обратитесь в службу поддержки. Вы ввели ${data}`)
     // );
 
-    setCurrentUser({
-      last_name: data.last_name,
-      first_name: data.first_name,
-      middle_name: data.middle_name,
-      department: data.department,
-      position: data.jobTitle,
-      grade: data.grade,
-      mobile_phone_number: data.mobile_phone_number,
-      office_phone_number: data.office_phone_number,
-      email: data.email,
-    });
+    // setCurrentUser({
+    //   last_name: data.last_name,
+    //   first_name: data.first_name,
+    //   middle_name: data.middle_name,
+    //   department: data.department,
+    //   position: data.position,
+    //   grade: data.grade,
+    //   mobile_phone_number: data.mobile_phone_number,
+    //   office_phone_number: data.office_phone_number,
+    //   email: data.email,
+    // });
+    setCurrentUser(data);
     setIsEdit(false);
   }
   return (
@@ -144,6 +145,8 @@ function ProfileInfo() {
                     {...register('last_name')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
+                    } ${
+                      errors.last_name?.message && 'profile__input_type_error'
                     }`}
                     type="text"
                     placeholder="Фамилия"
@@ -161,6 +164,8 @@ function ProfileInfo() {
                     {...register('department')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
+                    } ${
+                      errors.department?.message && 'profile__input_type_error'
                     }`}
                     type="text"
                     placeholder="Отдел"
@@ -180,6 +185,9 @@ function ProfileInfo() {
                         {...field}
                         className={`profile__input ${
                           !isEdit && 'profile__input_type_disabled'
+                        } ${
+                          errors.mobile_phone_number?.message &&
+                          'profile__input_type_error'
                         }`}
                         type="text"
                         placeholder="Мобильный телефон"
@@ -206,6 +214,8 @@ function ProfileInfo() {
                     {...register('first_name')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
+                    } ${
+                      errors.first_name?.message && 'profile__input_type_error'
                     }`}
                     type="text"
                     placeholder="Имя"
@@ -217,12 +227,14 @@ function ProfileInfo() {
                 </span>
               </li>
               <li className="profile__input-container">
-                <label className="profile__input-label" htmlFor="jobTitle">
+                <label className="profile__input-label" htmlFor="position">
                   Должность
                   <input
-                    {...register('jobTitle')}
+                    {...register('position')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
+                    } ${
+                      errors.position?.message && 'profile__input_type_error'
                     }`}
                     type="text"
                     placeholder="Должность"
@@ -230,7 +242,7 @@ function ProfileInfo() {
                   />
                 </label>
                 <span className="profile__input-error">
-                  {errors.jobTitle?.message}
+                  {errors.position?.message}
                 </span>
               </li>
               <li className="profile__input-container">
@@ -243,6 +255,9 @@ function ProfileInfo() {
                     {...register('office_phone_number')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
+                    } ${
+                      errors.office_phone_number?.message &&
+                      'profile__input_type_error'
                     }`}
                     type="text"
                     placeholder="Внутренний номер"
@@ -262,6 +277,8 @@ function ProfileInfo() {
                     {...register('middle_name')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
+                    } ${
+                      errors.middle_name?.message && 'profile__input_type_error'
                     }`}
                     type="text"
                     placeholder="Отчество"
@@ -281,7 +298,7 @@ function ProfileInfo() {
                     {...register('grade')}
                     className={`profile__input ${
                       !isEdit && 'profile__input_type_disabled'
-                    }`}
+                    } ${errors.grade?.message && 'profile__input_type_error'}`}
                     type="text"
                     placeholder="Грейд"
                     disabled={!isEdit}
@@ -300,7 +317,7 @@ function ProfileInfo() {
                     {...register('email')}
                     className={`profile__input profile__input_no-capital-letter ${
                       !isEdit && 'profile__input_type_disabled'
-                    }`}
+                    } ${errors.email?.message && 'profile__input_type_error'}`}
                     type="email"
                     placeholder="E-mail"
                     disabled={!isEdit}
