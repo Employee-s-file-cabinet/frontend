@@ -1,3 +1,11 @@
+.career-development {
+  margin-top: 24px;
+}
+
+.career-development:first-of-type {
+  margin-top: 0;
+}
+
 .horizontal-wrapper {
   display: flex;
   margin-bottom: 20px;
@@ -24,6 +32,7 @@
     border-radius: 4px;
     border: 1px solid var(--Shades-grey-lighter, #dbdbdb);
     background: var(--White-white, #fff);
+    box-sizing: border-box;
   }
 
   &__input:focus {
@@ -84,6 +93,22 @@
     opacity: 0;
   }
 
+  &__input-two-third {
+    width: 420px;
+    margin-right: 20px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--Shades-grey-lighter, #dbdbdb);
+    background: var(--White-white, #fff);
+  }
+
+  &__input-two-third:focus {
+    box-sizing: border-box;
+    box-shadow: 0px 0px 0px 2px rgba(0, 209, 178, 0.3);
+    border: 1px solid rgba(0, 209, 178, 1);
+    outline: none;
+  }
+
   &__input-type-disabled {
     border: none;
     color: black;
@@ -91,8 +116,11 @@
     margin-right: 20px;
   }
 
-  &__input-type-disabled:last-of-type {
-    margin-right: 0;
+  &__input-type-error {
+    border-radius: 4px;
+    border: 1px solid var(--error, #f14668);
+    background: var(--white, #fff);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1) inset;
   }
 }
 
@@ -102,4 +130,9 @@
 
 .file-name-padding {
   width: 240px;
+}
+
+.column-margin {
+  margin-top: 30px;
+  padding-left: 0;
 }

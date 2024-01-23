@@ -1,5 +1,9 @@
+.button-disabled {
+  display: none;
+}
+
 .buttons-group {
-  margin-top: 32px;
+  margin-top: 48px;
   margin-bottom: 68px;
 }
 
@@ -54,23 +58,27 @@
   margin: 0;
   padding: 0;
   margin-top: 40px;
-  width: 900px;
+  width: 1070px;
   background-color: white;
 
   &__add {
     margin-top: 24px;
-    margin-left: 260px;
     margin-bottom: 32px;
+    margin-left: -12px;
+    padding: 7px 16px;
     border: 1px solid var(--primary, #00d1b2);
     border-radius: 6px;
     background: white;
     color: var(--primary, #00d1b2);
     /* text bold */
-    font-family: Open Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: 150%; /* 24px */
+  }
+
+  &__add-not-margin {
+    margin-left: 0;
   }
 
   &__button {
@@ -105,12 +113,17 @@
   }
 }
 
+.is-margin-top {
+  margin-top: 3px;
+}
+
+.is-two-quarters-width {
+  max-width: 410px;
+}
+
 .label-horizontal {
-  // margin-right: 40px;
-  // width: 200px;
   color: var(--black, #0a0a0a);
   /* h6 */
-  font-family: Open Sans;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -120,7 +133,15 @@
 .label-type {
   width: 200px;
   word-wrap: break-word;
-  // padding-left: 12px;
+}
+
+.label-type-long {
+  width: 420px;
+}
+
+.label-margin {
+  margin-right: 21px;
+  margin-bottom: 5px;
 }
 
 .magin-column {
@@ -131,10 +152,7 @@ select option:checked {
   background-color: var(--primary-primary, #00d1b2);
 }
 
-.button-disabled {
-  display: none;
-}
-
-.is-two-quarters-width {
-  max-width: 410px;
+.span-wrapper {
+  display: flex;
+  flex-direction: column;
 }
