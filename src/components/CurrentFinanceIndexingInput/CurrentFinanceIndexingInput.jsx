@@ -1,37 +1,41 @@
 export default function CurrentFinanceIndexingInput({ isEdit }) {
   return (
-    <div className="columns">
-      <div className="column">
+    <fieldset>
+      <div className="columns">
         <div className="control">
           <input
-            className="input"
+            className={`horizontal-wrapper__input-small${
+              (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+            }`}
             type="date"
             placeholder=""
             disabled={!isEdit}
           />
         </div>
-      </div>
-      <div className="column">
         <div className="control">
           <input
-            className="input"
+            className={`horizontal-wrapper__input-small${
+              (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+            }`}
             type="number"
             placeholder=""
             disabled={!isEdit}
           />
         </div>
-      </div>
-      <div className="column">
         <div className="control">
           <input
-            className="input"
+            className={`horizontal-wrapper__input-small${
+              (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+            }`}
             type="number"
             placeholder=""
             disabled={!isEdit}
           />
         </div>
+        {isEdit && (
+          <input type="button" className="button-trash button-trash-centre" />
+        )}
       </div>
-      <input type="button" className="button-trash button-trash-margin" />
-    </div>
+    </fieldset>
   );
 }

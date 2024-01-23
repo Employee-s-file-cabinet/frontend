@@ -2,27 +2,28 @@ import CurrentDFVacationInput from '../CurrentDFVacationInput/CurrentDFVacationI
 
 export default function CurrentDFVacationLabel({ isEdit }) {
   return (
-    <>
-      <div className="columns">
-        <div className="column">
-          <div className="control">
-            <legend className="label label label-horizontal is-two-quarters">
-              Количество дней
-            </legend>
-          </div>
+    <section>
+      <div className="columns is-margin-top">
+        <div className="control">
+          <legend className="label label label-horizontal label-type label-margin">
+            Количество дней
+          </legend>
         </div>
-        <div className="column">
-          <legend className="label label label-horizontal is-one-quarter">
+        <div className="control">
+          <legend className="label label label-horizontal label-type label-margin">
             Дата начала
           </legend>
         </div>
-        <div className="column">
-          <legend className="label label label-horizontal is-one-quarter">
+        <div className="control">
+          <legend className="label label label-horizontal label-type label-margin">
             Дата окончания
           </legend>
         </div>
       </div>
       <CurrentDFVacationInput isEdit={isEdit} />
-    </>
+      {isEdit && (
+        <button className="current-data-form__add">+ &ensp;Добавить</button>
+      )}
+    </section>
   );
 }

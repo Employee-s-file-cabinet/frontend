@@ -1,45 +1,45 @@
 export default function CurrentDFCompletedTrainingPrice({ isEdit }) {
   return (
-    <div className="columns columns-margin">
-      <div className="column is-one-quarter">
-        <div className="control">
-          <legend className="label label label-horizontal is-one-quarter">
-            Стоимость (р.)
-          </legend>
-          <input
-            className="input"
-            type="number"
-            placeholder=""
-            disabled={!isEdit}
-          />
-        </div>
+    <fieldset className="columns is-columns-margin">
+      <div className="control">
+        <legend className="label label label-horizontal label-type label-margin">
+          Стоимость (р.)
+        </legend>
+        <input
+          className={`horizontal-wrapper__input-small${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
+          type="number"
+          placeholder=""
+          disabled={!isEdit}
+        />
       </div>
-      <div className="column is-two-quarter">
-        <legend className="label label label-horizontal is-two-quarters">
+      <div className="control">
+        <legend className="label label label-horizontal label-type label-margin">
           Начало
         </legend>
-        <div className="control">
-          <input
-            className="input"
-            type="date"
-            placeholder="Иван"
-            disabled={!isEdit}
-          />
-        </div>
+        <input
+          className={`horizontal-wrapper__input-small${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
+          type="date"
+          placeholder="Иван"
+          disabled={!isEdit}
+        />
       </div>
-      <div className="column is-two-quarter">
-        <legend className="label label label-horizontal is-two-quarters">
+      <div className="control">
+        <legend className="label label label-horizontal label-type label-margin">
           Окончание
         </legend>
-        <div className="control">
-          <input
-            className="input"
-            type="date"
-            placeholder="Иванович"
-            disabled={!isEdit}
-          />
-        </div>
+        <input
+          className={`horizontal-wrapper__input-small${
+            (!isEdit && ' horizontal-wrapper__input-type-disabled') || ''
+          }`}
+          type="date"
+          placeholder="Иванович"
+          disabled={!isEdit}
+        />
       </div>
-    </div>
+    </fieldset>
   );
 }

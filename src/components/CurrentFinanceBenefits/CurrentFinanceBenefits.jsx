@@ -2,27 +2,28 @@ import CurrentFinanceBenefitsInput from '../CurrentFinanceBenefitsInput/CurrentF
 
 export default function CurrentFinanceBenefits({ isEdit }) {
   return (
-    <>
-      <div className="columns">
-        <div className="column">
-          <div className="control">
-            <legend className="label label label-horizontal is-two-quarters">
-              Тип
-            </legend>
-          </div>
+    <section>
+      <div className="columns is-margin-top">
+        <div className="control">
+          <legend className="label label label-horizontal label-type label-margin">
+            Тип
+          </legend>
         </div>
-        <div className="column">
-          <legend className="label label label-horizontal is-one-quarter">
+        <div className="control">
+          <legend className="label label label-horizontal label-type label-margin">
             Стоимость (p.)
           </legend>
         </div>
-        <div className="column">
-          <legend className="label label label-horizontal is-one-quarter">
+        <div className="control">
+          <legend className="label label label-horizontal label-type label-margin">
             Дата начала
           </legend>
         </div>
       </div>
       <CurrentFinanceBenefitsInput isEdit={isEdit} />
-    </>
+      {isEdit && (
+        <button className="current-data-form__add">+ &ensp;Добавить</button>
+      )}
+    </section>
   );
 }

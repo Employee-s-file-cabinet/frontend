@@ -1,9 +1,11 @@
-.columns-margin {
+.is-columns-margin {
   margin-top: 20px;
 }
 
-.radio-box {
+.check-box {
   display: flex;
+  margin-top: 10px;
+  margin-left: -12px;
 
   &__input {
     margin-right: 4px;
