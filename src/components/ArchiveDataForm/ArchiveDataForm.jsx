@@ -4,11 +4,11 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ArchiveDataFormValidationSchema } from '../../utils/validation/ArchiveDataFormValidation';
-
 import ArhPriorWork from '../ArhPriorWork/ArhPriorWork';
 import ArhFamily from '../ArhFamily/ArhFamily';
 import ArhEducation from '../ArhEducation/ArhEducation';
 import ArhMilitaryRegistration from '../ArhMilitaryRegistration/ArhMilitaryRegistration';
+import { Icon } from '../UI/Icons/Icons';
 
 export default function ArchiveDataForm() {
   const {
@@ -56,13 +56,22 @@ export default function ArchiveDataForm() {
       onSubmit={handleSubmit((data) => onSubmit(data))}
       className="archive-data-form form-active"
     >
-      <input
+      {!isEdit && (
+        <div className="archive-data-form__button">
+          <Icon
+            icon="fa-pen-to-square"
+            size="is-small"
+            onClick={() => handleEditButton()}
+          />
+        </div>
+      )}
+      {/* <input
         className={`archive-data-form__button${
           isEdit ? ' button-disabled' : ''
         }`}
         type="button"
         onClick={handleEditButton}
-      />
+      /> */}
       <ArhPriorWork
         isEdit={isEdit}
         errors={errors}

@@ -8,6 +8,7 @@ import PersonalDFOpenData from '../PersonalDFOpenData/PersonalDFOpenData';
 import PersonalDFPassportData from '../PersonalDFPassportData/PersonalDFPassportData';
 import PersonalDForeignEmployeetData from '../PersonalDForeignEmployeetData/PersonalDForeignEmployeetData';
 import PersonalDOtherDocumentstData from '../PersonalDOtherDocumentstData/PersonalDOtherDocumentstData';
+import { Icon } from '../UI/Icons/Icons';
 
 export default function PersonalDataForm() {
   const [isEdit, setIsEdit] = useState(false);
@@ -114,18 +115,18 @@ export default function PersonalDataForm() {
 
   return (
     <form
-      action="#"
-      method="post"
       className="personal-data-form form-active"
       onSubmit={handleSubmit((data) => onSubmit(data))}
     >
-      <input
-        className={`personal-data-form__button${
-          isEdit ? ' button-disabled' : ''
-        }`}
-        type="button"
-        onClick={handleEditButton}
-      />
+      {!isEdit && (
+        <div className="personal-data-form__button">
+          <Icon
+            icon="fa-pen-to-square"
+            size="is-small"
+            onClick={() => handleEditButton()}
+          />
+        </div>
+      )}
       <PersonalDFOpenData
         isEdit={isEdit}
         errors={errors}
@@ -156,20 +157,30 @@ export default function PersonalDataForm() {
       />
       <div className="buttons-group">
         <button
-          className={` button-save${!isEdit ? ' button-disabled' : ''}`}
+          className={`button-save${!isEdit ? ' button-disabled' : ''}`}
           type="submit"
           disabled={!isValid || !isDirty}
         >
           Сохранить
         </button>
-        <button
-          className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
-          type="button"
-          disabled={!isDirty}
-          onClick={onReset}
-        >
-          Сбросить изменения
-        </button>
+        {isDirty ? (
+          <button
+            type="button"
+            className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
+            disabled={!isDirty}
+            onClick={onReset}
+          >
+            Сбросить изменения
+          </button>
+        ) : (
+          <button
+            type="button"
+            className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
+            onClick={() => setIsEdit(false)}
+          >
+            Отмена
+          </button>
+        )}
       </div>
     </form>
   );

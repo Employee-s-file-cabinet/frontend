@@ -85,12 +85,10 @@ export default function EmployeePage() {
   // }, [currentUserId]);
 
   useEffect(() => {
-    setCurrentUser({});
     if (isLoggedIn) {
       setIsFetching(true);
       getSelectEmployee(currentUserId)
         .then((res) => {
-          // eslint-disable-next-line no-console
           setCurrentUser(res);
           setTimeout(() => {
             setIsFetching(false);
