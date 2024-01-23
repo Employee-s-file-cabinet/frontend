@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { GeneralContext } from '../../contexts/GeneralContext';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import HeaderMain from '../../components/HeaderMain/HeaderMain';
 import EmployeesList from '../../components/EmployeesList/EmployeesList';
 import EmployeesSearch from '../../components/EmployeesSearch/EmployeesSearch';
@@ -14,6 +16,8 @@ export default function EmployeesPage({
   setUsersList,
   setLastPage,
 }) {
+  const { setIsFetching } = useContext(GeneralContext);
+  const { setCurrentUser } = useContext(CurrentUserContext);
   const [searchFiltration, setSearchFiltration] = useState('alphabet');
   const [searchQuery, setSearchQuery] = useState('');
   const [previousSearchQuery, setPreviousSearchQuery] = useState('');
@@ -46,6 +50,11 @@ export default function EmployeesPage({
     setPreviousSearchQuery(searchQuery);
     // eslint-disable-next-line
   }, [currentPage, searchQuery, filterTeg]);
+
+  useEffect(() => {
+    setIsFetching(true);
+    setCurrentUser({});
+  });
 
   return (
     <section className="employees">
