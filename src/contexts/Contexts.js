@@ -8,6 +8,8 @@ export default function Contexts({
   setCurrentUser,
   isLoggedIn,
   setIsLoggedIn,
+  isFetching,
+  setIsFetching,
 }) {
   return (
     <CurrentUserContext.Provider
@@ -25,9 +27,11 @@ export default function Contexts({
           () => ({
             isLoggedIn,
             setIsLoggedIn,
+            isFetching,
+            setIsFetching,
           }),
           // eslint-disable-next-line
-          [setIsLoggedIn, isLoggedIn]
+          [setIsLoggedIn, isLoggedIn, isFetching, setIsFetching]
         )}
       >
         {children}

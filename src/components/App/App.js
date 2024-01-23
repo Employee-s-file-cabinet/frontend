@@ -38,6 +38,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem('login') || false
   );
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem('login') === 'true') setIsLoggedIn(true);
@@ -132,6 +133,8 @@ function App() {
         setCurrentUser={setCurrentUser}
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
+        isFetching={isFetching}
+        setIsFetching={setIsFetching}
       >
         <RouterProvider router={router} />
       </Contexts>
