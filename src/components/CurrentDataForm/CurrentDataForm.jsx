@@ -51,12 +51,8 @@ export default function CurrentDataForm() {
     setIsEdit(false);
   }
 
-  // console.log('errors = ', errors);
-
   return (
     <form
-      action="#"
-      method="post"
       className="current-data-form form-active"
       onSubmit={handleSubmit((data) => onSubmit(data))}
       noValidate

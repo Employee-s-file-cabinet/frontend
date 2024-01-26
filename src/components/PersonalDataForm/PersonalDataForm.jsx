@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 import './PersonalDataForm.scss';
 import 'bulma/css/bulma.min.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { PersonalDataFormValidationSchema } from '../../utils/validation/PersonalDataFormValidation';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import PersonalDFOpenData from '../PersonalDFOpenData/PersonalDFOpenData';
 import PersonalDFPassportData from '../PersonalDFPassportData/PersonalDFPassportData';
 import PersonalDForeignEmployeetData from '../PersonalDForeignEmployeetData/PersonalDForeignEmployeetData';
@@ -12,6 +14,7 @@ import { Icon } from '../UI/Icons/Icons';
 
 export default function PersonalDataForm() {
   const [isEdit, setIsEdit] = useState(false);
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
   const {
     register,
@@ -23,12 +26,99 @@ export default function PersonalDataForm() {
     reset,
     formState: { errors, isValid, isDirty },
   } = useForm({
-    defaultValues: {
-      date_of_birth: '1981-01-01',
-      place_of_birth: 'г. Норильск',
+    // defaultValues: {
+    //   date_of_birth: '1981-01-01',
+    //   place_of_birth: 'г. Норильск',
+    //   gender: 'Женский',
+    //   registration_address: 'Россия, г. Москва, Остоженка ул., д.15, кв.25',
+    //   residential_address: 'Россия, г. Москва, Мосфильмовская ул., д.11, кв.42',
+    //   personalDFPassportCitizenshipFieldSet: [
+    //     {
+    //       citizenship: 'РФ',
+    //       number: '1122303909',
+    //       issued_date: '2001-12-12',
+    //       issued_by: 'РОВД ПЛАНЕТЫ МАРС',
+    //       department_code: '111-222',
+    //       has_scan: true,
+    //       scan: '',
+    //       scan_name: 'passport.pdf',
+    //     },
+    //   ],
+    //   personalDFPassportForeignFieldSet: [
+    //     {
+    //       number: '751234787',
+    //       issued_date: '2024-01-16',
+    //       expired: '2024-01-18',
+    //     },
+    //   ],
+    //   personalDFPassportVisaFieldSet: [
+    //     {
+    //       issued_by: 'США',
+    //       category: 'B-1',
+    //       issued_date: '2024-01-16',
+    //       expired: '2024-01-18',
+    //     },
+    //   ],
+    //   personalDForeignEmployeeWorkVisaFieldSet: [
+    //     {
+    //       number: '001112233',
+    //       category: 'Однократная',
+    //       issued_date: '2024-01-16',
+    //       expired: '2024-01-18',
+    //     },
+    //   ],
+    //   personalDForeignEmployeeWorkPermitFieldSet: [
+    //     {
+    //       number: '770033117744',
+    //       issued_date: '2024-01-16',
+    //       expired: '2024-01-18',
+    //     },
+    //   ],
+    //   taxpayer: {
+    //     number: '771234345656',
+    //     has_scan: true,
+    //     scan: '',
+    //     scan_name: 'inn.png',
+    //   },
+    //   insurance: {
+    //     number: '253-333-671 00',
+    //     scan: '',
+    //     has_scan: true,
+    //     scan_name: 'snils.png',
+    //   },
+    //   agreement: {
+    //     has_scan: true,
+    //     scan: '',
+    //     scan_name: 'test.png',
+    //   },
+    // }
+    resolver: yupResolver(PersonalDataFormValidationSchema),
+    mode: 'onChange',
+  });
+
+  function handleEditButton() {
+    setIsEdit(true);
+  }
+
+  const onReset = () => {
+    reset(undefined, { keepDirtyValues: false });
+    setIsEdit(false);
+  };
+
+  function onSubmit(data) {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    reset(undefined, { keepValues: true });
+    setIsEdit(false);
+  }
+
+  useEffect(() => {
+    reset({
+      date_of_birth: currentUser.date_of_birth,
+      place_of_birth: currentUser.place_of_birth,
       gender: 'Женский',
-      registration_address: 'Россия, г. Москва, Остоженка ул., д.15, кв.25',
-      residential_address: 'Россия, г. Москва, Мосфильмовская ул., д.11, кв.42',
+      registration_address: currentUser.registration_address,
+      residential_address: currentUser.residential_address,
       personalDFPassportCitizenshipFieldSet: [
         {
           citizenship: 'РФ',
@@ -88,30 +178,8 @@ export default function PersonalDataForm() {
         scan: '',
         scan_name: 'test.png',
       },
-    },
-    resolver: yupResolver(PersonalDataFormValidationSchema),
-    mode: 'onChange',
-  });
-
-  useEffect(() => {
-    reset(undefined, { keepDirtyValues: false });
-  }, [reset]);
-
-  function handleEditButton() {
-    setIsEdit(true);
-  }
-
-  const onReset = () => {
-    reset(undefined, { keepDirtyValues: false });
-    setIsEdit(false);
-  };
-
-  function onSubmit(data) {
-    // eslint-disable-next-line no-console
-    console.log(data);
-    reset(undefined, { keepValues: true });
-    setIsEdit(false);
-  }
+    });
+  }, [currentUser, reset]);
 
   return (
     <form

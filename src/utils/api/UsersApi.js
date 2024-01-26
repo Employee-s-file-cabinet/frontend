@@ -41,7 +41,7 @@ export function getEmployees(limit, query, page) {
 // Function get select employee
 export function getSelectEmployee(userId) {
   return axiosBase
-    .get(`/users/${userId}`)
+    .get(`/users/${userId}?expanded=true`)
     .then((res) => res.data)
     .catch((error) => processError(error));
 }

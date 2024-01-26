@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import './PersonalDFPassportCitizenship.scss';
 import { useFieldArray } from 'react-hook-form';
 import scanLabel from '../../assets/images/scan-label.png';

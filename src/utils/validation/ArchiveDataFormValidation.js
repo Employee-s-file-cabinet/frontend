@@ -71,4 +71,26 @@ export const ArchiveDataFormValidationSchema = yup.object().shape({
         ),
     })
   ),
+  marriage: yup.object({
+    status: yup.string().oneOf(['Да', 'Нет']).required(),
+    certificate: yup.string().when('status', {
+      is: (value) => value.includes('Да'),
+      then: () => yup.string(),
+    }),
+    has_scan: yup.boolean().notRequired(),
+    scan: yup.lazy((value) => {
+      if (value) {
+        return value.length !== 0
+          ? yup
+              .mixed()
+              .test(
+                'fileSize',
+                'Размер файла превышает 5 Мб.',
+                (file) => file[0].size <= 5242880
+              )
+          : yup.mixed().notRequired();
+      }
+      return yup.mixed().notRequired();
+    }),
+  }),
 });

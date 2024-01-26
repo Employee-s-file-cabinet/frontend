@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import './ArchiveDataForm.scss';
 import 'bulma/css/bulma.min.css';
 import { useState } from 'react';
@@ -15,6 +16,7 @@ export default function ArchiveDataForm() {
     register,
     control,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -33,6 +35,13 @@ export default function ArchiveDataForm() {
           awardDate: '2000-12-31',
         },
       ],
+      marriage: {
+        status: 'Да',
+        certificate: 'ОАЬД112121212',
+        has_scan: true,
+        scan: '',
+        scan_name: 'marriage_cert.pdf',
+      },
     },
     resolver: yupResolver(ArchiveDataFormValidationSchema),
     mode: 'onChange',
@@ -65,20 +74,18 @@ export default function ArchiveDataForm() {
           />
         </div>
       )}
-      {/* <input
-        className={`archive-data-form__button${
-          isEdit ? ' button-disabled' : ''
-        }`}
-        type="button"
-        onClick={handleEditButton}
-      /> */}
       <ArhPriorWork
         isEdit={isEdit}
         errors={errors}
         register={register}
         control={control}
       />
-      <ArhFamily isEdit={isEdit} />
+      <ArhFamily
+        isEdit={isEdit}
+        errors={errors}
+        register={register}
+        getValues={getValues}
+      />
       <ArhEducation isEdit={isEdit} />
       <ArhMilitaryRegistration isEdit={isEdit} />
 

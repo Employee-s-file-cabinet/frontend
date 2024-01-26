@@ -5,7 +5,7 @@ import ArhFamilySpouse from '../ArhFamilySpouse/ArhFamilySpouse';
 import ArhFamilyChildren from '../ArhFamilyChildren/ArhFamilyChildren';
 import ArhFamilyParents from '../ArhFamilyParents/ArhFamilyParents';
 
-export default function ArhFamily({ isEdit }) {
+export default function ArhFamily({ isEdit, errors, register, getValues }) {
   return (
     <details className="details" open>
       <summary className="summaru">Семья</summary>
@@ -16,7 +16,12 @@ export default function ArhFamily({ isEdit }) {
           </legend>
         </div>
         <div className="column block-gap">
-          <ArhFamilyMaritalStatus isEdit={isEdit} />
+          <ArhFamilyMaritalStatus
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            getValues={getValues}
+          />
         </div>
         <input type="button" className="button-trash button-trash-none " />
       </div>

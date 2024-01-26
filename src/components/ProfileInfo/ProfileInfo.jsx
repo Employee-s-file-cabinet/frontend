@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import './ProfileInfo.scss';
 import * as React from 'react';
 import { useEffect, useContext, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
@@ -6,7 +7,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Icon } from '../UI/Icons/Icons';
 import ProfilePic from '../../assets/images/profile.jpg';
 import { ProfileInfoValidationSchema } from '../../utils/validation/ProfileInfoValidation';
-import './ProfileInfo.scss';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 // import { patchSelectEmployee } from '../../utils/api/UsersApi';
 
@@ -21,8 +21,6 @@ function ProfileInfo() {
     }
     return `+${number}`;
   }
-
-  console.log(currentUser, 'currentUser.last_name');
 
   const {
     control,
@@ -72,17 +70,7 @@ function ProfileInfo() {
     // Not implemented in backend
 
     // patchSelectEmployee(currentUser.id,
-    //   {
-    //     last_name: data.last_name,
-    //     first_name: data.first_name,
-    //     middle_name: data.middle_name,
-    //     department: data.department,
-    //     position: data.position,
-    //     grade: data.grade,
-    //     mobile_phone_number: data.mobile_phone_number,
-    //     office_phone_number: data.office_phone_number,
-    //     email: data.email,
-    //   }).then((res)=>{
+    //   data).then((res)=>{
     //   setCurrentUser(res);
     //
     // }).catch((err) =>
@@ -90,17 +78,6 @@ function ProfileInfo() {
     //   console.log(`Ошибка: ${err} Обратитесь в службу поддержки. Вы ввели ${data}`)
     // );
 
-    // setCurrentUser({
-    //   last_name: data.last_name,
-    //   first_name: data.first_name,
-    //   middle_name: data.middle_name,
-    //   department: data.department,
-    //   position: data.position,
-    //   grade: data.grade,
-    //   mobile_phone_number: data.mobile_phone_number,
-    //   office_phone_number: data.office_phone_number,
-    //   email: data.email,
-    // });
     setCurrentUser(data);
     setIsEdit(false);
   }
