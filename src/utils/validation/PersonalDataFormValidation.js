@@ -10,7 +10,7 @@ export const PersonalDataFormValidationSchema = yup
       .date()
       .typeError('Введите дату в формате ДД.ММ.ГГГГ')
       .required(requiredFieldError)
-      .min('Jan 1 1900', 'Дата начала работы не должна быть раньше 01.01.1900')
+      .min('Jan 1 1900', 'Дата рождения не должна быть раньше 01.01.1900')
       .max(
         new Date(new Date() - new Date(567993600000)),
         `Дата рождения не должна быть позже ${trasnformDate(
@@ -69,13 +69,13 @@ export const PersonalDataFormValidationSchema = yup
           .notRequired(),
         scan: yup.lazy((value) => {
           if (value) {
-            return value.length !== 0
+            return value.length !== 0 && value.length !== undefined
               ? yup
                   .mixed()
                   .test(
                     'fileSize',
                     'Размер файла превышает 5 Мб.',
-                    (file) => file[0].size <= 5242880
+                    (file) => file[0]?.size <= 5242880
                   )
               : yup.mixed().notRequired();
           }
@@ -257,13 +257,13 @@ export const PersonalDataFormValidationSchema = yup
       has_scan: yup.boolean().notRequired(),
       scan: yup.lazy((value) => {
         if (value) {
-          return value.length !== 0
+          return value.length !== 0 && value.length !== undefined
             ? yup
                 .mixed()
                 .test(
                   'fileSize',
                   'Размер файла превышает 5 Мб.',
-                  (file) => file[0].size <= 5242880
+                  (file) => file[0]?.size <= 5242880
                 )
             : yup.mixed().notRequired();
         }
@@ -282,13 +282,13 @@ export const PersonalDataFormValidationSchema = yup
       has_scan: yup.boolean().notRequired(),
       scan: yup.lazy((value) => {
         if (value) {
-          return value.length !== 0
+          return value.length !== 0 && value.length !== undefined
             ? yup
                 .mixed()
                 .test(
                   'fileSize',
                   'Размер файла превышает 5 Мб.',
-                  (file) => file[0].size <= 5242880
+                  (file) => file[0]?.size <= 5242880
                 )
             : yup.mixed().notRequired();
         }
@@ -300,13 +300,13 @@ export const PersonalDataFormValidationSchema = yup
       has_scan: yup.boolean().notRequired(),
       scan: yup.lazy((value) => {
         if (value) {
-          return value.length !== 0
+          return value.length !== 0 && value.length !== undefined
             ? yup
                 .mixed()
                 .test(
                   'fileSize',
                   'Размер файла превышает 5 Мб.',
-                  (file) => file[0].size <= 5242880
+                  (file) => file[0]?.size <= 5242880
                 )
             : yup.mixed().notRequired();
         }

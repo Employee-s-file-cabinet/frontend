@@ -11,13 +11,19 @@ import ArhEducation from '../ArhEducation/ArhEducation';
 import ArhMilitaryRegistration from '../ArhMilitaryRegistration/ArhMilitaryRegistration';
 import { Icon } from '../UI/Icons/Icons';
 
+let counter = 0;
+
 export default function ArchiveDataForm() {
   const {
     register,
     control,
     handleSubmit,
     getValues,
-    formState: { errors },
+    watch,
+    reset,
+    resetField,
+    setValue,
+    formState: { errors, isValid, isDirty },
   } = useForm({
     defaultValues: {
       priorWorkExperienceFieldSet: [
@@ -37,10 +43,20 @@ export default function ArchiveDataForm() {
       ],
       marriage: {
         status: 'Да',
-        certificate: 'ОАЬД112121212',
+        certificate: 'I-МЮ № 111789',
         has_scan: true,
-        scan: '',
+        scan: {},
         scan_name: 'marriage_cert.pdf',
+      },
+      spouse: {
+        last_name: 'Смирнов',
+        first_name: 'Андрей',
+        middle_name: 'Владиленович',
+        date_of_birth: '1989-02-24',
+        is_employee: 'Да',
+        department: 'Финансовый',
+        position: 'Помощник директора',
+        occupation: 'Биолог',
       },
     },
     resolver: yupResolver(ArchiveDataFormValidationSchema),
@@ -51,17 +67,25 @@ export default function ArchiveDataForm() {
   function handleEditButton() {
     setIsEdit(true);
   }
+  const onReset = () => {
+    reset(undefined, { keepDirtyValues: false });
+    setIsEdit(false);
+  };
 
   function onSubmit(data) {
     // eslint-disable-next-line no-console
     console.log(data);
+    reset(undefined, { keepValues: true });
     setIsEdit(false);
   }
 
+  // eslint-disable-next-line no-plusplus
+  counter++;
+
+  // console.log(isValid);
+
   return (
     <form
-      action="#"
-      method="post"
       onSubmit={handleSubmit((data) => onSubmit(data))}
       className="archive-data-form form-active"
     >
@@ -74,6 +98,7 @@ export default function ArchiveDataForm() {
           />
         </div>
       )}
+      <span>{counter}</span>
       <ArhPriorWork
         isEdit={isEdit}
         errors={errors}
@@ -85,20 +110,39 @@ export default function ArchiveDataForm() {
         errors={errors}
         register={register}
         getValues={getValues}
+        watch={watch}
+        reset={reset}
+        resetField={resetField}
+        setValue={setValue}
       />
       <ArhEducation isEdit={isEdit} />
       <ArhMilitaryRegistration isEdit={isEdit} />
-
       <div className="buttons-group">
-        <button className={` button-save${!isEdit ? ' button-disabled' : ''}`}>
+        <button
+          className={`button-save${!isEdit ? ' button-disabled' : ''}`}
+          type="submit"
+          disabled={!isValid || !isDirty}
+        >
           Сохранить
         </button>
-        <button
-          className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
-          type="button"
-        >
-          Сбросить изменения
-        </button>
+        {isDirty ? (
+          <button
+            type="button"
+            className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
+            disabled={!isDirty}
+            onClick={onReset}
+          >
+            Сбросить изменения
+          </button>
+        ) : (
+          <button
+            type="button"
+            className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
+            onClick={() => setIsEdit(false)}
+          >
+            Отмена
+          </button>
+        )}
       </div>
     </form>
   );

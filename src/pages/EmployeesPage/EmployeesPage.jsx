@@ -54,7 +54,7 @@ export default function EmployeesPage({
   useEffect(() => {
     setIsFetching(true);
     setCurrentUser({});
-  });
+  }, [setIsFetching, setCurrentUser]);
 
   return (
     <section className="employees">

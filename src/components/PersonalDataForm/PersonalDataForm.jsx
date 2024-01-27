@@ -40,7 +40,7 @@ export default function PersonalDataForm() {
     //       issued_by: 'РОВД ПЛАНЕТЫ МАРС',
     //       department_code: '111-222',
     //       has_scan: true,
-    //       scan: '',
+    //       scan: {},
     //       scan_name: 'passport.pdf',
     //     },
     //   ],
@@ -77,18 +77,18 @@ export default function PersonalDataForm() {
     //   taxpayer: {
     //     number: '771234345656',
     //     has_scan: true,
-    //     scan: '',
+    //     scan: {},
     //     scan_name: 'inn.png',
     //   },
     //   insurance: {
     //     number: '253-333-671 00',
-    //     scan: '',
+    //     scan: {},
     //     has_scan: true,
     //     scan_name: 'snils.png',
     //   },
     //   agreement: {
     //     has_scan: true,
-    //     scan: '',
+    //     scan: {},
     //     scan_name: 'test.png',
     //   },
     // }
@@ -127,7 +127,7 @@ export default function PersonalDataForm() {
           issued_by: 'РОВД ПЛАНЕТЫ МАРС',
           department_code: '111-222',
           has_scan: true,
-          scan: '',
+          scan: {},
           scan_name: 'passport.pdf',
         },
       ],
@@ -164,18 +164,18 @@ export default function PersonalDataForm() {
       taxpayer: {
         number: '771234345656',
         has_scan: true,
-        scan: '',
+        scan: {},
         scan_name: 'inn.png',
       },
       insurance: {
         number: '253-333-671 00',
-        scan: '',
+        scan: {},
         has_scan: true,
         scan_name: 'snils.png',
       },
       agreement: {
         has_scan: true,
-        scan: '',
+        scan: {},
         scan_name: 'test.png',
       },
     });

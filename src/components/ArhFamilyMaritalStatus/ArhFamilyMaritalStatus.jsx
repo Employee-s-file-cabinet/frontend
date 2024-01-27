@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import './ArhFamilyMaritalStatus.scss';
-
+import { useState, useEffect } from 'react';
 import scanLabel from '../../assets/images/scan-label.png';
 
 export default function ArhFamilyMaritalStatus({
@@ -8,9 +8,50 @@ export default function ArhFamilyMaritalStatus({
   errors,
   register,
   getValues,
+  isSpouseShown,
+  watch,
+  resetField,
+  setValue,
 }) {
+  const [fileName, setFileName] = useState();
+
+  useEffect(() => {
+    const name = watch((value) => setFileName(value.marriage.scan_name));
+    return () => {
+      name.unsubscribe();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [watch]);
+
+  useEffect(() => {
+    register('marriage.scan_name');
+    if (isSpouseShown) {
+      resetField('marriage.certificate');
+      resetField('marriage.scan_name');
+      resetField('marriage.scan');
+      resetField('spouse');
+    } else {
+      setValue('marriage.certificate', '');
+      setValue('marriage.scan_name', '');
+      if (getValues().marriage?.scan?.[0]?.name !== undefined) {
+        resetField('marriage.scan');
+      }
+      setValue('spouse', {
+        last_name: '',
+        first_name: '',
+        middle_name: '',
+        date_of_birth: '',
+        is_employee: 'Нет',
+        department: '',
+        position: '',
+        occupation: '',
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSpouseShown]);
+
   return (
-    <>
+    <section>
       <div className="columns">
         <div className="column is-one-quarter">
           <div className="control">
@@ -25,7 +66,6 @@ export default function ArhFamilyMaritalStatus({
               <option>Да</option>
               <option>Нет</option>
             </select>
-            {/* если нет, то включаем input-none для полей номер свидетельства и скан */}
           </div>
         </div>
         <div className="column is-two-quarter input-none">
@@ -36,10 +76,11 @@ export default function ArhFamilyMaritalStatus({
             <input
               className="input"
               type="text"
-              disabled={!isEdit}
+              disabled={!isEdit || !isSpouseShown}
               {...register('marriage.certificate')}
             />
           </div>
+          <span className="">{errors?.marriage?.certificate?.message}</span>
         </div>
       </div>
       <div className="scan-wrapper input-none">
@@ -58,6 +99,7 @@ export default function ArhFamilyMaritalStatus({
               type="file"
               accept=".pdf,.jpg,,.png,.jpeg"
               {...register(`marriage.scan`)}
+              disabled={!isEdit || !isSpouseShown}
             />
             <span className="file-cta">
               <span className="file-icon">
@@ -66,13 +108,12 @@ export default function ArhFamilyMaritalStatus({
               <span className="file-label">Выбрать файл</span>
             </span>
             <span className="file-name file-name-span">
-              {getValues().marriage?.scan?.[0]?.name ||
-                (getValues().marriage?.has_scan &&
-                  getValues().marriage?.scan_name)}
+              {getValues().marriage?.scan?.[0]?.name || fileName}
             </span>
           </legend>
         </div>
+        <span>{errors?.marriage?.scan?.message}</span>
       </div>
-    </>
+    </section>
   );
 }

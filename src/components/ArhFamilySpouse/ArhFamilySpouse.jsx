@@ -1,8 +1,36 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import './ArhFamilySpouse.scss';
+import { useState, useEffect } from 'react';
 
-export default function ArhFamilySpouse({ isEdit }) {
+export default function ArhFamilySpouse({
+  isEdit,
+  errors,
+  register,
+  getValues,
+  watch,
+  reset,
+  isSpouseShown,
+}) {
+  const [isEmployee, setIsEmployee] = useState(
+    getValues()?.spouse?.is_employee === 'Да' || false
+  );
+
+  useEffect(() => {
+    const isEmployeeStatus = watch((value) => {
+      if (value.spouse.is_employee === 'Да') {
+        setIsEmployee(true);
+      } else {
+        setIsEmployee(false);
+      }
+    });
+    return () => {
+      isEmployeeStatus.unsubscribe();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [watch, reset, getValues]);
   return (
-    <>
+    <section>
       <div className="columns">
         <div className="column is-one-quarter">
           <div className="control">
@@ -12,10 +40,12 @@ export default function ArhFamilySpouse({ isEdit }) {
             <input
               className="input"
               type="text"
-              placeholder="Иванов"
+              placeholder="Фамилия"
               disabled={!isEdit}
+              {...register('spouse.last_name')}
             />
           </div>
+          <span className="">{errors?.spouse?.last_name?.message}</span>
         </div>
         <div className="column is-two-quarter">
           <legend className="label label label-horizontal is-two-quarters">
@@ -25,10 +55,12 @@ export default function ArhFamilySpouse({ isEdit }) {
             <input
               className="input"
               type="text"
-              placeholder="Иван"
+              placeholder="Имя"
               disabled={!isEdit}
+              {...register('spouse.first_name')}
             />
           </div>
+          <span className="">{errors?.spouse?.first_name?.message}</span>
         </div>
         <div className="column is-two-quarter">
           <legend className="label label label-horizontal is-two-quarters">
@@ -38,10 +70,12 @@ export default function ArhFamilySpouse({ isEdit }) {
             <input
               className="input"
               type="text"
-              placeholder="Иванович"
+              placeholder="Отчество"
               disabled={!isEdit}
+              {...register('spouse.middle_name')}
             />
           </div>
+          <span className="">{errors?.spouse?.middle_name?.message}</span>
         </div>
       </div>
       <div className="columns">
@@ -50,8 +84,14 @@ export default function ArhFamilySpouse({ isEdit }) {
             <legend className="label label-horizontal is-one-quarter">
               Дата рождения
             </legend>
-            <input className="input" type="date" disabled={!isEdit} />
+            <input
+              className="input"
+              type="date"
+              disabled={!isEdit}
+              {...register('spouse.date_of_birth')}
+            />
           </div>
+          <span className="">{errors?.spouse?.date_of_birth?.message}</span>
         </div>
       </div>
       <div className="columns">
@@ -61,7 +101,7 @@ export default function ArhFamilySpouse({ isEdit }) {
               Сотрудник компании
             </legend>
             <div className="select">
-              <select>
+              <select {...register('spouse.is_employee')}>
                 <option>Да</option>
                 <option>Нет</option>
               </select>
@@ -69,33 +109,60 @@ export default function ArhFamilySpouse({ isEdit }) {
             </div>
           </div>
         </div>
-        <div className="column is-one-quarter input-none">
-          <legend className="label label label-horizontal is-one-quarter">
-            Отдел
-          </legend>
-          <div className="control">
-            <input className="input" type="text" disabled={!isEdit} />
-          </div>
-        </div>
-        <div className="column is-one-quarter input-none">
-          <legend className="label label label-horizontal is-one-quarter">
-            Должность
-          </legend>
-          <div className="control">
-            <input className="input" type="text" disabled={!isEdit} />
-          </div>
-        </div>
-      </div>
-      <div className="columns">
-        <div className="column input-none">
-          <div className="control">
-            <legend className="label label label-horizontal">
-              Вид деятельности
+        {isEmployee && (
+          <div className="column is-one-quarter input-none">
+            <legend className="label label label-horizontal is-one-quarter">
+              Отдел
             </legend>
-            <input className="input" type="text" disabled={!isEdit} />
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                disabled={!isEdit}
+                {...register('spouse.department')}
+              />
+            </div>
+
+            <span className="">{errors?.spouse?.department?.message}</span>
+          </div>
+        )}
+        {isEmployee && (
+          <div className="column is-one-quarter input-none">
+            <legend className="label label label-horizontal is-one-quarter">
+              Должность
+            </legend>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                disabled={!isEdit}
+                {...register('spouse.position')}
+              />
+            </div>
+            <span className="">{errors?.spouse?.position?.message}</span>
+          </div>
+        )}
+      </div>
+
+      {!isEmployee && (
+        <div className="columns">
+          <div className="column input-none">
+            <div className="control">
+              <legend className="label label label-horizontal">
+                Вид деятельности
+              </legend>
+              <input
+                className="input"
+                type="text"
+                placeholder="Вид деятельности"
+                disabled={!isEdit}
+                {...register('spouse.occupation')}
+              />
+            </div>
+            <span className="">{errors?.spouse?.occupation?.message}</span>
           </div>
         </div>
-      </div>
-    </>
+      )}
+    </section>
   );
 }

@@ -72,25 +72,78 @@ export const ArchiveDataFormValidationSchema = yup.object().shape({
     })
   ),
   marriage: yup.object({
-    status: yup.string().oneOf(['Да', 'Нет']).required(),
+    status: yup.string().oneOf(['Да', 'Нет']).required(requiredFieldError),
     certificate: yup.string().when('status', {
       is: (value) => value.includes('Да'),
-      then: () => yup.string(),
+      then: () =>
+        yup
+          .string()
+          .required(requiredFieldError)
+          .min(5, 'Введите номер свидетельства в формате "I-XX № 123456"'),
+      otherwise: () => yup.string().notRequired(),
     }),
     has_scan: yup.boolean().notRequired(),
     scan: yup.lazy((value) => {
       if (value) {
-        return value.length !== 0
+        return value.length !== 0 && value.length !== undefined
           ? yup
               .mixed()
               .test(
                 'fileSize',
                 'Размер файла превышает 5 Мб.',
-                (file) => file[0].size <= 5242880
+                (file) => file[0]?.size <= 5242880
               )
           : yup.mixed().notRequired();
       }
       return yup.mixed().notRequired();
     }),
+  }),
+  spouse: yup.object().when('marriage.status', {
+    is: (value) => value.includes('Да'),
+    then: () =>
+      yup.object({
+        last_name: yup
+          .string()
+          .required(requiredFieldError)
+          .matches(
+            /^(?=.{1,150}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$/,
+            'Используйте кириллицу, дефис и(или) апостроф.'
+          ),
+        first_name: yup
+          .string()
+          .required(requiredFieldError)
+          .matches(
+            /^(?=.{1,150}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$/,
+            'Используйте кириллицу, дефис и(или) апостроф.'
+          ),
+        middle_name: yup
+          .string()
+          .required(requiredFieldError)
+          .matches(/^(?=.{1,150}$)[а-яёА-ЯЁ]*$/, 'Используйте кириллицу.'),
+        date_of_birth: yup
+          .date()
+          .typeError('Введите дату в формате ДД.ММ.ГГГГ')
+          .required(requiredFieldError)
+          .min('Jan 1 1900', 'Дата рождения не должна быть раньше 01.01.1900')
+          .max(
+            new Date(new Date() - new Date(567993600000)),
+            `Дата рождения не должна быть позже ${trasnformDate(
+              new Date(new Date() - new Date(567993600000))
+            )}`
+          ),
+        is_employee: yup
+          .string()
+          .oneOf(['Да', 'Нет'])
+          .required(requiredFieldError),
+        department: yup.string().required(requiredFieldError),
+        position: yup.string().required(requiredFieldError),
+        occupation: yup
+          .string()
+          .notRequired()
+          .matches(
+            /^(?=.{1,150}$)[а-яёА-ЯЁ]+(?:[- ][а-яёА-ЯЁ]+)*$/,
+            'Используйте кириллицу, дефис'
+          ),
+      }),
   }),
 });

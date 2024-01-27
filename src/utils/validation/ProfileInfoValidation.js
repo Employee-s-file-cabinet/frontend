@@ -66,7 +66,7 @@ export const ProfileInfoValidationSchema = yup
 
     picture: yup.lazy((value) => {
       if (value) {
-        return value.length !== 0
+        return value.length !== 0 && value.length !== undefined
           ? yup
               .mixed()
               .test(
