@@ -20,6 +20,13 @@ export default function PersonalDFPassportForeign({
           className="columns is-multiline is-mobile input-none passport-foreign"
           key={field.id}
         >
+          {isEdit && (
+            <input
+              type="button"
+              className="button-trash button-trash-personal"
+              onClick={() => remove(index)}
+            />
+          )}
           <fieldset className="column">
             <div className="columns columns-margin">
               <div className="control">
@@ -96,13 +103,6 @@ export default function PersonalDFPassportForeign({
               </div>
             </div>
           </fieldset>
-          {isEdit && (
-            <input
-              type="button"
-              className="button-trash button-trash-personal"
-              onClick={() => remove(index)}
-            />
-          )}
         </div>
       ))}
       {isEdit && (

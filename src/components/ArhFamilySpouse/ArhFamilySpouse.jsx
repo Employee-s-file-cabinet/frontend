@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import './ArhFamilySpouse.scss';
 import { useState, useEffect } from 'react';
 
@@ -10,7 +8,6 @@ export default function ArhFamilySpouse({
   getValues,
   watch,
   reset,
-  isSpouseShown,
 }) {
   const [isEmployee, setIsEmployee] = useState(
     getValues()?.spouse?.is_employee === 'Да' || false
@@ -29,9 +26,10 @@ export default function ArhFamilySpouse({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watch, reset, getValues]);
+
   return (
     <section>
-      <div className="columns">
+      <fieldset className="columns">
         <div className="column is-one-quarter">
           <div className="control">
             <legend className="label label label-horizontal is-one-quarter">
@@ -77,8 +75,8 @@ export default function ArhFamilySpouse({
           </div>
           <span className="">{errors?.spouse?.middle_name?.message}</span>
         </div>
-      </div>
-      <div className="columns">
+      </fieldset>
+      <fieldset className="columns">
         <div className="column is-one-quarter">
           <div className="control">
             <legend className="label label-horizontal is-one-quarter">
@@ -93,7 +91,7 @@ export default function ArhFamilySpouse({
           </div>
           <span className="">{errors?.spouse?.date_of_birth?.message}</span>
         </div>
-      </div>
+      </fieldset>
       <div className="columns">
         <div className="column is-one-quarter">
           <div className="control">
@@ -101,11 +99,10 @@ export default function ArhFamilySpouse({
               Сотрудник компании
             </legend>
             <div className="select">
-              <select {...register('spouse.is_employee')}>
+              <select {...register('spouse.is_employee')} disabled={!isEdit}>
                 <option>Да</option>
                 <option>Нет</option>
               </select>
-              {/* если выбираем да, то input-none включаем для вида деятельности, если нет, то наоборот */}
             </div>
           </div>
         </div>
@@ -122,7 +119,6 @@ export default function ArhFamilySpouse({
                 {...register('spouse.department')}
               />
             </div>
-
             <span className="">{errors?.spouse?.department?.message}</span>
           </div>
         )}
@@ -143,7 +139,6 @@ export default function ArhFamilySpouse({
           </div>
         )}
       </div>
-
       {!isEmployee && (
         <div className="columns">
           <div className="column input-none">

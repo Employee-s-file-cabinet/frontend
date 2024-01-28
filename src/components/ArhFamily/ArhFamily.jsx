@@ -15,6 +15,7 @@ export default function ArhFamily({
   reset,
   resetField,
   setValue,
+  control,
 }) {
   const [isSpouseShown, setIsSpouseShown] = useState(
     getValues()?.marriage.status === 'Да' || false
@@ -55,7 +56,6 @@ export default function ArhFamily({
             isSpouseShown={isSpouseShown}
           />
         </div>
-        <input type="button" className="button-trash button-trash-none " />
       </div>
       <div className={`${!isSpouseShown && 'display-none'}`}>
         <div className="columns is-multiline is-mobile">
@@ -72,10 +72,8 @@ export default function ArhFamily({
               getValues={getValues}
               watch={watch}
               reset={reset}
-              isSpouseShown={isSpouseShown}
             />
           </div>
-          <input type="button" className="button-trash button-trash-none " />
         </div>
       </div>
       <div className="columns is-multiline is-mobile">
@@ -85,11 +83,15 @@ export default function ArhFamily({
           </legend>
         </div>
         <div className="column block-gap">
-          <ArhFamilyChildren isEdit={isEdit} />
+          <ArhFamilyChildren
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            getValues={getValues}
+            control={control}
+          />
         </div>
-        <input type="button" className="button-trash button-trash-none " />
       </div>
-      <button className="archive-data-form__add">Добавить +</button>
       <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter block-gap">
           <legend className="label label label-horizontal label-type">
@@ -97,9 +99,16 @@ export default function ArhFamily({
           </legend>
         </div>
         <div className="column block-gap">
-          <ArhFamilyParents isEdit={isEdit} />
+          <ArhFamilyParents
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            getValues={getValues}
+            watch={watch}
+            reset={reset}
+            type="father"
+          />
         </div>
-        <input type="button" className="button-trash button-trash-none " />
       </div>
       <div className="columns is-multiline is-mobile">
         <div className="column is-one-quarter block-gap">
@@ -108,9 +117,16 @@ export default function ArhFamily({
           </legend>
         </div>
         <div className="column block-gap">
-          <ArhFamilyParents isEdit={isEdit} />
+          <ArhFamilyParents
+            isEdit={isEdit}
+            errors={errors}
+            register={register}
+            getValues={getValues}
+            watch={watch}
+            reset={reset}
+            type="mother"
+          />
         </div>
-        <input type="button" className="button-trash button-trash-none " />
       </div>
     </details>
   );

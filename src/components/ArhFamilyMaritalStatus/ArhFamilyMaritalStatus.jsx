@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import './ArhFamilyMaritalStatus.scss';
 import { useState, useEffect } from 'react';
 import scanLabel from '../../assets/images/scan-label.png';
@@ -52,7 +51,7 @@ export default function ArhFamilyMaritalStatus({
 
   return (
     <section>
-      <div className="columns">
+      <fieldset className="columns">
         <div className="column is-one-quarter">
           <div className="control">
             <legend className="label label label-horizontal is-one-quarter">
@@ -82,7 +81,7 @@ export default function ArhFamilyMaritalStatus({
           </div>
           <span className="">{errors?.marriage?.certificate?.message}</span>
         </div>
-      </div>
+      </fieldset>
       <div className="scan-wrapper input-none">
         <h6 className="scan-wrapper__title">
           Скан документа

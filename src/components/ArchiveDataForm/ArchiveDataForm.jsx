@@ -58,6 +58,61 @@ export default function ArchiveDataForm() {
         position: 'Помощник директора',
         occupation: 'Биолог',
       },
+      children: [
+        {
+          last_name: 'Ключникова',
+          first_name: 'Маргарита',
+          middle_name: 'Анатольевна',
+          date_of_birth: '2021-07-17',
+          birth_certificate: '123123123',
+          has_scan: true,
+          scan: {},
+          scan_name: 'birth_certificate.png',
+        },
+        {
+          last_name: 'Моськин',
+          first_name: 'Геннадий',
+          middle_name: 'Семенович',
+          date_of_birth: '2009-05-01',
+          birth_certificate: '456456456',
+          has_scan: true,
+          scan: {},
+          scan_name: 'birth_certificate1.png',
+        },
+      ],
+      father: {
+        last_name: 'Криворучко',
+        first_name: 'Кирилл',
+        middle_name: 'Игоревич',
+        date_of_birth: '1961-12-12',
+        is_employee: 'Да',
+        department: 'Доставка',
+        position: 'Курьер',
+        occupation: 'Художник',
+      },
+      mother: {
+        last_name: 'Криворучко',
+        first_name: 'Анна',
+        middle_name: 'Сергеевна',
+        date_of_birth: '1963-07-18',
+        is_employee: 'Нет',
+        department: 'Финансовый',
+        position: 'Помощник директора',
+        occupation: 'Кинокритик',
+      },
+      education: [
+        {
+          date_from: '2015-09-01',
+          date_to: '2020-07-12',
+          degree: 'Высшее',
+          specialty: 'Филолог',
+          issued_institution: 'МГУ',
+          number: '123123123',
+          has_scan: true,
+          scan: {},
+          scan_name: 'diploma.png',
+        },
+      ],
     },
     resolver: yupResolver(ArchiveDataFormValidationSchema),
     mode: 'onChange',
@@ -82,13 +137,12 @@ export default function ArchiveDataForm() {
   // eslint-disable-next-line no-plusplus
   counter++;
 
-  // console.log(isValid);
-
   return (
     <form
       onSubmit={handleSubmit((data) => onSubmit(data))}
       className="archive-data-form form-active"
     >
+      <span>{counter}</span>
       {!isEdit && (
         <div className="archive-data-form__button">
           <Icon
@@ -98,7 +152,6 @@ export default function ArchiveDataForm() {
           />
         </div>
       )}
-      <span>{counter}</span>
       <ArhPriorWork
         isEdit={isEdit}
         errors={errors}
@@ -114,9 +167,17 @@ export default function ArchiveDataForm() {
         reset={reset}
         resetField={resetField}
         setValue={setValue}
+        control={control}
       />
-      <ArhEducation isEdit={isEdit} />
-      <ArhMilitaryRegistration isEdit={isEdit} />
+      <ArhEducation
+        isEdit={isEdit}
+        errors={errors}
+        register={register}
+        control={control}
+        getValues={getValues}
+        watch={watch}
+      />
+      {/* <ArhMilitaryRegistration isEdit={isEdit} /> */}
       <div className="buttons-group">
         <button
           className={`button-save${!isEdit ? ' button-disabled' : ''}`}

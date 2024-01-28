@@ -1,7 +1,35 @@
-export default function ArhFamilyParents({ isEdit }) {
+import { useState, useEffect } from 'react';
+
+export default function ArhFamilyParents({
+  isEdit,
+  errors,
+  register,
+  getValues,
+  watch,
+  reset,
+  type,
+}) {
+  const [isEmployee, setIsEmployee] = useState(
+    getValues()?.[type]?.is_employee === 'Да' || false
+  );
+
+  useEffect(() => {
+    const isEmployeeStatus = watch((value) => {
+      if (value?.[type].is_employee === 'Да') {
+        setIsEmployee(true);
+      } else {
+        setIsEmployee(false);
+      }
+    });
+    return () => {
+      isEmployeeStatus.unsubscribe();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [watch, reset, getValues]);
+
   return (
-    <>
-      <div className="columns">
+    <section>
+      <fieldset className="columns">
         <div className="column is-one-quarter">
           <div className="control">
             <legend className="label label label-horizontal is-one-quarter">
@@ -10,10 +38,12 @@ export default function ArhFamilyParents({ isEdit }) {
             <input
               className="input"
               type="text"
-              placeholder="Иванов"
+              placeholder="Фамилия"
               disabled={!isEdit}
+              {...register(`${type}.last_name`)}
             />
           </div>
+          <span className="">{errors?.[type]?.last_name?.message}</span>
         </div>
         <div className="column is-two-quarters">
           <legend className="label label label-horizontal is-two-quarters">
@@ -23,12 +53,14 @@ export default function ArhFamilyParents({ isEdit }) {
             <input
               className="input"
               type="text"
-              placeholder="Иван"
+              placeholder="Имя"
               disabled={!isEdit}
+              {...register(`${type}.first_name`)}
             />
           </div>
+          <span className="">{errors?.[type]?.first_name?.message}</span>
         </div>
-        <div className="column is-two-quarters">
+        <fieldset className="column is-two-quarters">
           <legend className="label label label-horizontal is-two-quarters">
             Отчество
           </legend>
@@ -36,20 +68,28 @@ export default function ArhFamilyParents({ isEdit }) {
             <input
               className="input"
               type="text"
-              placeholder="Иванович"
+              placeholder="Отчество"
               disabled={!isEdit}
+              {...register(`${type}.middle_name`)}
             />
           </div>
-        </div>
-      </div>
+          <span className="">{errors?.[type]?.middle_name?.message}</span>
+        </fieldset>
+      </fieldset>
       <div className="columns">
         <div className="column is-one-quarter">
           <div className="control">
             <legend className="label label-horizontal is-one-quarter">
               Дата рождения
             </legend>
-            <input className="input" type="date" disabled={!isEdit} />
+            <input
+              className="input"
+              type="date"
+              disabled={!isEdit}
+              {...register(`${type}.date_of_birth`)}
+            />
           </div>
+          <span className="">{errors?.[type]?.date_of_birth?.message}</span>
         </div>
       </div>
       <div className="columns">
@@ -59,41 +99,65 @@ export default function ArhFamilyParents({ isEdit }) {
               Сотрудник компании
             </legend>
             <div className="select">
-              <select>
+              <select {...register(`${type}.is_employee`)} disabled={!isEdit}>
                 <option>Да</option>
                 <option>Нет</option>
               </select>
-              {/* если выбираем да, то input-none включаем для вида деятельности, если нет, то наоборот */}
             </div>
           </div>
         </div>
-        <div className="column is-two-quarters input-none">
-          <legend className="label label label-horizontal is-one-quarter">
-            Отдел
-          </legend>
-          <div className="control">
-            <input className="input" type="text" disabled={!isEdit} />
-          </div>
-        </div>
-        <div className="column is-two-quarters input-none">
-          <legend className="label label label-horizontal is-one-quarter">
-            Должность
-          </legend>
-          <div className="control">
-            <input className="input" type="text" disabled={!isEdit} />
-          </div>
-        </div>
-      </div>
-      <div className="columns">
-        <div className="column input-none">
-          <div className="control">
-            <legend className="label label label-horizontal">
-              Вид деятельности
+        {isEmployee && (
+          <div className="column is-one-quarter input-none">
+            <legend className="label label label-horizontal is-one-quarter">
+              Отдел
             </legend>
-            <input className="input" type="text" disabled={!isEdit} />
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                disabled={!isEdit}
+                {...register(`${type}.department`)}
+              />
+            </div>
+            <span className="">{errors?.[type]?.department?.message}</span>
+          </div>
+        )}
+        {isEmployee && (
+          <div className="column is-one-quarter input-none">
+            <legend className="label label label-horizontal is-one-quarter">
+              Должность
+            </legend>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                disabled={!isEdit}
+                {...register(`${type}.position`)}
+              />
+            </div>
+            <span className="">{errors?.[type]?.position?.message}</span>
+          </div>
+        )}
+      </div>
+      {!isEmployee && (
+        <div className="columns">
+          <div className="column input-none">
+            <div className="control">
+              <legend className="label label label-horizontal">
+                Вид деятельности
+              </legend>
+              <input
+                className="input"
+                type="text"
+                placeholder="Вид деятельности"
+                disabled={!isEdit}
+                {...register(`${type}.occupation`)}
+              />
+            </div>
+            <span className="">{errors?.[type]?.occupation?.message}</span>
           </div>
         </div>
-      </div>
-    </>
+      )}
+    </section>
   );
 }
