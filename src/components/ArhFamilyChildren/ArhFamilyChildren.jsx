@@ -122,9 +122,9 @@ export default function ArhFamilyChildren({
                     <span className="file-label">Выбрать файл</span>
                   </span>
                   <span className="file-name file-name-span">
-                    {getValues().children?.[index].scan?.[0]?.name ||
-                      (getValues().children?.[index].has_scan &&
-                        getValues().children?.[index].scan_name)}
+                    {getValues().children?.[index]?.scan?.[0]?.name ||
+                      (getValues().children?.[index]?.has_scan &&
+                        getValues().children?.[index]?.scan_name)}
                   </span>
                   <span>{errors?.children?.[index]?.scan?.message}</span>
                 </legend>
