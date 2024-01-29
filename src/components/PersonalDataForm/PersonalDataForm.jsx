@@ -181,8 +181,6 @@ export default function PersonalDataForm() {
     });
   }, [currentUser, reset]);
 
-  // eslint-disable-next-line no-plusplus
-
   return (
     <form
       className="personal-data-form form-active"

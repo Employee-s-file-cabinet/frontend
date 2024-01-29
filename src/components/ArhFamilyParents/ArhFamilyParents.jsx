@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 
 export default function ArhFamilyParents({
@@ -15,7 +16,7 @@ export default function ArhFamilyParents({
 
   useEffect(() => {
     const isEmployeeStatus = watch((value) => {
-      if (value?.[type].is_employee === 'Да') {
+      if (value?.[type]?.is_employee === 'Да') {
         setIsEmployee(true);
       } else {
         setIsEmployee(false);
@@ -60,7 +61,7 @@ export default function ArhFamilyParents({
           </div>
           <span className="">{errors?.[type]?.first_name?.message}</span>
         </div>
-        <fieldset className="column is-two-quarters">
+        <div className="column is-two-quarters">
           <legend className="label label label-horizontal is-two-quarters">
             Отчество
           </legend>
@@ -74,9 +75,9 @@ export default function ArhFamilyParents({
             />
           </div>
           <span className="">{errors?.[type]?.middle_name?.message}</span>
-        </fieldset>
+        </div>
       </fieldset>
-      <div className="columns">
+      <fieldset className="columns">
         <div className="column is-one-quarter">
           <div className="control">
             <legend className="label label-horizontal is-one-quarter">
@@ -91,8 +92,8 @@ export default function ArhFamilyParents({
           </div>
           <span className="">{errors?.[type]?.date_of_birth?.message}</span>
         </div>
-      </div>
-      <div className="columns">
+      </fieldset>
+      <fieldset className="columns">
         <div className="column is-one-quarter">
           <div className="control">
             <legend className="label label label-horizontal is-one-quarter">
@@ -138,7 +139,7 @@ export default function ArhFamilyParents({
             <span className="">{errors?.[type]?.position?.message}</span>
           </div>
         )}
-      </div>
+      </fieldset>
       {!isEmployee && (
         <div className="columns">
           <div className="column input-none">

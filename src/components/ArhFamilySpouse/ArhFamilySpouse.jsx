@@ -15,7 +15,7 @@ export default function ArhFamilySpouse({
 
   useEffect(() => {
     const isEmployeeStatus = watch((value) => {
-      if (value.spouse.is_employee === 'Да') {
+      if (value?.spouse?.is_employee === 'Да') {
         setIsEmployee(true);
       } else {
         setIsEmployee(false);

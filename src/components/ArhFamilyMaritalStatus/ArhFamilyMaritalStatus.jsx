@@ -15,7 +15,7 @@ export default function ArhFamilyMaritalStatus({
   const [fileName, setFileName] = useState();
 
   useEffect(() => {
-    const name = watch((value) => setFileName(value.marriage.scan_name));
+    const name = watch((value) => setFileName(value.marriage?.scan?.[0]?.name));
     return () => {
       name.unsubscribe();
     };
@@ -107,7 +107,7 @@ export default function ArhFamilyMaritalStatus({
               <span className="file-label">Выбрать файл</span>
             </span>
             <span className="file-name file-name-span">
-              {getValues().marriage?.scan?.[0]?.name || fileName}
+              {fileName || getValues()?.marriage?.scan_name}
             </span>
           </legend>
         </div>

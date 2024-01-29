@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import './ArhFamilyChildren.scss';
+import { useState, useEffect } from 'react';
 import { useFieldArray } from 'react-hook-form';
 import scanLabel from '../../assets/images/scan-label.png';
 
@@ -7,6 +9,7 @@ export default function ArhFamilyChildren({
   control,
   register,
   errors,
+  watch,
   getValues,
 }) {
   const { fields, append, remove } = useFieldArray({
@@ -14,6 +17,20 @@ export default function ArhFamilyChildren({
     control,
     rules: { required: 'Введите хотя бы одно значение' },
   });
+
+  const [archiveData, setArchiveData] = useState();
+
+  useEffect(() => {
+    const allData = watch((value) => {
+      setArchiveData(value);
+
+      return value.children;
+    });
+    return () => {
+      allData.unsubscribe();
+    };
+  }, [watch]);
+
   return (
     <section>
       {fields.map((field, index) => (
@@ -113,6 +130,7 @@ export default function ArhFamilyChildren({
                     className="file-input"
                     type="file"
                     accept=".pdf,.jpg,,.png,.jpeg"
+                    disabled={!isEdit}
                     {...register(`children.${index}.scan`)}
                   />
                   <span className="file-cta">
@@ -122,9 +140,8 @@ export default function ArhFamilyChildren({
                     <span className="file-label">Выбрать файл</span>
                   </span>
                   <span className="file-name file-name-span">
-                    {getValues().children?.[index]?.scan?.[0]?.name ||
-                      (getValues().children?.[index]?.has_scan &&
-                        getValues().children?.[index]?.scan_name)}
+                    {archiveData?.children?.[index]?.scan?.[0]?.name ||
+                      getValues()?.children?.[index]?.scan_name}
                   </span>
                   <span>{errors?.children?.[index]?.scan?.message}</span>
                 </legend>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import './ArhFamily.scss';
 import { useEffect, useState } from 'react';
 
@@ -18,12 +19,12 @@ export default function ArhFamily({
   control,
 }) {
   const [isSpouseShown, setIsSpouseShown] = useState(
-    getValues()?.marriage.status === 'Да' || false
+    getValues()?.marriage?.status === 'Да' || false
   );
 
   useEffect(() => {
     const marriageStatus = watch((value) => {
-      if (value.marriage.status === 'Да') {
+      if (value?.marriage?.status === 'Да') {
         setIsSpouseShown(true);
       } else {
         setIsSpouseShown(false);
@@ -87,8 +88,9 @@ export default function ArhFamily({
             isEdit={isEdit}
             errors={errors}
             register={register}
-            getValues={getValues}
             control={control}
+            watch={watch}
+            getValues={getValues}
           />
         </div>
       </div>

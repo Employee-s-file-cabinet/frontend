@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import './ArhEducation.scss';
 import { useFieldArray } from 'react-hook-form';
 import ConditionalInput from '../Reusable/ConditionalInput/ConditionalInput';
@@ -10,7 +9,6 @@ export default function ArhEducation({
   register,
   control,
   getValues,
-  watch,
 }) {
   const { fields, append, remove } = useFieldArray({
     name: 'education',
@@ -32,6 +30,7 @@ export default function ArhEducation({
             </legend>
             <select
               className="institution-select is-one-quarter"
+              disabled={!isEdit}
               {...register(`education.${index}.degree`)}
             >
               <option className="institution-option ">Среднее</option>
@@ -76,10 +75,10 @@ export default function ArhEducation({
                       className="input"
                       type="text"
                       disabled={!isEdit}
-                      {...register(`education.${index}.specialty`)}
+                      {...register(`education.${index}.speciality`)}
                     />
                   </div>
-                  <span>{errors?.education?.[index]?.specialty?.message}</span>
+                  <span>{errors?.education?.[index]?.speciality?.message}</span>
                 </div>
               </div>
               <div className="columns">
@@ -192,7 +191,7 @@ export default function ArhEducation({
               date_from: '2004-09-01',
               date_to: '2009-07-30',
               degree: 'Среднее',
-              specialty: 'Менеджер',
+              speciality: 'Менеджер',
               issued_institution: 'СГПУ',
               number: '1222122',
               has_scan: true,

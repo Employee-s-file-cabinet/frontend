@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as yup from 'yup';
 import { requiredFieldError } from '../constants';
 import trasnformDate from './transformDate';
@@ -68,12 +69,12 @@ export const ArchiveDataFormValidationSchema = yup.object().shape({
   marriage: yup.object({
     status: yup.string().oneOf(['Да', 'Нет']).required(requiredFieldError),
     certificate: yup.string().when('status', {
-      is: (value) => value.includes('Да'),
+      is: (value) => value === 'Да',
       then: () =>
         yup
           .string()
           .required(requiredFieldError)
-          .min(5, 'Введите номер свидетельства в формате "I-XX № 123456"'),
+          .min(5, 'Введите номер свидетельства в формате "I-АЯ № 123456"'),
       otherwise: () => yup.string().notRequired(),
     }),
     has_scan: yup.boolean().notRequired(),
@@ -93,7 +94,7 @@ export const ArchiveDataFormValidationSchema = yup.object().shape({
     }),
   }),
   spouse: yup.object().when('marriage.status', {
-    is: (value) => value.includes('Да'),
+    is: (value) => value === 'Да',
     then: () =>
       yup.object({
         last_name: yup
@@ -281,20 +282,8 @@ export const ArchiveDataFormValidationSchema = yup.object().shape({
           'Бакалавриат',
           'Специалитет/магистратура',
         ]),
-      issued_institution: yup
-        .string()
-        .notRequired()
-        .matches(
-          /^(?=.{1,150}$)[а-яёА-ЯЁ]+(?:[-"'. ][а-яёА-ЯЁ]+)*$/,
-          'Используйте кириллицу, дефис, кавычки, точку и запятую'
-        ),
-      specialty: yup
-        .string()
-        .notRequired()
-        .matches(
-          /^(?=.{1,150}$)[а-яёА-ЯЁ]+(?:[- ][а-яёА-ЯЁ]+)*$/,
-          'Используйте кириллицу, дефис'
-        ),
+      issued_institution: yup.string().required(requiredFieldError),
+      speciality: yup.string().required(requiredFieldError),
       date_from: yup
         .date('Введите дату в формате ДД.ММ.ГГГГ')
         .typeError('Введите дату в формате ДД.ММ.ГГГГ')
@@ -342,4 +331,70 @@ export const ArchiveDataFormValidationSchema = yup.object().shape({
       }),
     })
   ),
+  military: yup.object({
+    status: yup.string().oneOf(['Да', 'Нет']).required(requiredFieldError),
+    category: yup.string().when('status', {
+      is: (value) => value === 'Да',
+      then: () =>
+        yup
+          .string()
+          .required(requiredFieldError)
+          .oneOf(['А', 'Б', 'В', 'Г', 'Д']),
+      otherwise: () => yup.string().notRequired(),
+    }),
+    speciality: yup.string().when('status', {
+      is: (value) => value === 'Да',
+      then: () =>
+        yup
+          .string()
+          .required(requiredFieldError)
+          .min(
+            6,
+            'Введите номер специальности в формате "000111 АЯ" или "000111" '
+          ),
+      otherwise: () => yup.string().notRequired(),
+    }),
+    rank: yup.string().when('status', {
+      is: (value) => value === 'Да',
+      then: () =>
+        yup
+          .string()
+          .required(requiredFieldError)
+          .min(5, 'Минимальное кол-во знаков 5'),
+      otherwise: () => yup.string().notRequired(),
+    }),
+    number: yup.string().when('status', {
+      is: (value) => value === 'Да',
+      then: () =>
+        yup
+          .string()
+          .required(requiredFieldError)
+          .min(10, 'Введите номер документа в формате "АЯ № 1112233"'),
+      otherwise: () => yup.string().notRequired(),
+    }),
+    has_scan: yup.boolean().notRequired(),
+    scan: yup.lazy((value) => {
+      if (value) {
+        return value.length !== 0 && value.length !== undefined
+          ? yup
+              .mixed()
+              .test(
+                'fileSize',
+                'Размер файла превышает 5 Мб.',
+                (file) => file[0]?.size <= 5242880
+              )
+          : yup.mixed().notRequired();
+      }
+      return yup.mixed().notRequired();
+    }),
+    commissariat: yup.string().when('status', {
+      is: (value) => value === 'Да',
+      then: () =>
+        yup
+          .string()
+          .required(requiredFieldError)
+          .min(5, 'Минимальное кол-во знаков 5'),
+      otherwise: () => yup.string().notRequired(),
+    }),
+  }),
 });

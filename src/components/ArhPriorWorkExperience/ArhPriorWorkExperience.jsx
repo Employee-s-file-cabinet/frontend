@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useFieldArray } from 'react-hook-form';
 import ConditionalInput from '../Reusable/ConditionalInput/ConditionalInput';
 import './ArhPriorWorkExperience.scss';
@@ -152,8 +153,8 @@ export default function ArhPriorWorkExperience({
             append({
               companyName: 'Магнит',
               position: 'Сторож',
-              beginDate: '',
-              endDate: '',
+              beginDate: '2013-11-11',
+              endDate: '2014-11-11',
               jobDescription: 'Счастье, радость он будет приносить людям',
             });
           }}
