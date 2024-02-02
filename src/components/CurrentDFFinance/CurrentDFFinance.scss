@@ -9,6 +9,7 @@
 .horizontal-wrapper {
   display: flex;
   margin-bottom: 20px;
+  align-items: center;
 
   &__box {
     display: flex;
@@ -16,7 +17,7 @@
   }
 
   &__title {
-    margin-right: 85px;
+    margin-right: 60px;
     width: 200px;
     text-wrap: wrap;
     color: var(--black, #0a0a0a);
@@ -59,6 +60,7 @@
 
   &__input-one-half {
     width: 310px;
+    height: 36px;
     margin-right: 20px;
     padding: 8px 12px;
     border-radius: 4px;
@@ -112,8 +114,8 @@
   &__input-type-disabled {
     border: none;
     color: black;
-    padding-left: 0;
-    margin-right: 20px;
+    padding: 0;
+    margin: 0;
   }
 
   &__input-type-error {

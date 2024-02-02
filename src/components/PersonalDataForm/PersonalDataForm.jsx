@@ -114,10 +114,68 @@ export default function PersonalDataForm() {
   }
 
   return (
-    <form
-      className="personal-data-form form-active"
-      onSubmit={handleSubmit((data) => onSubmit(data))}
-    >
+    <div className="personal-data-container">
+      `{' '}
+      <form
+        className="personal-data-form form-active"
+        onSubmit={handleSubmit((data) => onSubmit(data))}
+      >
+        <PersonalDFOpenData
+          isEdit={isEdit}
+          errors={errors}
+          register={register}
+          getValues={getValues}
+          setValue={setValue}
+          watch={watch}
+          reset={onReset}
+        />
+        <PersonalDFPassportData
+          isEdit={isEdit}
+          errors={errors}
+          register={register}
+          control={control}
+          getValues={getValues}
+        />
+        <PersonalDForeignEmployeetData
+          isEdit={isEdit}
+          errors={errors}
+          register={register}
+          control={control}
+        />
+        <PersonalDOtherDocumentstData
+          isEdit={isEdit}
+          errors={errors}
+          register={register}
+          getValues={getValues}
+        />
+        <div className="buttons-group">
+          <button
+            className={`button-save${!isEdit ? ' button-disabled' : ''}`}
+            type="submit"
+            disabled={!isValid || !isDirty}
+          >
+            Сохранить
+          </button>
+          {isDirty ? (
+            <button
+              type="button"
+              className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
+              disabled={!isDirty}
+              onClick={onReset}
+            >
+              Сбросить изменения
+            </button>
+          ) : (
+            <button
+              type="button"
+              className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
+              onClick={() => setIsEdit(false)}
+            >
+              Отмена
+            </button>
+          )}
+        </div>
+      </form>
       {!isEdit && (
         <div className="personal-data-form__button">
           <Icon
@@ -127,61 +185,7 @@ export default function PersonalDataForm() {
           />
         </div>
       )}
-      <PersonalDFOpenData
-        isEdit={isEdit}
-        errors={errors}
-        register={register}
-        getValues={getValues}
-        setValue={setValue}
-        watch={watch}
-        reset={onReset}
-      />
-      <PersonalDFPassportData
-        isEdit={isEdit}
-        errors={errors}
-        register={register}
-        control={control}
-        getValues={getValues}
-      />
-      <PersonalDForeignEmployeetData
-        isEdit={isEdit}
-        errors={errors}
-        register={register}
-        control={control}
-      />
-      <PersonalDOtherDocumentstData
-        isEdit={isEdit}
-        errors={errors}
-        register={register}
-        getValues={getValues}
-      />
-      <div className="buttons-group">
-        <button
-          className={`button-save${!isEdit ? ' button-disabled' : ''}`}
-          type="submit"
-          disabled={!isValid || !isDirty}
-        >
-          Сохранить
-        </button>
-        {isDirty ? (
-          <button
-            type="button"
-            className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
-            disabled={!isDirty}
-            onClick={onReset}
-          >
-            Сбросить изменения
-          </button>
-        ) : (
-          <button
-            type="button"
-            className={` button-reset${!isEdit ? ' button-disabled' : ''}`}
-            onClick={() => setIsEdit(false)}
-          >
-            Отмена
-          </button>
-        )}
-      </div>
-    </form>
+      `
+    </div>
   );
 }

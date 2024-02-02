@@ -16,7 +16,7 @@ export default function PersonalDFPassportCitizenship({
   });
 
   return (
-    <section>
+    <section className="columns__section">
       {fields.map((field, index) => (
         <div
           className="columns is-multiline is-mobile passport-citizenship"

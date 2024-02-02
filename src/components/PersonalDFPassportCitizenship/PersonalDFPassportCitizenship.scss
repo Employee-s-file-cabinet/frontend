@@ -1,7 +1,25 @@
-.passport-citizenship {
-  margin-top: 24px;
+.columns {
+  padding: 0;
+
+  &__section {
+    margin-bottom: 32px;
+  }
 }
 
-.passport-citizenship:first-of-type {
-  margin-top: 0;
+.control {
+  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 200px;
+}
+
+.columns.is-multiline.is-mobile {
+  margin-bottom: 24px;
+}
+
+.scan-wrapper {
+  margin-left: 110px;
+}
+
+.personal-data-form__add {
+  margin: -12px;
 }
